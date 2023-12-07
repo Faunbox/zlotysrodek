@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import { Providers } from "./providers";
 import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 export const metadata: Metadata = {
   title: "Psychodietetyka, trener żywienia | Złoty środek",
@@ -14,13 +15,15 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
 
   return (
     <html lang="pl">
       <body>
-        <Navbar />
-        <Providers session={session}>{children}</Providers>
+        <Providers session={session}>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

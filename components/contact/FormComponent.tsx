@@ -1,10 +1,10 @@
 "use client";
 import { sendContactEmail } from "@/actions/contactActions";
 import { Button, CircularProgress, Input } from "@nextui-org/react";
-import { ReactNode, useState } from "react";
+import {  useState } from "react";
 import { useFormStatus } from "react-dom";
 
-type ResponseData = {
+export type ResponseData = {
   status?: string;
   message?: string;
 };
