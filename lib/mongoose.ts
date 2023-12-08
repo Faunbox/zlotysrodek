@@ -11,3 +11,11 @@ export const findUser = async (email: string | FormDataEntryValue) => {
   await mongoose.disconnect();
   return user;
 };
+
+export const activateUser = async (id: string) => {
+  let response
+  await mongoose.connect(uri);
+  response = await User.findByIdAndUpdate(id, {isConfirmed: true}) 
+  await mongoose.disconnect()
+  return response
+}

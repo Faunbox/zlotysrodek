@@ -1,13 +1,9 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
-import { redirect } from "next/navigation";
 import clientPromise from "@/database/mongo";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import Credentials from "next-auth/providers/credentials";
-import Google from "next-auth/providers/google";
 import { findUser } from "@/lib/mongoose";
 import { isSamePassword } from "@/lib/bcript";
-import mongoose from "mongoose";
-import User from "@/models/UserModel";
 
 export const authOptions: NextAuthOptions = {
   providers: [
