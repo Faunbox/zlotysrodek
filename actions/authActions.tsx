@@ -1,16 +1,17 @@
 "use server";
 
 import { hashPassword, isSamePassword } from "@/lib/bcript";
-import { findUser } from "@/lib/mongoose";
+import { findUserByEmail, updateUserByEmail } from "@/lib/mongoose";
 import User from "@/models/UserModel";
 import sgMail from "@sendgrid/mail";
 import mongoose from "mongoose";
+import crypto from "crypto";
 
-type UserType = {
+export type UserType = {
   username: FormDataEntryValue;
   password: FormDataEntryValue;
   email: FormDataEntryValue;
-  phoneNumber: FormDataEntryValue;
+  phoneNumber: FormDataEntryValue | string;
   isConfirmed?: boolean;
   name: FormDataEntryValue;
   surname: FormDataEntryValue;
@@ -37,7 +38,7 @@ export async function registerUser(formData: FormData) {
   const surname = formData.get("surname");
 
   try {
-    const isUserExist = await findUser(email!);
+    const isUserExist = await findUserByEmail(email!);
     let newUserEmail: string;
 
     if (isUserExist === null) {
@@ -93,7 +94,7 @@ export async function registerUser(formData: FormData) {
 export async function checkForUserFromDb(email: string, password: string) {
   let isOk: boolean;
   try {
-    const checkUser = await findUser(email);
+    const checkUser = await findUserByEmail(email);
     if (checkUser === null) {
       isOk = false;
       return isOk;
@@ -108,16 +109,13 @@ export async function checkForUserFromDb(email: string, password: string) {
   }
 }
 
-
-
 export async function sendEmailWhenCreateUser(email: string) {
-
   sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 
   const msgToCompany = {
     to: "faunbox2@gmail.com", // Change to your recipient
     from: process.env.SENDGRID_EMAIL!, // Change to your verified sender
-    subject: `Wiadomośc z formularza kontaktowego od ${email}`,
+    subject: `Stworzenie nowego konta dla adresu ${email}`,
     text: "data?.message",
     html: `<div>
     <h1>Wiadomość od: </h1>
@@ -126,9 +124,75 @@ export async function sendEmailWhenCreateUser(email: string) {
     </div>`,
   };
 
-  await sgMail
-    .send(msgToCompany)
-    .catch((error) => {
+  await sgMail.send(msgToCompany).catch((error) => {
+    console.log("Błąd podczas wysyłania maila -> ", error);
+  });
+}
+
+export async function sendResetPasswordToken(email: string) {
+  const user = await findUserByEmail(email);
+  console.log(user);
+
+  if (!user) {
+    response = {
+      status: "error",
+      message: "Konto o podanym adresie email nie istnieje!",
+    };
+    return { response };
+  }
+
+  const resetToken = crypto.randomBytes(20).toString("hex");
+  const passwordResetToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+
+  const passwordResetLink = `${process.env.NEXTAUTH_URL}/user/${resetToken}`;
+
+  const resetTokenExpire = Date.now() + 3600000;
+
+  try {
+    await updateUserByEmail(email, {
+      resetToken: passwordResetToken,
+      resetTokenExpire: resetTokenExpire,
+    });
+  } catch (error) {
+    response = {
+      status: "error",
+      message: "Błąd bazy danych!",
+    };
+    return response;
+  } finally {
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
+
+    const msgToResetPassword = {
+      to: "faunbox2@gmail.com", // Change to your recipient
+      from: process.env.SENDGRID_EMAIL!, // Change to your verified sender
+      subject: `Resetowanie hasla dla konta - ${email}`,
+      text: "data?.message",
+      html: `<div>
+      <a href=${passwordResetLink}>Zresetuj hasło</a>
+      </div>`,
+    };
+
+    await sgMail.send(msgToResetPassword).catch((error) => {
       console.log("Błąd podczas wysyłania maila -> ", error);
     });
+  }
+}
+
+export async function resetUserPassword(email: string, newPassword: string, repeatNewPassword: string, token:string) {
+  const user = await findUserByEmail(email);
+  console.log(user);
+  const [resetToken, resetTokenExpire] = await user;
+
+    if (Date.now() > resetTokenExpire) {
+    response = {
+      status: "error",
+      message: "Twój token wygasł",
+    };
+    return { response };
+  }
+
+  //TODO: porównać token z tym w bazie, porównać hasła czy są takie same oraz zmienic pw w bazie danych
 }

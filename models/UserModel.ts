@@ -1,4 +1,4 @@
-import {Schema, models, model} from "mongoose";
+import { Schema, models, model } from "mongoose";
 
 const UserSchema = new Schema(
   {
@@ -45,6 +45,14 @@ const UserSchema = new Schema(
       type: Number,
       required: false,
       value: 0,
+    },
+    resetToken: {
+      type: String,
+      required: false,
+    },
+    resetTokenExpire: {
+      type: Date,
+      required: false,
     },
   },
   { timestamps: true }

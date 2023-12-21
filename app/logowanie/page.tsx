@@ -11,6 +11,25 @@ const LoggingIinPage = () => {
     password: "",
   });
 
+  const tryToLogin = async () => {
+    try {
+      const isUserInDb = await checkForUserFromDb(
+        loginInfo.email,
+        loginInfo.password
+      );
+
+      isUserInDb
+        ? signIn("credentials", {
+            email: loginInfo.email,
+            password: loginInfo.password,
+            callbackUrl: "/",
+          })
+        : alert("Niepoprawny email lub hasło");
+    } catch (error) {
+      throw new Error("Błąd podczas logowania");
+    }
+  };
+
   return (
     <main className="w-screen h-screen flex flex-row">
       <div className="w-1/2 h-full bg-green-600 flex flex-col items-center justify-center gap-4">
@@ -37,27 +56,11 @@ const LoggingIinPage = () => {
 
         <button
           className="border-black border"
-          onClick={async () => {
-            try {
-              const isUserInDb = await checkForUserFromDb(
-                loginInfo.email,
-                loginInfo.password
-              );
-
-              isUserInDb
-                ? signIn("credentials", {
-                    email: loginInfo.email,
-                    password: loginInfo.password,
-                    callbackUrl: "/",
-                  })
-                : alert("Niepoprawny email lub hasło");
-            } catch (error) {
-                throw new Error("Błąd podczas logowania")
-            }
-          }}
+          onClick={async () => await tryToLogin()}
         >
           Zaloguj
         </button>
+        <Link href='/resetowanie-hasla'>Przypomnij hasło</Link>
         <Link href="/rejestracja">
           Nie masz jeszcze konta? Przejdz do strony rejestracji
         </Link>
