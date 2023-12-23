@@ -21,6 +21,21 @@ export const findUserByEmail = async (email: string | FormDataEntryValue) => {
   return user;
 };
 
+export const findUserByResetToken = async (
+  token: string | FormDataEntryValue
+) => {
+  let user;
+  await mongoose.connect(uri);
+  console.log(token);
+
+  const data = await User.findOne({ resetToken: token });
+  console.log(data);
+
+  user = await data;
+  await mongoose.disconnect();
+  return user;
+};
+
 export const findUserById = async (id: string | FormDataEntryValue) => {
   let user;
   await mongoose.connect(uri);
@@ -38,10 +53,13 @@ export const activateUser = async (id: string) => {
   return response;
 };
 
-export const updateUserByEmail = async (email:string, update:any) => {
-  let response
-  await mongoose.connect(uri)
-  response = await User.findOneAndUpdate({email}, update)
-  await mongoose.disconnect()
-  return response
-}
+export const updateUserByEmail = async (
+  email: string | FormDataEntryValue,
+  update: any
+) => {
+  let response;
+  await mongoose.connect(uri);
+  response = await User.findOneAndUpdate({ email }, update);
+  await mongoose.disconnect();
+  return response;
+};

@@ -1,7 +1,11 @@
 "use server";
 
 import { hashPassword, isSamePassword } from "@/lib/bcript";
-import { findUserByEmail, updateUserByEmail } from "@/lib/mongoose";
+import {
+  findUserByEmail,
+  findUserByResetToken,
+  updateUserByEmail,
+} from "@/lib/mongoose";
 import User from "@/models/UserModel";
 import sgMail from "@sendgrid/mail";
 import mongoose from "mongoose";
@@ -129,11 +133,14 @@ export async function sendEmailWhenCreateUser(email: string) {
   });
 }
 
-export async function sendResetPasswordToken(email: string) {
-  const user = await findUserByEmail(email);
-  console.log(user);
+export async function sendResetPasswordToken(formData: FormData) {
+  const email = formData.get("email");
+  const user = await findUserByEmail(email!);
+  // console.log(user);
 
   if (!user) {
+    console.log("Brak użytkownika o podanym adresie email");
+
     response = {
       status: "error",
       message: "Konto o podanym adresie email nie istnieje!",
@@ -147,12 +154,12 @@ export async function sendResetPasswordToken(email: string) {
     .update(resetToken)
     .digest("hex");
 
-  const passwordResetLink = `${process.env.NEXTAUTH_URL}/user/${resetToken}`;
+  const passwordResetLink = `${process.env.NEXTAUTH_URL}/user/resetowanie-hasla/${resetToken}`;
 
   const resetTokenExpire = Date.now() + 3600000;
 
   try {
-    await updateUserByEmail(email, {
+    await updateUserByEmail(email!, {
       resetToken: passwordResetToken,
       resetTokenExpire: resetTokenExpire,
     });
@@ -161,7 +168,7 @@ export async function sendResetPasswordToken(email: string) {
       status: "error",
       message: "Błąd bazy danych!",
     };
-    return response;
+    return { response };
   } finally {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 
@@ -178,21 +185,32 @@ export async function sendResetPasswordToken(email: string) {
     await sgMail.send(msgToResetPassword).catch((error) => {
       console.log("Błąd podczas wysyłania maila -> ", error);
     });
+    response = {
+      status: "success",
+      message: "Sprawdz skrzynkę mailową!",
+    };
+    return { response };
   }
 }
 
-export async function resetUserPassword(email: string, newPassword: string, repeatNewPassword: string, token:string) {
-  const user = await findUserByEmail(email);
+export async function resetUserPassword(formData: FormData) {
+  console.log(formData);
+  const token = formData.get("token");
+  const user = await findUserByResetToken(token!);
   console.log(user);
   const [resetToken, resetTokenExpire] = await user;
 
-    if (Date.now() > resetTokenExpire) {
+  if (Date.now() > resetTokenExpire) {
     response = {
       status: "error",
       message: "Twój token wygasł",
     };
     return { response };
   }
+
+  console.log("token jest ok");
+
+  return { response };
 
   //TODO: porównać token z tym w bazie, porównać hasła czy są takie same oraz zmienic pw w bazie danych
 }

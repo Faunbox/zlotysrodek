@@ -60,7 +60,7 @@ const LoggingIinPage = () => {
         >
           Zaloguj
         </button>
-        <Link href='/resetowanie-hasla'>Przypomnij hasło</Link>
+        <Link href="/user/resetowanie-hasla">Przypomnij hasło</Link>
         <Link href="/rejestracja">
           Nie masz jeszcze konta? Przejdz do strony rejestracji
         </Link>
