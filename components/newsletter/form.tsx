@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ResponseData } from "../contact/FormComponent";
 import { addToContact } from "@/actions/newsletterActions";
 
@@ -9,15 +9,17 @@ const NewsletterForm = () => {
     status: "",
     message: "",
   });
+  const formRef = useRef<HTMLFormElement>();
 
   const onSend = async (formData: FormData) => {
     const res = await addToContact(formData);
     setResponse(res.response!);
+    formRef.current?.reset();
   };
 
   return (
     <>
-      <form action={onSend} className="flex flex-col">
+      <form action={onSend} className="flex flex-col" ref={formRef}>
         <input
           type="email"
           name="email"
@@ -32,7 +34,7 @@ const NewsletterForm = () => {
           placeholder="Newsletter name"
           className="border-black border-1"
         />
-        <button type="submit">Wyślij</button>
+        <button type="submit" disabled={response.status}>Wyślij</button>
       </form>
       <p>{response?.message}</p>
     </>

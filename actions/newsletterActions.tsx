@@ -27,16 +27,12 @@ export async function addToContact(formData: FormData) {
     headers: { Authorization: `Bearer ${sendgridApiKey}` },
   };
 
-  client
+  await client
     .request(request)
     //@ts-ignore
     .then(([response, body]) => {
       console.log(response.statusCode);
       console.log(response.body);
-      response = {
-        status: "success",
-        message: "Dodano!",
-      };
     })
     //@ts-ignore
     .catch((error) => {
@@ -44,6 +40,12 @@ export async function addToContact(formData: FormData) {
       response = {
         status: "error",
         message: "Nie dodano!",
+      };
+    })
+    .finally(() => {
+      response = {
+        status: "success",
+        message: "Dodano!",
       };
     });
 
