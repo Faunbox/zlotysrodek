@@ -9,7 +9,7 @@ const NewsletterForm = () => {
     status: "",
     message: "",
   });
-  const formRef = useRef<HTMLFormElement>();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const onSend = async (formData: FormData) => {
     const res = await addToContact(formData);
@@ -34,7 +34,7 @@ const NewsletterForm = () => {
           placeholder="Newsletter name"
           className="border-black border-1"
         />
-        <button type="submit" disabled={response.status}>Wyślij</button>
+        <button type="submit" disabled={response.status ? true : false}>Wyślij</button>
       </form>
       <p>{response?.message}</p>
     </>
