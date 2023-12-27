@@ -1,6 +1,21 @@
 "use server";
 
+import User from "@/models/UserModel";
+import mongoose from "mongoose";
+
 const sendgridApiKey = process.env.SENDGRID_API_KEY;
+
+async function addNewsletterInDb(email: FormDataEntryValue) {
+  await mongoose.connect(process.env.MONGODB_URI as string);
+  const isUserInDb = await User.findOne({ email });
+  if (isUserInDb) {
+    await User.findOneAndUpdate({ email }, { newsletter: true });
+  } else {
+    console.log("Brak uzytkownika w bazie danych");
+  }
+
+  await mongoose.disconnect();
+}
 
 export async function addToContact(formData: FormData) {
   let response;
@@ -31,15 +46,20 @@ export async function addToContact(formData: FormData) {
     .request(request)
     //@ts-ignore
     .then(([response, body]) => {
-      console.log(response.statusCode);
-      console.log(response.body);
+      try {
+        if (response.statusCode === 202) {
+          addNewsletterInDb(email!);
+        }
+      } catch (error) {
+        console.log("Nie dodano newslettera do bazy danych");
+      }
     })
     //@ts-ignore
     .catch((error) => {
       console.error(error.response.body);
       response = {
         status: "error",
-        message: "Nie dodano!",
+        message: "Ups, wystąpił jakiś błąd.",
       };
     })
     .finally(() => {

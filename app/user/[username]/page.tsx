@@ -28,7 +28,7 @@ export default async function Page({
         {/* <li>My profile: {userEmail.substring(0, userEmail.indexOf("%"))}</li> */}
         <li>My profile: {username}</li>
         <li>{user.phoneNumber}</li>
-        <li></li>
+        <li>Newsletter: {user.newsletter ? "tak" : "nie"}</li>
         <li></li>
       </ul>
     </div>

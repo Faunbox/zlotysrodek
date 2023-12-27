@@ -2,7 +2,7 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import clientPromise from "@/database/mongo";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import Credentials from "next-auth/providers/credentials";
-import { findUser } from "@/lib/mongoose";
+import { findUserByEmail } from "@/lib/mongoose";
 import { isSamePassword } from "@/lib/bcript";
 
 export const authOptions: NextAuthOptions = {
@@ -15,7 +15,7 @@ export const authOptions: NextAuthOptions = {
         //@ts-expect-error
         const { email, password } = credentials;
 
-        const userFromDb = await findUser(email)
+        const userFromDb = await findUserByEmail(email)
           .then((res) => {
             const user = {
               id: res._id,

@@ -44,6 +44,7 @@ export async function registerUser(formData: FormData) {
   try {
     const isUserExist = await findUserByEmail(email!);
     let newUserEmail: string;
+    let id: string;
 
     if (isUserExist === null) {
       await hashPassword(password!)
@@ -68,7 +69,8 @@ export async function registerUser(formData: FormData) {
         .then(async (user) => {
           newUserEmail = user.email;
           await mongoose.connect(uri);
-          await user.save();
+          const newUser = await user.save();
+          id = newUser._id;
           await mongoose.disconnect();
         })
         .then(
@@ -78,7 +80,7 @@ export async function registerUser(formData: FormData) {
               message: "Konto zostało stworzone",
             })
         )
-        .finally(() => sendEmailWhenCreateUser(newUserEmail));
+        .finally(() => sendEmailWhenCreateUser(newUserEmail, id));
     } else {
       response = {
         status: "error",
@@ -113,7 +115,7 @@ export async function checkForUserFromDb(email: string, password: string) {
   }
 }
 
-export async function sendEmailWhenCreateUser(email: string) {
+export async function sendEmailWhenCreateUser(email: string, id: string) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 
   const msgToCompany = {
@@ -124,7 +126,7 @@ export async function sendEmailWhenCreateUser(email: string) {
     html: `<div>
     <h1>Wiadomość od: </h1>
     <h2>Adres email:</h2>
-    <h2>Wiadomość: </h2>
+    <h2>Wiadomość: ${id}</h2>
     </div>`,
   };
 

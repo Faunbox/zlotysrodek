@@ -8,6 +8,7 @@ export const findUser = async (username: string | FormDataEntryValue) => {
   await mongoose.connect(uri);
   const data = await User.findOne({ username });
   user = await data;
+
   await mongoose.disconnect();
   return user;
 };
