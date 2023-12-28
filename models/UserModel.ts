@@ -31,6 +31,10 @@ const UserSchema = new Schema(
       required: false,
       value: false,
     },
+    veryficationToken: {
+      type: String,
+      required: true,
+    },
     role: {
       type: String,
       required: false,

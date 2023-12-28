@@ -17,6 +17,7 @@ export type UserType = {
   email: FormDataEntryValue;
   phoneNumber: FormDataEntryValue | string;
   isConfirmed?: boolean;
+  veryficationToken?: string;
   name: FormDataEntryValue;
   surname: FormDataEntryValue;
   role?: string;
@@ -47,6 +48,7 @@ export async function registerUser(formData: FormData) {
     let id: string;
 
     if (isUserExist === null) {
+      const veryficationToken = crypto.randomBytes(128).toString("hex");
       await hashPassword(password!)
         .then((hashedPassword: string) => {
           const password = hashedPassword;
@@ -56,6 +58,7 @@ export async function registerUser(formData: FormData) {
             email: email!,
             phoneNumber: phoneNumber!,
             isConfirmed: false,
+            veryficationToken: veryficationToken,
             name: name!,
             surname: surname!,
             role: "user",
@@ -80,7 +83,9 @@ export async function registerUser(formData: FormData) {
               message: "Konto zostało stworzone",
             })
         )
-        .finally(() => sendEmailWhenCreateUser(newUserEmail, id));
+        .finally(() =>
+          sendEmailWhenCreateUser(newUserEmail, id, veryficationToken)
+        );
     } else {
       response = {
         status: "error",
@@ -115,7 +120,11 @@ export async function checkForUserFromDb(email: string, password: string) {
   }
 }
 
-export async function sendEmailWhenCreateUser(email: string, id: string) {
+export async function sendEmailWhenCreateUser(
+  email: string,
+  id: string,
+  veryficationToken: string
+) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 
   const msgToCompany = {
@@ -126,7 +135,8 @@ export async function sendEmailWhenCreateUser(email: string, id: string) {
     html: `<div>
     <h1>Wiadomość od: </h1>
     <h2>Adres email:</h2>
-    <h2>Wiadomość: ${id}</h2>
+    <h2>Wiadomość: </h2>
+    <a href=${process.env.NEXTAUTH_URL}/user/auth/${veryficationToken}>Zweryfikuj</a>
     </div>`,
   };
 

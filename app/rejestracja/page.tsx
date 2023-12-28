@@ -3,6 +3,7 @@ import { registerUser } from "@/actions/authActions";
 import { ResponseData } from "@/components/contact/FormComponent";
 import { useState } from "react";
 import Link from "next/dist/client/link";
+import { redirect } from "next/navigation";
 
 const LoggingIinPage = () => {
   const [response, setResponse] = useState<ResponseData>({
@@ -15,6 +16,7 @@ const LoggingIinPage = () => {
       const res = await registerUser(formData);
       setResponse(res.response);
       console.log(res.response);
+      setInterval(() => redirect("/logowanie"), 5000);
     } catch {
       alert("Błąd podczas tworzenia konta");
     }

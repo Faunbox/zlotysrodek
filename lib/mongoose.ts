@@ -46,10 +46,25 @@ export const findUserById = async (id: string | FormDataEntryValue) => {
   return user;
 };
 
+export const findUserByVeryficationToken = async (
+  veryficationToken: string | FormDataEntryValue
+) => {
+  let user;
+  await mongoose.connect(uri);
+  console.log("połaczono");
+
+  const data = await User.findOne({ veryficationToken: veryficationToken });
+  user = await data;
+  await mongoose.disconnect();
+  return user;
+};
+
 export const activateUser = async (id: string) => {
   let response;
   await mongoose.connect(uri);
   response = await User.findByIdAndUpdate(id, { isConfirmed: true });
+  console.log(await response);
+
   await mongoose.disconnect();
   return response;
 };

@@ -1,9 +1,9 @@
 import { findUser } from "@/lib/mongoose";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 async function getData(email: string) {
   const data = await findUser(email);
-  console.log(data);
 
   if (data) return data;
   else redirect("/");
@@ -28,8 +28,12 @@ export default async function Page({
         {/* <li>My profile: {userEmail.substring(0, userEmail.indexOf("%"))}</li> */}
         <li>My profile: {username}</li>
         <li>{user.phoneNumber}</li>
-        <li>Newsletter: {user.newsletter ? "tak" : "nie"}</li>
-        <li></li>
+        <li>{user.email}</li>
+        <li>Twoje konsultacje: {user?.consultations}</li>
+        <li>Confirmed: {user?.isConfirmed ? "true" : "false"}</li>
+        {user?.consultations <= 3 && (
+          <Link href={"/konsultacje"}>Dokup konsultacje</Link>
+        )}
       </ul>
     </div>
   );
