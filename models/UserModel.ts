@@ -35,6 +35,10 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    resetTokenExpire: {
+      type: Date,
+      required: false,
+    },
     role: {
       type: String,
       required: false,
@@ -54,7 +58,7 @@ const UserSchema = new Schema(
       type: String,
       required: false,
     },
-    resetTokenExpire: {
+    resetPasswordTokenExpire: {
       type: Date,
       required: false,
     },

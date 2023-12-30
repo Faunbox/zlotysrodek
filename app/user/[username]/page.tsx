@@ -32,10 +32,7 @@ export default async function Page({
         <li>{user.email}</li>
         <li>Twoje konsultacje: {user?.consultations}</li>
         <li>Confirmed: {user?.isConfirmed ? "true" : "false"}</li>
-        {!user?.isConfirmed && (
-          //@ts-expect-error
-          <VeryficationButton email={user?.email} />
-        )}
+        {!user?.isConfirmed && <VeryficationButton email={user?.email} />}
         {user?.consultations <= 3 && (
           <Link href={"/konsultacje"}>Dokup konsultacje</Link>
         )}

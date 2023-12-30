@@ -2,12 +2,13 @@
 
 import { sendVeryfiactionToken } from "@/actions/authActions";
 
-const VeryficationButton = (email: string) => {    
+const VeryficationButton = ({ email }: { email: string }) => {
+  
   return (
     <li>
       Wyślij ponownie email potwierdzający{" "}
       <button
-        onClick={() => sendVeryfiactionToken(email)}
+        onClick={() => sendVeryfiactionToken(email!)}
         className="border-black border-1"
       >
         Wyślij

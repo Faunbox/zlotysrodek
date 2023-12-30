@@ -51,11 +51,10 @@ export const findUserByVeryficationToken = async (
 ) => {
   let user;
   await mongoose.connect(uri);
-  console.log("połaczono");
-
   const data = await User.findOne({ veryficationToken: veryficationToken });
   user = await data;
   await mongoose.disconnect();
+
   return user;
 };
 
@@ -66,8 +65,6 @@ export const activateUser = async (id: string) => {
   await mongoose.disconnect();
   return response;
 };
-
-
 
 export const updateUserByEmail = async (
   email: string | FormDataEntryValue,

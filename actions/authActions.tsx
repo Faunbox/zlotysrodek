@@ -151,7 +151,6 @@ export async function sendEmailWhenCreateUser(
 export async function sendResetPasswordToken(formData: FormData) {
   const email = formData.get("email");
   const user = await findUserByEmail(email!);
-  // console.log(user);
 
   if (!user) {
     console.log("Brak użytkownika o podanym adresie email");
@@ -176,7 +175,7 @@ export async function sendResetPasswordToken(formData: FormData) {
   try {
     await updateUserByEmail(email!, {
       resetToken: passwordResetToken,
-      resetTokenExpire: resetTokenExpire,
+      resetPasswordTokenExpire: resetTokenExpire,
     });
   } catch (error) {
     response = {
@@ -232,8 +231,12 @@ export async function resetUserPassword(formData: FormData) {
 
 export async function sendVeryfiactionToken(email: string) {
   const newToken = createVeryficationToken();
-  //@ts-expect-error
-  const user = await updateUserByEmail(email.email, { veryficationToken: newToken });
+  // const resetTokenExpire = Date.now() + 3600000;
+  const resetTokenExpire = Date.now() 
+  
+  const user = await updateUserByEmail(email, {
+    veryficationToken: newToken,
+    resetTokenExpire: resetTokenExpire,
+  });
   sendEmailWhenCreateUser(user?.email, newToken);
-  console.log("Wysłano nowy token");
 }
