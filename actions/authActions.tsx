@@ -34,6 +34,10 @@ const uri = process.env.MONGODB_URI as string;
 let newUser: UserType;
 let response: ResponseData = {};
 
+const createVeryficationToken = () => {
+  return crypto.randomBytes(128).toString("hex");
+};
+
 export async function registerUser(formData: FormData) {
   const username = formData.get("username");
   const password = formData.get("password");
@@ -48,7 +52,7 @@ export async function registerUser(formData: FormData) {
     let id: string;
 
     if (isUserExist === null) {
-      const veryficationToken = crypto.randomBytes(128).toString("hex");
+      const veryficationToken = createVeryficationToken();
       await hashPassword(password!)
         .then((hashedPassword: string) => {
           const password = hashedPassword;
@@ -84,7 +88,7 @@ export async function registerUser(formData: FormData) {
             })
         )
         .finally(() =>
-          sendEmailWhenCreateUser(newUserEmail, id, veryficationToken)
+          sendEmailWhenCreateUser(newUserEmail, veryficationToken)
         );
     } else {
       response = {
@@ -122,7 +126,6 @@ export async function checkForUserFromDb(email: string, password: string) {
 
 export async function sendEmailWhenCreateUser(
   email: string,
-  id: string,
   veryficationToken: string
 ) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
@@ -225,4 +228,12 @@ export async function resetUserPassword(formData: FormData) {
   return { response };
 
   //TODO: porównać token z tym w bazie, porównać hasła czy są takie same oraz zmienic pw w bazie danych
+}
+
+export async function sendVeryfiactionToken(email: string) {
+  const newToken = createVeryficationToken();
+  //@ts-expect-error
+  const user = await updateUserByEmail(email.email, { veryficationToken: newToken });
+  sendEmailWhenCreateUser(user?.email, newToken);
+  console.log("Wysłano nowy token");
 }

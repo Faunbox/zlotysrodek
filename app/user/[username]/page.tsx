@@ -1,3 +1,4 @@
+import VeryficationButton from "@/components/user/confirmationButton";
 import { findUser } from "@/lib/mongoose";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -31,6 +32,10 @@ export default async function Page({
         <li>{user.email}</li>
         <li>Twoje konsultacje: {user?.consultations}</li>
         <li>Confirmed: {user?.isConfirmed ? "true" : "false"}</li>
+        {!user?.isConfirmed && (
+          //@ts-expect-error
+          <VeryficationButton email={user?.email} />
+        )}
         {user?.consultations <= 3 && (
           <Link href={"/konsultacje"}>Dokup konsultacje</Link>
         )}

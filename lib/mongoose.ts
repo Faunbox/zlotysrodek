@@ -63,11 +63,11 @@ export const activateUser = async (id: string) => {
   let response;
   await mongoose.connect(uri);
   response = await User.findByIdAndUpdate(id, { isConfirmed: true });
-  console.log(await response);
-
   await mongoose.disconnect();
   return response;
 };
+
+
 
 export const updateUserByEmail = async (
   email: string | FormDataEntryValue,
