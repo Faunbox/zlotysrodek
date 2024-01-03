@@ -44,6 +44,13 @@ const LoggingIinPage = () => {
             placeholder="*****"
           />
           <input
+            type="password"
+            name="confirmedPassword"
+            id="confirmedPassword"
+            title="confirmedPassword"
+            placeholder="*****"
+          />
+          <input
             type="email"
             name="email"
             id="email"

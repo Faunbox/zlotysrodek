@@ -4,11 +4,12 @@ import { hashPassword, isSamePassword } from "@/lib/bcript";
 import {
   findUserByEmail,
   findUserByResetToken,
+  mongooseDbConnect,
+  mongooseDbDisconnect,
   updateUserByEmail,
 } from "@/lib/mongoose";
 import User from "@/models/UserModel";
 import sgMail from "@sendgrid/mail";
-import mongoose from "mongoose";
 import crypto from "crypto";
 
 export type UserType = {
@@ -18,6 +19,7 @@ export type UserType = {
   phoneNumber: FormDataEntryValue | string;
   isConfirmed?: boolean;
   veryficationToken?: string;
+  resetTokenExpire: Date | number;
   name: FormDataEntryValue;
   surname: FormDataEntryValue;
   role?: string;
@@ -30,7 +32,6 @@ type ResponseData = {
   message?: string;
 };
 
-const uri = process.env.MONGODB_URI as string;
 let newUser: UserType;
 let response: ResponseData = {};
 
@@ -41,6 +42,7 @@ const createVeryficationToken = () => {
 export async function registerUser(formData: FormData) {
   const username = formData.get("username");
   const password = formData.get("password");
+  const confirmedPassword = formData.get("confirmedPassword")
   const email = formData.get("email");
   const phoneNumber = formData.get("phoneNumber");
   const name = formData.get("name");
@@ -51,7 +53,7 @@ export async function registerUser(formData: FormData) {
     let newUserEmail: string;
     let id: string;
 
-    if (isUserExist === null) {
+    if (isUserExist === null && password === confirmedPassword) {
       const veryficationToken = createVeryficationToken();
       await hashPassword(password!)
         .then((hashedPassword: string) => {
@@ -63,6 +65,7 @@ export async function registerUser(formData: FormData) {
             phoneNumber: phoneNumber!,
             isConfirmed: false,
             veryficationToken: veryficationToken,
+            resetTokenExpire: Date.now() + 360000,
             name: name!,
             surname: surname!,
             role: "user",
@@ -75,10 +78,10 @@ export async function registerUser(formData: FormData) {
         })
         .then(async (user) => {
           newUserEmail = user.email;
-          await mongoose.connect(uri);
+          await mongooseDbConnect();
           const newUser = await user.save();
           id = newUser._id;
-          await mongoose.disconnect();
+          await mongooseDbDisconnect();
         })
         .then(
           () =>
@@ -231,8 +234,8 @@ export async function resetUserPassword(formData: FormData) {
 
 export async function sendVeryfiactionToken(email: string) {
   const newToken = createVeryficationToken();
-  // const resetTokenExpire = Date.now() + 3600000;
-  const resetTokenExpire = Date.now() 
+  const resetTokenExpire = Date.now() + 3600000;
+  // const resetTokenExpire = Date.now() 
   
   const user = await updateUserByEmail(email, {
     veryficationToken: newToken,

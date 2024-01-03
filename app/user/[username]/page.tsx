@@ -24,12 +24,13 @@ export default async function Page({
   const user = await getData(username);
 
   return (
-    <div>
+    <div className="m-10">
       <ul>
         {/* <li>My profile: {userEmail.substring(0, userEmail.indexOf("%"))}</li> */}
         <li>My profile: {username}</li>
         <li>{user.phoneNumber}</li>
         <li>{user.email}</li>
+        <li><button type="button" className="border-black border-1">Zmień hasło</button></li>
         <li>Twoje konsultacje: {user?.consultations}</li>
         <li>Confirmed: {user?.isConfirmed ? "true" : "false"}</li>
         {!user?.isConfirmed && <VeryficationButton email={user?.email} />}

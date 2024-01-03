@@ -1,13 +1,13 @@
 import User from "@/models/UserModel";
 import mongoose from "mongoose";
 
-const mongooseDbConnect = async () => {
+export const mongooseDbConnect = async () => {
   const uri = process.env.MONGODB_URI as string;
 
-  try {
+  try {    
     mongoose.connections[0].readyState === 0
-      ? await mongoose.connect(uri)
-      : null;
+      ? await mongoose.connect(uri).then(() => console.log("Połączono"))
+      : null
   } catch (error) {
     throw new Error(
       ("Błąd podczas połączenia do bazy danych -> " + error) as string
@@ -15,9 +15,10 @@ const mongooseDbConnect = async () => {
   }
 };
 
-const mongooseDbDisconnect = async () => {
-  mongoose.connections[0].readyState === 1 && await mongoose.disconnect()
-}
+export const mongooseDbDisconnect = async () => {
+  mongoose.connections[0].readyState === 1 &&
+    (await mongoose.disconnect().then(() => console.log("disconnected")));
+};
 
 export const findUser = async (username: string | FormDataEntryValue) => {
   let user;
@@ -25,7 +26,7 @@ export const findUser = async (username: string | FormDataEntryValue) => {
   const data = await User.findOne({ username });
   user = await data;
 
-  await mongooseDbDisconnect()
+  await mongooseDbDisconnect();
   return user;
 };
 
@@ -34,7 +35,7 @@ export const findUserByEmail = async (email: string | FormDataEntryValue) => {
   await mongooseDbConnect();
   const data = await User.findOne({ email });
   user = await data;
-  await mongooseDbDisconnect()
+  await mongooseDbDisconnect();
   return user;
 };
 
@@ -49,7 +50,7 @@ export const findUserByResetToken = async (
   console.log(data);
 
   user = await data;
-  await mongooseDbDisconnect()
+  await mongooseDbDisconnect();
   return user;
 };
 
@@ -58,7 +59,7 @@ export const findUserById = async (id: string | FormDataEntryValue) => {
   await mongooseDbConnect();
   const data = await User.findOne({ id });
   user = await data;
-  await mongooseDbDisconnect()
+  await mongooseDbDisconnect();
   return user;
 };
 
@@ -69,7 +70,7 @@ export const findUserByVeryficationToken = async (
   await mongooseDbConnect();
   const data = await User.findOne({ veryficationToken: veryficationToken });
   user = await data;
-  await mongooseDbDisconnect()
+  await mongooseDbDisconnect();
 
   return user;
 };
@@ -78,7 +79,7 @@ export const activateUser = async (id: string) => {
   let response;
   await mongooseDbConnect();
   response = await User.findByIdAndUpdate(id, { isConfirmed: true });
-  await mongooseDbDisconnect()
+  await mongooseDbDisconnect();
   return response;
 };
 
@@ -89,6 +90,6 @@ export const updateUserByEmail = async (
   let response;
   await mongooseDbConnect();
   response = await User.findOneAndUpdate({ email }, update);
-  await mongooseDbDisconnect()
+  await mongooseDbDisconnect();
   return response;
 };
