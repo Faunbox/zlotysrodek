@@ -1,6 +1,7 @@
-'use client'
+"use client";
 import { resetUserPassword } from "@/actions/authActions";
 import { ResponseData } from "@/components/contact/FormComponent";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 const Page = ({ params }: { params: { token: string } }) => {
@@ -11,19 +12,16 @@ const Page = ({ params }: { params: { token: string } }) => {
 
   async function onSend(formData: FormData) {
     const token = params.token;
+    formData.append("token", token);
     try {
-      //get user email by given token and add it to formdata
-     
-      formData.append("token", token);
-      console.log(formData);
-
       const res = await resetUserPassword(formData);
-      
 
       setResponse(res.response);
       // console.log(res.response);
-    } catch {
+    } catch (err) {
       alert("Błąd podczas resetowania hasła");
+    } finally {
+      setTimeout(() => {redirect("/")}, 5000)
     }
   }
 
@@ -39,7 +37,7 @@ const Page = ({ params }: { params: { token: string } }) => {
         ></input>
         <input
           type="password"
-          name="confirmPassword"
+          name="confirmedPassword"
           id="confirmPassword"
           placeholder="Powtórz hasło"
           className="border-black border-1"

@@ -1,4 +1,5 @@
 import VeryficationButton from "@/components/user/confirmationButton";
+import ResetPasswordButton from "@/components/user/resetPasswordButton";
 import { findUser } from "@/lib/mongoose";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -30,7 +31,7 @@ export default async function Page({
         <li>My profile: {username}</li>
         <li>{user.phoneNumber}</li>
         <li>{user.email}</li>
-        <li><button type="button" className="border-black border-1">Zmień hasło</button></li>
+        <ResetPasswordButton email={user?.email} />
         <li>Twoje konsultacje: {user?.consultations}</li>
         <li>Confirmed: {user?.isConfirmed ? "true" : "false"}</li>
         {!user?.isConfirmed && <VeryficationButton email={user?.email} />}

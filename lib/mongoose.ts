@@ -1,13 +1,14 @@
 import User from "@/models/UserModel";
 import mongoose from "mongoose";
+import { hashPassword } from "./bcript";
 
 export const mongooseDbConnect = async () => {
   const uri = process.env.MONGODB_URI as string;
 
-  try {    
+  try {
     mongoose.connections[0].readyState === 0
       ? await mongoose.connect(uri).then(() => console.log("Połączono"))
-      : null
+      : null;
   } catch (error) {
     throw new Error(
       ("Błąd podczas połączenia do bazy danych -> " + error) as string
@@ -90,6 +91,20 @@ export const updateUserByEmail = async (
   let response;
   await mongooseDbConnect();
   response = await User.findOneAndUpdate({ email }, update);
+  await mongooseDbDisconnect();
+  return response;
+};
+export const changePassword = async (
+  email: string | FormDataEntryValue,
+  newPassword: string | FormDataEntryValue
+) => {
+  let response;
+  const hashedNewPassword = await hashPassword(newPassword);
+  await mongooseDbConnect();
+  response = await User.findOneAndUpdate(
+    { email },
+    { password: hashedNewPassword }
+  );
   await mongooseDbDisconnect();
   return response;
 };

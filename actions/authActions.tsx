@@ -2,6 +2,7 @@
 
 import { hashPassword, isSamePassword } from "@/lib/bcript";
 import {
+  changePassword,
   findUserByEmail,
   findUserByResetToken,
   mongooseDbConnect,
@@ -10,7 +11,7 @@ import {
 } from "@/lib/mongoose";
 import User from "@/models/UserModel";
 import sgMail from "@sendgrid/mail";
-import crypto from "crypto";
+import crypto, { BinaryLike } from "crypto";
 
 export type UserType = {
   username: FormDataEntryValue;
@@ -39,10 +40,17 @@ const createVeryficationToken = () => {
   return crypto.randomBytes(128).toString("hex");
 };
 
+const encodePasswordToken = (token: string | FormDataEntryValue) => {
+  return crypto
+    .createHash("sha256")
+    .update(token as BinaryLike)
+    .digest("hex");
+};
+
 export async function registerUser(formData: FormData) {
   const username = formData.get("username");
   const password = formData.get("password");
-  const confirmedPassword = formData.get("confirmedPassword")
+  const confirmedPassword = formData.get("confirmedPassword");
   const email = formData.get("email");
   const phoneNumber = formData.get("phoneNumber");
   const name = formData.get("name");
@@ -151,8 +159,11 @@ export async function sendEmailWhenCreateUser(
   });
 }
 
-export async function sendResetPasswordToken(formData: FormData) {
-  const email = formData.get("email");
+export async function sendResetPasswordToken(
+  formData: FormData | null,
+  userEmail?: string
+) {
+  const email = formData?.get("email") || userEmail;
   const user = await findUserByEmail(email!);
 
   if (!user) {
@@ -166,6 +177,7 @@ export async function sendResetPasswordToken(formData: FormData) {
   }
 
   const resetToken = crypto.randomBytes(20).toString("hex");
+
   const passwordResetToken = crypto
     .createHash("sha256")
     .update(resetToken)
@@ -213,11 +225,29 @@ export async function sendResetPasswordToken(formData: FormData) {
 export async function resetUserPassword(formData: FormData) {
   console.log(formData);
   const token = formData.get("token");
-  const user = await findUserByResetToken(token!);
-  console.log(user);
-  const [resetToken, resetTokenExpire] = await user;
+  const newPassword = formData.get("password");
+  const confirmedPassword = formData.get("confirmedPassword");
 
-  if (Date.now() > resetTokenExpire) {
+  if (newPassword !== confirmedPassword) {
+    response = {
+      status: "error",
+      message: "Hasła nie są takie same",
+    };
+    return { response };
+  }
+
+  const dbToken = encodePasswordToken(token!);
+  const user = await findUserByResetToken(dbToken!);
+
+  if (user === null) {
+    response = {
+      status: "error",
+      message: "Błąd podczas zmiany hasła. Spróbuj ponownie później",
+    };
+    return { response };
+  }
+
+  if (Date.now() > user.resetTokenExpire) {
     response = {
       status: "error",
       message: "Twój token wygasł",
@@ -225,18 +255,22 @@ export async function resetUserPassword(formData: FormData) {
     return { response };
   }
 
-  console.log("token jest ok");
+  const newPasswordChange = await changePassword(user.email, newPassword!).then(
+    () =>
+      (response = {
+        status: "success",
+        message: "Hasło zostało zmienione",
+      })
+  );
 
   return { response };
-
-  //TODO: porównać token z tym w bazie, porównać hasła czy są takie same oraz zmienic pw w bazie danych
 }
 
 export async function sendVeryfiactionToken(email: string) {
   const newToken = createVeryficationToken();
   const resetTokenExpire = Date.now() + 3600000;
-  // const resetTokenExpire = Date.now() 
-  
+  // const resetTokenExpire = Date.now()
+
   const user = await updateUserByEmail(email, {
     veryficationToken: newToken,
     resetTokenExpire: resetTokenExpire,
