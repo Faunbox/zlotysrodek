@@ -21,6 +21,14 @@ export const mongooseDbDisconnect = async () => {
     (await mongoose.disconnect().then(() => console.log("disconnected")));
 };
 
+export const getAllUsersFromDb = async () => {
+  let allUsers: string[];
+  await mongooseDbConnect();
+  allUsers = await User.find({});
+  await mongooseDbDisconnect();
+  return allUsers;
+};
+
 export const findUser = async (username: string | FormDataEntryValue) => {
   let user;
   await mongooseDbConnect();

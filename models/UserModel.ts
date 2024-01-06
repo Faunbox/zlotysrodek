@@ -33,7 +33,7 @@ const UserSchema = new Schema(
     },
     veryficationToken: {
       type: String,
-      required: true,
+      required: false,
     },
     resetTokenExpire: {
       type: Date,
@@ -49,6 +49,11 @@ const UserSchema = new Schema(
       required: false,
       value: false,
     },
+    freeConsultation: {
+      type: Number,
+      required: false,
+      value: 1,
+    },
     consultations: {
       type: Number,
       required: false,
@@ -61,6 +66,11 @@ const UserSchema = new Schema(
     resetPasswordTokenExpire: {
       type: Date,
       required: false,
+    },
+    adminDescription: {
+      type: String,
+      required: false,
+      value: "",
     },
   },
   { timestamps: true }

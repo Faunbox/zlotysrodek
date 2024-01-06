@@ -56,10 +56,17 @@ export async function registerUser(formData: FormData) {
   const name = formData.get("name");
   const surname = formData.get("surname");
 
+  if (password !== confirmedPassword) {
+    response = {
+      status: "error",
+      message: "Hasła nie są takie same",
+    };
+    return { response };
+  }
+
   try {
     const isUserExist = await findUserByEmail(email!);
     let newUserEmail: string;
-    let id: string;
 
     if (isUserExist === null && password === confirmedPassword) {
       const veryficationToken = createVeryficationToken();
@@ -88,7 +95,6 @@ export async function registerUser(formData: FormData) {
           newUserEmail = user.email;
           await mongooseDbConnect();
           const newUser = await user.save();
-          id = newUser._id;
           await mongooseDbDisconnect();
         })
         .then(
@@ -255,7 +261,7 @@ export async function resetUserPassword(formData: FormData) {
     return { response };
   }
 
-  const newPasswordChange = await changePassword(user.email, newPassword!).then(
+  await changePassword(user.email, newPassword!).then(
     () =>
       (response = {
         status: "success",
