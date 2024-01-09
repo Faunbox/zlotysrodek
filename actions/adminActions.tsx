@@ -1,8 +1,9 @@
-'use server'
+"use server";
 
-import { getAllUsersFromDb } from "@/lib/mongoose"
+import { getAllUsersFromDb } from "@/lib/mongoose";
 
 export async function getAllUsers() {
-const users = await getAllUsersFromDb()
-return users
+  const users = await getAllUsersFromDb();
+
+  return JSON.parse(JSON.stringify(users));
 }
