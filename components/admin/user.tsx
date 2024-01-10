@@ -1,5 +1,6 @@
 "use client";
 import { getAllUsers } from "@/actions/adminActions";
+import { UserType } from "@/actions/authActions";
 import {
   Button,
   Input,
@@ -25,9 +26,9 @@ const UserElements = () => {
 
   return (
     <ul className="md:w-1/4 border-black border-2">
-      {data?.map((user) => (
+      {data?.map((user: UserType) => (
         <li key={user?._id} className="my-4">
-          {user.name} {user.surname} {user?.email}{" "}
+          <p>{user.name as string} {user.surname as string} {user?.email as string  }</p>
           <Button size="sm" className="border-black border-1" onPress={onOpen}>
             Zmien
           </Button>
@@ -57,7 +58,7 @@ const UserElements = () => {
                         type="number"
                         name="freeConsultation"
                         id="freeConsultation"
-                        value={user.freeConsultation}
+                        value={user.freeConsultation as string}
                       />
                     </div>
                     <div>
@@ -66,7 +67,7 @@ const UserElements = () => {
                         type="number"
                         name="consultation"
                         id="consultation"
-                        value={user.consultations}
+                        value={user.consultations as string}
                       />
                     </div>
                   </ModalBody>

@@ -12,8 +12,10 @@ import {
 import User from "@/models/UserModel";
 import sgMail from "@sendgrid/mail";
 import crypto, { BinaryLike } from "crypto";
+import { ReactNode } from "react";
 
 export type UserType = {
+  _id?: string;
   username: FormDataEntryValue;
   password: FormDataEntryValue;
   email: FormDataEntryValue;
@@ -24,8 +26,10 @@ export type UserType = {
   name: FormDataEntryValue;
   surname: FormDataEntryValue;
   role?: string;
-  consultations?: number;
+  consultations?: number | string;
   newsletter?: boolean;
+  adminDescription?: string
+  freeConsultation?: boolean | number | string
 };
 
 type ResponseData = {

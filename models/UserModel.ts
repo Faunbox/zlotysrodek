@@ -50,9 +50,9 @@ const UserSchema = new Schema(
       value: false,
     },
     freeConsultation: {
-      type: Number,
+      type: Boolean,
       required: false,
-      value: 1,
+      value: true,
     },
     consultations: {
       type: Number,

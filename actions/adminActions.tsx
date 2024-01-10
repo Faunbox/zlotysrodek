@@ -7,3 +7,7 @@ export async function getAllUsers() {
 
   return JSON.parse(JSON.stringify(users));
 }
+
+export async function updateUserData() {
+  
+}
