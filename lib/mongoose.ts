@@ -1,6 +1,7 @@
 import User from "@/models/UserModel";
 import mongoose from "mongoose";
 import { hashPassword } from "./bcript";
+import { count } from "console";
 
 export const mongooseDbConnect = async () => {
   const uri = process.env.MONGODB_URI as string;
@@ -21,12 +22,19 @@ export const mongooseDbDisconnect = async () => {
     (await mongoose.disconnect().then(() => console.log("disconnected")));
 };
 
-export const getAllUsersFromDb = async () => {
+export const getAllUsersFromDb = async (page: number, limit: number = 1) => {
   let allUsers: string[];
   await mongooseDbConnect();
-  allUsers = await User.find({});
+  allUsers = await User.find({})
+    .limit(limit * 1)
+    .skip((page - 1) * limit!)
+    .sort({ email: 1 });
+
+  const totalUsersValue = await User.countDocuments();
   await mongooseDbDisconnect();
-  return allUsers;
+  const totalPages = Math.ceil(totalUsersValue / limit);
+
+  return { data: allUsers, totalPages: totalPages };
 };
 
 export const findUser = async (username: string | FormDataEntryValue) => {

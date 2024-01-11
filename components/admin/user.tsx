@@ -10,15 +10,20 @@ import {
   ModalFooter,
   ModalHeader,
   Textarea,
+  button,
   useDisclosure,
 } from "@nextui-org/react";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 const UserElements = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [pagination, setPagination] = useState({ limit: 1, page: 1 });
+
   const { isLoading, data, error } = useQuery({
-    queryKey: ["users"],
-    queryFn: getAllUsers,
+    queryKey: ["users", pagination.page, pagination.limit],
+    queryFn: () => getAllUsers(pagination.page, pagination.limit),
+    placeholderData: keepPreviousData,
   });
 
   if (error) return <p>Błąd podczas pobierania danych</p>;
@@ -26,9 +31,12 @@ const UserElements = () => {
 
   return (
     <ul className="md:w-1/4 border-black border-2">
-      {data?.map((user: UserType) => (
+      {data.data?.map((user: UserType) => (
         <li key={user?._id} className="my-4">
-          <p>{user.name as string} {user.surname as string} {user?.email as string  }</p>
+          <p>
+            {user.name as string} {user.surname as string}{" "}
+            {user?.email as string}
+          </p>
           <Button size="sm" className="border-black border-1" onPress={onOpen}>
             Zmien
           </Button>
@@ -85,6 +93,34 @@ const UserElements = () => {
           </Modal>
         </li>
       ))}
+      <select
+        name="limit"
+        id="limit"
+        onChange={(e) =>
+          setPagination({ ...pagination, limit: Number(e.target.value) })
+        }
+      >
+        <option value={1}>1</option>
+        <option value={2}>2</option>
+      </select>
+      {pagination.page >= 2 && (
+        <button
+          onClick={() =>
+            setPagination({ ...pagination, page: --pagination.page })
+          }
+        >
+          Poprzednia strona
+        </button>
+      )}
+      <button
+        onClick={() =>
+          setPagination({ ...pagination, page: ++pagination.page })
+        }
+      >
+        {pagination.page >= data.totalPages
+          ? "Nie ma juz stron"
+          : "Kolejna strona"}
+      </button>
     </ul>
   );
 };

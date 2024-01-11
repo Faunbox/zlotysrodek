@@ -2,12 +2,12 @@
 
 import { getAllUsersFromDb } from "@/lib/mongoose";
 
-export async function getAllUsers() {
-  const users = await getAllUsersFromDb();
+export async function getAllUsers(page: number, limit?: number) {
+  const users = await getAllUsersFromDb(page, limit);
+
+  // console.log(users);
 
   return JSON.parse(JSON.stringify(users));
 }
 
-export async function updateUserData() {
-  
-}
+export async function updateUserData() {}
