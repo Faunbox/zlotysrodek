@@ -10,7 +10,6 @@ import {
   ModalFooter,
   ModalHeader,
   Textarea,
-  button,
   useDisclosure,
 } from "@nextui-org/react";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -22,7 +21,8 @@ const UserElements = () => {
 
   const { isLoading, data, error } = useQuery({
     queryKey: ["users", pagination.page, pagination.limit],
-    queryFn: () => getAllUsers(pagination.page, pagination.limit),
+    queryFn: async ({ queryKey }) =>
+      await getAllUsers(queryKey[1], queryKey[2]),
     placeholderData: keepPreviousData,
   });
 
@@ -96,26 +96,30 @@ const UserElements = () => {
       <select
         name="limit"
         id="limit"
-        onChange={(e) =>
-          setPagination({ ...pagination, limit: Number(e.target.value) })
-        }
+        onChange={(e) => {
+          setPagination({ ...pagination, limit: Number(e.target.value) });
+
+          // router.replace(`?page=${pagination.page}?=limit=${pagination.limit}`);
+        }}
       >
         <option value={1}>1</option>
         <option value={2}>2</option>
       </select>
       {pagination.page >= 2 && (
         <button
-          onClick={() =>
-            setPagination({ ...pagination, page: --pagination.page })
-          }
+          onClick={() => {
+            setPagination({ ...pagination, page: --pagination.page });
+            // router.replace(`?page=${pagination.page}?=limit=${pagination.limit}`);
+          }}
         >
           Poprzednia strona
         </button>
       )}
       <button
-        onClick={() =>
-          setPagination({ ...pagination, page: ++pagination.page })
-        }
+        onClick={() => {
+          setPagination({ ...pagination, page: ++pagination.page });
+          // router.replace(`?page=${pagination.page}?=limit=${pagination.limit}`);
+        }}
       >
         {pagination.page >= data.totalPages
           ? "Nie ma juz stron"
