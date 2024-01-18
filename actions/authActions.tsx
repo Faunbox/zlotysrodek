@@ -23,7 +23,7 @@ export type UserType = {
   isConfirmed?: boolean;
   veryficationToken?: string;
   resetTokenExpire: Date | number;
-  name: FormDataEntryValue;
+  name: FormDataEntryValue | ReactNode;
   surname: FormDataEntryValue;
   role?: string;
   consultations?: number | string;

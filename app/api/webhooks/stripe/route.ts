@@ -1,6 +1,7 @@
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
+import { findUserByEmail, updateUserByEmail } from "@/lib/mongoose";
 
 const stripe = new Stripe(process.env.STRIPE_TEST_API_KEY!, {
   apiVersion: "2023-10-16",
@@ -13,14 +14,32 @@ export async function POST(req: Request) {
     const body = await req.text();
 
     const event = stripe.webhooks.constructEvent(body, signature!, secret!);
-
+    let response;
     switch (event.type) {
-      case "payment_intent.succeeded":
+      case "checkout.session.completed":
         const paymentIntentSucceeded = event.data.object;
+        const checkoutId = paymentIntentSucceeded.id;
+        const lineItems = await stripe.checkout.sessions.listLineItems(
+          checkoutId
+        );
+        const consultation = lineItems.data[0];
+        // const hasMore = lineItems.has_more
+        const customerEmail = paymentIntentSucceeded.customer_details
+          ?.email as string;
 
-        console.log(paymentIntentSucceeded);
-        
-        console.log("OK");
+        const getUserInfo = await findUserByEmail(customerEmail);
+
+        if (getUserInfo !== undefined) {
+          const res = await updateUserByEmail(customerEmail, {
+            consultations: getUserInfo.consultations + consultation.quantity,
+          });
+
+          response = res;
+        } else {
+          console.log("Brak usera w db");
+
+          return { message: "Brak usera w db" };
+        }
 
         break;
 
