@@ -86,19 +86,20 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       //@ts-ignore
       session.user = token.user;
+
       return session;
     },
     async jwt({ token, user }) {
+
       if (user) {
         token.user = user;
       }
+      
       return token;
     },
   },
   //Eventy nic nie zwracają
-  events: {
-
-  },
+  events: {},
   secret: process.env.NEXTAUTH_SECRET,
 };
 

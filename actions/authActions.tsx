@@ -9,6 +9,7 @@ import {
   mongooseDbDisconnect,
   updateUserByEmail,
 } from "@/lib/mongoose";
+import { sendEmail } from "@/lib/sendgrid";
 import User from "@/models/UserModel";
 import sgMail from "@sendgrid/mail";
 import crypto, { BinaryLike } from "crypto";
@@ -209,7 +210,6 @@ export async function sendResetPasswordToken(
     };
     return { response };
   } finally {
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 
     const msgToResetPassword = {
       to: "faunbox2@gmail.com", // Change to your recipient
@@ -221,9 +221,8 @@ export async function sendResetPasswordToken(
       </div>`,
     };
 
-    await sgMail.send(msgToResetPassword).catch((error) => {
-      console.log("Błąd podczas wysyłania maila -> ", error);
-    });
+    sendEmail(msgToResetPassword)
+    
     response = {
       status: "success",
       message: "Sprawdz skrzynkę mailową!",
