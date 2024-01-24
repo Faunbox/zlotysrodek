@@ -1,6 +1,7 @@
 import User from "@/models/UserModel";
 import mongoose from "mongoose";
 import { hashPassword } from "./bcript";
+import { UserType } from "@/actions/authActions";
 
 export const mongooseDbConnect = async () => {
   const uri = process.env.MONGODB_URI as string;
@@ -50,7 +51,7 @@ export const findUser = async (username: string | FormDataEntryValue) => {
 };
 
 export const findUserByEmail = async (email: string | FormDataEntryValue) => {
-  let user;
+  let user: UserType;
   await mongooseDbConnect();
   const data = await User.findOne({ email });
   user = await data;

@@ -31,6 +31,13 @@ export default async function Page({
         <li>My profile: {username}</li>
         <li>{user.phoneNumber}</li>
         <li>{user.email}</li>
+        <li>
+          {user.role === "admin" ? (
+            <Link href={"/admin"}>Admin panel</Link>
+          ) : (
+            user.role
+          )}
+        </li>
         <ResetPasswordButton email={user?.email} />
         <li>Twoje konsultacje: {user?.consultations}</li>
         <li>Confirmed: {user?.isConfirmed ? "true" : "false"}</li>
@@ -38,6 +45,7 @@ export default async function Page({
         {user?.consultations <= 3 && (
           <Link href={"/konsultacje"}>Dokup konsultacje</Link>
         )}
+        <li>{user?.adminDescription}</li>
       </ul>
     </div>
   );
