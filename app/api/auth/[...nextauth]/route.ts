@@ -11,7 +11,7 @@ export const authOptions: NextAuthOptions = {
       name: "Email i hasło",
       credentials: {},
 
-      async authorize(credentials, req) {
+      async authorize(credentials, req): Promise<any> {
         //@ts-expect-error
         const { email, password } = credentials;
 
@@ -35,7 +35,7 @@ export const authOptions: NextAuthOptions = {
           .then(async (user) => {
             const comparedPasswords = await isSamePassword(
               password,
-              user?.password
+              user?.password as string
             );
 
             if (email !== user?.email || !comparedPasswords) {
@@ -90,11 +90,10 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async jwt({ token, user }) {
-
       if (user) {
         token.user = user;
       }
-      
+
       return token;
     },
   },

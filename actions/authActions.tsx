@@ -18,7 +18,7 @@ import { ReactNode } from "react";
 export type UserType = {
   _id?: string;
   username: FormDataEntryValue;
-  password: FormDataEntryValue;
+  password: FormDataEntryValue | string;
   email: FormDataEntryValue;
   phoneNumber: FormDataEntryValue | string;
   isConfirmed?: boolean;
@@ -137,7 +137,7 @@ export async function checkForUserFromDb(email: string, password: string) {
       return isOk;
     }
     if (checkUser !== null) {
-      const isPasswordOk = await isSamePassword(password, checkUser.password);
+      const isPasswordOk = await isSamePassword(password, checkUser.password as string);
       isPasswordOk ? (isOk = true) : (isOk = false);
       return isOk;
     }

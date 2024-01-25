@@ -1,9 +1,9 @@
 "use client";
-import { getAllUsers, searchUserByEmail } from "@/actions/adminActions";
+import { getAllUsers } from "@/actions/adminActions";
 import { UserType } from "@/actions/authActions";
 import {
   Button,
-  CircularProgress,
+  
   Input,
   Modal,
   ModalBody,
@@ -15,20 +15,24 @@ import {
 } from "@nextui-org/react";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import SearchPanel from "./searchPanel";
 
-type UserResponse = {
+export type UserResponse = {
   status: string;
   user: {
     name: string;
     surname: string;
     email: string;
+    freeConsultation?: string | boolean;
+    adminDescription?: string;
+    consultations?: number | string;
   };
 };
 
 const UserElements = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [pagination, setPagination] = useState({ limit: 1, page: 1 });
-  const [searching, setSearching] = useState(false);
+  
   const [searchResponse, setSearchResponse] = useState<UserResponse>({
     status: "",
     user: { name: "", surname: "", email: "" },
@@ -50,40 +54,75 @@ const UserElements = () => {
 
   const handleSubmit = async () => {};
 
-  const handleSearch = async (formData: FormData) => {
-    try {
-      setSearching(true);
-      const res = await searchUserByEmail(formData);
-      setSearchResponse(res?.response);
-    } catch (error) {
-      alert("Błąd podczas szukania użytkownika");
-    } finally {
-      setSearching(false);
-    }
-  };
-
   if (error) return <p>Błąd podczas pobierania danych</p>;
   if (isLoading) return <p>Ładuję...</p>;
 
   return (
     <div className="md:w-1/4 border-black border-2 flex flex-col">
-      <button onClick={resetSearchState}>Cofnij wyszukanie X</button>
-      <form action={handleSearch} className="flex flex-col">
-        <label htmlFor="search">Szukaj użytkownika</label>
-        <div className="flex flex-row">
-          <input type="text" name="search" id="search" placeholder="email" />
-          <button type="submit">
-            {searching ? <CircularProgress /> : "Szukaj"}
-          </button>
-        </div>
-      </form>
+      <SearchPanel setState={setSearchResponse} reset={resetSearchState}/>
       {/* Show searched user */}
       {searchResponse.status === "success" && (
-        <p>
-          {searchResponse.user?.name! as string}{" "}
-          {searchResponse.user?.surname as string}{" "}
-          {searchResponse.user?.email! as string}
-        </p>
+        <div>
+          <p>
+            {searchResponse.user?.name! as string}{" "}
+            {searchResponse.user?.surname as string}{" "}
+            {searchResponse.user?.email! as string}
+          </p>
+          <Button size="sm" className="border-black border-1" onPress={onOpen}>
+            Zmien
+          </Button>
+          <Modal
+            isOpen={isOpen}
+            placement={"top-center"}
+            onOpenChange={onOpenChange}
+          >
+            <ModalContent>
+              {(onClose) => (
+                <>
+                  <ModalHeader>Zmien dane uzytkownika</ModalHeader>
+                  <ModalBody>
+                    <div>
+                      <p>Notatka</p>
+                      <Textarea
+                        name="adminDescription"
+                        id="adminDescription"
+                        type="text"
+                        placeholder="Dodaj notatke"
+                        value={searchResponse.user?.adminDescription}
+                      />
+                    </div>
+                    <div>
+                      <p>Darmowa konsultacja</p>
+                      <Input
+                        type="number"
+                        name="freeConsultation"
+                        id="freeConsultation"
+                        value={searchResponse.user?.freeConsultation as string}
+                      />
+                    </div>
+                    <div>
+                      <p>Konsultacje</p>
+                      <Input
+                        type="number"
+                        name="consultation"
+                        id="consultation"
+                        value={searchResponse.user?.consultations as string}
+                      />
+                    </div>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button color="danger" variant="light" onPress={onClose}>
+                      Zamknij
+                    </Button>
+                    <Button color="primary" onPress={handleSubmit}>
+                      Zmień
+                    </Button>
+                  </ModalFooter>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
+        </div>
       )}
       {/* Show all users */}
       {searchResponse.status === "" && (

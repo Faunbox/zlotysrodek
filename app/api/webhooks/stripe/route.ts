@@ -34,7 +34,7 @@ export async function POST(req: Request) {
 
         if (getUserInfo !== undefined) {
           const res = await updateUserByEmail(customerEmail, {
-            consultations: getUserInfo.consultations + consultation.quantity,
+            consultations: getUserInfo?.consultations! as number + consultation?.quantity!,
           })
           
           const email = {
