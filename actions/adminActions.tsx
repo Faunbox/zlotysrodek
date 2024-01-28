@@ -43,7 +43,7 @@ export async function searchUserByEmail(formData: FormData) {
 export async function updateUserData(formData: FormData) {
   const email = formData.get("email");
   const adminDescription = formData.get("adminDescription");
-  const freeConsultation = formData.get("freeConsultationail");
+  const freeConsultation = formData.get("freeConsultation");
   const consultations = formData.get("consultations");
 
   let response;
@@ -52,8 +52,8 @@ export async function updateUserData(formData: FormData) {
   try {
     data = await updateUserByEmail(email!, {
       adminDescription: adminDescription,
-      freeConsultation: freeConsultation,
-      consultations: consultations,
+      freeConsultation: Number(freeConsultation),
+      consultations: Number(consultations),
     });
   } catch (error) {
     response = {

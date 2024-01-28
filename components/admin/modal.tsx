@@ -7,7 +7,6 @@ import {
   Modal,
   ModalBody,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   Textarea,
   useDisclosure,
@@ -17,6 +16,23 @@ import { useState } from "react";
 const ModalAdminPanel = ({ data }: any) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [sending, setSending] = useState(false);
+  const [inputData, setInputData] = useState({
+    adminDescription: data?.adminDescription,
+    freeConsultation: data?.freeConsultation,
+    consultations: data?.consultations,
+  });
+  const [done, setDone] = useState(false);
+
+  const handleOnChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setInputData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const handleSubmit = async (formData: FormData) => {
     formData.append("email", data.email);
@@ -28,6 +44,7 @@ const ModalAdminPanel = ({ data }: any) => {
       alert("Błąd podczas zmiany danych");
     } finally {
       setSending(false);
+      setDone(true);
     }
   };
 
@@ -40,6 +57,7 @@ const ModalAdminPanel = ({ data }: any) => {
         isOpen={isOpen}
         placement={"top-center"}
         onOpenChange={onOpenChange}
+        backdrop="blur"
       >
         <ModalContent>
           {(onClose) => (
@@ -52,15 +70,21 @@ const ModalAdminPanel = ({ data }: any) => {
                     name="adminDescription"
                     id="adminDescription"
                     type="text"
-                    placeholder={data?.adminDescription}
+                    aria-label="Notatka"
+                    placeholder={inputData?.adminDescription}
+                    value={inputData.adminDescription}
+                    onChange={handleOnChange}
                   />
                   <div>
                     <p>Darmowa konsultacja</p>
                     <Input
-                      type="text"
+                      type="number"
                       name="freeConsultation"
                       id="freeConsultation"
-                      placeholder={data?.freeConsultation as string}
+                      aria-label="Darmowa konsultacja"
+                      placeholder={inputData?.freeConsultation}
+                      value={inputData?.freeConsultation}
+                      onChange={handleOnChange}
                     />
                   </div>
                   <div>
@@ -69,12 +93,19 @@ const ModalAdminPanel = ({ data }: any) => {
                       type="number"
                       name="consultations"
                       id="consultations"
-                      placeholder={data?.consultations as string}
-                      onChange={(e) => e.target.value}
+                      aria-label="Konsultacje"
+                      placeholder={inputData?.consultations}
+                      onChange={handleOnChange}
+                      value={inputData?.consultations}
                     />
                   </div>
                   <div>
-                    <Button className="mt-6" type="submit" color="primary">
+                    <Button
+                      className="mt-6"
+                      type="submit"
+                      color="primary"
+                      disabled={done}
+                    >
                       {sending ? <CircularProgress /> : "Zmień dane"}
                     </Button>
                     <Button color="danger" variant="light" onPress={onClose}>
