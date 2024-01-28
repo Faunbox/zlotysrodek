@@ -7,12 +7,12 @@ import {
 } from "@tanstack/react-query";
 
 const Page = async () => {
-  const userLimit = process.env.WEBSITE_DEFAULT_USER_PAGE_LIMIT;
+  const userLimit = process.env.WEBSITE_DEFAULT_USER_PAGE_LIMIT || 1;
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ["users"],
-    queryFn: async () => await getAllUsers(1, 1),
+    queryFn: async () => await getAllUsers(1, userLimit),
   });
 
   return (
