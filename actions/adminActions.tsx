@@ -40,11 +40,32 @@ export async function searchUserByEmail(formData: FormData) {
   return { response };
 }
 
-// export async function updateUserData(formData: FormData) {
-//   const data = await updateUserByEmail(email, {
-//     adminDescription: adminDescription,
-//     freeConsultation: freeConsultation,
-//     consultations: consultations,
-//   });
-//   return data;
-// }
+export async function updateUserData(formData: FormData) {
+  const email = formData.get("email");
+  const adminDescription = formData.get("adminDescription");
+  const freeConsultation = formData.get("freeConsultationail");
+  const consultations = formData.get("consultations");
+
+  let response;
+  let data;
+
+  try {
+    data = await updateUserByEmail(email!, {
+      adminDescription: adminDescription,
+      freeConsultation: freeConsultation,
+      consultations: consultations,
+    });
+  } catch (error) {
+    response = {
+      user: null,
+      status: "fail",
+    };
+    return { response };
+  } finally {
+    response = {
+      user: JSON.parse(JSON.stringify(data)),
+      status: "success",
+    };
+    return { response };
+  }
+}

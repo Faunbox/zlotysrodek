@@ -28,7 +28,7 @@ const UserSchema = new Schema(
     },
     isConfirmed: {
       type: Boolean,
-      required: false,
+      required: true,
       value: false,
     },
     veryficationToken: {
@@ -46,17 +46,17 @@ const UserSchema = new Schema(
     },
     newsletter: {
       type: Boolean,
-      required: false,
+      required: true,
       value: false,
     },
     freeConsultation: {
       type: Boolean,
-      required: false,
+      required: true,
       value: true,
     },
     consultations: {
       type: Number,
-      required: false,
+      required: true,
       value: 0,
     },
     resetToken: {
@@ -69,7 +69,7 @@ const UserSchema = new Schema(
     },
     adminDescription: {
       type: String,
-      required: false,
+      required: true,
       value: "",
     },
   },

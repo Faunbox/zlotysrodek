@@ -12,7 +12,7 @@ const Page = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ["users"],
-    queryFn: async () => await getAllUsers(1, userLimit),
+    queryFn: async () => await getAllUsers(1, 1),
   });
 
   return (

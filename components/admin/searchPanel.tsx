@@ -7,9 +7,11 @@ import { UserResponse } from "./user";
 const SearchPanel = ({
   setState,
   reset,
+  state,
 }: {
   setState: Dispatch<SetStateAction<UserResponse>>;
   reset: any;
+  state: any;
 }) => {
   const [searching, setSearching] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -28,7 +30,7 @@ const SearchPanel = ({
 
   return (
     <>
-      {inputValue !== "" && (
+      {state.status! === "success" && (
         <button onClick={reset}>Cofnij wyszukanie X</button>
       )}
       <form action={handleSearch} className="flex flex-col">
@@ -40,6 +42,7 @@ const SearchPanel = ({
             id="search"
             placeholder="email"
             onChange={(e) => setInputValue(e.target.value)}
+            value={inputValue}
           />
           <button type="submit">
             {searching ? <CircularProgress /> : "Szukaj"}

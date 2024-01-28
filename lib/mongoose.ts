@@ -104,7 +104,7 @@ export const activateUser = async (id: string) => {
 };
 
 export const updateUserByEmail = async (
-  email: string | FormDataEntryValue,
+  email: string | FormDataEntryValue | FormDataEntryValue,
   update: any
 ) => {
   let response;

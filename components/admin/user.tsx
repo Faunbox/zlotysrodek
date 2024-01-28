@@ -1,21 +1,10 @@
 "use client";
 import { getAllUsers } from "@/actions/adminActions";
 import { UserType } from "@/actions/authActions";
-import {
-  Button,
-  
-  Input,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  Textarea,
-  useDisclosure,
-} from "@nextui-org/react";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import SearchPanel from "./searchPanel";
+import ModalAdminPanel from "./modal";
 
 export type UserResponse = {
   status: string;
@@ -30,9 +19,7 @@ export type UserResponse = {
 };
 
 const UserElements = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [pagination, setPagination] = useState({ limit: 1, page: 1 });
-  
   const [searchResponse, setSearchResponse] = useState<UserResponse>({
     status: "",
     user: { name: "", surname: "", email: "" },
@@ -52,14 +39,21 @@ const UserElements = () => {
     });
   };
 
-  const handleSubmit = async () => {};
+  const handleSubmit = async (formData: FormData) => {
+    try {
+    } catch (error) {}
+  };
 
   if (error) return <p>Błąd podczas pobierania danych</p>;
   if (isLoading) return <p>Ładuję...</p>;
 
   return (
     <div className="md:w-1/4 border-black border-2 flex flex-col">
-      <SearchPanel setState={setSearchResponse} reset={resetSearchState}/>
+      <SearchPanel
+        state={searchResponse}
+        setState={setSearchResponse}
+        reset={resetSearchState}
+      />
       {/* Show searched user */}
       {searchResponse.status === "success" && (
         <div>
@@ -68,60 +62,7 @@ const UserElements = () => {
             {searchResponse.user?.surname as string}{" "}
             {searchResponse.user?.email! as string}
           </p>
-          <Button size="sm" className="border-black border-1" onPress={onOpen}>
-            Zmien
-          </Button>
-          <Modal
-            isOpen={isOpen}
-            placement={"top-center"}
-            onOpenChange={onOpenChange}
-          >
-            <ModalContent>
-              {(onClose) => (
-                <>
-                  <ModalHeader>Zmien dane uzytkownika</ModalHeader>
-                  <ModalBody>
-                    <div>
-                      <p>Notatka</p>
-                      <Textarea
-                        name="adminDescription"
-                        id="adminDescription"
-                        type="text"
-                        placeholder="Dodaj notatke"
-                        value={searchResponse.user?.adminDescription}
-                      />
-                    </div>
-                    <div>
-                      <p>Darmowa konsultacja</p>
-                      <Input
-                        type="number"
-                        name="freeConsultation"
-                        id="freeConsultation"
-                        value={searchResponse.user?.freeConsultation as string}
-                      />
-                    </div>
-                    <div>
-                      <p>Konsultacje</p>
-                      <Input
-                        type="number"
-                        name="consultation"
-                        id="consultation"
-                        value={searchResponse.user?.consultations as string}
-                      />
-                    </div>
-                  </ModalBody>
-                  <ModalFooter>
-                    <Button color="danger" variant="light" onPress={onClose}>
-                      Zamknij
-                    </Button>
-                    <Button color="primary" onPress={handleSubmit}>
-                      Zmień
-                    </Button>
-                  </ModalFooter>
-                </>
-              )}
-            </ModalContent>
-          </Modal>
+          <ModalAdminPanel data={searchResponse.user} />
         </div>
       )}
       {/* Show all users */}
@@ -133,68 +74,8 @@ const UserElements = () => {
                 {user.name as string} {user.surname as string}{" "}
                 {user?.email as string}
               </p>
-              <Button
-                size="sm"
-                className="border-black border-1"
-                onPress={onOpen}
-              >
-                Zmien
-              </Button>
-              <Modal
-                isOpen={isOpen}
-                placement={"top-center"}
-                onOpenChange={onOpenChange}
-              >
-                <ModalContent>
-                  {(onClose) => (
-                    <>
-                      <ModalHeader>Zmien dane uzytkownika</ModalHeader>
-                      <ModalBody>
-                        <div>
-                          <p>Notatka</p>
-                          <Textarea
-                            name="adminDescription"
-                            id="adminDescription"
-                            type="text"
-                            placeholder="Dodaj notatke"
-                            value={user.adminDescription}
-                          />
-                        </div>
-                        <div>
-                          <p>Darmowa konsultacja</p>
-                          <Input
-                            type="number"
-                            name="freeConsultation"
-                            id="freeConsultation"
-                            value={user.freeConsultation as string}
-                          />
-                        </div>
-                        <div>
-                          <p>Konsultacje</p>
-                          <Input
-                            type="number"
-                            name="consultation"
-                            id="consultation"
-                            value={user.consultations as string}
-                          />
-                        </div>
-                      </ModalBody>
-                      <ModalFooter>
-                        <Button
-                          color="danger"
-                          variant="light"
-                          onPress={onClose}
-                        >
-                          Zamknij
-                        </Button>
-                        <Button color="primary" onPress={handleSubmit}>
-                          Zmień
-                        </Button>
-                      </ModalFooter>
-                    </>
-                  )}
-                </ModalContent>
-              </Modal>
+
+              <ModalAdminPanel data={user} />
             </li>
           ))}
           <select
