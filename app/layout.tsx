@@ -25,7 +25,7 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions);
 
   return (
-    <html lang="pl" className={`${montserrat.variable}, container mx-auto`}>
+    <html lang="pl" className={`${montserrat.variable}, container`}>
       <body>
         <Providers session={session}>
           <Navbar />

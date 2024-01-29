@@ -10,11 +10,16 @@ const UserPanel = () => {
   if (session) {
     return (
       <section className="flex flex-row justify-end items-center my-2">
-        <Link href={`/user/${username}`}>
-          {/* {userEmail.substring(0, userEmail?.indexOf("@"))} */}
+        <Link
+          href={`/user/${username}`}
+          className="text-gold font-normal hover:border-b-small"
+        >
           {username}
         </Link>
-        <button className="mx-4" onClick={() => signOut({ callbackUrl: "/" })}>
+        <button
+          className="mx-4 hover:border-b-small"
+          onClick={() => signOut({ callbackUrl: "/" })}
+        >
           Wyloguj
         </button>
       </section>
@@ -22,11 +27,10 @@ const UserPanel = () => {
   }
   return (
     <>
-      <Link href="/rejestracja">
-        <button className="mx-4">Rejestracja</button>
-      </Link>
       <Link href="/logowanie">
-        <button className="mx-4">Logowanie</button>
+        <button className="uppercase text-gold hover:border-b-small">
+          Logowanie
+        </button>
       </Link>
     </>
   );
