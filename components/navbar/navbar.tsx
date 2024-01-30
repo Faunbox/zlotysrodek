@@ -2,35 +2,37 @@ import Link from "next/link";
 import UserPanel from "./userPanel";
 import Image from "next/image";
 
+const navbarData = [
+  { name: "Strona główna", href: "/" },
+  { name: "O mnie", href: "/o-mnie" },
+  { name: "Psychodietetyk", href: "/psychodietetyk" },
+  { name: "Sklep", href: "/konsultacje" },
+  { name: "Kontakt", href: "/kontakt" },
+];
+
 const Navbar = () => {
   return (
-    <nav className="w-full flex flex-row sticky bg-green top-0 z-50 justify-around items-center backdrop-blur-2xl">
+    <nav className="w-screen flex flex-row sticky bg-green top-0 z-50 justify-around items-center backdrop-blur-2xl">
       <div>
         <Image
-          src={"/images/logo.png"}
+          src={"/images/logo2.svg"}
           alt="Logo Złoty środek"
           width={200}
           height={100}
-          className="w-auto h-auto"
+          // className="w-auto h-auto"
         />
       </div>
       <div>
         <ul className="flex flex-row  gap-5 text-white items-center justify-center uppercase text-sm font-light">
-          <Link href="/" className="hover:border-b-small ">
-            <li>Strona główna</li>
-          </Link>
-          <Link href={"/o-mnie"} className="hover:border-b-small ">
-            <li>O mnie</li>
-          </Link>
-          <Link href={"/konsultacje"} className="hover:border-b-small ">
-            <li>Psychodietetyk</li>
-          </Link>
-          <Link href={"/konsultacje"} className="hover:border-b-small ">
-            <li>Sklep</li>
-          </Link>
-          <Link href={"/kontakt"} className="hover:border-b-small ">
-            <li>Kontakt</li>
-          </Link>
+          {navbarData.map((link) => (
+            <Link
+              href={link.href}
+              className="hover:border-b-small"
+              key={link.name}
+            >
+              <li>{link.name}</li>
+            </Link>
+          ))}
           <UserPanel />
         </ul>
       </div>

@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-green w-screen h-[75vh] mb-12 flex justify-center items-center z-10 text-white overflow-hidden after:bg-white after:absolute after:-bottom-20 after:left-0 after:right-0 after:-rotate-6 after:w-[150vw] after:h-[40%] ">
-      <div className="flex flex-row gap-4">
+    <div className="relative bg-green w-screen h-[71vh] mb-12 flex justify-center items-center z-10 text-white overflow-hidden after:bg-white after:absolute after:-bottom-20 after:left-0 after:right-0 after:-rotate-6 after:w-[150vw] after:h-[40%] ">
+      <div className="flex flex-row gap-4 lg:w-9/12">
         <div className="flex flex-col lg:w-4/6">
           <h1 className="text-7xl font-abhaya">Psychodietetyk</h1>
           <h2 className="text-4xl font-abhaya">Konsultant żywieniowy</h2>

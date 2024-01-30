@@ -16,9 +16,14 @@ const config: Config = {
     },
     colors: {
       green: "#4D7A4B",
-      "dark-green": "#0F4E0B",
+      darkGreen: "#0F4E0B",
+      lightGreen: "#93BB90",
+      offertGreen: "#2D632A",
       gold: "#F8CB2A",
       white: "#FFF",
+    },
+    container: {
+      center: true,
     },
   },
   plugins: [nextui()],
