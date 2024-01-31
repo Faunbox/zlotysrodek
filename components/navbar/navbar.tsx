@@ -6,7 +6,7 @@ const navbarData = [
   { name: "Strona główna", href: "/" },
   { name: "O mnie", href: "/o-mnie" },
   { name: "Psychodietetyk", href: "/psychodietetyk" },
-  { name: "Sklep", href: "/konsultacje" },
+  { name: "Oferta", href: "/oferta" },
   { name: "Kontakt", href: "/kontakt" },
 ];
 

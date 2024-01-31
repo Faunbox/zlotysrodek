@@ -2,7 +2,7 @@ import Header from "../typography/headers";
 
 const Info = () => {
   return (
-    <section className="flex flex-col items-center justify-center mx-60 mb-24">
+    <section className="flex flex-col items-center justify-center mx-60 my-20">
       <Header>DODATKOWE INFORMACJE O WSPÓŁPRACY</Header>
       <div className="grid grid-cols-2 gap-4">
         <div className="border-green border-1 p-4 bg-lightGreen bg-opacity-10">

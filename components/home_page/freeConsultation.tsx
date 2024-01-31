@@ -1,11 +1,12 @@
+import FilledButton from "../typography/filledButton";
 import Header from "../typography/headers";
 
 const FreeConsultation = () => {
   return (
-    <section>
-      <div>
+    <section className="flex flex-col items-center justify-center gap-5 my-20 w-9/12">
+      <div className="flex flex-col items-center justify-center border-1 border-lightGreen pb-20 text-green">
         <Header>BEZPŁATNA WSTĘPNA KONSULTACJA</Header>
-        <p>
+        <p className="px-20 text-center text-sm">
           Rozumiem, że możesz mieć wątpliwości zanim zdecydujesz się na dłuższą
           indywidualną współpracę, dlatego pomogę Ci je rozwiać. Zanim
           skorzystasz z mojej pomocy, wypij ze mną kawę online, podczas której
@@ -13,7 +14,9 @@ const FreeConsultation = () => {
           może Ci pomóc.
         </p>
       </div>
-      <button>Wiecej informacji</button>
+      <FilledButton color="green" text="white" bold={false}>
+        Wiecej informacji
+      </FilledButton>
     </section>
   );
 };

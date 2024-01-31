@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FilledButton from "../typography/filledButton";
 
 const HeroSection = () => {
   return (
@@ -28,9 +29,9 @@ const HeroSection = () => {
           </div>
           <div className="flex flex-cal lg:flex-row gap-6 ml-8">
             <Link href={"/konsultacje"}>
-              <button className="bg-gold py-2 px-6 uppercase text-dark-green font-semibold font-montserrat">
+              <FilledButton>
                 Oferta
-              </button>
+              </FilledButton>
             </Link>
             <Link href={"/o-mnie"}>
               <button className="border-white border-1 bg-transparent py-2 px-6 uppercase text-white font-semibold font-montserrat">
