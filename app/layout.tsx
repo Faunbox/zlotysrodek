@@ -4,7 +4,8 @@ import Navbar from "@/components/navbar/navbar";
 import { Providers } from "./providers";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
-import { Montserrat } from 'next/font/google'
+import { Montserrat } from "next/font/google";
+import Footer from "@/components/footer/footer";
 
 export const metadata: Metadata = {
   title: "Psychodietetyka, trener żywienia | Złoty środek",
@@ -12,10 +13,10 @@ export const metadata: Metadata = {
 };
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
+  subsets: ["latin"],
   display: "swap",
-  variable: "--font-montserrat"
-})
+  variable: "--font-montserrat",
+});
 
 export default async function RootLayout({
   children,
@@ -25,11 +26,12 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions);
 
   return (
-    <html lang="pl" className={`${montserrat.variable}, container`}>
+    <html lang="pl" className={`${montserrat.variable}`}>
       <body>
         <Providers session={session}>
           <Navbar />
-          {children}
+          <main className="container">{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

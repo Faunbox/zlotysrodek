@@ -3,7 +3,6 @@ import { FaFacebook } from "react-icons/fa";
 import { IoIosArrowRoundDown } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
-import Image from "next/image";
 
 const FollowMe = () => {
   return (

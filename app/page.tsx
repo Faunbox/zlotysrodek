@@ -5,11 +5,10 @@ import FreeConsultation from "@/components/home_page/freeConsultation";
 import HeroSection from "@/components/home_page/hero";
 import Info from "@/components/home_page/info";
 import Offert from "@/components/home_page/offert";
-import NewsletterForm from "@/components/newsletter/form";
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-center items-center">
+    <main className="flex flex-col justify-center items-center ">
       <HeroSection />
       <FollowMe />
       <BlogMagnet />

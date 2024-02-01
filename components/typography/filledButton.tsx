@@ -1,17 +1,29 @@
+import { ButtonHTMLAttributes } from "react";
+
 const FilledButton = ({
   children,
   color = "gold",
   text = "darkGreen",
   bold = true,
+  type = "button",
+  disabled= false,
+  px = 5,
+  py = 3
 }: {
   children: string;
   color?: string;
   text?: string;
   bold?: boolean;
+  type?: ButtonHTMLAttributes<HTMLButtonElement> | any,
+  disabled?: boolean,
+  px?: number,
+  py?: number
 }) => {
   return (
     <button
-      className={`bg-${color} text-${text} border-1 border-black mx-auto py-3 px-5 uppercase ${
+      type={type}
+      disabled={disabled}
+      className={`bg-${color}  text-${text}  mx-auto py-${py} px-${px} uppercase ${
         bold && "font-semibold"
       }`}
     >

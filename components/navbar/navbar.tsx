@@ -12,14 +12,14 @@ const navbarData = [
 
 const Navbar = () => {
   return (
-    <nav className="w-screen flex flex-row sticky bg-green top-0 z-50 justify-around items-center backdrop-blur-2xl">
+    <nav className="w-screen flex flex-row sticky bg-green top-0 right-0 left-0 z-50 justify-around items-center backdrop-blur-2xl">
       <div>
         <Image
-          src={"/images/logo2.svg"}
+          src={"/images/logo3.svg"}
           alt="Logo Złoty środek"
           width={200}
           height={100}
-          // className="w-auto h-auto"
+          className="my-2"
         />
       </div>
       <div>
