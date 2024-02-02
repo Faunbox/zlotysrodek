@@ -28,14 +28,16 @@ const NewsletterForm = () => {
     <>
       <form
         action={onSend}
-        className="flex flex-col items-start justify-center px-8 pb-8 gap-4"
+        className="flex flex-col items-start justify-center px-8 pb-2 gap-4 w-full"
         ref={formRef}
       >
         <div className="flex flex-col gap-2">
           <h3 className="uppercase font-semibold">Newsletter</h3>
-          <p>Bądź na bieżąco! Zapisz się do newslettera!</p>
+          <p className="font-light text-sm">
+            Bądź na bieżąco! Zapisz się do newslettera!
+          </p>
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start gap-2">
           <div className="flex flex-col mx-auto">
             <label htmlFor="name" className="font-light">
               Imię
@@ -44,47 +46,50 @@ const NewsletterForm = () => {
               type="name"
               name="name"
               id="name"
-              placeholder="Newsletter name"
-              className="border-black border-1"
+              className="border-white border-1 bg-green"
             />
           </div>
           <div className="flex flex-col mx-auto">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="font-light">
+              Email
+            </label>
             <input
               type="email"
               name="email"
               id="email"
-              placeholder="Newsletter email"
-              className="border-black border-1"
+              className="border-white border-1 bg-green"
             />
           </div>
         </div>
-        <div className="flex flex-row gap-2">
-          <input
-            type="checkbox"
-            id="checkbox"
-            className="bg-green"
-            checked={newsletterCheckbox}
-            onChange={handleChange}
-          />
-          <label htmlFor="checkbox" className="text-xs font-light">
-            Wyrażam zgodę na przesyłanie informacji o produktach i usługach.
-            Szczegóły związane z przetwarzaniem danych osobowych znajdziesz w
-            polityce prywatności.
-          </label>
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-row gap-2">
+            <input
+              type="checkbox"
+              id="checkbox"
+              className="bg-green"
+              checked={newsletterCheckbox}
+              onChange={handleChange}
+            />
+            <label htmlFor="checkbox" className="text-xs font-light">
+              Wyrażam zgodę na przesyłanie informacji o produktach i usługach.
+              Szczegóły związane z przetwarzaniem danych osobowych znajdziesz w
+              polityce prywatności.
+            </label>
+          </div>
+          <div>
+            <FilledButton
+              type="submit"
+              color="bg-darkGreen"
+              text="white"
+              disabled={response.status ? true : false}
+              py={1}
+            >
+              Wyślij
+            </FilledButton>
+          </div>
         </div>
-        <FilledButton
-          type="submit"
-          color="darkGreen"
-          text="white"
-          disabled={response.status ? true : false}
-          py={1}
-        >
-          Wyślij
-        </FilledButton>
+        <p className="font-light">{response?.message}</p>
       </form>
-      <p>{response?.message}</p>
-      <p>Sukces</p>
     </>
   );
 };

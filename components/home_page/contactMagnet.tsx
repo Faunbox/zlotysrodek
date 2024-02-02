@@ -8,7 +8,7 @@ const ContactMagnet = () => {
           <p>Każda zmiana wydaje się trudna,</p>
           <p>zanim uczynisz ją łatwą w realizacji.</p>
         </div>
-        <FilledButton color={"green"} text="white">
+        <FilledButton color={"bg-green"} text="white">
           KONTAKT
         </FilledButton>
       </div>

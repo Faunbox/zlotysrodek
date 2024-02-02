@@ -14,7 +14,7 @@ const FreeConsultation = () => {
           może Ci pomóc.
         </p>
       </div>
-      <FilledButton color="green" text="white" bold={false}>
+      <FilledButton color="bg-green" text="white" bold={false}>
         Wiecej informacji
       </FilledButton>
     </section>

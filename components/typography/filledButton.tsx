@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from "react";
 
 const FilledButton = ({
   children,
-  color = "gold",
+  color = "bg-gold",
   text = "darkGreen",
   bold = true,
   type = "button",
@@ -23,7 +23,7 @@ const FilledButton = ({
     <button
       type={type}
       disabled={disabled}
-      className={`bg-${color}  text-${text}  mx-auto py-${py} px-${px} uppercase ${
+      className={`${color}  text-${text}  mx-auto py-${py} px-${px} uppercase ${
         bold && "font-semibold"
       }`}
     >
