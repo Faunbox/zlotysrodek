@@ -6,7 +6,7 @@ const FooterContact = () => {
     {
       icon: <FaPhoneAlt />,
       data: "+48 602 778 499",
-      href: "phone:+48602778499",
+      href: "tel:+48602778499",
     },
     {
       icon: <MdEmail />,
@@ -35,7 +35,7 @@ const FooterContact = () => {
             className="flex flex-row gap-2 items-center font-light"
           >
             {contactElem.icon}
-            <a href={contactElem.href} target="_blank">
+            <a href={contactElem.href} target="_blank" rel="noopener">
               {contactElem.data}
             </a>
           </li>

@@ -6,25 +6,25 @@ const FilledButton = ({
   text = "darkGreen",
   bold = true,
   type = "button",
-  disabled= false,
+  disabled = false,
   px = 5,
-  py = 3
+  py = 3,
 }: {
   children: string;
   color?: string;
   text?: string;
   bold?: boolean;
-  type?: ButtonHTMLAttributes<HTMLButtonElement> | any,
-  disabled?: boolean,
-  px?: number,
-  py?: number
+  type?: ButtonHTMLAttributes<HTMLButtonElement> | any;
+  disabled?: boolean;
+  px?: number;
+  py?: number;
 }) => {
   return (
     <button
       type={type}
       disabled={disabled}
       className={`${color}  text-${text}  mx-auto py-${py} px-${px} uppercase ${
-        bold && "font-semibold"
+        bold && "font-semibold rounded-sm"
       }`}
     >
       {children}
