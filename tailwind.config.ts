@@ -25,6 +25,11 @@ const config: Config = {
     container: {
       center: true,
     },
+    extend: {
+      listStyleImage: {
+        avocado: 'url("/images/avocado-jasne.svg")',
+      },
+    },
   },
   plugins: [nextui()],
 };

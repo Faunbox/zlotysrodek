@@ -3,9 +3,9 @@ import Image from "next/image";
 const TextComponent = () => {
   return (
     <div className="flex flex-row gap-20 mx-60 text-green">
-      <div className="flex flex-col text-large gap-4 text-left">
-        <div className="flex flex-row">
-          <div className="flex flex-col gap-2 mt-20 ">
+      <div className="flex flex-col text-large gap-4 text-left mb-32">
+        <div className="flex flex-row ">
+          <div className="flex flex-col gap-2 mt-20 w-8/12">
             <p className="font-semibold">
               Nazywam się Dorota Sojecka i jestem absolwentką studiów
               podyplomowych na kierunku Dietetyka i planowanie żywienia oraz
@@ -35,14 +35,15 @@ const TextComponent = () => {
               życia w zgodzie ze sobą.
             </p>
           </div>
-
-          <Image
-            src={"/images/AboutDorotka.jpg"}
-            alt="Dorota Sojecka"
-            width={336}
-            height={500}
-            className="ml-20 object-contain"
-          />
+          <div className="w-4/12">
+            <Image
+              src={"/images/AboutDorotka.jpg"}
+              alt="Dorota Sojecka"
+              width={336}
+              height={500}
+              className="ml-20 object-contain sticky top-20"
+            />
+          </div>
         </div>
 
         <p>
