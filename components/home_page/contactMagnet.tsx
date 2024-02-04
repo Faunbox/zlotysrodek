@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FilledButton from "../typography/filledButton";
 
 const ContactMagnet = () => {
@@ -8,9 +9,11 @@ const ContactMagnet = () => {
           <p>Każda zmiana wydaje się trudna,</p>
           <p>zanim uczynisz ją łatwą w realizacji.</p>
         </div>
-        <FilledButton color={"bg-green"} text="white">
-          KONTAKT
-        </FilledButton>
+        <Link href={"/kontakt"}>
+          <FilledButton color={"bg-green"} text="white">
+            KONTAKT
+          </FilledButton>
+        </Link>
       </div>
     </section>
   );

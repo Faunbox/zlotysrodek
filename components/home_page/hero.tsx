@@ -4,7 +4,7 @@ import FilledButton from "../typography/filledButton";
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-green w-screen h-[71vh] mx-60 mb-20 flex justify-center items-center z-10 text-white overflow-hidden after:bg-white after:absolute after:-bottom-20 after:left-0 after:right-0 after:-rotate-6 after:w-[150vw] after:h-[38%] ">
+    <div className="relative bg-green w-screen h-[71vh]  mb-20 flex justify-center items-center z-10 text-white overflow-hidden after:bg-white after:absolute after:-bottom-20 after:left-0 after:right-0 after:-rotate-6 after:w-[150vw] after:h-[38%] ">
       <div className="flex flex-row gap-10 items-center justify-center w-9/12">
         <div className="flex flex-col w-full">
           <h1 className="text-7xl font-abhaya">Psychodietetyk</h1>
@@ -20,12 +20,12 @@ const HeroSection = () => {
                   POMAGAM
                 </span>{" "}
                 zmienić niezdrowe nawyki żywieniowe i odnaleźć
+                </p>
                 <p>
                   <span className="uppercase text-gold font-semibold">
                     ZŁOTY ŚRODEK -
                   </span>{" "}
                   własny dobrostan
-                </p>
               </p>
             </div>
             <p>

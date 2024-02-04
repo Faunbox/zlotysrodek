@@ -9,11 +9,19 @@ const FollowMe = () => {
     <section className=" font-montserrat text-sm flex w-full py-10 content-end items-start justify-end z-10 relative ml-14">
       <div className="rotate-90 flex flex-row items-center justify-center gap-2 sticky top-60 uppercase">
         <p>Śledź mnie </p>
-          <IoIosArrowRoundDown className="-rotate-90" />
-        <a href="https://www.instagram.com/zloty__srodek/" target="_blank" rel="noopener">
+        <IoIosArrowRoundDown className="-rotate-90" />
+        <a
+          href="https://www.instagram.com/zloty__srodek/"
+          target="_blank"
+          rel="noopener"
+        >
           <SlSocialInstagram className="-rotate-90" />
         </a>
-        <a href="https://www.facebook.com/zllotysrodek" target="_blank" rel="noopener">
+        <a
+          href="https://www.facebook.com/zllotysrodek"
+          target="_blank"
+          rel="noopener"
+        >
           <FaFacebook className="-rotate-90" />
         </a>
         <a href="mailto:kontakt@zlotysrodek.eu" target="_blank" rel="noopener">

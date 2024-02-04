@@ -23,7 +23,7 @@ const FilledButton = ({
     <button
       type={type}
       disabled={disabled}
-      className={`${color}  text-${text}  mx-auto py-${py} px-${px} uppercase ${
+      className={`${color} text-${text} mx-auto py-${py} px-${px} uppercase ${
         bold && "font-semibold rounded-sm"
       }`}
     >

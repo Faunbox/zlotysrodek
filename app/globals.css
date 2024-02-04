@@ -4,5 +4,10 @@
 
 body {
   overflow-x: hidden;
-  
+}
+
+@layer components {
+  .page {
+    @apply flex flex-col justify-center items-center;
+  }
 }

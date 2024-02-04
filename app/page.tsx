@@ -8,7 +8,7 @@ import Offert from "@/components/home_page/offert";
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-center items-center ">
+    <main className="page">
       <HeroSection />
       <FollowMe />
       <BlogMagnet />
