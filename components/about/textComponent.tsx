@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const TextComponent = () => {
   return (
-    <div className="flex flex-row gap-20 mx-60 text-green">
+    <div className="flex flex-row gap-20 mx-60 text-green relative">
       <div className="flex flex-col text-large gap-4 text-left mb-32">
         <div className="flex flex-row ">
           <div className="flex flex-col gap-2 mt-20 w-8/12">
@@ -41,7 +41,7 @@ const TextComponent = () => {
               alt="Dorota Sojecka"
               width={336}
               height={500}
-              className="ml-20 object-contain sticky top-20"
+              className="ml-20 object-contain absolute -top-20"
             />
           </div>
         </div>

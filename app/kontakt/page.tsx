@@ -1,16 +1,13 @@
-import FormComponent from "@/components/contact/FormComponent";
+import FormSection from "@/components/contact/formSection";
+import SocialPanel from "@/components/contact/socialPanel";
+import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 
 const Contact = () => {
-  
-  
-
-
   return (
-    <main>
-      <h1>Kontakt</h1>
-      <section>
-        <FormComponent/>
-      </section>
+    <main className="">
+      <BackgroundedHeader>Kontakt</BackgroundedHeader>
+      <FormSection />
+      <SocialPanel />
     </main>
   );
 };

@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
+import { StyledJsxStyleRegistry } from "styled-jsx";
 
 const FilledButton = ({
   children,
@@ -10,7 +11,7 @@ const FilledButton = ({
   px = 5,
   py = 3,
 }: {
-  children: string;
+  children: string | React.JSX.Element;
   color?: string;
   text?: string;
   bold?: boolean;
@@ -24,7 +25,7 @@ const FilledButton = ({
       type={type}
       disabled={disabled}
       className={`${color} text-${text} mx-auto py-${py} px-${px} uppercase ${
-        bold && "font-semibold rounded-sm"
+        bold && "font-semibold rounded-sm disabled:bg-lightGreen"
       }`}
     >
       {children}
