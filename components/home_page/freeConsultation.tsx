@@ -3,8 +3,8 @@ import Header from "../typography/headers";
 
 const FreeConsultation = () => {
   return (
-    <section className="flex flex-col items-center justify-center gap-5 my-20 px-20 w-9/12">
-      <div className="flex flex-col items-center justify-center pb-10 text-green">
+    <section className="flex flex-col items-center justify-center gap-5 my-20 mx-auto pb-10 px-20 w-8/12 bg-green rounded-md">
+      <div className="flex flex-col items-center justify-center pb-2 text-white">
         <Header>BEZPŁATNA WSTĘPNA KONSULTACJA</Header>
         <p className=" text-center text-sm leading-relaxed w-8/12">
           Rozumiem, że możesz mieć wątpliwości zanim zdecydujesz się na dłuższą
@@ -14,7 +14,7 @@ const FreeConsultation = () => {
           może Ci pomóc.
         </p>
       </div>
-      <FilledButton color="bg-green" text="white" bold={false}>
+      <FilledButton color="bg-darkGreen" text="white" bold={false}>
         Wiecej informacji
       </FilledButton>
     </section>

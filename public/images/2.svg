@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 204 204" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<path d="M0 0L204 0L204 204L0 204L0 0Z" fill="#ffffff" fill-opacity="0" fill-rule="nonzero" opacity="1" stroke="none" vectornator:artboardBackground="true"/>
+<g id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M102 201C157.228 201 202 156.228 202 101C202 45.7715 157.228 1 102 1C46.7715 1 2 45.7715 2 101C2 156.228 46.7715 201 102 201ZM102.333 182.333C147.436 182.333 184 145.77 184 100.667C184 55.5634 147.436 19 102.333 19C57.2299 19 20.6665 55.5634 20.6665 100.667C20.6665 145.77 57.2299 182.333 102.333 182.333Z" fill="#93bb90" fill-rule="evenodd" opacity="1" stroke="none" vectornator:layerName="Subtract"/>
+<path d="M65.5 159C66.0208 149.365 68.013 140.979 71.4766 133.844C74.9401 126.708 81.6979 120.224 91.75 114.391L106.75 105.719C113.469 101.812 118.182 98.4792 120.891 95.7188C125.161 91.3958 127.297 86.4479 127.297 80.875C127.297 74.3646 125.344 69.1953 121.438 65.3672C117.531 61.5391 112.323 59.625 105.812 59.625C96.1771 59.625 89.5104 63.2708 85.8125 70.5625C83.8333 74.4688 82.7396 79.8854 82.5312 86.8125L68.2344 86.8125C68.3906 77.0729 70.1875 69.1302 73.625 62.9844C79.7188 52.151 90.474 46.7344 105.891 46.7344C118.703 46.7344 128.065 50.1979 133.977 57.125C139.888 64.0521 142.844 71.7604 142.844 80.25C142.844 89.2083 139.693 96.8646 133.391 103.219C129.745 106.917 123.208 111.396 113.781 116.656L103.078 122.594C97.974 125.406 93.9635 128.089 91.0469 130.641C85.8385 135.172 82.5573 140.198 81.2031 145.719L142.297 145.719L142.297 159L65.5 159Z" fill="#93bb90" opacity="1" stroke="none" vectornator:layerName="tspan"/>
+</g>
+</svg>

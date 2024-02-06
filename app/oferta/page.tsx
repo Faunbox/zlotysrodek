@@ -1,43 +1,29 @@
-'use client'
+"use client";
+import FreeConsultation from "@/components/home_page/freeConsultation";
+import BenefitsComponent from "@/components/offert/benefitsComponent";
+import CancelationComponent from "@/components/offert/cancelationComponent";
+import OptionsComponent from "@/components/offert/optionsComponent";
+import StepsComponent from "@/components/offert/stepsComponent";
+import BackgroundedHeader from "@/components/typography/backgroundedHeader";
+import HalfBackgroundHeader from "@/components/typography/halfBgHeader";
 import { useSession } from "next-auth/react";
 
 const Consultation = () => {
-
   const { data: session } = useSession();
-  const email: string = session?.user?.email!
+  const email: string = session?.user?.email!;
 
   return (
-    <main>
-      <h1>Konsultacje</h1>
-      <div className="">
-        <div className="my-4">
-          <h2>Konsultacja 1</h2>
-          <a
-            href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(email)}`}
-            target="_blank"
-          >
-            <button>Kup</button>
-          </a>
-        </div>
-        <div className="my-4">
-          <h2>Konsultacja 3</h2>
-          <a
-            href="https://buy.stripe.com/test_dR62b43vtc2i7yo6op"
-            target="_blank"
-          >
-            <button>Kup</button>
-          </a>
-        </div>
-        <div className="my-4">
-          <h2>Konsultacja 10</h2>
-          <a
-            href="https://buy.stripe.com/test_dR62b43vtc2i7yo6op"
-            target="_blank"
-          >
-            <button>Kup</button>
-          </a>
-        </div>
-      </div>
+    <main className="flex flex-col items-start justify-center">
+      <BackgroundedHeader>Oferta</BackgroundedHeader>
+      <OptionsComponent email={email} />
+      <FreeConsultation />
+
+      <HalfBackgroundHeader>
+        Konsultacja on-line krok po kroku:
+      </HalfBackgroundHeader>
+      <StepsComponent />
+      <CancelationComponent />
+      <BenefitsComponent />
     </main>
   );
 };

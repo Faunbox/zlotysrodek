@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Created with Vectornator (http://vectornator.io/) -->
-<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 57 45" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 204 204" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs/>
-<g id="Untitled" vectornator:layerName="Untitled">
-<g opacity="1" vectornator:layerName="rect">
-<clipPath clip-rule="nonzero" id="ClipPath">
-<path d="M0 0L57 0L57 0L57 45L57 45L0 45L0 45L0 0L0 0Z"/>
-</clipPath>
-<g clip-path="url(#ClipPath)">
-<path d="M17.5685 0L29 18L40.4316 0L57.1577 0L28.5788 45L0 0L17.5685 0Z" fill="#4d7a4b" fill-rule="evenodd" opacity="1" stroke="none" vectornator:layerName="path"/>
-</g>
-</g>
+<path d="M0 0L204 0L204 204L0 204L0 0Z" fill="#ffffff" fill-opacity="0" fill-rule="nonzero" opacity="1" stroke="none" vectornator:artboardBackground="true"/>
+<g id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M102 202C157.228 202 202 157.228 202 102C202 46.7715 157.228 2 102 2C46.7715 2 2 46.7715 2 102C2 157.228 46.7715 202 102 202ZM102.333 183.333C147.436 183.333 184 146.77 184 101.667C184 56.5634 147.436 20 102.333 20C57.2299 20 20.6665 56.5634 20.6665 101.667C20.6665 146.77 57.2299 183.333 102.333 183.333Z" fill="#b2d0b0" fill-rule="evenodd" opacity="1" stroke="none" vectornator:layerName="Subtract"/>
+<path d="M72.8203 75.7812L72.8203 65C82.9766 64.0104 90.0599 62.3568 94.0703 60.0391C98.0807 57.7214 101.076 52.2396 103.055 43.5938L114.148 43.5938L114.148 155L99.1484 155L99.1484 75.7812L72.8203 75.7812Z" fill="#b2d0b0" opacity="1" stroke="none" vectornator:layerName="tspan"/>
 </g>
 </svg>
