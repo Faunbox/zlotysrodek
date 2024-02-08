@@ -17,12 +17,11 @@ const ResetPasswordButton = ({ email }: { email: string }) => {
 
   return (
     <li>
-      Ustaw nowe hasło{" "}
       <button
         onClick={() => handleSend(email)}
-        className="border-black border-1"
+        // className="border-black border-1"
       >
-        Wyślij
+        Ustaw nowe hasło
       </button>
       <p>{response.message}</p>
     </li>

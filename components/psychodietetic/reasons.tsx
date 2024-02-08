@@ -1,5 +1,4 @@
 import Image from "next/image";
-import BackgroundedHeader from "../typography/backgroundedHeader";
 
 const Reasons = () => {
   return (

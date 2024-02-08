@@ -17,15 +17,15 @@ import { ReactNode } from "react";
 
 export type UserType = {
   _id?: string;
-  username: FormDataEntryValue;
+  username: FormDataEntryValue | string;
   password: FormDataEntryValue | string;
-  email: FormDataEntryValue;
-  phoneNumber: FormDataEntryValue | string;
+  email: FormDataEntryValue | string;
+  phoneNumber: FormDataEntryValue | string | number;
   isConfirmed?: boolean;
   veryficationToken?: string;
   resetTokenExpire: Date | number;
   name: FormDataEntryValue | ReactNode;
-  surname: FormDataEntryValue;
+  surname: FormDataEntryValue | string;
   role?: string;
   consultations?: number | string;
   newsletter?: boolean;

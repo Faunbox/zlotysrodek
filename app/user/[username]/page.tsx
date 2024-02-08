@@ -1,5 +1,7 @@
+import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import VeryficationButton from "@/components/user/confirmationButton";
 import ResetPasswordButton from "@/components/user/resetPasswordButton";
+import UserInfo from "@/components/user/userInfo";
 import { findUser } from "@/lib/mongoose";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -25,28 +27,9 @@ export default async function Page({
   const user = await getData(username);
 
   return (
-    <div className="m-10">
-      <ul>
-        {/* <li>My profile: {userEmail.substring(0, userEmail.indexOf("%"))}</li> */}
-        <li>My profile: {username}</li>
-        <li>{user.phoneNumber}</li>
-        <li>{user.email}</li>
-        <li>
-          {user.role === "admin" ? (
-            <Link href={"/admin"}>Admin panel</Link>
-          ) : (
-            user.role
-          )}
-        </li>
-        <ResetPasswordButton email={user?.email} />
-        <li>Twoje konsultacje: {user?.consultations}</li>
-        <li>Confirmed: {user?.isConfirmed ? "true" : "false"}</li>
-        {!user?.isConfirmed && <VeryficationButton email={user?.email} />}
-        {user?.consultations <= 3 && (
-          <Link href={"/konsultacje"}>Dokup konsultacje</Link>
-        )}
-        <li>{user?.adminDescription}</li>
-      </ul>
-    </div>
+    <main className="page">
+      <BackgroundedHeader>Konto</BackgroundedHeader>
+      <UserInfo user={user} />
+    </main>
   );
 }

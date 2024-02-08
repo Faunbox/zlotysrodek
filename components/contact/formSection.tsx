@@ -3,7 +3,7 @@ import FormComponent from "./FormComponent";
 
 const FormSection = () => {
   return (
-    <section className="flex flex-col lg:flex-row justify-center items-start mx-60 gap-20 mb-20">
+    <section className="flex flex-col lg:flex-row justify-center items-start mx-60 gap-20 mb-20 relative">
       <div className="w-6/12">
         <FormComponent />
       </div>
@@ -13,6 +13,7 @@ const FormSection = () => {
           alt="Otwarty laptop"
           height={700}
           width={450}
+          className="absolute -top-10"
         />
       </div>
     </section>

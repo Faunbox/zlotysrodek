@@ -9,7 +9,7 @@ const UserPanel = () => {
 
   if (session) {
     return (
-      <section className="flex flex-row justify-end items-center my-2">
+      <section className="flex flex-col md:flex-row justify-end items-center my-2">
         <Link
           href={`/user/${username}`}
           className="text-gold font-normal hover:border-b-small"

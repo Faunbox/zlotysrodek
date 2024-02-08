@@ -37,7 +37,7 @@ const HeroSection = () => {
             </p>
           </div>
           <div className="flex flex-cal lg:flex-row gap-6 ml-8">
-            <Link href={"/konsultacje"}>
+            <Link href={"/oferta"}>
               <FilledButton>Oferta</FilledButton>
             </Link>
             <Link href={"/o-mnie"}>

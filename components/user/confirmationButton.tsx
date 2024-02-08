@@ -3,15 +3,13 @@
 import { sendVeryfiactionToken } from "@/actions/authActions";
 
 const VeryficationButton = ({ email }: { email: string }) => {
-  
   return (
     <li>
-      Wyślij ponownie email potwierdzający{" "}
       <button
         onClick={() => sendVeryfiactionToken(email!)}
         className="border-black border-1"
       >
-        Wyślij
+        Potwierdz konto
       </button>
     </li>
   );
