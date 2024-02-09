@@ -24,8 +24,8 @@ const FilledButton = ({
     <button
       type={type}
       disabled={disabled}
-      className={`${color} text-${text} mx-auto py-${py} px-${px} uppercase ${
-        bold && "font-semibold rounded-sm disabled:bg-lightGreen"
+      className={`${color} text-${text}  py-${py} px-${px} uppercase ${
+        bold && "font-semibold rounded-md shadow-md disabled:bg-lightGreen"
       }`}
     >
       {children}

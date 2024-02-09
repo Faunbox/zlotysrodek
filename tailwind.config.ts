@@ -21,6 +21,7 @@ const config: Config = {
       offertGreen: "#2D632A",
       gold: "#F8CB2A",
       white: "#FFF",
+      ligtherGreen: "#C6D4C2",
     },
     container: {
       center: true,

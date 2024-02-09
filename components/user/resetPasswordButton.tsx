@@ -16,15 +16,15 @@ const ResetPasswordButton = ({ email }: { email: string }) => {
   }
 
   return (
-    <li>
+    <>
       <button
         onClick={() => handleSend(email)}
-        // className="border-black border-1"
+        className="text-large tracking-wide"
       >
         Ustaw nowe hasło
       </button>
       <p>{response.message}</p>
-    </li>
+    </>
   );
 };
 
