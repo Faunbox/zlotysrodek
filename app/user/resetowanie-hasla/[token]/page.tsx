@@ -2,6 +2,7 @@
 import { resetUserPassword } from "@/actions/authActions";
 import { ResponseData } from "@/components/contact/FormComponent";
 import FilledButton from "@/components/typography/filledButton";
+import ResetPasswordForm from "@/components/user/resetPasswordForm";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { useState } from "react";
@@ -62,9 +63,7 @@ const Page = ({ params }: { params: { token: string } }) => {
           {response.message}
         </p>
         {response.status === "error" && (
-          <FilledButton color="bg-green" text="white">
-            Wyślij nowy token
-          </FilledButton>
+          <ResetPasswordForm />
         )}
       </form>
       <div className="w-6/12">

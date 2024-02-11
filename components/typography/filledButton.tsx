@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes } from "react";
-import { StyledJsxStyleRegistry } from "styled-jsx";
 
 const FilledButton = ({
   children,
@@ -19,6 +18,7 @@ const FilledButton = ({
   disabled?: boolean;
   px?: number;
   py?: number;
+  onClick?: () => void
 }) => {
   return (
     <button

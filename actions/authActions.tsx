@@ -29,8 +29,8 @@ export type UserType = {
   role?: string;
   consultations?: number | string;
   newsletter?: boolean;
-  adminDescription?: string
-  freeConsultation?: boolean | number | string
+  adminDescription?: string;
+  freeConsultation?: boolean | number | string;
 };
 
 type ResponseData = {
@@ -137,7 +137,10 @@ export async function checkForUserFromDb(email: string, password: string) {
       return isOk;
     }
     if (checkUser !== null) {
-      const isPasswordOk = await isSamePassword(password, checkUser.password as string);
+      const isPasswordOk = await isSamePassword(
+        password,
+        checkUser.password as string
+      );
       isPasswordOk ? (isOk = true) : (isOk = false);
       return isOk;
     }
@@ -210,7 +213,6 @@ export async function sendResetPasswordToken(
     };
     return { response };
   } finally {
-
     const msgToResetPassword = {
       to: "faunbox2@gmail.com", // Change to your recipient
       from: process.env.SENDGRID_EMAIL!, // Change to your verified sender
@@ -221,8 +223,8 @@ export async function sendResetPasswordToken(
       </div>`,
     };
 
-    sendEmail(msgToResetPassword)
-    
+    sendEmail(msgToResetPassword);
+
     response = {
       status: "success",
       message: "Sprawdz skrzynkę mailową!",
@@ -232,7 +234,6 @@ export async function sendResetPasswordToken(
 }
 
 export async function resetUserPassword(formData: FormData) {
-  console.log(formData);
   const token = formData.get("token");
   const newPassword = formData.get("password");
   const confirmedPassword = formData.get("confirmedPassword");
@@ -256,7 +257,7 @@ export async function resetUserPassword(formData: FormData) {
     return { response };
   }
 
-  if (Date.now() > user.resetTokenExpire) {
+  if (Date.now() > user?.resetPasswordTokenExpire) {
     response = {
       status: "error",
       message: "Twój token wygasł",
