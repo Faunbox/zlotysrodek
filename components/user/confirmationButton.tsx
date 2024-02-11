@@ -1,16 +1,14 @@
 "use client";
 
 import { sendVeryfiactionToken } from "@/actions/authActions";
+import FilledButton from "../typography/filledButton";
 
-const VeryficationButton = ({ email }: { email: string }) => {
+const VeryficationButton = ({children, email }: { children:string, email: string }) => {
   return (
     <>
-      <button
-        onClick={() => sendVeryfiactionToken(email!)}
-        className="border-black border-1"
-      >
-        Potwierdz konto
-      </button>
+      <FilledButton onClick={() => sendVeryfiactionToken(email!)}>
+        {children}
+      </FilledButton>
     </>
   );
 };

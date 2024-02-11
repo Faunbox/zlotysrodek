@@ -38,14 +38,16 @@ const Page = async ({ params }: { params: { token: string } }) => {
   const { isOk, email } = res.response;
 
   return (
-    <div>
+    <div className="page m-60">
       {isOk === true ? (
-        <h3>Dziękujemy za aktywację konta</h3>
+        <h3 className="font-light text-3xl">Dziękujemy za aktywację konta</h3>
       ) : (
-        <>
-          <h3>Twój token wygasł, wyślij nowy token</h3>
-          <VeryficationButton email={email} />
-        </>
+        <div className="flex flex-col gap-10">
+          <h3 className="font-light text-3xl">
+            Twój token wygasł, wyślij nowy token
+          </h3>
+          <VeryficationButton email={email} >Wyślij nowy token</VeryficationButton>
+        </div>
       )}
     </div>
   );

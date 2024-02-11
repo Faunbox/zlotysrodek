@@ -28,7 +28,7 @@ export default async function Page({
 
   return (
     <main className="page">
-      <BackgroundedHeader>Twoje profil</BackgroundedHeader>
+      <BackgroundedHeader>Twój profil</BackgroundedHeader>
       <UserInfo user={user} />
     </main>
   );

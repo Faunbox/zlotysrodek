@@ -90,6 +90,7 @@ export async function registerUser(formData: FormData) {
             surname: surname!,
             role: "user",
             consultations: 0,
+            freeConsultation: 1,
             newsletter: false,
           };
 
@@ -98,9 +99,17 @@ export async function registerUser(formData: FormData) {
         })
         .then(async (user) => {
           newUserEmail = user.email;
-          await mongooseDbConnect();
-          const newUser = await user.save();
-          await mongooseDbDisconnect();
+          try {
+
+            await mongooseDbConnect();
+            const newUser = await user.save();
+            await mongooseDbDisconnect();
+          } catch (error) {
+            return response = {
+              status: "error",
+              message: "Błąd poczas tworzenia konta",
+            }
+          }
         })
         .then(
           () =>
@@ -120,6 +129,8 @@ export async function registerUser(formData: FormData) {
     }
     return { response };
   } catch (error) {
+    console.log(error);
+
     response = {
       status: "error",
       message: `Wstąpił błąd podczas tworzenia konta. Spróbuj ponownie później lub skontaktuj się z administratorem`,

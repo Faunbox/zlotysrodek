@@ -28,7 +28,14 @@ const UserInfo = ({ user }: { user: UserType }) => {
         <div className="flex flex-col items-start justify-center gap-6 text-darkGreen w-full">
           <ResetPasswordButton email={user.email as string} />
           {!user.isConfirmed && (
-            <VeryficationButton email={user.email as string} />
+            <VeryficationButton email={user.email as string}>
+              Potwierdź konto
+            </VeryficationButton>
+          )}
+          {user.role === "admin" && (
+            <Link href={"/admin"}>
+              <FilledButton>Panel administratora</FilledButton>
+            </Link>
           )}
           <div className="flex flex-col md:flex-row justify-between items-center w-full">
             <Link href={"/oferta"}>
@@ -36,9 +43,9 @@ const UserInfo = ({ user }: { user: UserType }) => {
                 Kup Konsultacje
               </FilledButton>
             </Link>
-            <Link href={"/oferta"}>
+            <Link href={"/kontakt"}>
               <FilledButton color="bg-gold" text="white">
-                Kup Konsultacje
+                Kontakt
               </FilledButton>
             </Link>
           </div>

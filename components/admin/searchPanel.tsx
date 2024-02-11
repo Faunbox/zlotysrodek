@@ -3,6 +3,7 @@ import { searchUserByEmail } from "@/actions/adminActions";
 import { CircularProgress } from "@nextui-org/react";
 import { Dispatch, SetStateAction, useState } from "react";
 import { UserResponse } from "./user";
+import FilledButton from "../typography/filledButton";
 
 const SearchPanel = ({
   setState,
@@ -31,22 +32,24 @@ const SearchPanel = ({
   return (
     <>
       {state.status! === "success" && (
-        <button onClick={reset}>Cofnij wyszukanie X</button>
+        <FilledButton color="bg-red-100" text="white" onClick={reset}>
+          Cofnij wyszukanie
+        </FilledButton>
       )}
       <form action={handleSearch} className="flex flex-col">
-        <label htmlFor="search">Szukaj użytkownika</label>
-        <div className="flex flex-row">
+        <label htmlFor="search" className="text-large">
+          Szukaj użytkownika
+        </label>
+        <div className="flex flex-row gap-4">
           <input
             type="text"
             name="search"
             id="search"
-            placeholder="email"
+            placeholder="Email"
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}
           />
-          <button type="submit">
-            {searching ? <CircularProgress /> : "Szukaj"}
-          </button>
+          <FilledButton type="submit">{searching ? "" : "Szukaj"}</FilledButton>
         </div>
       </form>
     </>

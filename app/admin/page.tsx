@@ -1,5 +1,6 @@
 import { getAllUsers } from "@/actions/adminActions";
 import UserElements from "@/components/admin/user";
+import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import {
   HydrationBoundary,
   QueryClient,
@@ -12,13 +13,13 @@ const Page = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ["users"],
-    queryFn: async () => await getAllUsers(1, userLimit),
+    queryFn: async () => await getAllUsers(10, userLimit),
   });
 
   return (
-    <div>
-      <h1>Admin dashboard</h1>
-      <h2>Wszyscy uzytkownicy</h2>
+    <div className="page">
+      <BackgroundedHeader>Panel administratora</BackgroundedHeader>
+      
 
       <HydrationBoundary state={dehydrate(queryClient)}>
         <UserElements />

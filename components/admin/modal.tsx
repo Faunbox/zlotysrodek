@@ -2,16 +2,17 @@
 import { updateUserData } from "@/actions/adminActions";
 import {
   Button,
-  CircularProgress,
   Input,
   Modal,
   ModalBody,
   ModalContent,
+  ModalFooter,
   ModalHeader,
   Textarea,
   useDisclosure,
 } from "@nextui-org/react";
 import { useState } from "react";
+import FilledButton from "../typography/filledButton";
 
 const ModalAdminPanel = ({ data }: any) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -50,9 +51,9 @@ const ModalAdminPanel = ({ data }: any) => {
 
   return (
     <>
-      <Button size="sm" className="border-black border-1" onPress={onOpen}>
+      <FilledButton color="bg-green" text="white" onClick={onOpen}>
         Zmien
-      </Button>
+      </FilledButton>
       <Modal
         isOpen={isOpen}
         placement={"top-center"}
@@ -101,19 +102,24 @@ const ModalAdminPanel = ({ data }: any) => {
                   </div>
                   <div>
                     <Button
-                      className="mt-6"
+                      className="mt-6 disabled:bg-lightGreen bg-green"
                       type="submit"
                       color="primary"
                       disabled={done}
                     >
-                      {sending ? <CircularProgress /> : "Zmień dane"}
+                      Zmień dane
                     </Button>
+
                     <Button color="danger" variant="light" onPress={onClose}>
                       Zamknij
                     </Button>
                   </div>
                 </form>
               </ModalBody>
+              <ModalFooter className="flex items-center w-auto justify-start">
+                <p>{sending && "Zmieniam dane. . ."}</p>
+                <p>{done && "Dane zostały zmienione"}</p>
+              </ModalFooter>
             </>
           )}
         </ModalContent>

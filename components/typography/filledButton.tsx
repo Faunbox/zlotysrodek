@@ -9,6 +9,7 @@ const FilledButton = ({
   disabled = false,
   px = 5,
   py = 3,
+  onClick,
 }: {
   children: string | React.JSX.Element;
   color?: string;
@@ -18,14 +19,16 @@ const FilledButton = ({
   disabled?: boolean;
   px?: number;
   py?: number;
-  onClick?: () => void
+  onClick?: () => void;
 }) => {
   return (
     <button
       type={type}
       disabled={disabled}
+      onClick={onClick}
       className={`${color} text-${text}  py-${py} px-${px} uppercase ${
-        bold && "font-semibold rounded-md shadow-md disabled:bg-lightGreen"
+        bold &&
+        "font-semibold rounded-md shadow-md disabled:bg-lightGreen hover:scale-105 duration-200 transform"
       }`}
     >
       {children}

@@ -69,7 +69,7 @@ const UserSchema = new Schema(
     },
     adminDescription: {
       type: String,
-      required: true,
+      required: false,
       value: "",
     },
   },

@@ -5,6 +5,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import SearchPanel from "./searchPanel";
 import ModalAdminPanel from "./modal";
+import Pagination from "./pagination";
 
 export type UserResponse = {
   status: string;
@@ -19,7 +20,7 @@ export type UserResponse = {
 };
 
 const UserElements = () => {
-  const [pagination, setPagination] = useState({ limit: 1, page: 1 });
+  const [pagination, setPagination] = useState({ limit: 10, page: 1 });
   const [searchResponse, setSearchResponse] = useState<UserResponse>({
     status: "",
     user: { name: "", surname: "", email: "" },
@@ -39,16 +40,12 @@ const UserElements = () => {
     });
   };
 
-  const handleSubmit = async (formData: FormData) => {
-    try {
-    } catch (error) {}
-  };
-
   if (error) return <p>Błąd podczas pobierania danych</p>;
   if (isLoading) return <p>Ładuję...</p>;
 
   return (
-    <div className="md:w-1/4 border-black border-2 flex flex-col">
+    <div className="flex flex-col w-9/12 bg-lightGreen mt-10 mb-10 p-24 items-start gap-4 rounded-md">
+      <h4 className="font-semibold text-xl mb-6">Wszyscy użytkownicy</h4>
       <SearchPanel
         state={searchResponse}
         setState={setSearchResponse}
@@ -57,7 +54,7 @@ const UserElements = () => {
       {/* Show searched user */}
       {searchResponse.status === "success" && (
         <div>
-          <p>
+          <p className="m-4 inline-block font-medium ">
             {searchResponse.user?.name! as string}{" "}
             {searchResponse.user?.surname as string}{" "}
             {searchResponse.user?.email! as string}
@@ -67,51 +64,26 @@ const UserElements = () => {
       )}
       {/* Show all users */}
       {searchResponse.status === "" && (
-        <ul>
-          {data.data?.map((user: UserType) => (
-            <li key={user?._id} className="my-4">
-              <p>
-                {user.name as string} {user.surname as string}{" "}
-                {user?.email as string}
-              </p>
-
-              <ModalAdminPanel data={user} />
-            </li>
-          ))}
-          <select
-            name="limit"
-            id="limit"
-            onChange={(e) => {
-              setPagination({ ...pagination, limit: Number(e.target.value) });
-
-              // router.replace(`?page=${pagination.page}?=limit=${pagination.limit}`);
-            }}
-          >
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-          </select>
-          {pagination.page >= 2 && (
-            <button
-              onClick={() => {
-                setPagination({ ...pagination, page: --pagination.page });
-                // router.replace(`?page=${pagination.page}?=limit=${pagination.limit}`);
-              }}
-            >
-              Poprzednia strona
-            </button>
-          )}
-          <button
-            onClick={() => {
-              setPagination({ ...pagination, page: ++pagination.page });
-              // router.replace(`?page=${pagination.page}?=limit=${pagination.limit}`);
-            }}
-            disabled={pagination.page >= data.totalPages}
-          >
-            {pagination.page >= data.totalPages
-              ? "Nie ma juz stron"
-              : "Kolejna strona"}
-          </button>
-        </ul>
+        <>
+          <ul className="inline-block ">
+            {data.data?.map((user: UserType) => (
+              <div key={user?._id} className="border-t-2 border-darkGreen py-4">
+                <li className="m-4 inline-block font-medium ">
+                  <p>
+                    {user.name as string} {user.surname as string}{" "}
+                    {user?.email as string}
+                  </p>
+                </li>
+                <ModalAdminPanel data={user} />
+              </div>
+            ))}
+          </ul>
+          <Pagination
+            fetchedData={data}
+            pagination={pagination}
+            setPagination={setPagination}
+          />
+        </>
       )}
     </div>
   );
