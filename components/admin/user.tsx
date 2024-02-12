@@ -6,6 +6,7 @@ import { useState } from "react";
 import SearchPanel from "./searchPanel";
 import ModalAdminPanel from "./modal";
 import Pagination from "./pagination";
+import VisitationEndComponent from "./visitationEndComponent";
 
 export type UserResponse = {
   status: string;
@@ -75,6 +76,7 @@ const UserElements = () => {
                   </p>
                 </li>
                 <ModalAdminPanel data={user} />
+                <VisitationEndComponent email={user?.email}>Zakończ wizytę</VisitationEndComponent>
               </div>
             ))}
           </ul>

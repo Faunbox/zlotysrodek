@@ -31,6 +31,7 @@ export type UserType = {
   newsletter?: boolean;
   adminDescription?: string;
   freeConsultation?: boolean | number | string;
+  nextMeeting?: string;
 };
 
 type ResponseData = {
@@ -100,15 +101,14 @@ export async function registerUser(formData: FormData) {
         .then(async (user) => {
           newUserEmail = user.email;
           try {
-
             await mongooseDbConnect();
             const newUser = await user.save();
             await mongooseDbDisconnect();
           } catch (error) {
-            return response = {
+            return (response = {
               status: "error",
               message: "Błąd poczas tworzenia konta",
-            }
+            });
           }
         })
         .then(

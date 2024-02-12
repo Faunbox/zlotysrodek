@@ -23,6 +23,7 @@ const UserInfo = ({ user }: { user: UserType }) => {
           <li>Nr telefonu: {user.phoneNumber as number}</li>
           <li>Email: {user.email as string}</li>
           <li>Konsultacje: {user.consultations as number}</li>
+          <li>Następna konsultacja: {user.nextMeeting as string}</li>
           {/* <li>Zmień dane użytkownika</li> */}
         </ul>
         <div className="flex flex-col items-start justify-center gap-6 text-darkGreen w-full">

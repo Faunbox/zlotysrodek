@@ -72,6 +72,10 @@ const UserSchema = new Schema(
       required: false,
       value: "",
     },
+    nextMeeting: {
+      type: String,
+      required: false,
+    },
   },
   { timestamps: true }
 );
