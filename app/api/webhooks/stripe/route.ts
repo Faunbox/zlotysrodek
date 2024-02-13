@@ -18,6 +18,8 @@ export async function POST(req: Request) {
   try {
     switch (event.type) {
       case "checkout.session.completed":
+        console.log("jestem");
+        
         //get checkout info
         const paymentIntentSucceeded = event.data.object;
         const checkoutId = paymentIntentSucceeded.id;
@@ -30,13 +32,17 @@ export async function POST(req: Request) {
         const customerEmail = paymentIntentSucceeded.customer_details
           ?.email as string;
 
+        lineItems.data.map((item) => console.log(item));
+
         const getUserInfo = await findUserByEmail(customerEmail);
 
         if (getUserInfo !== undefined) {
           const res = await updateUserByEmail(customerEmail, {
-            consultations: getUserInfo?.consultations! as number + consultation?.quantity!,
-          })
-          
+            consultations:
+              (getUserInfo?.consultations! as number) + consultation?.quantity!,
+          });
+          console.log({ res });
+
           const email = {
             to: "faunbox2@gmail.com",
             from: process.env.SENDGRID_EMAIL!,
@@ -67,5 +73,5 @@ export async function POST(req: Request) {
       },
       { status: 500 }
     );
-  } 
+  }
 }

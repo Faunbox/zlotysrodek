@@ -37,7 +37,7 @@ const Navbar = () => {
         </Link>
       </div>
       {/* Desktop menu */}
-      <div className="hidden lg:inline-block">
+      <div className="hidden md:inline-block">
         <ul className="flex flex-row  gap-5 text-white items-center justify-center uppercase text-sm font-light">
           {navbarData.map((link) => (
             <Link
@@ -62,7 +62,7 @@ const Navbar = () => {
           />
         </button>
         {open && (
-          <ul className="fixed top-0 right-0 left-0 flex flex-col bg-white opacity-90 backdrop-blur-md h-screen w-screen gap-5 text-darkGreen items-center justify-center uppercase text-md font-semibold  z-40">
+          <ul className="fixed top-[0%] left-[0%] flex flex-col bg-white opacity-90 backdrop-blur-md h-screen w-screen gap-5 text-darkGreen items-center justify-center uppercase text-md font-semibold  z-40">
             <button onClick={handleClick} className="absolute top-5 right-8">
               <RxCross2 size={40} />
             </button>

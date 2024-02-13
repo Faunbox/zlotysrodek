@@ -4,14 +4,24 @@ const Page = async ({ params }: { params: { id: string } }) => {
   const data = await getCheckoutInfo(params.id!);
 
   return (
-    <div>
-      <p>Dziękujemy za zakup {data?.user?.name as string}! Na adres email</p>
+    <main className="page py-20 text-large gap-4">
+      <h3 className="text-xl">
+        Dziękujemy za zakup{" "}
+        <span className="font-semibold">{data?.user?.name as string}</span>!{" "}
+      </h3>
       <p>
-        {data.checkout.customer_details?.email} został wysłany email z
-        potwierdzeniem!
+        Na adres email{" "}
+        <span className="font-semibold">
+          {data.checkout.customer_details?.email}
+        </span>{" "}
+        został wysłany email z potwierdzeniem transakcji.
       </p>
-      <p>Aktualnie posiadasz: {data?.user?.consultations} konsultacji</p>
-    </div>
+      <p>
+        Aktualnie posiadasz:{" "}
+        <span className="font-semibold">{data?.user?.consultations}</span>{" "}
+        konsultacji
+      </p>
+    </main>
   );
 };
 

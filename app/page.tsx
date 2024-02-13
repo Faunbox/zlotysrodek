@@ -1,3 +1,4 @@
+import BasicInfo from "@/components/home_page/basicInfo";
 import BlogMagnet from "@/components/home_page/blogMagnet";
 import ContactMagnet from "@/components/home_page/contactMagnet";
 import FollowMe from "@/components/home_page/follow";
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="page">
       <HeroSection />
       <FollowMe />
+      <BasicInfo />
       <BlogMagnet />
       <Info />
       <ContactMagnet />

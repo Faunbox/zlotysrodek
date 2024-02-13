@@ -9,7 +9,7 @@ const FooterNav = () => {
     // { text: "Blog", href: "/blog" },
     { text: "Kontakt", href: "/kontakt" },
     { text: "Logowanie", href: "/logowanie" },
-    { text: "Polityka prywatności", href: "/oferta" },
+    { text: "Polityka prywatności", href: "/polityka" },
     { text: "Regulamin", href: "/regulamin" },
     { text: "RODO", href: "/rodo" },
   ];

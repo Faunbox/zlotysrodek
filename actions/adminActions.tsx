@@ -88,15 +88,14 @@ export async function sendEndEmail(formData: FormData) {
     html: `<main><h2>Następne spotkanie</h2><div><p>Data: ${date}</p><p>Godzina: ${time}</p><p>Link do spotkania: ${link}</p></div></main>`,
   };
 
-  const meetingDate = (date! as string) + time!;
+  const meetingDate = (date! as string) + " " + time!;
 
   try {
     await sendEmail(emailHtml);
 
-    const update = await updateUserByEmail(email!, {
+    await updateUserByEmail(email!, {
       nextMeeting: meetingDate,
     });
-    console.log(update);
   } catch (error) {
     response = {
       status: "error",

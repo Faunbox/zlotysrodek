@@ -20,10 +20,26 @@ const UserInfo = ({ user }: { user: UserType }) => {
         </div>
         <ul className="w-full text-large tracking-wide gap-3 flex flex-col">
           <li>Użytkownik: {user.username as string}</li>
-          <li>Nr telefonu: {user.phoneNumber as number}</li>
-          <li>Email: {user.email as string}</li>
+          <li>
+            Nr telefonu:{" "}
+            <a
+              href={`tel:${user.phoneNumber}`}
+              className="hover:underline underline-offset-4"
+            >
+              {user.phoneNumber as number}
+            </a>
+          </li>
+          <li>
+            Email:{" "}
+            <a
+              href={`mailto:${user.email}`}
+              className="hover:underline underline-offset-4"
+            >
+              {user.email as string}
+            </a>
+          </li>
           <li>Konsultacje: {user.consultations as number}</li>
-          <li>Następna konsultacja: {user.nextMeeting as string}</li>
+          {user?.nextMeeting && <li>Następna konsultacja: {user.nextMeeting as string}</li>}
           {/* <li>Zmień dane użytkownika</li> */}
         </ul>
         <div className="flex flex-col items-start justify-center gap-6 text-darkGreen w-full">
