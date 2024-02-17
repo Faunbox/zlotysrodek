@@ -6,7 +6,7 @@ import { FaPhone } from "react-icons/fa6";
 
 const FollowMe = () => {
   return (
-    <section className=" font-montserrat text-sm flex w-full py-10 content-end items-start justify-end z-10 fixed bottom-[10%] ml-14">
+    <section className=" font-montserrat text-sm flex w-full py-10 content-end items-start justify-end z-10 fixed bottom-[10%] md:ml-14">
       <div className="rotate-90 flex flex-row items-center justify-center gap-2 uppercase">
         <p>Śledź mnie </p>
         <IoIosArrowRoundDown className="-rotate-90" />

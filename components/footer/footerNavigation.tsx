@@ -15,11 +15,15 @@ const FooterNav = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-2 w-6/12">
+    <div className="flex flex-col gap-2 w-full md:w-6/12">
       <h2 className="font-semibold uppercase">Nawigacja</h2>
       <ul className="grid gap-3">
         {navigation.map((navElem) => (
-          <Link key={navElem.href} href={navElem.href} className="font-light text-sm tracking-wider">
+          <Link
+            key={navElem.href}
+            href={navElem.href}
+            className="font-light text-sm tracking-wider"
+          >
             {navElem.text}
           </Link>
         ))}

@@ -24,8 +24,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-screen flex flex-row sticky bg-green top-0 right-0 left-0 z-50 justify-around items-center">
-      <div>
+    <nav className="w-full flex flex-row sticky bg-green top-0 right-0 left-0 z-50 justify-around items-center">
+      <div className="w-1/2">
         <Link href={"/"}>
           <Image
             src={"/images/logo3.svg"}
@@ -37,7 +37,7 @@ const Navbar = () => {
         </Link>
       </div>
       {/* Desktop menu */}
-      <div className="hidden md:inline-block">
+      <div className="hidden lg:inline-block">
         <ul className="flex flex-row  gap-5 text-white items-center justify-center uppercase text-sm font-light">
           {navbarData.map((link) => (
             <Link
@@ -54,7 +54,7 @@ const Navbar = () => {
         </ul>
       </div>
       {/* Mobile Menu */}
-      <div className="md:hidden">
+      <div className="lg:hidden ">
         <button onClick={handleClick} className={`z-50 `}>
           <FiMenu
             size={35}

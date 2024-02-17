@@ -17,9 +17,9 @@ const Info = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center mx-60 my-20 text-green">
+    <section className="flex flex-col items-center justify-center md:mx-60 my-20 text-green">
       <Header>DODATKOWE INFORMACJE O WSPÓŁPRACY</Header>
-      <div className="grid grid-cols-2 gap-4 text-center text-darkGreen">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center text-darkGreen">
         {texts.map((text) => (
           <div
             key={text.data.slice(1, 8)}

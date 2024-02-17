@@ -15,11 +15,10 @@ export async function POST(req: Request) {
 
   const event = stripe.webhooks.constructEvent(body, signature!, secret!);
   let response;
+  let consultations = 0;
   try {
     switch (event.type) {
       case "checkout.session.completed":
-        console.log("jestem");
-        
         //get checkout info
         const paymentIntentSucceeded = event.data.object;
         const checkoutId = paymentIntentSucceeded.id;
@@ -28,13 +27,29 @@ export async function POST(req: Request) {
         const lineItems = await stripe.checkout.sessions.listLineItems(
           checkoutId
         );
+
+        lineItems.data.map(async (consultation) => {
+          const pucharsedQuantity = consultation?.quantity;
+          const pucharsedProduct = consultation.price?.product;
+
+          const product = await stripe.products.retrieve(
+            pucharsedProduct! as string
+          );
+          const productMetadataQuantity = product.metadata.quantity;
+
+          const fullQuantity =
+            Number(productMetadataQuantity) * Number(pucharsedQuantity);
+          consultations = consultations + fullQuantity;
+        });
+        
         const consultation = lineItems.data[0];
+        
+        
         const customerEmail = paymentIntentSucceeded.customer_details
-          ?.email as string;
-
-        lineItems.data.map((item) => console.log(item));
-
+        ?.email as string;
+        
         const getUserInfo = await findUserByEmail(customerEmail);
+        console.log(consultations);
 
         if (getUserInfo !== undefined) {
           const res = await updateUserByEmail(customerEmail, {
@@ -51,6 +66,7 @@ export async function POST(req: Request) {
             html: "<div><p>Dodano spotaknia do Twojego konta</p></div>",
           };
           await sendEmail(email);
+          console.log("email wysłany");
 
           response = res;
         } else {

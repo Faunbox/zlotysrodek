@@ -5,7 +5,7 @@ const Offert = () => {
   return (
     <section className="flex flex-col items-center justify-center text-green my-20 w-9/12">
       <Header>Oferta</Header>
-      <div className="flex flex-row gap-20 items-center justify-center text-white">
+      <div className="flex flex-col md:flex-row gap-20 items-center justify-center text-white">
         <div className="bg-offertGreen flex flex-col gap-10 p-10 items-center justify-center w-full text-center">
           <p className="text-sm px-6 font-light">
             Kupując pakiet 4 konsultacji oszczędzasz 80 zł, płacąc za spotkanie

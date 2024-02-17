@@ -1,7 +1,7 @@
 const BenefitsComponent = () => {
   return (
-    <div className="w-9/12 mx-60 flex items-center justify-center my-20">
-      <ul className="list-image-avocado">
+    <div className="mx-10 md:w-9/12 md:mx-60 flex items-center justify-center my-20">
+      <ul className="list-image-avocad flex flex-col gap-8">
         <li className="marker:text-[2.25em] marker:list-item tracking-wide">
           <h4 className="font-semibold">Stały kontakt</h4>
           <p>

@@ -3,7 +3,7 @@ import FilledButton from "../typography/filledButton";
 const OptionsComponent = ({ email }: { email: string }) => {
   return (
     <section className="flex flex-col items-center justify-center text-white mx-auto mt-20 w-9/12">
-      <div className="flex flex-row gap-20 items-center justify-center">
+      <div className="flex flex-col md:flex-row gap-20 items-center justify-center">
         <div className="bg-offertGreen flex flex-col gap-10 p-10 items-center justify-center w-full text-center">
           <p className="text-sm px-6 font-light">
             Kupując pakiet 4 konsultacji oszczędzasz 80 zł, płacąc za spotkanie
@@ -24,7 +24,7 @@ const OptionsComponent = ({ email }: { email: string }) => {
           </a>
         </div>
 
-        <div className="bg-green  flex flex-col gap-10 p-10 lg:mb-24 items-center justify-center w-full">
+        <div className="bg-green flex flex-col gap-10 p-10 lg:mb-24 items-center justify-center w-full">
           <ul className="flex flex-col text-sm list-disc gap-2 text-left font-light">
             <li>Spotkamy się na 50 min </li>
             <li>Przeanalizujemy Twój przypadek</li>{" "}
