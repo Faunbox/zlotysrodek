@@ -26,7 +26,7 @@ const FooterContact = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-2 w-6/12 mx-auto">
+    <div className="flex flex-col gap-2 w-6/12 mx-auto text-start lg:text-center">
       <h2 className="font-semibold uppercase">Kontakt</h2>
       <ul className="text-white gap-3 grid">
         {contactData.map((contactElem) => (

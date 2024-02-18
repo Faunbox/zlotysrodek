@@ -4,7 +4,7 @@ import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 
 const Contact = () => {
   return (
-    <main className="">
+    <main className="flex flex-col">
       <BackgroundedHeader>Kontakt</BackgroundedHeader>
       <FormSection />
       <SocialPanel />

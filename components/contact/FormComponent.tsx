@@ -91,7 +91,7 @@ const FormComponent = () => {
             className="border-black border-1 resize-y max-h-full h-auto "
           />
         </div>
-        <div className="flex w-full items-center mt-5">
+        <div className="flex w-full justify-end md:items-center mt-5">
           <p>{response.message}</p>
           <SubmitButton disabled={disabled} />
         </div>

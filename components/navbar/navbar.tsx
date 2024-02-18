@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full flex flex-row sticky bg-green top-0 right-0 left-0 z-50 justify-around items-center">
+    <nav className="w-full flex flex-row sticky px-10 bg-green top-0 right-0 left-0 z-50 justify-around items-center">
       <div className="w-1/2">
         <Link href={"/"}>
           <Image

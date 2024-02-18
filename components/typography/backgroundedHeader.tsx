@@ -10,7 +10,7 @@ const BackgroundedHeader = ({
   return (
     <header className="w-full bg-green pb-6 pt-6 ">
       <h3
-        className={`${size} ${position} text-white font-abhaya mx-60 tracking-wide	`}
+        className={`${size} ${position} text-white font-abhaya mx-10 lg:mx-20 tracking-wide	`}
       >
         {children}
       </h3>

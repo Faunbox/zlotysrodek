@@ -4,9 +4,9 @@ import { SlSocialInstagram } from "react-icons/sl";
 
 const SocialPanel = () => {
   return (
-    <section className="mx-60 mb-20 ">
-      <div className="flex flex-col md:flex-row text-darkGreen gap-10">
-        <div className="flex flex-col items-center justify-center w-4/12">
+    <section className="mx-10 lg:mx-40 mb-20 ">
+      <div className="flex flex-col items-center justify-center md:flex-row text-darkGreen gap-10">
+        <div className="flex flex-col items-center justify-center md:w-4/12">
           <a
             href="tel:+48602778499"
             target="_blank"
@@ -17,7 +17,7 @@ const SocialPanel = () => {
             <p className="text-medium mt-6">+48 602 778 499</p>
           </a>
         </div>
-        <div className="flex flex-col items-center justify-center w-4/12">
+        <div className="flex flex-col items-center justify-center md:w-4/12">
           <a
             href="mailto:kontakt@zlotysrodek.eu"
             target="_blank"
@@ -28,7 +28,7 @@ const SocialPanel = () => {
             <p className="text-medium mt-6">kontakt@zlotysrodek.eu</p>
           </a>
         </div>
-        <div className="flex flex-col items-center justify-center w-4/12">
+        <div className="flex flex-col items-center justify-center md:w-4/12">
           <a
             href="https://www.instagram.com/zloty__srodek/"
             target="_blank"
@@ -41,7 +41,7 @@ const SocialPanel = () => {
             <p className="text-medium mt-6">zloty__srodek</p>
           </a>
         </div>
-        <div className="flex flex-col items-center justify-center w-4/12">
+        <div className="flex flex-col items-center justify-center md:w-4/12">
           <a
             href="https://www.facebook.com/zllotysrodek"
             target="_blank"

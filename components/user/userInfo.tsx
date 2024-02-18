@@ -1,5 +1,4 @@
 import { UserType } from "@/actions/authActions";
-import { IoMdPerson } from "react-icons/io";
 import FilledButton from "../typography/filledButton";
 import Link from "next/link";
 import VeryficationButton from "./confirmationButton";
@@ -8,8 +7,8 @@ import Image from "next/image";
 
 const UserInfo = ({ user }: { user: UserType }) => {
   return (
-    <section className="mx-60 flex flex-col w-7/12">
-      <div className="flex flex-col relative items-start justify-center text-black bg-ligtherGreen mt-10 mb-10 p-24 rounded-md gap-10 w-full">
+    <section className="lg:mx-60 flex flex-col lg:w-7/12">
+      <div className="flex flex-col relative items-start justify-center text-black bg-ligtherGreen mt-24 mb-10 p-24 md:rounded-md gap-10 w-full">
         <div className="absolute -top-[0] left-[50%] translate-x-[-50%] translate-y-[-50%]  max-w-[150px] max-h-[150px] rounded-full bg-lightGreen w-full h-full overflow-hidden">
           <Image
             src={"/images/ludzik.svg"}
@@ -39,7 +38,9 @@ const UserInfo = ({ user }: { user: UserType }) => {
             </a>
           </li>
           <li>Konsultacje: {user.consultations as number}</li>
-          {user?.nextMeeting && <li>Następna konsultacja: {user.nextMeeting as string}</li>}
+          {user?.nextMeeting && (
+            <li>Następna konsultacja: {user.nextMeeting as string}</li>
+          )}
           {/* <li>Zmień dane użytkownika</li> */}
         </ul>
         <div className="flex flex-col items-start justify-center gap-6 text-darkGreen w-full">
@@ -54,7 +55,7 @@ const UserInfo = ({ user }: { user: UserType }) => {
               <FilledButton>Panel administratora</FilledButton>
             </Link>
           )}
-          <div className="flex flex-col md:flex-row justify-between items-center w-full">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-5 w-full">
             <Link href={"/oferta"}>
               <FilledButton color="bg-darkGreen" text="white">
                 Kup Konsultacje

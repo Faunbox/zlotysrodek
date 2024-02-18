@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const StepsComponent = () => {
   return (
-    <section className="flex flex-col mx-10 md:mx-60 py-20 md:flex-row text-darkGreen md:gap-10 text-center items-center md:items-start justify-center">
+    <section className="flex flex-col mx-10 lg:mx-60 py-20 md:flex-row text-darkGreen md:gap-10 text-center items-center md:items-start justify-center">
       <div className="flex flex-col items-center justify-start md:w-2/12 gap-8">
         <Image
           src={"/images/1.svg"}
@@ -16,7 +16,7 @@ const StepsComponent = () => {
           kontaktowy lub mailowo.
         </p>
       </div>
-      <div className="w-1/12 py-10  ">
+      <div className="w-1/12 py-10 lg:py-16  ">
         <Image
           src={"/images/strz.svg"}
           alt={"Jeden svg"}
@@ -38,7 +38,7 @@ const StepsComponent = () => {
           konsultacji).
         </p>
       </div>
-      <div className="w-1/12 py-10">
+      <div className="w-1/12 py-10 lg:py-16  ">
         <Image
           src={"/images/strz.svg"}
           alt={"Jeden svg"}
