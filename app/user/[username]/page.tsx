@@ -1,9 +1,6 @@
 import BackgroundedHeader from "@/components/typography/backgroundedHeader";
-import VeryficationButton from "@/components/user/confirmationButton";
-import ResetPasswordButton from "@/components/user/resetPasswordButton";
 import UserInfo from "@/components/user/userInfo";
 import { findUser } from "@/lib/mongoose";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 async function getData(email: string) {

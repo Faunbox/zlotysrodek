@@ -2,17 +2,17 @@ import Image from "next/image";
 
 const Reasons = () => {
   return (
-    <section className="flex flex-col mx-60 lg:flex-row relative">
-      <div className="w-6/12">
+    <section className="flex flex-col mx-10 pb-10 lg:mx-20 lg:flex-row relative">
+      <div className="hidden lg:flex w-6/12">
         <Image
           src={"/images/cooking.jpeg"}
           alt="Gotowanie"
           width={450}
           height={600}
-          className="absolute -top-10"
+          className="lg:absolute lg:-top-10"
         />{" "}
       </div>
-      <div className="w-6/12 py-5 pl-14">
+      <div className="lg:w-6/12 py-5 lg:pl-14">
         <ul className="list-image-avocado">
           <li className="marker:text-[2.25em] marker:list-item tracking-wide">
             <h4 className="font-semibold">Dieta nie pomaga?</h4>
