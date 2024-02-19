@@ -2,10 +2,10 @@ import Image from "next/image";
 
 const TextComponent = () => {
   return (
-    <div className="flex flex-row gap-20 mx-60 text-green relative">
-      <div className="flex flex-col text-large gap-4 text-left mb-32">
-        <div className="flex flex-row ">
-          <div className="flex flex-col gap-2 mt-20 w-8/12">
+    <div className="flex flex-row gap-20 lg:mx-20 text-green relative">
+      <div className="flex flex-col text-large gap-4 text-left  mx-10 mb-32">
+        <div className="flex flex-col lg:flex-row ">
+          <div className="flex flex-col gap-2 mt-20 lg:w-6/12">
             <p className="font-semibold">
               Nazywam się Dorota Sojecka i jestem absolwentką studiów
               podyplomowych na kierunku Dietetyka i planowanie żywienia oraz
@@ -35,23 +35,26 @@ const TextComponent = () => {
               życia w zgodzie ze sobą.
             </p>
           </div>
-          <div className="w-4/12">
+        </div>
+        <div className="flex flex-col md:flex-row lg:flex-col items-center justify-between gap-10 lg:gap-0">
+          <div className="w-full md:w-6/12 lg:w-4/12 my-5 ">
             <Image
               src={"/images/AboutDorotka.jpg"}
               alt="Dorota Sojecka"
               width={336}
               height={500}
-              className="ml-20 object-contain absolute -top-20"
+              className="lg:ml-20 object-contain lg:absolute lg:-top-10 lg:right-0"
             />
           </div>
+          <div className="md:w-6/12 lg:w-full">
+            <p>
+              Podczas indywidualnych konsultacji wyjaśniam, jaki wpływ na
+              samopoczucie i dobrostan ma racjonalne odżywianie i zdrowy styl
+              życia oraz motywuję do zmian – pomagam wyznaczyć realne cele i
+              małymi krokami do nich dążyć.
+            </p>
+          </div>
         </div>
-
-        <p>
-          Podczas indywidualnych konsultacji wyjaśniam, jaki wpływ na
-          samopoczucie i dobrostan ma racjonalne odżywianie i zdrowy styl życia
-          oraz motywuję do zmian – pomagam wyznaczyć realne cele i małymi
-          krokami do nich dążyć.
-        </p>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full flex flex-row sticky px-10 bg-green top-0 right-0 left-0 z-50 justify-around items-center">
+    <nav className="w-full flex flex-row sticky px-2 lg:px-10 bg-green top-0 right-0 left-0 z-50 justify-around items-center">
       <div className="w-1/2">
         <Link href={"/"}>
           <Image
@@ -38,7 +38,7 @@ const Navbar = () => {
       </div>
       {/* Desktop menu */}
       <div className="hidden lg:inline-block">
-        <ul className="flex flex-row  gap-5 text-white items-center justify-center uppercase text-sm font-light">
+        <ul className="flex flex-row gap-10 text-white items-center justify-center uppercase text-sm font-light">
           {navbarData.map((link) => (
             <Link
               href={link.href}

@@ -4,12 +4,14 @@ import FilledButton from "../typography/filledButton";
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-green w-screen h-[71vh]  mb-20 flex justify-center items-center z-10 text-white overflow-hidden after:bg-white after:absolute after:-bottom-20 after:left-0 after:right-0 after:-rotate-6 after:w-[150vw] after:h-[38%] ">
-      <div className="flex flex-row gap-10 items-center justify-center w-9/12">
-        <div className="flex flex-col w-full">
-          <h1 className="text-7xl font-abhaya">Psychodietetyk</h1>
-          <h2 className="text-4xl font-abhaya">Konsultant żywieniowy</h2>
-          <div className="flex flex-col gap-3 py-6 text-large w-8/12">
+    <div className="relative bg-green w-screen h-full lg:h-[71vh] mb-20 flex justify-center items-center z-10 text-white overflow-hidden after:bg-white after:absolute after:-bottom-20 after:left-0 after:right-0 after:-rotate-6 after:w-[150vw] after:h-[28%] after:lg:h-[38%]">
+      <div className="flex flex-row gap-10 items-center justify-center md:w-9/12">
+        <div className="flex flex-col mx-10 mb-24">
+          <h1 className="text-4xl lg:text-7xl font-abhaya">Psychodietetyk</h1>
+          <h2 className="text-2xl lg:text-4xl font-abhaya">
+            Konsultant żywieniowy
+          </h2>
+          <div className="flex flex-col gap-3 py-6 text-medium lg:text-large md:w-8/12">
             <p className="">
               <span className="uppercase text-gold font-semibold">Uczę</span>{" "}
               ludzi zdrowego stylu życia i poprawnej relacji z jedzeniem.
@@ -20,12 +22,12 @@ const HeroSection = () => {
                   POMAGAM
                 </span>{" "}
                 zmienić niezdrowe nawyki żywieniowe i odnaleźć
-                </p>
-                <p>
-                  <span className="uppercase text-gold font-semibold">
-                    ZŁOTY ŚRODEK -
-                  </span>{" "}
-                  własny dobrostan
+              </p>
+              <p>
+                <span className="uppercase text-gold font-semibold">
+                  ZŁOTY ŚRODEK -
+                </span>{" "}
+                własny dobrostan
               </p>
             </div>
             <p>
@@ -47,12 +49,13 @@ const HeroSection = () => {
             </Link>
           </div>
         </div>
-        <div className="w-4/12">
+        <div className="md:w-4/12">
           <Image
             src={"/images/hero-image.png"}
             alt="psychodietetyk"
             width={300}
             height={600}
+            className="hidden md:flex "
           />
         </div>
       </div>
