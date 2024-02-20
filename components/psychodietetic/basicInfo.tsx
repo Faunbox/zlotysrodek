@@ -3,8 +3,8 @@ import Image from "next/image";
 const BasicInfo = () => {
   return (
     <section className="flex flex-col lg:mx-20 text-green">
-      <div className="flex flex-col md:flex-row">
-        <div className="flex flex-col md:w-7/12 relative mx-10  py-20 gap-5 text-green lg:pr-10">
+      <div className="flex flex-col md:flex-row lg:mb-6">
+        <div className="flex flex-col md:w-7/12 relative mx-10 py-20 gap-5 text-green lg:pr-10">
           <p>
             Psychodietetyk różni się od dietetyków przede wszystkim podejściem
             do pracy. W założeniu dietetyka uczy o tym jak jeść w odpowiedzi na
@@ -41,12 +41,12 @@ const BasicInfo = () => {
           />
         </div>
       </div>
-      <h4 className="text-2xl mx-10  font-semibold text-green my-10">
+      <h4 className="text-2xl m-10 font-semibold text-green">
         Pamiętaj! Nie ma gotowych rozwiązań – każdy ma inne potrzeby, inny
         system wartości, inne cele, inne problemy do rozwiązania, różne
         ograniczenia.
       </h4>
-      <div className="flex flex-col mx-10  gap-5 mb-20">
+      <div className="flex flex-col mx-10 gap-5 mb-20">
         <p>
           Ważna jest dla mnie Twoja wiedza na temat własnych możliwości,
           zasobów, czy ewentualnych ograniczeń oraz moja znajomość psychologii
