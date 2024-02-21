@@ -49,7 +49,7 @@ const FormComponent = () => {
   }
 
   return (
-    <aside className="flex flex-col items-start justify-center text-lightGreen mt-14">
+    <aside className="flex flex-col items-start justify-center text-lightGreen mt-14 mx-10">
       <h4 className="text-large font-abhaya">Chcesz nawiązać współpracę?</h4>
       <h4 className="text-large font-abhaya">A może masz pytania?</h4>
       <h3 className="text-2xl font-abhaya">Wyślij wiadomość!</h3>

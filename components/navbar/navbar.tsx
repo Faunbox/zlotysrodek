@@ -24,7 +24,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full flex flex-row sticky px-2 lg:px-10 bg-green top-0 right-0 left-0 z-50 justify-around items-center">
+    <nav className="w-full sticky bg-green top-0 right-0 left-0 z-50 ">
+      <div className="flex flex-row justify-around items-center px-2 lg:px-10 container">
+
+      
       <div className="w-1/2">
         <Link href={"/"}>
           <Image
@@ -81,6 +84,7 @@ const Navbar = () => {
             <UserPanel />
           </ul>
         )}
+      </div>
       </div>
     </nav>
   );
