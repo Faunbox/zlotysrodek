@@ -9,7 +9,7 @@ const FooterNav = () => {
     // { text: "Blog", href: "/blog" },
     { text: "Kontakt", href: "/kontakt" },
     { text: "Logowanie", href: "/logowanie" },
-    { text: "Polityka prywatności", href: "/polityka" },
+    { text: "Polityka prywatności", href: "https://assets.ctfassets.net/mdam2iznmp2s/1CuzcBaoORIqND8y9TnnuI/fad13bfb1459244a33846ebda2771e6c/Vinted-S1145941023.pdf" },
     { text: "Regulamin", href: "/regulamin" },
     { text: "RODO", href: "/rodo" },
   ];

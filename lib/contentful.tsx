@@ -21,3 +21,27 @@ export async function getBlogPosts() {
   //@ts-ignore
   return data.items.map((post) => post.fields);
 }
+
+
+
+export async function getAllCertyficates() {
+  const data = await client.getEntries<EntrySkeletonType>({
+    content_type: "certyfikaty",
+  });
+
+  const certyficates = data.includes?.Asset
+
+  
+
+  const urls = certyficates?.map(certyficate => {
+console.log(certyficate.fields);
+
+    const url = certyficate.fields.file.url
+    const title = certyficate.fields.title
+    const alt = certyficate.fields.description
+    return {url, title, alt}
+  })
+
+  return urls
+   
+}
