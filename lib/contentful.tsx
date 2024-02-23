@@ -27,6 +27,8 @@ export async function getBlogPosts() {
 export async function getAllCertyficates() {
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "certyfikaty",
+    //@ts-ignore
+    order: 'sys.createdAt',
   });
 
   const certyficates = data.includes?.Asset
@@ -34,7 +36,6 @@ export async function getAllCertyficates() {
   
 
   const urls = certyficates?.map(certyficate => {
-console.log(certyficate.fields);
 
     const url = certyficate.fields.file.url
     const title = certyficate.fields.title

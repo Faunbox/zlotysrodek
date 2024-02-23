@@ -37,3 +37,6 @@ TODO.txt
 next-env.d.ts
 
 .vercel
+
+# Sentry Config File
+.sentryclirc
