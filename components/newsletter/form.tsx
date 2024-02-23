@@ -71,6 +71,7 @@ const NewsletterForm = () => {
               id="checkbox"
               className="bg-green hidden"
               checked={newsletterHoneypot}
+              //@ts-ignore
               onChange={setNewsletterHoneypot}
             />
             <input
