@@ -11,6 +11,7 @@ const NewsletterForm = () => {
     message: "",
   });
   const [newsletterCheckbox, setNewsletterCheckbox] = useState(false);
+  const [newsletterHoneypot, setNewsletterHoneypot] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = () => {
@@ -18,7 +19,7 @@ const NewsletterForm = () => {
   };
 
   const onSend = async (formData: FormData) => {
-    if (!newsletterCheckbox) return;
+    if (!newsletterCheckbox && newsletterHoneypot) return;
     const res = await addToContact(formData);
     setResponse(res.response!);
     formRef.current?.reset();
@@ -57,12 +58,21 @@ const NewsletterForm = () => {
               type="email"
               name="email"
               id="email"
+              required
               className="border-white border-1 bg-green"
             />
           </div>
         </div>
         <div className="flex flex-col gap-8">
           <div className="flex flex-row gap-2">
+            {/* Honeypot */}
+            <input
+              type="checkbox"
+              id="checkbox"
+              className="bg-green hidden"
+              checked={newsletterHoneypot}
+              onChange={setNewsletterHoneypot}
+            />
             <input
               type="checkbox"
               id="checkbox"
@@ -81,7 +91,7 @@ const NewsletterForm = () => {
               type="submit"
               color="bg-darkGreen"
               text="white"
-              disabled={response.status ? true : false}
+              disabled={response.status || !newsletterCheckbox ? true : false}
               py={1}
             >
               Wyślij

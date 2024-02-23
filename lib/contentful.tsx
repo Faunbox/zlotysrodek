@@ -31,9 +31,7 @@ export async function getAllCertyficates() {
     order: 'sys.createdAt',
   });
 
-  const certyficates = data.includes?.Asset
-
-  
+  const certyficates = data.includes?.Asset  
 
   const urls = certyficates?.map(certyficate => {
 
@@ -46,3 +44,26 @@ export async function getAllCertyficates() {
   return urls
    
 }
+
+export async function getDownloadableFiles() {
+  const statute = await client.getEntries<EntrySkeletonType>({
+    content_type: "regulaminStrony",
+  });
+  const rodo = await client.getEntries<EntrySkeletonType>({
+    content_type: "rodo",
+  });
+  const privacyPolicy = await client.getEntries<EntrySkeletonType>({
+    content_type: "politykaPrywatnoci",
+  });
+
+  const statuteData = statute?.includes?.Asset
+  const rodoData = rodo?.includes?.Asset
+  const privacyPolicyData = privacyPolicy?.includes?.Asset
+
+  const statuteDataUrl = statuteData![0]?.fields?.file.url
+  const rodoDataUrl = rodoData![0]?.fields?.file.url
+  const privacyPolicyDataUrl = privacyPolicyData![0]?.fields?.file.url
+  
+  return {statuteDataUrl, rodoDataUrl, privacyPolicyDataUrl}
+}
+  

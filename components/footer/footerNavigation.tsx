@@ -1,6 +1,9 @@
+import { getDownloadableFiles } from "@/lib/contentful";
 import Link from "next/link";
 
-const FooterNav = () => {
+const FooterNav = async () => {
+  const data = await getDownloadableFiles();
+
   const navigation = [
     { text: "Strona główna", href: "/" },
     { text: "O mnie", href: "/o-mnie" },
@@ -9,9 +12,12 @@ const FooterNav = () => {
     // { text: "Blog", href: "/blog" },
     { text: "Kontakt", href: "/kontakt" },
     { text: "Logowanie", href: "/logowanie" },
-    { text: "Polityka prywatności", href: "https://assets.ctfassets.net/mdam2iznmp2s/1CuzcBaoORIqND8y9TnnuI/fad13bfb1459244a33846ebda2771e6c/Vinted-S1145941023.pdf" },
-    { text: "Regulamin", href: "/regulamin" },
-    { text: "RODO", href: "/rodo" },
+    {
+      text: "Polityka prywatności",
+      href: `https://${data.privacyPolicyDataUrl}`,
+    },
+    { text: "Regulamin", href: `https://${data.statuteDataUrl}` },
+    { text: "RODO", href: `https://${data.rodoDataUrl}` },
   ];
 
   return (
@@ -22,7 +28,7 @@ const FooterNav = () => {
           <Link
             key={navElem.href}
             href={navElem.href}
-            className="font-light text-sm tracking-wider"
+            className="font-light text-sm tracking-wider hover:font-semibold duration-150"
           >
             {navElem.text}
           </Link>
