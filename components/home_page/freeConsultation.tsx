@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FilledButton from "../typography/filledButton";
 import Header from "../typography/headers";
 
@@ -14,9 +15,11 @@ const FreeConsultation = () => {
           może Ci pomóc.
         </p>
       </div>
-      <FilledButton color="bg-darkGreen" text="white" bold={false}>
-        Wiecej informacji
-      </FilledButton>
+      <Link href={"/kontakt"}>
+        <FilledButton color="bg-darkGreen" text="white" bold={false}>
+          Wiecej informacji
+        </FilledButton>
+      </Link>
     </section>
   );
 };

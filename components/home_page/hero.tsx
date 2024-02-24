@@ -13,12 +13,12 @@ const HeroSection = () => {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-abhaya">
             Konsultant żywieniowy
           </h2>
-          <div className="flex flex-col gap-3 py-6 text-medium md:text-left lg:text-xl md:w-8/12">
+          <div className="flex flex-col gap-3 py-6 text-medium md:text-left lg:text-xl md:w-full">
             <p className="">
               <span className="uppercase text-gold font-semibold">Uczę</span>{" "}
               ludzi zdrowego stylu życia i poprawnej relacji z jedzeniem.
             </p>
-            <div>
+            <div >
               <p>
                 <span className="uppercase text-gold font-semibold">
                   POMAGAM

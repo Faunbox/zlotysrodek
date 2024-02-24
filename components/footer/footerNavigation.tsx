@@ -1,8 +1,14 @@
+"use client";
 import { getDownloadableFiles } from "@/lib/contentful";
+import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
-const FooterNav = async () => {
-  const data = await getDownloadableFiles();
+const FooterNav = () => {
+  
+  const { isLoading, data } = useQuery({
+    queryKey: ["urls"],
+    queryFn: async () => await getDownloadableFiles(),
+  });
 
   const navigation = [
     { text: "Strona główna", href: "/" },
@@ -14,10 +20,10 @@ const FooterNav = async () => {
     { text: "Logowanie", href: "/logowanie" },
     {
       text: "Polityka prywatności",
-      href: `https://${data.privacyPolicyDataUrl}`,
+      href: `https://${data?.privacyPolicyDataUrl}`,
     },
-    { text: "Regulamin", href: `https://${data.statuteDataUrl}` },
-    { text: "RODO", href: `https://${data.rodoDataUrl}` },
+    { text: "Regulamin", href: `https://${data?.statuteDataUrl}` },
+    { text: "RODO", href: `https://${data?.rodoDataUrl}` },
   ];
 
   return (

@@ -2,7 +2,7 @@ import { EntrySkeletonType, createClient } from "contentful";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
+  accessToken: process?.env.CONTENTFUL_ACCESS_TOKEN! as string,
 });
 
 export function contentfulClient() {
@@ -22,27 +22,32 @@ export async function getBlogPosts() {
   return data.items.map((post) => post.fields);
 }
 
-
-
 export async function getAllCertyficates() {
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "certyfikaty",
     //@ts-ignore
-    order: 'sys.createdAt',
+    order: "sys.createdAt",
   });
 
-  const certyficates = data.includes?.Asset  
+  const certyficates = data.includes?.Asset;
 
-  const urls = certyficates?.map(certyficate => {
+  const urls = certyficates?.map((certyficate) => {
+    const url = certyficate.fields.file.url;
+    const title = certyficate.fields.title;
+    const alt = certyficate.fields.description;
+    return { url, title, alt };
+  });
 
-    const url = certyficate.fields.file.url
-    const title = certyficate.fields.title
-    const alt = certyficate.fields.description
-    return {url, title, alt}
-  })
+  return urls;
+}
 
-  return urls
-   
+export async function getStatuate() {
+  const statute = await client.getEntries<EntrySkeletonType>({
+    content_type: "regulaminStrony",
+  });
+  const statuteData = statute?.includes?.Asset;
+  const statuteDataUrl = statuteData![0]?.fields?.file.url;
+  return statuteDataUrl;
 }
 
 export async function getDownloadableFiles() {
@@ -56,14 +61,13 @@ export async function getDownloadableFiles() {
     content_type: "politykaPrywatnoci",
   });
 
-  const statuteData = statute?.includes?.Asset
-  const rodoData = rodo?.includes?.Asset
-  const privacyPolicyData = privacyPolicy?.includes?.Asset
+  const statuteData = statute?.includes?.Asset;
+  const rodoData = rodo?.includes?.Asset;
+  const privacyPolicyData = privacyPolicy?.includes?.Asset;
 
-  const statuteDataUrl = statuteData![0]?.fields?.file.url
-  const rodoDataUrl = rodoData![0]?.fields?.file.url
-  const privacyPolicyDataUrl = privacyPolicyData![0]?.fields?.file.url
-  
-  return {statuteDataUrl, rodoDataUrl, privacyPolicyDataUrl}
+  const statuteDataUrl = statuteData![0]?.fields?.file.url;
+  const rodoDataUrl = rodoData![0]?.fields?.file.url;
+  const privacyPolicyDataUrl = privacyPolicyData![0]?.fields?.file.url;
+
+  return { statuteDataUrl, rodoDataUrl, privacyPolicyDataUrl };
 }
-  

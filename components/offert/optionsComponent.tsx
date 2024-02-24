@@ -1,6 +1,13 @@
+'use client'
+import { useSession } from "next-auth/react";
 import FilledButton from "../typography/filledButton";
 
-const OptionsComponent = ({ email }: { email: string }) => {
+const OptionsComponent = () => {
+
+  const { data: session } = useSession();
+  const email: string = session?.user?.email!;
+
+
   return (
     <section className="flex flex-col items-center justify-center text-white mt-20 mx-10 md:mx-auto lg:w-9/12">
       <div className="flex flex-col lg:flex-row gap-20 items-center justify-center">
