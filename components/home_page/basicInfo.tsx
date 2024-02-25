@@ -2,8 +2,17 @@ import Image from "next/image";
 
 const BasicInfo = () => {
   return (
-    <section className="flex flex-row items-center justify-center text-center md:mx-20 my-20 w-full text-green">
-      <div className="w-full mx-60 relative after:absolute after:h-full after:w-0.5 after:bg-offertGreen after:-left-16 -z-10 after:-ml-0.5 after:top-0">
+    <section className="flex flex-row relative items-start justify-center text-center md:mx-20 my-20 w-full text-green">
+      <div className="w-2/12 sticky top-1/4 flex items-start justify-end mr-[34px] ">
+        <Image
+          src={"/images/logo_footer.svg"}
+          width={70}
+          height={70}
+          alt="logo"
+          className="sticky top-1/4"
+        />
+      </div>
+      <div className="w-7/12 first-letter:mx-60 relative before:absolute before:h-full before:w-0.5 before:bg-offertGreen before:-left-16 -z-10 before:-ml-0.5 before:top-0 before:opacity-50">
         <div className="flex flex-col text-left gap-4 mb-10">
           <div className="flex flex-row relative">
             <Image
@@ -11,7 +20,7 @@ const BasicInfo = () => {
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20"
+              className="absolute top-0 -left-20 z-10"
             />
 
             <h2 className="text-2xl font-semibold uppercase">Jak pracuję?</h2>
@@ -34,7 +43,7 @@ const BasicInfo = () => {
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20"
+              className="absolute top-0 -left-20 z-10"
             />
             <h2 className="text-2xl font-semibold uppercase">
               PRACUJĘ Z OSOBAMI KTÓRE:
@@ -63,7 +72,7 @@ const BasicInfo = () => {
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20"
+              className="absolute top-0 -left-20 z-10"
             />
             <h2 className="text-2xl font-semibold uppercase">
               GDY ZDECYDUJESZ SIĘ NA WSPÓŁPRACĘ:
@@ -96,7 +105,7 @@ const BasicInfo = () => {
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20"
+              className="absolute top-0 -left-20 z-10"
             />
             <h2 className="text-2xl font-semibold uppercase">CO OTRZYMASZ?</h2>
           </div>
@@ -115,7 +124,7 @@ const BasicInfo = () => {
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20"
+              className="absolute top-0 -left-20 z-10"
             />
             <h2 className="text-2xl font-semibold uppercase">
               MÓJ SPOSÓB DZIAŁANIA:
@@ -126,9 +135,9 @@ const BasicInfo = () => {
               <p>
                 <span>
                   Pracuję z małą ilością osób, gdyż stawiam na jakość, a nie
-                  ilość.
+                  ilość.{" "}
                 </span>
-                Chcę żebyś czuła / czuł się bezpieczna/ny i zaopiekowana/ny.
+                Chcę żebyś czuła/czuł się bezpieczna/ny i zaopiekowana/ny.
               </p>
             </li>
             <li>

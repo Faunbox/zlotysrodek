@@ -3,7 +3,7 @@ import FilledButton from "../typography/filledButton";
 
 const BlogMagnet = () => {
   return (
-    <section className="bg-[url('/images/blog.webp')] w-full h-[55vh] max-h-[800px] my-20 bg-bottom bg-cover bg-no-repeat relative">
+    <section className="bg-[url('/images/blog.webp')] w-full h-[55vh] max-h-[450px] my-20 bg-bottom bg-cover bg-no-repeat relative">
       <div className="absolute bottom-20 left-[25%]">
         <Link href={"/blog"}>
           <FilledButton color="bg-darkGreen" text="white" px={12}>
