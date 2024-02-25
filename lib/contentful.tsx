@@ -9,6 +9,16 @@ export function contentfulClient() {
   return client;
 }
 
+export async function getConsultationPrices() {
+  const data = await client.getEntries<EntrySkeletonType>({
+  content_type: "cenyKonsultacji"
+  })
+
+  const prices = data.items[0].fields
+  return prices
+  
+}
+
 export async function getBlogPosts() {
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "posts",
@@ -51,6 +61,7 @@ export async function getStatuate() {
 }
 
 export async function getDownloadableFiles() {
+  
   const statute = await client.getEntries<EntrySkeletonType>({
     content_type: "regulaminStrony",
   });

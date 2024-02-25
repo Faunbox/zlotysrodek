@@ -1,12 +1,19 @@
-'use client'
+"use client";
 import { useSession } from "next-auth/react";
 import FilledButton from "../typography/filledButton";
 
-const OptionsComponent = () => {
-
+const OptionsComponent = ({
+  prices,
+}: {
+  prices: {
+    konsultacja: string;
+    zestaw3Konsultacji: string;
+    zestaw10Konsultacji: string;
+    tytul: string;
+  };
+}) => {
   const { data: session } = useSession();
   const email: string = session?.user?.email!;
-
 
   return (
     <section className="flex flex-col items-center justify-center text-white mt-20 mx-10 md:mx-auto lg:w-9/12">
@@ -20,7 +27,9 @@ const OptionsComponent = () => {
             <p className="text-lg px-6">
               PAKIET KONSULTACJI ON-LINE 4 SPOTKANIA
             </p>
-            <p className="text-lg px-6 font-semibold">560 ZŁ</p>
+            <p className="text-lg px-6 font-semibold">
+              {prices.zestaw3Konsultacji}
+            </p>
           </div>
           <a
             href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
@@ -41,7 +50,7 @@ const OptionsComponent = () => {
           </ul>
           <div className="flex flex-col items-center justify-center text-center">
             <p className="text-lg px-6">POJEDYNCZA KONSULTACJA</p>
-            <p className="text-lg px-6 font-semibold">160 ZŁ</p>
+            <p className="text-lg px-6 font-semibold">{prices.konsultacja}</p>
           </div>
           <a
             href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
@@ -59,7 +68,9 @@ const OptionsComponent = () => {
           </p>
           <div className="flex flex-col items-center justify-center text-center">
             <p className="text-lg px-6">PAKIET KONSULTACJI ON-LINE 8 SPOTKAŃ</p>
-            <p className="text-lg px-6 font-semibold">960 ZŁ</p>
+            <p className="text-lg px-6 font-semibold">
+              {prices.zestaw10Konsultacji}
+            </p>
           </div>
           <a
             href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(

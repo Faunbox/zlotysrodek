@@ -5,21 +5,23 @@ import OptionsComponent from "@/components/offert/optionsComponent";
 import StepsComponent from "@/components/offert/stepsComponent";
 import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import HalfBackgroundHeader from "@/components/typography/halfBgHeader";
-import { getStatuate } from "@/lib/contentful";
+import { getConsultationPrices, getStatuate } from "@/lib/contentful";
 
 const Consultation = async () => {
-  const statuateUrl = await getStatuate()
+  const statuateUrl = await getStatuate();
+  const consultationPrices = await getConsultationPrices();
 
   return (
     <main className="flex flex-col items-start justify-center">
       <BackgroundedHeader>Oferta</BackgroundedHeader>
-      <OptionsComponent />
+      {/* @ts-ignore */}
+      <OptionsComponent prices={consultationPrices} />
       <FreeConsultation />
       <HalfBackgroundHeader>
         Konsultacja on-line krok po kroku:
       </HalfBackgroundHeader>
       <StepsComponent />
-        <CancelationComponent link={statuateUrl}/>
+      <CancelationComponent link={statuateUrl} />
       <BenefitsComponent />
     </main>
   );
