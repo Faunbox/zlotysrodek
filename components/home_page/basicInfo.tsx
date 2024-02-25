@@ -3,7 +3,7 @@ import Image from "next/image";
 const BasicInfo = () => {
   return (
     <section className="flex flex-row relative items-start justify-center text-center md:mx-20 my-20 w-full text-green">
-      <div className="w-2/12 sticky top-1/4 flex items-start justify-end mr-[34px] ">
+      <div className="w-2/12 md:w-1/12 sticky top-1/4 flex items-start justify-end mr-[34px] lg:mr-[30px]">
         <Image
           src={"/images/logo_footer.svg"}
           width={70}
@@ -12,7 +12,7 @@ const BasicInfo = () => {
           className="sticky top-1/4"
         />
       </div>
-      <div className="w-7/12 first-letter:mx-60 relative before:absolute before:h-full before:w-0.5 before:bg-offertGreen before:-left-16 -z-10 before:-ml-0.5 before:top-0 before:opacity-50">
+      <div className="w-7/12 md:w-6/12 first-letter:mx-60 relative before:absolute before:h-full before:w-0.5 before:bg-offertGreen before:-left-16 -z-10 before:-ml-0.5 before:top-0 before:opacity-50">
         <div className="flex flex-col text-left gap-4 mb-10">
           <div className="flex flex-row relative">
             <Image

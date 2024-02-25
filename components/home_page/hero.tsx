@@ -4,7 +4,7 @@ import FilledButton from "../typography/filledButton";
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-green w-screen h-full lg:h-[80vh] max-h-[700px] mb-20 flex justify-center items-center z-10 text-white overflow-hidden after:bg-white after:absolute after:-bottom-20 after:left-0 after:right-0 after:-rotate-6 after:w-[150vw] after:h-[28%] after:md:h-[31%] after:lg:h-[35%] after:z-0">
+    <div className="relative bg-green w-full h-full lg:h-[80vh] max-h-[700px] mb-20 flex justify-center items-center z-10 text-white overflow-hidden after:bg-white after:absolute after:-bottom-20 after:left-0 after:right-0 after:-rotate-6 after:w-[150vw] after:h-[28%] after:md:h-[31%] after:lg:h-[30%] after:2xl:h-[35%]  after:z-0">
       <div className="flex flex-row lg:gap-10 items-center mx-auto justify-center w-full lg:w-9/12">
         <div className="flex flex-col m-10 mb-24 md:text-center items-center lg:items-start justify-center w-full">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-abhaya">

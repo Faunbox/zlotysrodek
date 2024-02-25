@@ -36,7 +36,7 @@ const LoggingIinPage = () => {
     <main className="w-full h-screen max-h-[1024px] flex flex-col">
       <BackgroundedHeader>Logowanie</BackgroundedHeader>
       <div className="flex flex-row h-full">
-        <div className="w-full mx-10 md:w-1/2 bg-green-600 flex flex-col items-center justify-center gap-4">
+        <div className="w-full mx-10 md:w-1/2 flex flex-col items-center justify-center gap-4">
           <form
             action={tryToLogin}
             className="flex flex-col gap-6 md:w-10/12 lg:w-8/12 xl:w-6/12"

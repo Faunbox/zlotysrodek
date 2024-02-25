@@ -30,8 +30,8 @@ const config: Config = {
       listStyleImage: {
         avocado: 'url("/images/avocado-jasne.svg")',
       },
-      content: {
-        logo: "url('/images/logo_footer.svg')",
+      backgroundImage: {
+        login: "url('/images/log.jpg')",
       },
     },
   },
