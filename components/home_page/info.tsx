@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Header from "../typography/headers";
 
 const Info = () => {
@@ -19,13 +20,17 @@ const Info = () => {
   return (
     <section className="flex flex-col items-center justify-center mx-10 lg:mx-20 my-20 text-green">
       <Header>DODATKOWE INFORMACJE O WSPÓŁPRACY</Header>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center text-darkGreen">
+      <div className="grid grid-cols-1 gap-4 text-center text-darkGreen px-2 md:px-40 ">
         {texts.map((text) => (
-          <div
-            key={text.data.slice(1, 8)}
-            className="border-green border-1 p-4 bg-lightGreen bg-opacity-10 flex items-center justify-center shadow-md"
-          >
-            <p>{text.data}</p>
+          <div key={text.data.slice(1, 8)} className="relative p-4 text-left">
+            <p className="text-large">{text.data}</p>
+            <Image
+              src={"/images/avocado-ciemne.svg"}
+              alt="awokado"
+              width={30}
+              height={30}
+              className="absolute top-0  translate-y-1/2 -left-8 md:-left-20"
+            />
           </div>
         ))}
       </div>

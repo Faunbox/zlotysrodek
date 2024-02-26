@@ -60,6 +60,15 @@ export async function getStatuate() {
   return statuteDataUrl;
 }
 
+export async function getSurveyUrl() {
+  const survey = await client.getEntries<EntrySkeletonType>({
+    content_type: "ankietaYwieniowa",
+  });
+  const surveyData = survey?.includes?.Asset;
+  const surveyUrl = surveyData![0]?.fields?.file.url;
+  return surveyUrl;
+}
+
 export async function getDownloadableFiles() {
   
   const statute = await client.getEntries<EntrySkeletonType>({

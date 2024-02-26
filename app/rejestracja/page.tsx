@@ -40,7 +40,6 @@ const LoggingIinPage = () => {
                 name="username"
                 id="username"
                 title="Pseudonim"
-                placeholder="SuperFilip"
                 className="border-green border-1 bg-transparent"
               />
             </div>
@@ -51,7 +50,6 @@ const LoggingIinPage = () => {
                 name="password"
                 id="password"
                 title="Hasło"
-                placeholder="*****"
                 className="border-green border-1 bg-transparent"
               />
             </div>
@@ -62,7 +60,6 @@ const LoggingIinPage = () => {
                 name="confirmedPassword"
                 id="confirmedPassword"
                 title="Powtórz hasło"
-                placeholder="*****"
                 className="border-green border-1 bg-transparent"
               />
             </div>
@@ -73,7 +70,6 @@ const LoggingIinPage = () => {
                 name="email"
                 id="email"
                 title="email"
-                placeholder="Twój adres email"
                 className="border-green border-1 bg-transparent"
               />
             </div>
@@ -84,7 +80,6 @@ const LoggingIinPage = () => {
                 name="phoneNumber"
                 id="phoneNumber"
                 title="Numer telefonu"
-                placeholder="phoneNumber"
                 className="border-green border-1 bg-transparent"
               />
             </div>
@@ -95,7 +90,6 @@ const LoggingIinPage = () => {
                 name="name"
                 id="name"
                 title="Imie"
-                placeholder="Filip"
                 className="border-green border-1 bg-transparent"
               />
             </div>
@@ -106,21 +100,25 @@ const LoggingIinPage = () => {
                 name="surname"
                 id="surname"
                 title="Nazwisko"
-                placeholder="Sojecki"
                 className="border-green border-1 bg-transparent"
               />
             </div>
             <FilledButton type="submit">Zarejestruj</FilledButton>
-            <p>{response.message}</p>
-            <p>
-              Masz konto? Przejdz do strony{" "}
-              <Link href="/logowanie" className="underline underline-offset-4">
-                logowania
-              </Link>
-            </p>
+            <div className="text-center">
+              <p>{response.message}</p>
+              <p>
+                Masz konto? Przejdz do strony{" "}
+                <Link
+                  href="/logowanie"
+                  className="underline underline-offset-4"
+                >
+                  logowania
+                </Link>
+              </p>
+            </div>
           </form>
         </div>
-        <div className="hidden md:block w-1/2 h-full bg-login bg-center z-0 "></div>
+        <div className="hidden md:block w-1/2 bg-[url('/images/log.jpg')] bg-center z-0 "></div>
       </div>
     </main>
   );
