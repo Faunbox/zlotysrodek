@@ -17,9 +17,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
         został wysłany email z potwierdzeniem transakcji.
       </p>
       <p>
-        Aktualnie posiadasz:{" "}
-        <span className="font-semibold">{data?.user?.consultations}</span>{" "}
-        konsultacji
+        Za chwilkę zakupione konsultacje pojawią się na Twoim koncie.
       </p>
     </main>
   );

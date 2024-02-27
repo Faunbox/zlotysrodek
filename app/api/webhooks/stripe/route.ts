@@ -28,6 +28,7 @@ export async function POST(req: Request) {
           checkoutId
         );
 
+
         lineItems.data.map(async (consultation) => {
           const pucharsedQuantity = consultation?.quantity;
           const pucharsedProduct = consultation.price?.product;
@@ -39,33 +40,42 @@ export async function POST(req: Request) {
 
           const fullQuantity =
             Number(productMetadataQuantity) * Number(pucharsedQuantity);
+
           consultations = consultations + fullQuantity;
+
         });
-        
-        const consultation = lineItems.data[0];
-        
-        
+
+
         const customerEmail = paymentIntentSucceeded.customer_details
-        ?.email as string;
-        
+          ?.email as string;
+
         const getUserInfo = await findUserByEmail(customerEmail);
-        console.log(consultations);
+        console.log({consultations});
 
         if (getUserInfo !== undefined) {
           const res = await updateUserByEmail(customerEmail, {
             consultations:
-              (getUserInfo?.consultations! as number) + consultation?.quantity!,
+              // (getUserInfo?.consultations! as number) + consultation?.quantity!,
+              (getUserInfo?.consultations! as number) + consultations!,
           });
           console.log({ res });
 
-          const email = {
+          const emailToCustomer = {
             to: "faunbox2@gmail.com",
             from: process.env.SENDGRID_EMAIL!,
             subject: "Płatność sfinalizowana",
             text: "Płatność sfinalizowana",
             html: "<div><p>Dodano spotaknia do Twojego konta</p></div>",
           };
-          await sendEmail(email);
+          const emailToDorotka = {
+            to: "faunbox2@gmail.com",
+            from: process.env.SENDGRID_EMAIL!,
+            subject: "Płatność sfinalizowana",
+            text: "Płatność sfinalizowana",
+            html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe.</p></div>`,
+          };
+          await sendEmail(emailToCustomer);
+          await sendEmail(emailToDorotka);
           console.log("email wysłany");
 
           response = res;
