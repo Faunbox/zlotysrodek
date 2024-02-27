@@ -4,7 +4,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
   const data = await getCheckoutInfo(params.id!);
 
   return (
-    <main className="page py-20 text-large gap-4">
+    <main className="page py-20 px-10 text-large gap-4 text-center">
       <h3 className="text-xl">
         Dziękujemy za zakup{" "}
         <span className="font-semibold">{data?.user?.name as string}</span>!{" "}
@@ -16,9 +16,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
         </span>{" "}
         został wysłany email z potwierdzeniem transakcji.
       </p>
-      <p>
-        Za chwilkę zakupione konsultacje pojawią się na Twoim koncie.
-      </p>
+      <p>Za chwilę zakupione konsultacje pojawią się na Twoim koncie.</p>
     </main>
   );
 };

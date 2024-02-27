@@ -70,8 +70,8 @@ export async function POST(req: Request) {
           const emailToDorotka = {
             to: "faunbox2@gmail.com",
             from: process.env.SENDGRID_EMAIL!,
-            subject: "Płatność sfinalizowana",
-            text: "Płatność sfinalizowana",
+            subject: "Wpłynęła nowa płatność",
+            text: "Wpłynęła nowa płatność",
             html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe.</p></div>`,
           };
           await sendEmail(emailToCustomer);
@@ -92,6 +92,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ result: event, ok: true });
   } catch (error) {
     console.error(error);
+
+    
+
     return NextResponse.json(
       {
         message: "something went wrong",
