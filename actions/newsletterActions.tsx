@@ -24,12 +24,13 @@ export async function addToContact(formData: FormData) {
 
   const email = formData.get("email");
   const name = formData.get("name");
+  
 
   const data = {
     contacts: [
       {
-        email: email,
-        first_name: name,
+        email: JSON.parse(email! as string),
+        first_name: JSON.parse(name! as string),
       },
     ],
     list_ids: [process.env.SENDGRID_CONTACT_ID],
@@ -65,7 +66,7 @@ export async function addToContact(formData: FormData) {
     .finally(() => {
       response = {
         status: "success",
-        message: "Dodano!",
+        message: "Sukces!",
       };
     });
 

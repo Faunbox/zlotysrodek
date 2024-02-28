@@ -22,6 +22,7 @@ const config: Config = {
       gold: "#F8CB2A",
       white: "#FFF",
       ligtherGreen: "#C6D4C2",
+      error: "#FA0202"
     },
     container: {
       center: true,
