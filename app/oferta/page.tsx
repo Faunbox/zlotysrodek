@@ -12,7 +12,7 @@ const Consultation = async () => {
   const consultationPrices = await getConsultationPrices();
 
   return (
-    <main className="flex flex-col items-start justify-center">
+    <main className="page">
       <BackgroundedHeader>Oferta</BackgroundedHeader>
       {/* @ts-ignore */}
       <OptionsComponent prices={consultationPrices} />

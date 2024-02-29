@@ -7,7 +7,7 @@ const Page = () => {
     <div className="page">
       <BackgroundedHeader>Psychodietetyk</BackgroundedHeader>
       <BasicInfo />
-      <BackgroundedHeader size="text-3xl" position="text-right">Powody konsultacji:</BackgroundedHeader>
+      <BackgroundedHeader size="text-3xl" position="text-right" title={false}>Powody konsultacji:</BackgroundedHeader>
       <Reasons />
     </div>
   );

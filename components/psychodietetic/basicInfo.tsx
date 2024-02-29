@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const BasicInfo = () => {
   return (
-    <section className="flex flex-col lg:mx-20 text-green">
+    <section className="flex flex-col lg:mx-20 text-green text-large relative">
       <div className="flex flex-col md:flex-row lg:mb-6">
-        <div className="flex flex-col md:w-7/12 relative mx-10 py-20 gap-5 text-green lg:pr-10">
+        <div className="flex flex-col md:w-7/12  mx-10 py-20 gap-5 text-green lg:pr-10">
           <p>
             Psychodietetyk różni się od dietetyków przede wszystkim podejściem
             do pracy. W założeniu dietetyka uczy o tym jak jeść w odpowiedzi na
@@ -36,12 +36,12 @@ const BasicInfo = () => {
             alt="Złoty fotel"
             width={400}
             height={700}
-            className="lg:absolute lg:top-32"
+            className="lg:absolute lg:-top-10"
             loading="lazy"
           />
         </div>
       </div>
-      <h4 className="text-2xl m-10 font-semibold text-green">
+      <h4 className="text-4xl m-10 font-semibold text-green font-abhaya">
         Pamiętaj! Nie ma gotowych rozwiązań – każdy ma inne potrzeby, inny
         system wartości, inne cele, inne problemy do rozwiązania, różne
         ograniczenia.

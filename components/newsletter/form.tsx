@@ -128,7 +128,7 @@ const NewsletterForm = () => {
             </label>
           </div>
           {errors.checkbox && (
-            <p className="text-xs italic text-red-500 mt-2">
+            <p className="text-xs italic text-error mt-2">
               {errors.checkbox?.message}
             </p>
           )}

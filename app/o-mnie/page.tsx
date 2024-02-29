@@ -8,7 +8,11 @@ const AboutPage = () => {
     <div className="page">
       <BackgroundedHeader>Poznajmy się!</BackgroundedHeader>
       <TextComponent />
-      <BackgroundedHeader size="text-3xl" position="text-right">
+      <BackgroundedHeader
+        size="text-4xl"
+        position="text-left lg:text-right"
+        title={false}
+      >
         Zdrowy styl życia to dla mnie:
       </BackgroundedHeader>
       <LifestyleComponent />

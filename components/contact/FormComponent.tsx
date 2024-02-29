@@ -4,11 +4,27 @@ import { CircularProgress } from "@nextui-org/react";
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import FilledButton from "../typography/filledButton";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export type ResponseData = {
   status?: string;
   message?: string;
 };
+
+const validationSchema = z.object({
+  name: z.string().min(1, { message: "Imie jest wymagane" }),
+  email: z
+    .string()
+    .min(1, { message: "Adres email jest wymagany" })
+    .email({ message: "Adres email musi być poprawny" }),
+  description: z
+    .string()
+    .min(1, { message: "Wiadomość musi posiadać minimum 10 znaków" })
+    .max(300, { message: "Wiadomość musi posiadać mniej niż 300 znaków" }),
+});
+type ValidationSchema = z.infer<typeof validationSchema>;
 
 function SubmitButton({ disabled }: { disabled: boolean }) {
   const { pending } = useFormStatus();
@@ -37,8 +53,13 @@ const FormComponent = () => {
   });
   const [disabled, setDisabled] = useState(false);
   const [honeypot, setHoneypot] = useState(false);
-
-  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ValidationSchema>({
+    resolver: zodResolver(validationSchema),
+  });
 
   async function onSend(formData: FormData) {
     if (honeypot) {
@@ -66,42 +87,52 @@ const FormComponent = () => {
       >
         <div className="flex flex-col w-full">
           <label htmlFor="name" className="font-light">
-            Imię i nazwisko
+            Imię i nazwisko <span className="text-error">* </span>
           </label>
           <input
             type="name"
-            name="name"
+            {...register("name")}
             id="name"
             className="border-black border-1 "
-            required
-            minLength={2}
           />
+          {errors.name && (
+            <p className="text-xs italic text-error mt-2">
+              {errors.name?.message}
+            </p>
+          )}
         </div>
         <div className="flex flex-col w-full">
           <label htmlFor="email" className="font-light">
-            Email
+            Adres email <span className="text-error">* </span>
           </label>
           <input
             type="email"
-            name="email"
+            {...register("email")}
             id="email"
             className="border-black  border-1 "
-            required
           />
+          {errors.email && (
+            <p className="text-xs italic text-error mt-2">
+              {errors.email?.message}
+            </p>
+          )}
         </div>
         <div className="flex flex-col w-full text-black">
           <label htmlFor="email" className="font-light">
-            Wiadomość
+            Wiadomość <span className="text-error">* </span>
           </label>
           <textarea
-            name="description"
+            {...register("description")}
             id="description"
             spellCheck={true}
             rows={10}
             className="border-black border-1 resize-y max-h-full h-auto "
-            required
-            minLength={5}
           />
+          {errors.description && (
+            <p className="text-xs italic text-error mt-2">
+              {errors.description?.message}
+            </p>
+          )}
         </div>
         <input
           type="checkbox"

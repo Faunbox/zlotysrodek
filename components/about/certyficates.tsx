@@ -6,7 +6,7 @@ const Certyficates = async () => {
   const certyficates = await getAllCertyficates();
 
   return (
-    <div className="mx-10 lg:mx-60 mt-20 flex flex-col w-full gap-20">
+    <div className="mx-10 lg:mx-60 xl:pt-32 mt-20 flex flex-col w-full gap-20 z-20">
       <HalfBackgroundHeader>Certyfikaty</HalfBackgroundHeader>
       <div className="flex items-center justify-center gap-6 flex-wrap mb-20">
         {certyficates?.map((certyficate) => {
