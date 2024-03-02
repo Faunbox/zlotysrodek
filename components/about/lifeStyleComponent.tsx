@@ -10,7 +10,7 @@ const LifestyleComponent = () => {
             alt="sadzonka"
             width={440}
             height={900}
-            className="lg:mr-20 object-cover lg:absolute lg:-top-5 xl:-top-10 lg:-left-[5%] 2xl:-left-[5%]"
+            className="lg:mr-20 object-cover lg:absolute lg:-top-5 "
           />
         </div>
         <ul className="flex flex-col gap-3 lg:gap-5 2xl:gap-7 mt-2  lg:mt-7 px-10 md:mx-2 lg:mx-10 font-semibold justify-center items-start text-green list-image-avocado text-large md:w-8/12 font-abhaya">

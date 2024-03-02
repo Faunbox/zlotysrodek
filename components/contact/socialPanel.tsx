@@ -4,7 +4,7 @@ import { SlSocialInstagram } from "react-icons/sl";
 
 const SocialPanel = () => {
   return (
-    <section className="mx-10 lg:mx-40 mb-20 ">
+    <section className="mx-10 lg:px-40 mb-20 w-full">
       <div className="flex flex-col items-center justify-center md:flex-row text-darkGreen gap-10">
         <div className="flex flex-col items-center justify-center md:w-4/12">
           <a

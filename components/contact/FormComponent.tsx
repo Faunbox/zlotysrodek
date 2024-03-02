@@ -77,15 +77,16 @@ const FormComponent = () => {
   }
 
   return (
-    <aside className="flex flex-col items-start justify-center text-lightGreen mt-14 mx-10">
-      <h4 className="text-large font-abhaya">Chcesz nawiązać współpracę?</h4>
-      <h4 className="text-large font-abhaya">A może masz pytania?</h4>
-      <h3 className="text-2xl font-abhaya font-semibold">Wyślij wiadomość!</h3>
+    <aside className="flex flex-col items-start justify-center text-lightGreen mt-14 mx-10 font-abhaya">
+      <h4 className="text-2xl ">Chcesz nawiązać współpracę?</h4>
+      <h4 className="text-2xl font-abhaya">A może masz pytania?</h4>
+      <h3 className="text-4xl font-abhaya">Wyślij wiadomość!</h3>
       <form
         action={onSend}
-        className="flex flex-col items-start w-full max-h-full gap-2 mt-10"
+        className="flex flex-col items-start w-full max-h-full gap-2 mt-10 text-darkGreen"
       >
-        <div className="flex flex-col w-full">
+        {/* <div className="w-full flex lg:flex-row lg:justify-between gap-10"> */}
+        <div className="flex flex-col w-full ">
           <label htmlFor="name" className="font-light">
             Imię i nazwisko <span className="text-error">* </span>
           </label>
@@ -93,7 +94,7 @@ const FormComponent = () => {
             type="name"
             {...register("name")}
             id="name"
-            className="border-black border-1 "
+            className="border-black border-1 h-8"
           />
           {errors.name && (
             <p className="text-xs italic text-error mt-2">
@@ -109,7 +110,7 @@ const FormComponent = () => {
             type="email"
             {...register("email")}
             id="email"
-            className="border-black  border-1 "
+            className="border-black  border-1 h-8"
           />
           {errors.email && (
             <p className="text-xs italic text-error mt-2">
@@ -117,6 +118,7 @@ const FormComponent = () => {
             </p>
           )}
         </div>
+        {/* </div> */}
         <div className="flex flex-col w-full text-black">
           <label htmlFor="email" className="font-light">
             Wiadomość <span className="text-error">* </span>
