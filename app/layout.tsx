@@ -24,14 +24,13 @@ export default async function RootLayout({
 }) {
   const session = await getServerSession(authOptions);
 
-  
   return (
     <html lang="pl" className={`${montserrat.variable}`}>
       <body>
         <Providers session={session}>
           <Navbar />
           <main className="container">{children}</main>
-            <Footer />
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -36,7 +36,6 @@ const NewsletterForm = () => {
     resolver: zodResolver(validationSchema),
   });
 
-
   const onSend = async (data: ValidationSchema) => {
     if (!newsletterCheckbox && newsletterHoneypot) return;
     const formData = new FormData();
@@ -66,8 +65,8 @@ const NewsletterForm = () => {
             Bądź na bieżąco! Zapisz się do newslettera!
           </p>
         </div>
-        <div className="flex flex-col items-start gap-2">
-          <div className="flex flex-col mx-auto">
+        <div className="flex flex-col items-start gap-2 w-full">
+          <div className="flex flex-col ">
             <label htmlFor="name" className="font-light">
               Imię <span className="text-error">*</span>
             </label>
@@ -83,7 +82,7 @@ const NewsletterForm = () => {
               </p>
             )}
           </div>
-          <div className="flex flex-col mx-auto">
+          <div className="flex flex-col ">
             <label htmlFor="email" className="font-light">
               Email <span className="text-error">*</span>
             </label>
@@ -91,7 +90,7 @@ const NewsletterForm = () => {
               type="email"
               {...register("email")}
               id="email"
-              className="border-white border-1 bg-green"
+              className="border-white border-1 bg-green "
             />
             {errors.email && (
               <p className="text-small italic text-error mt-2">
@@ -100,7 +99,7 @@ const NewsletterForm = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           <div className="flex flex-row gap-2">
             {/* Honeypot */}
             <input

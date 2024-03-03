@@ -11,6 +11,8 @@ const FilledButton = ({
   type = "button",
   disabled = false,
   onClick,
+  px = 5,
+  py = 3,
 }: {
   children: string | React.JSX.Element;
   color?: string;
@@ -29,16 +31,12 @@ const FilledButton = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={`${color} text-${text} py-3 px-5 flex flex-row items-center justify-center uppercase ${
+      className={`${color} text-${text} py-1 px-${px} flex flex-row items-center justify-center uppercase ${
         bold &&
-        "font-semibold rounded-md shadow-md disabled:bg-lightGreen hover:scale-105 duration-200 transform"
+        "font-semibold rounded-sm shadow-lg disabled:bg-lightGreen hover:scale-105 duration-200 transform"
       }`}
     >
-      {pending ? (
-        "Wysyłanie..."
-      ) : (
-        children
-      )}
+      {pending ? "Wysyłanie..." : children}
     </button>
   );
 };
