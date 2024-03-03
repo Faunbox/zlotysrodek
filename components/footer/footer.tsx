@@ -1,4 +1,4 @@
-import { getDownloadableFiles, getStatuate } from "@/lib/contentful";
+import { getDownloadableFiles } from "@/lib/contentful";
 import NewsletterForm from "../newsletter/form";
 import FooterContact from "./footerContact";
 import FooterLogo from "./footerLogo";

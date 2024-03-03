@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import FilledButton from "../typography/filledButton";
 import { z } from "zod";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export type ResponseData = {
@@ -61,12 +61,15 @@ const FormComponent = () => {
     resolver: zodResolver(validationSchema),
   });
 
-  async function onSend(formData: FormData) {
+  async function onSend(data: ValidationSchema) {
     if (honeypot) {
       return;
     }
-
     try {
+      const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, JSON.stringify(value));
+    });
       const res = await sendContactEmail(formData);
       setResponse(res.response);
     } catch {
@@ -76,13 +79,19 @@ const FormComponent = () => {
     }
   }
 
+  
+
+  const onSubmit: SubmitHandler<ValidationSchema> = async (
+    data: ValidationSchema
+  ) => await onSend(data);
+
   return (
     <aside className="flex flex-col items-start justify-center text-lightGreen mt-14 mx-10 font-abhaya">
       <h4 className="text-2xl ">Chcesz nawiązać współpracę?</h4>
       <h4 className="text-2xl font-abhaya">A może masz pytania?</h4>
       <h3 className="text-4xl font-abhaya">Wyślij wiadomość!</h3>
       <form
-        action={onSend}
+        onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-start w-full max-h-full gap-2 mt-10 text-darkGreen"
       >
         {/* <div className="w-full flex lg:flex-row lg:justify-between gap-10"> */}

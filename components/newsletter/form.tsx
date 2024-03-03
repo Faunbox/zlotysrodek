@@ -36,9 +36,6 @@ const NewsletterForm = () => {
     resolver: zodResolver(validationSchema),
   });
 
-  const handleChange = () => {
-    setNewsletterCheckbox(!newsletterCheckbox);
-  };
 
   const onSend = async (data: ValidationSchema) => {
     if (!newsletterCheckbox && newsletterHoneypot) return;

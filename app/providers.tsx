@@ -25,12 +25,12 @@ export function Providers({
             staleTime: 60 * 1000,
           },
         },
-      }),
-  )
+      })
+  );
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={true} />
+      {/* <ReactQueryDevtools initialIsOpen={true} /> */}
       <SessionProvider session={session}>
         <NextUIProvider>{children}</NextUIProvider>
       </SessionProvider>
