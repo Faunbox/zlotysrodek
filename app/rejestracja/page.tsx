@@ -31,77 +31,81 @@ const LoggingIinPage = () => {
         <div className="w-full mx-1 md:w-1/2 flex flex-col items-center justify-center gap-4">
           <form
             action={onSend}
-            className="flex flex-col gap-6 my-10 md:w-10/12 lg:w-8/12 xl:w-6/12"
+            className="flex flex-col gap-2 my-10 md:w-10/12 lg:w-8/12 xl:w-6/12"
           >
-            <div className="flex flex-col gap-2">
-              <label htmlFor="username">Nazwa użytkownika</label>
+            <div className="flex flex-col">
+              <label htmlFor="username" className="focus:text-error">
+                Nazwa użytkownika
+              </label>
               <input
                 type="text"
                 name="username"
                 id="username"
                 title="Pseudonim"
-                className="border-green border-1 bg-transparent"
+                className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
               />
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <label htmlFor="password">Hasło</label>
               <input
                 type="password"
                 name="password"
                 id="password"
                 title="Hasło"
-                className="border-green border-1 bg-transparent"
+                className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
               />
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <label htmlFor="confirmedPassword">Powtórz hasło</label>
               <input
                 type="password"
                 name="confirmedPassword"
                 id="confirmedPassword"
                 title="Powtórz hasło"
-                className="border-green border-1 bg-transparent"
+                className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
               />
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <label htmlFor="email">Adres email:</label>
               <input
                 type="email"
                 name="email"
                 id="email"
                 title="email"
-                className="border-green border-1 bg-transparent"
+                className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
               />
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <label htmlFor="phoneNumber">Numer telefonu</label>
               <input
-                type="number"
+                type="text"
                 name="phoneNumber"
                 id="phoneNumber"
                 title="Numer telefonu"
-                className="border-green border-1 bg-transparent"
+                className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="name">Imie</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                title="Imie"
-                className="border-green border-1 bg-transparent"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="surname">Nazwisko</label>
-              <input
-                type="text"
-                name="surname"
-                id="surname"
-                title="Nazwisko"
-                className="border-green border-1 bg-transparent"
-              />
+            <div className="flex flex-col md:flex-row md:justify-between mb-5">
+              <div className="flex flex-col">
+                <label htmlFor="name">Imie</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  title="Imie"
+                  className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="surname">Nazwisko</label>
+                <input
+                  type="text"
+                  name="surname"
+                  id="surname"
+                  title="Nazwisko"
+                  className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
+                />
+              </div>
             </div>
             <FilledButton type="submit">Zarejestruj</FilledButton>
             <div className="text-center">
@@ -112,7 +116,7 @@ const LoggingIinPage = () => {
                   href="/logowanie"
                   className="underline underline-offset-4"
                 >
-                  logowania
+                  logowania.
                 </Link>
               </p>
             </div>

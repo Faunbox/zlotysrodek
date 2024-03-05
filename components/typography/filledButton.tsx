@@ -33,7 +33,7 @@ const FilledButton = ({
       onClick={onClick}
       className={`${color} text-${text} py-1 px-${px} flex flex-row items-center justify-center uppercase ${
         bold &&
-        "font-semibold rounded-sm shadow-lg disabled:bg-lightGreen hover:scale-105 duration-200 transform"
+        "rounded-sm shadow-lg disabled:bg-lightGreen hover:scale-105 duration-200 transform"
       }`}
     >
       {pending ? "Wysyłanie..." : children}

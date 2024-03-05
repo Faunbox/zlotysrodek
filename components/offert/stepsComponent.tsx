@@ -11,7 +11,7 @@ const StepsComponent = () => {
           height={100}
           className="w-3/12 md:w-full"
         />
-        <p>
+        <p className="w-full">
           Umów się na bezpłatną, wstępną konsultację poprzez formularz
           kontaktowy lub mailowo.
         </p>

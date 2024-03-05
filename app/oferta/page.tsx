@@ -14,9 +14,9 @@ const Consultation = async () => {
   return (
     <main className="page">
       <BackgroundedHeader>Oferta</BackgroundedHeader>
+      <FreeConsultation />
       {/* @ts-ignore */}
       <OptionsComponent prices={consultationPrices} />
-      <FreeConsultation />
       <HalfBackgroundHeader>
         Konsultacja on-line krok po kroku:
       </HalfBackgroundHeader>

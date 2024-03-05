@@ -16,18 +16,18 @@ const OptionsComponent = ({
   const email: string = session?.user?.email!;
 
   return (
-    <section className="flex flex-col items-center justify-center text-white mt-20 mx-10 md:mx-auto lg:w-9/12">
+    <section className="flex flex-col items-center justify-center text-white my-20 mx-10 md:mx-auto lg:w-9/12">
       <div className="flex flex-col lg:flex-row gap-20 items-center justify-center">
         <div className="bg-offertGreen order-2 lg:order-none flex flex-col gap-10 p-10 items-center justify-center w-full text-center">
-          <p className="text-sm px-6 font-light">
+          <p className="text-md px-6 font-light font-poppins">
             Kupując pakiet 4 konsultacji oszczędzasz 80 zł, płacąc za spotkanie
             140 zł.
           </p>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center font-abhaya">
             <p className="text-lg px-6">
               PAKIET KONSULTACJI ON-LINE 4 SPOTKANIA
             </p>
-            <p className="text-lg px-6 font-semibold">
+            <p className="text-lg px-6 font-semibold font-abhaya">
               {prices.zestaw3Konsultacji}
             </p>
           </div>
@@ -41,7 +41,7 @@ const OptionsComponent = ({
         </div>
 
         <div className="bg-green flex flex-col gap-10 p-10 lg:mb-24 order-1 lg:order-none items-center justify-center w-full">
-          <ul className="flex flex-col text-sm list-disc gap-2 text-left font-light">
+          <ul className="flex flex-col list-disc gap-1 text-left font-poppins font-extralight">
             <li>Spotkamy się na 50 min </li>
             <li>Przeanalizujemy Twój przypadek</li>{" "}
             <li>Opracujemy plan małych kroków</li>
@@ -49,8 +49,10 @@ const OptionsComponent = ({
             <li>Dostaniesz moje wsparcie</li>
           </ul>
           <div className="flex flex-col items-center justify-center text-center">
-            <p className="text-lg px-6">POJEDYNCZA KONSULTACJA</p>
-            <p className="text-lg px-6 font-semibold">{prices.konsultacja}</p>
+            <p className="text-lg px-6 font-abhaya">POJEDYNCZA KONSULTACJA</p>
+            <p className="text-lg px-6 font-semibold font-abhaya">
+              {prices.konsultacja}
+            </p>
           </div>
           <a
             href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
@@ -62,13 +64,15 @@ const OptionsComponent = ({
         </div>
 
         <div className="bg-offertGreen order-3 lg:order-none  flex flex-col gap-10 p-10 items-center justify-center w-full">
-          <p className="text-sm px-6 font-light">
+          <p className="text-md px-6 font-light font-poppins">
             Kupując pakiet 8 konsultacji oszczędzasz aż 320 zł, płacąc za
             spotkanie tylko 120 zł.
           </p>
           <div className="flex flex-col items-center justify-center text-center">
-            <p className="text-lg px-6">PAKIET KONSULTACJI ON-LINE 8 SPOTKAŃ</p>
-            <p className="text-lg px-6 font-semibold">
+            <p className="text-lg px-6 font-abhaya">
+              PAKIET KONSULTACJI ON-LINE 8 SPOTKAŃ
+            </p>
+            <p className="text-lg px-6 font-semibold font-abhaya">
               {prices.zestaw10Konsultacji}
             </p>
           </div>

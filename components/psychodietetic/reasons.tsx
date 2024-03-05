@@ -7,13 +7,13 @@ const Reasons = () => {
         <Image
           src={"/images/cooking.jpeg"}
           alt="Gotowanie"
-          width={500}
+          width={580}
           height={600}
-          className="lg:absolute lg:-top-10  xl:-top-10 lg:-left-[5%] 2xl:-left-[5%]"
+          className="lg:absolute lg:-top-6   lg:-left-[3%]"
         />{" "}
       </div>
-      <div className="lg:w-6/12 py-5 lg:pl-14">
-        <ul className="list-image-avocado text-large font-abhaya">
+      <div className="lg:w-6/12 py-2 lg:pl-14">
+        <ul className="list-image-avocado text-[22px] font-abhaya">
           <li className="marker:text-[2.25em] marker:list-item tracking-wide">
             <h4 className="font-semibold">Dieta nie pomaga?</h4>
             <p>

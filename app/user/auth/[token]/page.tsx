@@ -38,9 +38,9 @@ const Page = async ({ params }: { params: { token: string } }) => {
   const { isOk, email } = res.response;
 
   return (
-    <div className="page m-60">
+    <div className="page m-20 text-green">
       {isOk === true ? (
-        <h3 className="font-light text-3xl">Dziękujemy za aktywację konta</h3>
+        <h3 className="font-semibold text-3xl">Dziękujemy za aktywację konta</h3>
       ) : (
         <div className="flex flex-col gap-10">
           <h3 className="font-light text-3xl">

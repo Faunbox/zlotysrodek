@@ -167,18 +167,27 @@ export async function sendEmailWhenCreateUser(
   sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 
   const msgToCompany = {
-    to: "faunbox2@gmail.com", // Change to your recipient
-    from: process.env.SENDGRID_EMAIL!, // Change to your verified sender
-    subject: `Stworzenie nowego konta dla adresu ${email}`,
-    text: "data?.message",
-    html: `<div>
-    <h1>Wiadomość od: </h1>
-    <h2>Adres email:</h2>
-    <h2>Wiadomość: </h2>
-    <a href=${process.env.NEXTAUTH_URL}/user/auth/${veryficationToken}>Zweryfikuj</a>
-    </div>`,
+    personalizations: [
+      {
+        to: "faunbox2@gmail.com",
+        dynamic_template_data: {
+          url: `${process.env.NEXTAUTH_URL}/user/auth/${veryficationToken}`,
+        },
+      },
+    ],
+    from: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
+    reply_to: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
+    template_id: "d-c8ded498821d40038603eb165006d6a3",
+    // subject: `Stworzenie nowego konta dla adresu ${email}`,
+    // text: "data?.message",
+    // html: `<div>
+    // <h1>Wiadomość od: </h1>
+    // <h2>Adres email:</h2>
+    // <h2>Wiadomość: </h2>
+    // <a href=${process.env.NEXTAUTH_URL}/user/auth/${veryficationToken}>Zweryfikuj</a>
+    // </div>`,
   };
-
+  //@ts-expect-error
   await sgMail.send(msgToCompany).catch((error) => {
     console.log("Błąd podczas wysyłania maila -> ", error);
   });

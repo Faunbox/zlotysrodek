@@ -12,6 +12,7 @@ const AboutPage = () => {
         size="text-4xl"
         position="text-left lg:text-right"
         title={false}
+        classname=" xl:pr-64"
       >
         Zdrowy styl życia to dla mnie:
       </BackgroundedHeader>

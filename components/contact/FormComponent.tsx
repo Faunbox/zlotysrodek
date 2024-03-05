@@ -67,9 +67,9 @@ const FormComponent = () => {
     }
     try {
       const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => {
-      formData.append(key, JSON.stringify(value));
-    });
+      Object.entries(data).forEach(([key, value]) => {
+        formData.append(key, JSON.stringify(value));
+      });
       const res = await sendContactEmail(formData);
       setResponse(res.response);
     } catch {
@@ -79,15 +79,13 @@ const FormComponent = () => {
     }
   }
 
-  
-
   const onSubmit: SubmitHandler<ValidationSchema> = async (
     data: ValidationSchema
   ) => await onSend(data);
 
   return (
-    <aside className="flex flex-col items-start justify-center text-lightGreen mt-14 mx-10 font-abhaya">
-      <h4 className="text-2xl ">Chcesz nawiązać współpracę?</h4>
+    <aside className="flex flex-col items-start justify-center text-lightGreen mt-14 mx-10 ">
+      <h4 className="text-2xl font-abhaya">Chcesz nawiązać współpracę?</h4>
       <h4 className="text-2xl font-abhaya">A może masz pytania?</h4>
       <h3 className="text-4xl font-abhaya">Wyślij wiadomość!</h3>
       <form
@@ -96,14 +94,14 @@ const FormComponent = () => {
       >
         {/* <div className="w-full flex lg:flex-row lg:justify-between gap-10"> */}
         <div className="flex flex-col w-full ">
-          <label htmlFor="name" className="font-light">
+          <label htmlFor="name">
             Imię i nazwisko <span className="text-error">* </span>
           </label>
           <input
             type="name"
             {...register("name")}
             id="name"
-            className="border-black border-1 h-8"
+            className="border-green border-1 bg-transparent mb-4 h-9 focus-within:shadow-lg"
           />
           {errors.name && (
             <p className="text-xs italic text-error mt-2">
@@ -112,14 +110,14 @@ const FormComponent = () => {
           )}
         </div>
         <div className="flex flex-col w-full">
-          <label htmlFor="email" className="font-light">
+          <label htmlFor="email">
             Adres email <span className="text-error">* </span>
           </label>
           <input
             type="email"
             {...register("email")}
             id="email"
-            className="border-black  border-1 h-8"
+            className="border-green border-1 bg-transparent mb-4 h-9 focus-within:shadow-lg"
           />
           {errors.email && (
             <p className="text-xs italic text-error mt-2">
@@ -129,7 +127,7 @@ const FormComponent = () => {
         </div>
         {/* </div> */}
         <div className="flex flex-col w-full text-black">
-          <label htmlFor="email" className="font-light">
+          <label htmlFor="email" >
             Wiadomość <span className="text-error">* </span>
           </label>
           <textarea
@@ -137,7 +135,7 @@ const FormComponent = () => {
             id="description"
             spellCheck={true}
             rows={10}
-            className="border-black border-1 resize-y max-h-full h-auto "
+            className="border-green border-1 resize-y max-h-full h-auto "
           />
           {errors.description && (
             <p className="text-xs italic text-error mt-2">

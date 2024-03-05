@@ -24,8 +24,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full sticky bg-green top-0 right-0 left-0 z-50 ">
-      <div className="flex flex-row justify-around items-center p-2 lg:px-10 container relative">
+    <nav className="w-full sticky bg-green top-0 right-0 left-0 z-50 py-3">
+      <div className="flex flex-row justify-around items-center px-2 lg:px-10 container relative">
         <div className="w-2/4 lg:w-1/4  ">
           <Link href={"/"}>
             <Image
@@ -33,7 +33,7 @@ const Navbar = () => {
               alt="Logo Złoty środek"
               width={200}
               height={100}
-              className="my-2 lg:absolute lg:top-[75%] lg:-translate-y-[50%]"
+              className="my-2 lg:absolute lg:top-[83%] lg:-translate-y-[50%]"
             />
           </Link>
         </div>
@@ -45,7 +45,7 @@ const Navbar = () => {
               <Link
                 href={link.href}
                 className={`${
-                  currentPath === link.href && "underline-offset-8 underline"
+                  currentPath === link.href && "underline-offset-4 underline"
                 } hover:scale-110 transform transition duration-300`}
                 key={link.name}
               >

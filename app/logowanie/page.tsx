@@ -36,20 +36,20 @@ const LoggingIinPage = () => {
     <main className="w-full h-screen max-h-[1024px] flex flex-col">
       <BackgroundedHeader>Logowanie</BackgroundedHeader>
       <div className="flex flex-row h-full">
-        <div className="w-full mx-10 md:w-1/2 flex flex-col items-center justify-center gap-4">
+        <div className="w-full md:mx-10 md:w-1/2 flex flex-col items-center justify-center gap-4">
           <form
             action={tryToLogin}
-            className="flex flex-col gap-6 md:w-10/12 lg:w-8/12 xl:w-6/12"
+            className="flex flex-col gap-6 w-9/12 md:w-10/12 lg:w-8/12 xl:w-6/12"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col ">
+              <label htmlFor="contactEmail">Adres email</label>
               <input
                 type="email"
                 name="email"
                 id="contactEmail"
                 title="email"
-                placeholder="Email"
                 aria-label="email"
-                className="border-green border-1 bg-transparent h-9"
+                className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
                 onChange={(e) =>
                   setLoginInfo({
                     ...loginInfo,
@@ -58,15 +58,15 @@ const LoggingIinPage = () => {
                 }
               />
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
+              <label htmlFor="password">Hasło</label>
               <input
                 type="password"
                 name="password"
                 id="password"
                 title="password"
-                placeholder="Hasło"
                 aria-label="password"
-                className="border-green border-1 bg-transparent mb-4 h-9"
+                className="border-green border-1 bg-transparent mb-4 h-9 focus-within:shadow-lg"
                 onChange={(e) =>
                   setLoginInfo({
                     ...loginInfo,
@@ -80,13 +80,20 @@ const LoggingIinPage = () => {
               Zaloguj
             </FilledButton>
           </form>
-          <Link href="/user/resetowanie-hasla">Nie pamiętasz hasła?</Link>
-          <p>
-            Nie masz jeszcze konta? Przejdz do strony{" "}
-            <Link href="/rejestracja" className="underline underline-green">
-              rejestracji
+          <div className="flex flex-col items-center text-center gap-1 w-9/12">
+            <Link
+              href="/user/resetowanie-hasla"
+              className="text-start underline"
+            >
+              Nie pamiętasz hasła?
             </Link>
-          </p>
+            <p>
+              Nie masz jeszcze konta? Przejdz do strony{" "}
+              <Link href="/rejestracja" className="underline underline-green">
+                rejestracji.
+              </Link>
+            </p>
+          </div>
         </div>
         <div className="hidden md:block w-1/2 h-full bg-[url('/images/log.jpg')] bg-center z-0 "></div>
       </div>
