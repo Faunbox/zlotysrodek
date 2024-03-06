@@ -77,7 +77,7 @@ const NewsletterForm = () => {
               {...register("name")}
             />
             {errors.name && (
-              <p className="text-small italic text-error mt-2">
+              <p className="text-small italic text-error font-bold">
                 {errors.name?.message}
               </p>
             )}
@@ -93,13 +93,13 @@ const NewsletterForm = () => {
               className="border-white border-1 bg-green "
             />
             {errors.email && (
-              <p className="text-small italic text-error mt-2">
+              <p className="text-small italic text-error font-bold">
                 {errors.email?.message}
               </p>
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
           <div className="flex flex-row gap-2">
             {/* Honeypot */}
             <input
@@ -124,7 +124,7 @@ const NewsletterForm = () => {
             </label>
           </div>
           {errors.checkbox && (
-            <p className="text-xs italic text-error mt-2">
+            <p className="text-sm italic text-error font-bold">
               {errors.checkbox?.message}
             </p>
           )}

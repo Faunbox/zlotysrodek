@@ -51,6 +51,7 @@ export const findUser = async (username: string | FormDataEntryValue) => {
 };
 
 export const findUserByEmail = async (email: string | FormDataEntryValue) => {
+
   let user: UserType;
   await mongooseDbConnect();
   const data = await User.findOne({ email });

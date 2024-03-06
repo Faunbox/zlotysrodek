@@ -143,6 +143,7 @@ export async function checkForUserFromDb(email: string, password: string) {
   let isOk: boolean;
   try {
     const checkUser = await findUserByEmail(email);
+    
     if (checkUser === null) {
       isOk = false;
       return isOk;
@@ -198,7 +199,8 @@ export async function sendResetPasswordToken(
   userEmail?: string
 ) {
   const email = formData?.get("email") || userEmail;
-  const user = await findUserByEmail(email!);
+  const user = await findUserByEmail(JSON.parse(email as string));
+  
 
   if (!user) {
     console.log("Brak użytkownika o podanym adresie email");

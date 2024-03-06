@@ -47,7 +47,7 @@ const LoggingIinPage = () => {
                 type="email"
                 name="email"
                 id="contactEmail"
-                title="email"
+                title="Adres email"
                 aria-label="email"
                 className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
                 onChange={(e) =>
@@ -64,7 +64,7 @@ const LoggingIinPage = () => {
                 type="password"
                 name="password"
                 id="password"
-                title="password"
+                title="Hasło"
                 aria-label="password"
                 className="border-green border-1 bg-transparent mb-4 h-9 focus-within:shadow-lg"
                 onChange={(e) =>

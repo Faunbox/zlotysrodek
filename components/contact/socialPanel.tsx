@@ -13,7 +13,11 @@ const SocialPanel = () => {
             rel="noopener"
             className="flex flex-col items-center justify-center"
           >
-            <FaPhone className={"max-w-[40px] max-h-[40px] w-full h-full"} />
+            <FaPhone
+              className={
+                "max-w-[40px] max-h-[40px] w-full h-full hover:scale-110 duration-400"
+              }
+            />
             <p className="text-medium mt-6">+48 602 778 499</p>
           </a>
         </div>
@@ -24,7 +28,11 @@ const SocialPanel = () => {
             rel="noopener"
             className="flex flex-col items-center justify-center"
           >
-            <MdEmail className={"max-w-[40px] max-h-[40px] w-full h-full"} />
+            <MdEmail
+              className={
+                "max-w-[40px] max-h-[40px] w-full h-full hover:scale-110 duration-400"
+              }
+            />
             <p className="text-medium mt-6">kontakt@zlotysrodek.eu</p>
           </a>
         </div>
@@ -36,7 +44,9 @@ const SocialPanel = () => {
             className="flex flex-col items-center justify-center"
           >
             <SlSocialInstagram
-              className={"max-w-[40px] max-h-[40px] w-full h-full"}
+              className={
+                "max-w-[40px] max-h-[40px] w-full h-full hover:scale-110 duration-400"
+              }
             />
             <p className="text-medium mt-6">zloty__srodek</p>
           </a>
@@ -48,8 +58,14 @@ const SocialPanel = () => {
             rel="noopener"
             className="flex flex-col items-center justify-center"
           >
-            <FaFacebook className={"max-w-[40px] max-h-[40px] w-full h-full"} />
-            <p className="text-medium mt-6">zllotysrodek</p>
+            <FaFacebook
+              className={
+                "max-w-[40px] max-h-[40px] w-full h-full hover:scale-110 duration-400"
+              }
+            />
+            <p className="text-medium mt-6 ">
+              zllotysrodek
+            </p>
           </a>
         </div>
       </div>

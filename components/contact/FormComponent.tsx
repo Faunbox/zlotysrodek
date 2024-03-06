@@ -101,12 +101,10 @@ const FormComponent = () => {
             type="name"
             {...register("name")}
             id="name"
-            className="border-green border-1 bg-transparent mb-4 h-9 focus-within:shadow-lg"
+            className="border-green border-1 bg-transparent mb-1 h-9 focus-within:shadow-lg"
           />
           {errors.name && (
-            <p className="text-xs italic text-error mt-2">
-              {errors.name?.message}
-            </p>
+            <p className="text-xs italic text-error ">{errors.name?.message}</p>
           )}
         </div>
         <div className="flex flex-col w-full">
@@ -117,17 +115,15 @@ const FormComponent = () => {
             type="email"
             {...register("email")}
             id="email"
-            className="border-green border-1 bg-transparent mb-4 h-9 focus-within:shadow-lg"
+            className="border-green border-1 bg-transparent mb-1 h-9 focus-within:shadow-lg"
           />
           {errors.email && (
-            <p className="text-xs italic text-error mt-2">
-              {errors.email?.message}
-            </p>
+            <p className="text-xs italic text-error">{errors.email?.message}</p>
           )}
         </div>
         {/* </div> */}
         <div className="flex flex-col w-full text-black">
-          <label htmlFor="email" >
+          <label htmlFor="email">
             Wiadomość <span className="text-error">* </span>
           </label>
           <textarea
@@ -138,7 +134,7 @@ const FormComponent = () => {
             className="border-green border-1 resize-y max-h-full h-auto "
           />
           {errors.description && (
-            <p className="text-xs italic text-error mt-2">
+            <p className="text-xs italic text-error ">
               {errors.description?.message}
             </p>
           )}
