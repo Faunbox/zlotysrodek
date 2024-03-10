@@ -9,30 +9,30 @@ const UserPanel = () => {
 
   if (session) {
     return (
-      <section className="flex flex-col md:flex-row justify-end items-center my-2">
+      <li className="flex flex-col md:flex-row justify-end items-center my-2">
         <Link
           href={`/user/${username}`}
-          className="text-gold font-normal hover:border-b-small"
+          className="text-gold font-normal hover:scale-105 duration-300"
         >
           {username}
         </Link>
         <button
-          className="mx-4 hover:border-b-small"
+          className="mx-4 hover:scale-105 duration-300"
           onClick={() => signOut({ callbackUrl: "/" })}
         >
           Wyloguj
         </button>
-      </section>
+      </li>
     );
   }
   return (
-    <>
+    <li>
       <Link href="/logowanie">
         <button className="uppercase text-gold hover:border-b-small">
           Logowanie
         </button>
       </Link>
-    </>
+    </li>
   );
 };
 

@@ -8,7 +8,7 @@ import Image from "next/image";
 const UserInfo = ({ user }: { user: UserType }) => {
   return (
     <section className="lg:mx-60 flex flex-col lg:w-7/12">
-      <div className="flex flex-col relative items-start justify-center text-black bg-ligtherGreen mt-24 mb-10 p-24 md:rounded-md gap-10 w-full">
+      <div className="flex flex-col relative items-start font-montserrat justify-center text-black bg-white mt-24 mb-10 p-24 md:rounded-md gap-10 w-full shadow-2xl">
         <div className="absolute -top-[0] left-[50%] translate-x-[-50%] translate-y-[-50%]  max-w-[150px] max-h-[150px] rounded-full bg-lightGreen w-full h-full overflow-hidden">
           <Image
             src={"/images/ludzik.svg"}

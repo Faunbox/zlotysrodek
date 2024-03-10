@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const StepsComponent = () => {
   return (
-    <section className="flex flex-col mx-10 lg:mx-60 py-20 md:flex-row text-darkGreen md:gap-10 text-center items-center md:items-start justify-center">
-      <div className="flex flex-col items-center justify-start md:w-2/12 gap-8">
+    <section className="flex flex-col mx-10 lg:mx-40 py-20 md:flex-row text-darkGreen md:gap-10 text-center items-center md:items-start justify-center">
+      <div className="flex flex-col items-center justify-start md:w-2/12 lg:w-3/12 2xl:w-2/12 gap-8">
         <Image
           src={"/images/1.svg"}
           alt={"Jeden svg"}
@@ -25,7 +25,7 @@ const StepsComponent = () => {
           className="rotate-90 md:rotate-0"
         />
       </div>
-      <div className="flex flex-col items-center justify-start md:w-2/12 gap-8">
+      <div className="flex flex-col items-center justify-start md:w-2/12 lg:w-3/12 2xl:w-2/12 gap-8">
         <Image
           src={"/images/2.svg"}
           alt={"Jeden svg"}
@@ -47,7 +47,7 @@ const StepsComponent = () => {
           className="rotate-90 md:rotate-0"
         />
       </div>
-      <div className="flex flex-col items-center justify-start md:w-2/12 gap-8">
+      <div className="flex flex-col items-center justify-start md:w-2/12 lg:w-3/12 2xl:w-2/12 gap-8">
         <Image
           src={"/images/3.svg"}
           alt={"Jeden svg"}

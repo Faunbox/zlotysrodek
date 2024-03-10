@@ -32,13 +32,14 @@ const FooterNav = ({
       <h2 className="font-semibold uppercase">Nawigacja</h2>
       <ul className="grid gap-3">
         {navigation.map((navElem) => (
-          <Link
-            key={navElem.href}
-            href={navElem.href}
-            className="font-light text-sm tracking-wider hover:font-semibold duration-150"
-          >
-            {navElem.text}
-          </Link>
+          <li key={navElem.href}>
+            <Link
+              href={navElem.href}
+              className="font-light text-sm tracking-wider hover:font-semibold duration-150"
+            >
+              {navElem.text}
+            </Link>
+          </li>
         ))}
       </ul>
     </div>

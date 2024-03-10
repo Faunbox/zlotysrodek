@@ -19,7 +19,7 @@ const ResetPasswordButton = ({ email }: { email: string }) => {
     <>
       <button
         onClick={() => handleSend(email)}
-        className="text-large tracking-wide"
+        className="text-large tracking-wide text-green font-semibold"
       >
         Ustaw nowe hasło
       </button>

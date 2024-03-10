@@ -71,7 +71,7 @@ export async function registerUser(formData: FormData) {
   }
 
   try {
-    const isUserExist = await findUserByEmail(email!);
+    const isUserExist = await findUserByEmail(JSON.parse(email! as string));
     let newUserEmail: string;
 
     if (isUserExist === null && password === confirmedPassword) {
@@ -80,29 +80,34 @@ export async function registerUser(formData: FormData) {
         .then((hashedPassword: string) => {
           const password = hashedPassword;
           newUser = {
-            username: username!,
-            password: password,
-            email: email!,
-            phoneNumber: phoneNumber!,
+            username: JSON.parse(username! as string),
+            password: password!,
+            email: JSON.parse(email! as string),
+            phoneNumber: JSON.parse(phoneNumber! as string)!,
             isConfirmed: false,
             veryficationToken: veryficationToken,
             resetTokenExpire: Date.now() + 360000,
-            name: name!,
-            surname: surname!,
+            name: JSON.parse(name! as string),
+            surname: JSON.parse(surname! as string),
             role: "user",
             consultations: 0,
             freeConsultation: 1,
             newsletter: false,
           };
 
+          
+
           const registerUser = new User(newUser);
           return registerUser;
         })
         .then(async (user) => {
           newUserEmail = user.email;
+          
+          
           try {
             await mongooseDbConnect();
             const newUser = await user.save();
+
             await mongooseDbDisconnect();
           } catch (error) {
             return (response = {
@@ -143,7 +148,7 @@ export async function checkForUserFromDb(email: string, password: string) {
   let isOk: boolean;
   try {
     const checkUser = await findUserByEmail(email);
-    
+
     if (checkUser === null) {
       isOk = false;
       return isOk;
@@ -166,6 +171,7 @@ export async function sendEmailWhenCreateUser(
   veryficationToken: string
 ) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
+  
 
   const msgToCompany = {
     personalizations: [
@@ -200,7 +206,6 @@ export async function sendResetPasswordToken(
 ) {
   const email = formData?.get("email") || userEmail;
   const user = await findUserByEmail(JSON.parse(email as string));
-  
 
   if (!user) {
     console.log("Brak użytkownika o podanym adresie email");

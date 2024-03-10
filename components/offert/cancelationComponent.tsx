@@ -1,7 +1,12 @@
 import Link from "next/link";
 import FilledButton from "../typography/filledButton";
+import { getStatuate } from "@/lib/contentful";
 
-const CancelationComponent = ({ link }: { link: string }) => {
+const CancelationComponent = async ({ link }: { link?: string }) => {
+
+  const statuateUrl = await getStatuate();
+
+
   return (
     <div className="px-10 w-9/12 flex flex-col md:flex-row items-center justify-center my-20 gap-8">
       <h4 className="text-large  text-green font-poppins font-extralight w-full md:w-8/12">
@@ -9,7 +14,7 @@ const CancelationComponent = ({ link }: { link: string }) => {
         traktowane jako spotkanie zrealizowane.
       </h4>
       <Link
-        href={`https:${link}`}
+        href={`https:${statuateUrl}`}
         target="_blank"
         rel="noopener"
         className="md:ml-12 w-full md:w-4/12 "

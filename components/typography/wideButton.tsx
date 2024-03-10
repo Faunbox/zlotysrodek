@@ -2,7 +2,7 @@
 import { ButtonHTMLAttributes } from "react";
 import { useFormStatus } from "react-dom";
 
-const FilledButton = ({
+const WideButton = ({
   children,
   color = "bg-gold",
   text = "darkGreen",
@@ -10,9 +10,8 @@ const FilledButton = ({
   type = "button",
   disabled = false,
   onClick,
-  px = 5,
+  px = 7,
   py = 3,
-  border = false,
 }: {
   children: string | React.JSX.Element;
   color?: string;
@@ -22,7 +21,6 @@ const FilledButton = ({
   disabled?: boolean;
   px?: number;
   py?: number;
-  border?: boolean;
   onClick?: () => void;
 }) => {
   const { pending } = useFormStatus();
@@ -32,14 +30,14 @@ const FilledButton = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={`${color} text-${text} py-1 px-${px} flex flex-row items-center justify-center uppercase ${
+      className={`${color} text-${text} py-2 px-8 flex flex-row items-center justify-center uppercase ${
         bold &&
         "rounded-sm shadow-lg disabled:bg-lightGreen hover:scale-105 duration-200 transform"
-      } ${border && "border-white border-1"}`}
+      }`}
     >
       {pending ? "Wysyłanie..." : children}
     </button>
   );
 };
 
-export default FilledButton;
+export default WideButton;

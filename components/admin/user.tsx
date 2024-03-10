@@ -45,7 +45,7 @@ const UserElements = () => {
   if (isLoading) return <p>Ładuję...</p>;
 
   return (
-    <div className="flex flex-col w-full md:w-11/12 lg:w-9/12 bg-lightGreen mt-10 mb-10 p-10 md:p-24 items-start gap-4 rounded-md">
+    <div className="flex flex-col w-full md:w-11/12 lg:w-9/12 bg-white mt-10 mb-10 p-10 md:p-24 items-start gap-4 rounded-md shadow-lg">
       <h4 className="font-semibold text-xl mb-6">Wszyscy użytkownicy</h4>
       <SearchPanel
         state={searchResponse}
@@ -60,7 +60,10 @@ const UserElements = () => {
             {searchResponse.user?.surname as string}{" "}
             {searchResponse.user?.email! as string}
           </p>
-          <ModalAdminPanel data={searchResponse.user} />
+          <ModalAdminPanel data={searchResponse?.user} />
+          <VisitationEndComponent email={searchResponse?.user?.email}>
+                  Zakończ wizytę
+                </VisitationEndComponent>
         </div>
       )}
       {/* Show all users */}
@@ -75,10 +78,13 @@ const UserElements = () => {
                     {user?.email as string}
                   </p>
                 </li>
+                <div className="flex flex-row gap-4">
+
                 <ModalAdminPanel data={user} />
                 <VisitationEndComponent email={user?.email}>
                   Zakończ wizytę
                 </VisitationEndComponent>
+                </div>
               </div>
             ))}
           </ul>

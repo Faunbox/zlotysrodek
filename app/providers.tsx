@@ -30,10 +30,10 @@ export function Providers({
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* <ReactQueryDevtools initialIsOpen={true} /> */}
-      <SessionProvider session={session}>
-        <NextUIProvider>{children}</NextUIProvider>
-      </SessionProvider>
+      {/* <NextUIProvider> */}
+        {/* <ReactQueryDevtools initialIsOpen={true} /> */}
+        <SessionProvider session={session}>{children}</SessionProvider>
+      {/* </NextUIProvider>  */}
     </QueryClientProvider>
   );
 }

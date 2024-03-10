@@ -4,7 +4,7 @@ const BasicInfo = () => {
   return (
     <section className="flex flex-col lg:mx-20 text-darkGreen text-large relative">
       <div className="flex flex-col md:flex-row lg:mb-6">
-        <div className="flex flex-col md:w-7/12  mx-10 py-20 gap-5 text-darkGreen lg:pr-10">
+        <div className="flex flex-col md:w-7/12 lg:w-6/12 mx-10 lg:mx-8 py-20 gap-5 text-darkGreen lg:pr-10">
           <p>
             Psychodietetyk różni się od dietetyków przede wszystkim podejściem
             do pracy. W założeniu dietetyka uczy o tym jak jeść w odpowiedzi na

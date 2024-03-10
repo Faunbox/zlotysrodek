@@ -32,7 +32,7 @@ const SearchPanel = ({
   return (
     <>
       {state.status! === "success" && (
-        <FilledButton color="bg-red-100" text="white" onClick={reset}>
+        <FilledButton color="bg-red-100" text="green" onClick={reset}>
           Cofnij wyszukanie
         </FilledButton>
       )}

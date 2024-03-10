@@ -3,16 +3,16 @@ import Image from "next/image";
 const Reasons = () => {
   return (
     <section className="flex flex-col mx-10 pb-20 lg:mx-20 lg:flex-row relative">
-      <div className="hidden lg:flex w-6/12">
+      <div className="hidden xl:flex w-6/12">
         <Image
           src={"/images/cooking.jpeg"}
           alt="Gotowanie"
           width={580}
           height={600}
-          className="lg:absolute lg:-top-6   lg:-left-[3%]"
+          className="xl:absolute xl:-top-6 xl:-left-[3%]"
         />{" "}
       </div>
-      <div className="lg:w-6/12 py-2 lg:pl-14">
+      <div className="w-full xl:w-6/12 py-2 lg:pl-14">
         <ul className="list-image-avocado text-[22px] font-abhaya">
           <li className="marker:text-[2.25em] marker:list-item tracking-wide">
             <h4 className="font-semibold">Dieta nie pomaga?</h4>

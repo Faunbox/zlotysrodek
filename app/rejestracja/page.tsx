@@ -46,6 +46,10 @@ const LoggingIinPage = () => {
     status: "",
     message: "",
   });
+  const [formStateLoading, setformStateLoading] = useState({
+    loading: false,
+    disabled: false,
+  });
 
   const {
     register,
@@ -56,15 +60,15 @@ const LoggingIinPage = () => {
   });
 
   async function onSend(data: ValidationSchema) {
-    console.log(data);
-
     try {
+      setformStateLoading({ loading: true, disabled: true });
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) => {
         formData.append(key, JSON.stringify(value));
       });
       const res = await registerUser(formData);
       setResponse(res.response);
+      setformStateLoading({ loading: false, disabled: true });
       console.log(res.response);
       setInterval(() => redirect("/logowanie"), 5000);
     } catch {
@@ -162,7 +166,7 @@ const LoggingIinPage = () => {
                 </p>
               )}
             </div>
-            <div className="flex flex-col md:flex-row md:justify-between ">
+            <div className="flex flex-col lg:flex-row md:justify-between ">
               <div className="flex flex-col">
                 <label htmlFor="name">Imie</label>
                 <input
@@ -170,7 +174,7 @@ const LoggingIinPage = () => {
                   {...register("name")}
                   id="name"
                   title="Imie"
-                  className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
+                  className="border-green border-1 lg:w-3/4 bg-transparent h-9 focus-within:shadow-lg"
                 />
                 {errors.name && (
                   <p className="text-sm italic text-error font-bold">
@@ -185,7 +189,7 @@ const LoggingIinPage = () => {
                   {...register("surname")}
                   id="surname"
                   title="Nazwisko"
-                  className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
+                  className="border-green border-1 lg:w-3/4 bg-transparent h-9 focus-within:shadow-lg"
                 />
                 {errors.surname && (
                   <p className="text-sm italic text-error font-bold">
@@ -212,7 +216,9 @@ const LoggingIinPage = () => {
                 </p>
               )}
             </div>
-            <FilledButton type="submit">Zarejestruj</FilledButton>
+            <FilledButton type="submit">
+              {formStateLoading.loading ? "Tworzę konto. . ." : "Zarejestruj"}
+            </FilledButton>
             <div className="text-center">
               <p>{response.message}</p>
               <p>

@@ -33,14 +33,14 @@ const Navbar = () => {
               alt="Logo Złoty środek"
               width={200}
               height={100}
-              className="my-2 lg:absolute lg:top-[83%] lg:-translate-y-[50%]"
+              className="my-2 lg:absolute lg:top-[87%] lg:-translate-y-[50%]"
             />
           </Link>
         </div>
 
         {/* Desktop menu */}
-        <div className="hidden lg:inline-block">
-          <ul className="flex flex-row gap-10 text-white items-center justify-center uppercase text-sm font-light">
+        <div className="hidden lg:inline-block lg:w-8/12">
+          <ul className="flex flex-row gap-5 text-white items-center justify-end uppercase text-sm font-light">
             {navbarData.map((link) => (
               <Link
                 href={link.href}

@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const LifestyleComponent = () => {
   return (
-    <div className="lg:mx-20 mb-10 lg:mb-20 relative">
-      <div className="flex flex-col md:flex-row gap-5 lg:gap-20 items-center justify-center">
-        <div className="md:w-7/12 lg:w-4/12">
+    <div className="lg:mx-20 mx-10 mb-10 lg:mb-20 relative">
+      <div className="flex flex-col-reverse lg:flex-row gap-5 lg:gap-20 items-center justify-center lg:justify-end">
+        <div className="hidden lg:flex lg:w-10/12">
           <Image
             src={"/images/sadzonka.jpeg"}
             alt="sadzonka"
@@ -13,7 +13,7 @@ const LifestyleComponent = () => {
             className="lg:mr-20 object-cover lg:absolute lg:-top-5 "
           />
         </div>
-        <ul className="flex flex-col gap-3 lg:gap-5 2xl:gap-1 mt-2  lg:mt-2 px-10 md:mx-2 lg:mx-10 font-semibold justify-center items-start text-green list-image-avocado text-[22px] md:w-7/12 font-abhaya">
+        <ul className="flex flex-col gap-3 lg:gap-5 2xl:gap-8 mt-2 lg:pl-10 md:mx-2 font-semibold justify-center items-start text-green list-image-avocado text-large xl:text-xl md:w-7/12 lg:w-8/12 font-abhaya">
           <li className="marker:text-[3.3em] marker:list-item tracking-wide">
             Wybór odpowiednich, dobrej jakości produktów spożywczych, z których
             komponuję zbilansowane posiłki

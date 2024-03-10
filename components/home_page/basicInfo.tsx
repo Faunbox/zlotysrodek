@@ -13,7 +13,7 @@ const BasicInfo = () => {
         />
       </div>
       <div className="w-7/12 md:w-6/12 first-letter:mx-60 relative before:absolute before:h-full before:w-0.5 before:bg-offertGreen before:-left-16 -z-10 before:-ml-0.5 before:top-0 before:opacity-50">
-        <div className="flex flex-col text-left gap-4 mb-10">
+        <div className="flex flex-col text-left gap-4 mb-16">
           <div className="flex flex-row relative">
             <Image
               src={"/images/avocado-ciemne.svg"}
@@ -36,7 +36,7 @@ const BasicInfo = () => {
             potrzeb i możliwości.
           </p>
         </div>
-        <div className="flex flex-col text-left gap-4 mb-10">
+        <div className="flex flex-col text-left gap-4 mb-16">
           <div className="flex flex-row relative">
             <Image
               src={"/images/avocado-ciemne.svg"}
@@ -49,23 +49,36 @@ const BasicInfo = () => {
               PRACUJĘ Z OSOBAMI KTÓRE:
             </h2>
           </div>
-          <ul>
+          <ul className="list-disc">
             <li>
-              mają choroby tarczycy (Hashimoto, niedoczynność, nadczynność);
-            </li>
-            <li>mają problemy z redukcją masy ciała (nadwaga, otyłość);</li>
-            <li>chcą odzyskać kontrolę nad słodyczami;</li>
-            <li>
-              chcą zmienić nieprawidłowe nawyki żywieniowe (podjadanie,
-              zajadanie emocji);
+              <span className="font-bold">mają choroby tarczycy</span>{" "}
+              (Hashimoto, niedoczynność, nadczynność);
             </li>
             <li>
-              borykają się z zaburzeniami odżywiania (anoreksja, bulimia);
+              <span className="font-bold">
+                mają problemy z redukcją masy ciała
+              </span>{" "}
+              (nadwaga, otyłość);
             </li>
-            <li>mają problem z insulinoopornością;</li>
+            <li className="font-bold">
+              chcą odzyskać kontrolę nad słodyczami;
+            </li>
+            <li>
+              <span className="font-bold">
+                chcą zmienić nieprawidłowe nawyki żywieniowe
+              </span>{" "}
+              (podjadanie, zajadanie emocji);
+            </li>
+            <li>
+              <span className="font-bold">
+                borykają się z zaburzeniami odżywiania
+              </span>{" "}
+              (anoreksja, bulimia);
+            </li>
+            <li className="font-bold">mają problem z insulinoopornością;</li>
           </ul>
         </div>
-        <div className="flex flex-col text-left gap-4 mb-10">
+        <div className="flex flex-col text-left gap-4 mb-16">
           <div className="flex flex-row relative">
             <Image
               src={"/images/avocado-ciemne.svg"}
@@ -83,7 +96,7 @@ const BasicInfo = () => {
             kilogramów nie jest prosta i szybka - jeśli chcesz to zrobić dobrze
             i skutecznie, dlatego nasza współpraca będzie długoterminowa.
           </p>
-          <ul>
+          <ul className="list-disc">
             <li>
               Przygotuj się, że zajmie to trochę czasu. Proces zmiany trwa
               zwykle kilka miesięcy
@@ -98,7 +111,7 @@ const BasicInfo = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col text-left gap-4 mb-10">
+        <div className="flex flex-col text-left gap-4 mb-16">
           <div className="flex flex-row relative">
             <Image
               src={"/images/avocado-ciemne.svg"}
@@ -117,7 +130,7 @@ const BasicInfo = () => {
             staniesz się osobą świadomą swoich wyborów i zachowań żywieniowych.
           </p>
         </div>
-        <div className="flex flex-col text-left gap-4 mb-10">
+        <div className="flex flex-col text-left gap-4 mb-16">
           <div className="flex flex-row relative">
             <Image
               src={"/images/avocado-ciemne.svg"}
@@ -130,15 +143,13 @@ const BasicInfo = () => {
               MÓJ SPOSÓB DZIAŁANIA:
             </h2>
           </div>
-          <ul>
+          <ul className="list-disc">
             <li>
-              <p>
-                <span>
-                  Pracuję z małą ilością osób, gdyż stawiam na jakość, a nie
-                  ilość.{" "}
-                </span>
-                Chcę żebyś czuła/czuł się bezpieczna/ny i zaopiekowana/ny.
+              <p className="font-semibold">
+                Pracuję z małą ilością osób, gdyż stawiam na jakość, a nie
+                ilość.{" "}
               </p>
+              <p>Chcę żebyś czuła/czuł się bezpieczna/ny i zaopiekowana/ny.</p>
             </li>
             <li>
               Poproszę Cię, abyś opowiedziała/opowiedział mi o swoim problemie,

@@ -4,7 +4,7 @@ import Header from "../typography/headers";
 
 const FreeConsultation = () => {
   return (
-    <section className="flex flex-col items-center justify-center gap-2 mt-20  mx-auto pb-10 px-10 w-full lg:w-8/12 bg-green md:rounded-xl md:shadow-lg">
+    <section className="flex flex-col items-center justify-center gap-2 mt-20  mx-auto pb-10 px-10 w-full lg:w-8/12 bg-green lg:rounded-xl md:shadow-lg">
       <div className="flex flex-col items-center justify-center pb-2 text-white font-abhaya">
         <Header>Bezpłatna wstępna konsultacja</Header>
         <p className=" text-center leading-relaxed font-poppins w-full font-light tracking-wide text-lg">
