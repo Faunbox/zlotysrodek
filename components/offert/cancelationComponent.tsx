@@ -3,13 +3,11 @@ import FilledButton from "../typography/filledButton";
 import { getStatuate } from "@/lib/contentful";
 
 const CancelationComponent = async ({ link }: { link?: string }) => {
-
   const statuateUrl = await getStatuate();
-
 
   return (
     <div className="px-10 w-9/12 flex flex-col md:flex-row items-center justify-center my-20 gap-8">
-      <h4 className="text-large  text-green font-poppins font-extralight w-full md:w-8/12">
+      <h4 className="text-large  text-green font-poppins font-light w-full md:w-8/12">
         Odwołanie sesji na mniej niż 24 h przed umówionym terminem jest
         traktowane jako spotkanie zrealizowane.
       </h4>

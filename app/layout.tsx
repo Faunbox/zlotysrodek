@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import { Providers } from "./providers";
 import { getServerSession } from "next-auth";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Poppins } from "next/font/google";
 import Footer from "@/components/footer/footer";
 import { authOptions } from "@/lib/nextAuth";
 export const metadata: Metadata = {
@@ -14,8 +14,16 @@ export const metadata: Metadata = {
 const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-montserrat",
+  variable: "--montserrat",
 });
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800','900'],
+  display: 'swap',
+  preload: true,
+  variable: "--poppins"
+})
 
 export default async function RootLayout({
   children,
@@ -25,7 +33,7 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions);
 
   return (
-    <html lang="pl" className={`${montserrat.variable}`}>
+    <html lang="pl" className={`${montserrat.variable} ${poppins.variable}`}>
       <body>
         <Providers session={session}>
           <Navbar />

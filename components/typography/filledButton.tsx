@@ -32,7 +32,7 @@ const FilledButton = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={`${color} text-${text} py-1 px-${px} flex flex-row items-center justify-center uppercase ${
+      className={`${color} text-${text} py-1 px-${px} flex flex-row items-center justify-center font-montserrat uppercase ${
         bold &&
         "rounded-sm shadow-lg disabled:bg-lightGreen hover:scale-105 duration-200 transform"
       } ${border && "border-white border-1"}`}

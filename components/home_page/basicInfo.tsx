@@ -3,16 +3,17 @@ import Image from "next/image";
 const BasicInfo = () => {
   return (
     <section className="flex flex-row relative items-start justify-center text-center md:mx-20 my-20 w-full text-green">
-      <div className="w-2/12 md:w-1/12 sticky top-1/4 flex items-start justify-end mr-[34px] lg:mr-[30px]">
+      <div className="w-2/12 md:w-1/12 sticky top-1/4 flex items-start justify-end ">
         <Image
-          src={"/images/logo_footer.svg"}
-          width={70}
-          height={70}
+          // src={"/images/logo_footer (2).svg"}
+          src={"/images/ooo.svg"}
+          width={85}
+          height={85}
           alt="logo"
-          className="sticky top-1/4"
+          className="sticky mr-[33px] xl:mr-6"
         />
       </div>
-      <div className="w-7/12 md:w-6/12 first-letter:mx-60 relative before:absolute before:h-full before:w-0.5 before:bg-offertGreen before:-left-16 -z-10 before:-ml-0.5 before:top-0 before:opacity-50">
+      <div className="w-7/12 md:w-6/12 first-letter:mx-60 relative before:absolute before:h-full before:w-0.5 before:bg-offertGreen before:-left-16 before:top-3  -z-10 before:-ml-0.5 before:opacity-50">
         <div className="flex flex-col text-left gap-4 mb-16">
           <div className="flex flex-row relative">
             <Image
@@ -20,7 +21,7 @@ const BasicInfo = () => {
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20 z-10"
+              className="absolute top-3 -left-20 z-10"
             />
 
             <h2 className="text-2xl font-semibold uppercase">Jak pracuję?</h2>

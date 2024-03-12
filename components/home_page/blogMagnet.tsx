@@ -3,7 +3,7 @@ import WideButton from "../typography/wideButton";
 
 const BlogMagnet = () => {
   return (
-    <section className="bg-[url('/images/blog.webp')] w-screen 2xl:w-full h-[55vh] max-h-[450px] my-20 bg-bottom bg-cover bg-no-repeat relative">
+    <section className="bg-[url('/images/blog.webp')] w-screen max-w-[2000px] h-[55vh] max-h-[450px] my-20 bg-bottom bg-cover bg-no-repeat relative">
       <div className="absolute bottom-20 left-[25%]">
         <Link href={"/blog"}>
           <WideButton color="bg-darkGreen" text="white">

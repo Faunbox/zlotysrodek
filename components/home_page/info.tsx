@@ -23,7 +23,7 @@ const Info = () => {
       <HalfBackgroundHeader>
         Dodatkowe informacje o współpracy:
       </HalfBackgroundHeader>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-center text-darkGreen px-2 md:px-40 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-center text-darkGreen px-14 md:px-40 ">
         {texts.map((text) => (
           <div key={text.data.slice(1, 8)} className="relative p-4 text-left">
             <p className="text-large">{text.data}</p>

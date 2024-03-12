@@ -12,7 +12,7 @@ const config: Config = {
     fontFamily: {
       abhaya: "Abhaya Libre",
       montserrat: [`var(--montserrat)`],
-      poppins: "Poppins",
+      poppins: [`var(--poppins)`],
     },
     colors: {
       green: "#4D7A4B",
