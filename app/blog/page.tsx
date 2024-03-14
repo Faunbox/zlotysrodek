@@ -1,4 +1,5 @@
 import BlogPost from "@/components/blog/blogPost";
+import CategoryComponent from "@/components/blog/categoryComponent";
 import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import { getBlogPosts } from "@/lib/contentful";
 
@@ -8,6 +9,7 @@ const Blog = async () => {
   return (
     <main className="page">
       <BackgroundedHeader>Blog</BackgroundedHeader>
+      <CategoryComponent />
       {posts.map((post, index) => {
         return (
           <BlogPost

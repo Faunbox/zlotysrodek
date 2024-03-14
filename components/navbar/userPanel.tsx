@@ -5,7 +5,7 @@ import Link from "next/link";
 const UserPanel = () => {
   const { data: session } = useSession();
   //@ts-expect-error
-  const username: string = session?.user?.username;
+  const username: string = session?.user?.username as string;
 
   if (session) {
     return (

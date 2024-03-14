@@ -11,12 +11,11 @@ export function contentfulClient() {
 
 export async function getConsultationPrices() {
   const data = await client.getEntries<EntrySkeletonType>({
-  content_type: "cenyKonsultacji"
-  })
+    content_type: "cenyKonsultacji",
+  });
 
-  const prices = data.items[0].fields
-  return prices
-  
+  const prices = data.items[0].fields;
+  return prices;
 }
 
 export async function getBlogPosts() {
@@ -70,7 +69,6 @@ export async function getSurveyUrl() {
 }
 
 export async function getDownloadableFiles() {
-  
   const statute = await client.getEntries<EntrySkeletonType>({
     content_type: "regulaminStrony",
   });
@@ -90,4 +88,14 @@ export async function getDownloadableFiles() {
   const privacyPolicyDataUrl = privacyPolicyData![0]?.fields?.file.url;
 
   return { statuteDataUrl, rodoDataUrl, privacyPolicyDataUrl };
+}
+
+export async function getCategory() {
+  const category = await client.getEntries<EntrySkeletonType>({
+    content_type: "kategoriePostow",
+  });
+
+   const categoryData = category?.items
+
+    return categoryData
 }
