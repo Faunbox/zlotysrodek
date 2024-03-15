@@ -24,11 +24,36 @@ export async function getBlogPosts() {
     //@ts-ignore
     order: "sys.createdAt",
   });
-  //@ts-ignore
-  // console.log(data.items.map(post => post.fields.trePosta.content));
 
   //@ts-ignore
-  return data.items.map((post) => post.fields);
+  return data.items.map((post) => {
+    const id = post.sys.id;
+    const date = post.sys.createdAt.slice(0, 10);
+    const title = post.fields.tytu;
+    const content = post.fields.trePosta;
+
+    //@ts-expect-error
+    const image = post.fields?.zdjcieWTle?.fields?.file.url!;
+    //@ts-expect-error
+    const imageAlt = post.fields?.zdjcieWTle?.fields.title!;
+
+    return { date, title, content, image, imageAlt, id };
+  });
+}
+
+export async function getSinglePost(id: string) {
+  const post = await client.getEntry(id);
+
+  const date = post.sys.createdAt.slice(0, 10);
+  const title = post.fields.tytu;
+  const content = post.fields.trePosta;
+
+  //@ts-expect-error
+  const image = post.fields?.zdjcieWTle?.fields?.file.url!;
+  //@ts-expect-error
+  const imageAlt = post.fields?.zdjcieWTle?.fields.title!;
+
+  return { date, title, content, image, imageAlt, id };
 }
 
 export async function getAllCertyficates() {
@@ -95,7 +120,7 @@ export async function getCategory() {
     content_type: "kategoriePostow",
   });
 
-   const categoryData = category?.items
+  const categoryData = category?.items;
 
-    return categoryData
+  return categoryData;
 }

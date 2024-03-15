@@ -1,10 +1,16 @@
-async function getPostById(id: string) {
-  "use server";
-  console.log("działa");
-}
+import { getSinglePost } from "@/lib/contentful";
 
-const BlogPostPage = ({ params }: { params: { id: string } }) => {
-  return <div>{params.id}</div>;
+async function getPostById(id: string) {}
+
+const BlogPostPage = async ({ params }: { params: { id: string } }) => {
+  const post = await getSinglePost(params.id);
+  const { title, date, image, imageAlt } = post;
+
+  return (
+    <main className="page">
+      <h4>{title as string}</h4>
+    </main>
+  );
 };
 
 export default BlogPostPage;

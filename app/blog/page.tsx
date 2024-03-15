@@ -10,15 +10,22 @@ const Blog = async () => {
     <main className="page">
       <BackgroundedHeader>Blog</BackgroundedHeader>
       <CategoryComponent />
-      {posts.map((post, index) => {
-        return (
-          <BlogPost
-            key={index}
-            title={post.tytu as string}
-            post={post.trePosta as any}
-          />
-        );
-      })}
+      <section className="flex flex-row flex-wrap gap-3 items-center justify-center">
+        {posts.map((post) => {
+          const { title, content, image, imageAlt, date, id } = post;
+          return (
+            <BlogPost
+              key={id}
+              id={id}
+              title={title as string}
+              post={content as any}
+              thumbnail={image as string}
+              thumbnailAlt={imageAlt as string}
+              date={date as string}
+            />
+          );
+        })}
+      </section>
     </main>
   );
 };
