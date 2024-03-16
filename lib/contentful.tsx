@@ -1,4 +1,5 @@
 import { EntrySkeletonType, createClient } from "contentful";
+import { cache } from "react";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
@@ -22,7 +23,7 @@ export async function getBlogPosts() {
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "posts",
     //@ts-ignore
-    order: "sys.createdAt",
+    order: "-sys.createdAt"
   });
 
   //@ts-ignore
@@ -30,31 +31,60 @@ export async function getBlogPosts() {
     const id = post.sys.id;
     const date = post.sys.createdAt.slice(0, 10);
     const title = post.fields.tytu;
-    const content = post.fields.trePosta;
+    const content = post.fields?.trePosta;
+    //@ts-expect-error
+    const category = post.fields?.kategoriaPosta![0].fields.kategoriaPosta;
+    const shortDescription = post.fields?.opisPosta;
+    const tags = post.fields.tagi;
 
     //@ts-expect-error
     const image = post.fields?.zdjcieWTle?.fields?.file.url!;
     //@ts-expect-error
     const imageAlt = post.fields?.zdjcieWTle?.fields.title!;
 
-    return { date, title, content, image, imageAlt, id };
+    return {
+      date,
+      title,
+      content,
+      image,
+      imageAlt,
+      id,
+      category,
+      shortDescription,
+      tags,
+    };
   });
 }
 
-export async function getSinglePost(id: string) {
+export const getSinglePost = cache(async (id: string) => {
+  console.log("getSinglePost");
+
   const post = await client.getEntry(id);
 
   const date = post.sys.createdAt.slice(0, 10);
   const title = post.fields.tytu;
   const content = post.fields.trePosta;
+  const category = post.fields.kategoriaPosta;
+  const shortDescription = post.fields.opisPosta;
+  const tags = post.fields.tagi;
 
   //@ts-expect-error
   const image = post.fields?.zdjcieWTle?.fields?.file.url!;
   //@ts-expect-error
   const imageAlt = post.fields?.zdjcieWTle?.fields.title!;
 
-  return { date, title, content, image, imageAlt, id };
-}
+  return {
+    date,
+    title,
+    content,
+    image,
+    imageAlt,
+    id,
+    category,
+    shortDescription,
+    tags,
+  };
+});
 
 export async function getAllCertyficates() {
   const data = await client.getEntries<EntrySkeletonType>({
@@ -87,6 +117,7 @@ export async function getStatuate() {
 export async function getSurveyUrl() {
   const survey = await client.getEntries<EntrySkeletonType>({
     content_type: "ankietaYwieniowa",
+    
   });
   const surveyData = survey?.includes?.Asset;
   const surveyUrl = surveyData![0]?.fields?.file.url;

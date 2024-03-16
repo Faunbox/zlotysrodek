@@ -3,8 +3,16 @@ import CategoryComponent from "@/components/blog/categoryComponent";
 import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import { getBlogPosts } from "@/lib/contentful";
 
-const Blog = async () => {
-  const posts = await getBlogPosts();
+const Blog = async ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+  const posts = (await getBlogPosts()).filter(
+    (post) => post.category === searchParams.category
+  );
+
+  // console.log(posts);
 
   return (
     <main className="page">
@@ -12,18 +20,7 @@ const Blog = async () => {
       <CategoryComponent />
       <section className="flex flex-row flex-wrap gap-3 items-center justify-center">
         {posts.map((post) => {
-          const { title, content, image, imageAlt, date, id } = post;
-          return (
-            <BlogPost
-              key={id}
-              id={id}
-              title={title as string}
-              post={content as any}
-              thumbnail={image as string}
-              thumbnailAlt={imageAlt as string}
-              date={date as string}
-            />
-          );
+          return <BlogPost key={post.id} post={post} />;
         })}
       </section>
     </main>
