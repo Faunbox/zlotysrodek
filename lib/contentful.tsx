@@ -19,11 +19,13 @@ export async function getConsultationPrices() {
   return prices;
 }
 
-export async function getBlogPosts() {
+export async function getBlogPosts(limit = 20, skip=0) {
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "posts",
     //@ts-ignore
-    order: "-sys.createdAt"
+    order: "-sys.createdAt",
+    limit: limit,
+    skip: skip
   });
 
   //@ts-ignore
@@ -42,6 +44,8 @@ export async function getBlogPosts() {
     //@ts-expect-error
     const imageAlt = post.fields?.zdjcieWTle?.fields.title!;
 
+    const total = data.total
+
     return {
       date,
       title,
@@ -52,6 +56,7 @@ export async function getBlogPosts() {
       category,
       shortDescription,
       tags,
+      total
     };
   });
 }

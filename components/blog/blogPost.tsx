@@ -39,7 +39,6 @@ const BlogPost = ({ post }: { post: any }) => {
           </Link>
         </div>
       </div>
-      {/* {documentToReactComponents(content as any)} */}
       </Link>
     </div>
   );

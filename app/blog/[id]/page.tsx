@@ -1,7 +1,7 @@
 import { getSinglePost } from "@/lib/contentful";
 import { Metadata, ResolvingMetadata } from "next";
-import { headers } from "next/headers";
 import { usePathname  } from 'next/navigation'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 type Props = {
   params: { id: string};
@@ -34,11 +34,12 @@ export async function generateMetadata(
 
 const BlogPostPage = async ({ params }: Props) => {
   const post = await getSinglePost(params.id);
-  const { title, date, image, imageAlt } = post;
+  const { title, date, image, imageAlt, content } = post;
 
   return (
     <main className="page">
       <h4>{title as string}</h4>
+      {documentToReactComponents(content as any)}
     </main>
   );
 };
