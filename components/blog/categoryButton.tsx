@@ -5,7 +5,9 @@ const CategoryButton = (item: any) => {
   const router = useRouter();
 
   function handleClick() {
-    router.replace(`/blog?category=${decodeURI(item.item).toLowerCase()}`);
+    router.replace(
+      `/blog?category=${decodeURI(item.item).toLowerCase()}&page=1`
+    );
   }
 
   return (

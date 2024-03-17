@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 
 const BlogPostPagination = ({
   total,
@@ -15,12 +15,37 @@ const BlogPostPagination = ({
 
   const page = searchParams.get("page");
   const category = searchParams.get("category");
+
+  const totalPages = Math.ceil(Number(total / limit));
   const [pageState, setPageState] = useState(Number(page || 1));
 
-  const totalPages = Number((total / limit).toFixed(0.1));
+  const numbers: ReactElement[] = [];
 
+  for (let i = 0; i < totalPages; i++) {
+    const page = i + 1;
+    numbers.push(
+      <li
+        className={`px-2 ${pageState === page && "font-bold"}`}
+        key={i}
+        onClick={() => selectPage(page)}
+      >
+        <button>{page}</button>
+      </li>
+    );
+  }
+
+  //checks for number of page via sheachParams
   useEffect(() => {
-    router.replace(`/blog?page=${pageState}`, { scroll: false }); // Access the updated value here
+    if (Number(page) > totalPages) {
+      setPageState(1);
+      //   return router.replace(`/blog`);
+    }
+    if (category) {
+      return router.replace(
+        `/blog?category=${decodeURI(category!).toLowerCase()}&page=${pageState}`
+      );
+    }
+    router.replace(`/blog?page=${pageState}`); // Access the updated value here
   }, [pageState]);
 
   function nextPage() {
@@ -36,12 +61,19 @@ const BlogPostPagination = ({
     setPageState(pageState - 1);
     // router.replace(`/blog?page=${pageState}`);
   }
+  function selectPage(page: number) {
+    router.replace(`/blog?page=${page}`);
+  }
 
   return (
-    <div className="pt-4 pb-2 flex flex-row justify-around w-1/4">
+    <div className="pt-4 pb-2 flex flex-row justify-around items-center w-1/4 gap-4">
       <button onClick={previousPage}>Poprzednia strona</button>
-      <p>Ilość stron: {totalPages}</p>
-      <p>aktualna strona: {pageState}</p>
+      <ul className="flex flex-row items-center justify-center">
+        {numbers.map((number) => {
+          return number;
+        })}
+      </ul>
+      {/* <p>aktualna strona: {pageState}</p> */}
       <button onClick={nextPage}>Następna strona</button>
     </div>
   );

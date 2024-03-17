@@ -9,11 +9,12 @@ const Blog = async ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const blogPostLimit = 2;
-  let skip = 0
+  const blogPostLimit = Number(process.env.WEBSITE_DEFAULT_BLOG_POSTS_LIMIT)
+  const skipValue = searchParams.page || 0;
+  let skip = Number(skipValue) - 1;
 
   const posts = await getBlogPosts(blogPostLimit, skip);
-  const total = posts[0].total;
+  const total = !posts[0] ? 1 : posts[0]?.total;
 
   return (
     <main className="page">

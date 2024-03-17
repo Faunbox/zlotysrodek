@@ -1,3 +1,4 @@
+import { log } from "console";
 import { EntrySkeletonType, createClient } from "contentful";
 import { cache } from "react";
 
@@ -20,12 +21,15 @@ export async function getConsultationPrices() {
 }
 
 export async function getBlogPosts(limit = 20, skip=0) {
+  
+  const skipBlogPosts = skip < 0 ? 0 : skip * limit
+  
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "posts",
     //@ts-ignore
     order: "-sys.createdAt",
     limit: limit,
-    skip: skip
+    skip: skipBlogPosts
   });
 
   //@ts-ignore
