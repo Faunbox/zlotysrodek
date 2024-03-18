@@ -8,7 +8,7 @@ const BlogPost = ({ post }: { post: any }) => {
 
   return (
     <div className="w-full max-w-[400px] flex flex-col items-center justify-center shadow-lg text-offertGreen pb-4">
-      <Link href={`/blog/${id}`}>
+      {/* <Link href={`/blog/${id}`}> */}
       <Image
         src={`https:${image}?w=440&h=500&fm=webp`}
         height={440}
@@ -39,7 +39,7 @@ const BlogPost = ({ post }: { post: any }) => {
           </Link>
         </div>
       </div>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 };

@@ -1,10 +1,14 @@
 import { getSinglePost } from "@/lib/contentful";
 import { Metadata, ResolvingMetadata } from "next";
-import { usePathname  } from 'next/navigation'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import BackgroundedHeader from "@/components/typography/backgroundedHeader";
+import CategoryComponent from "@/components/blog/categoryComponent";
+import Image from "next/image";
+import Link from "next/link";
+import PostContent from "@/components/blog/postConent";
 
 type Props = {
-  params: { id: string};
+  params: { id: string };
 };
 
 export async function generateMetadata(
@@ -12,10 +16,10 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const id = params.id;
-  
 
   const post = await getSinglePost(id);
-  const { title, date, image, imageAlt, shortDescription } = post;
+  const { title, date, image, imageAlt, content, category, shortDescription } =
+    post;
 
   return {
     title: title as string,
@@ -34,12 +38,16 @@ export async function generateMetadata(
 
 const BlogPostPage = async ({ params }: Props) => {
   const post = await getSinglePost(params.id);
-  const { title, date, image, imageAlt, content } = post;
+  const { title, date, image, imageAlt, content, category, shortDescription } =
+    post;
 
   return (
     <main className="page">
-      <h4>{title as string}</h4>
-      {documentToReactComponents(content as any)}
+      <BackgroundedHeader>Blog</BackgroundedHeader>
+      <CategoryComponent />
+      {/* @ts-ignore */}
+      <PostContent data={post} />
+      
     </main>
   );
 };

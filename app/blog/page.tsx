@@ -1,3 +1,4 @@
+'use server'
 import BlogPost from "@/components/blog/blogPost";
 import CategoryComponent from "@/components/blog/categoryComponent";
 import BlogPostPagination from "@/components/blog/pagination";

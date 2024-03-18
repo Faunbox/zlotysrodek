@@ -20,16 +20,15 @@ export async function getConsultationPrices() {
   return prices;
 }
 
-export async function getBlogPosts(limit = 20, skip=0) {
-  
-  const skipBlogPosts = skip < 0 ? 0 : skip * limit
-  
+export async function getBlogPosts(limit = 20, skip = 0) {
+  const skipBlogPosts = skip < 0 ? 0 : skip * limit;
+
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "posts",
     //@ts-ignore
     order: "-sys.createdAt",
     limit: limit,
-    skip: skipBlogPosts
+    skip: skipBlogPosts,
   });
 
   //@ts-ignore
@@ -48,7 +47,7 @@ export async function getBlogPosts(limit = 20, skip=0) {
     //@ts-expect-error
     const imageAlt = post.fields?.zdjcieWTle?.fields.title!;
 
-    const total = data.total
+    const total = data.total;
 
     return {
       date,
@@ -60,7 +59,7 @@ export async function getBlogPosts(limit = 20, skip=0) {
       category,
       shortDescription,
       tags,
-      total
+      total,
     };
   });
 }
@@ -73,7 +72,8 @@ export const getSinglePost = cache(async (id: string) => {
   const date = post.sys.createdAt.slice(0, 10);
   const title = post.fields.tytu;
   const content = post.fields.trePosta;
-  const category = post.fields.kategoriaPosta;
+  //@ts-ignore
+  const category = post.fields?.kategoriaPosta![0].fields.kategoriaPosta;
   const shortDescription = post.fields.opisPosta;
   const tags = post.fields.tagi;
 
@@ -126,7 +126,6 @@ export async function getStatuate() {
 export async function getSurveyUrl() {
   const survey = await client.getEntries<EntrySkeletonType>({
     content_type: "ankietaYwieniowa",
-    
   });
   const surveyData = survey?.includes?.Asset;
   const surveyUrl = surveyData![0]?.fields?.file.url;
@@ -161,6 +160,9 @@ export async function getCategory() {
   });
 
   const categoryData = category?.items;
+  // const categoryDataT = category?.sys
+
+  // console.log(categoryDataT);
 
   return categoryData;
 }
