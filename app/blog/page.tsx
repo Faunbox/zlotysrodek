@@ -1,4 +1,4 @@
-'use server'
+"use server";
 import BlogPost from "@/components/blog/blogPost";
 import CategoryComponent from "@/components/blog/categoryComponent";
 import BlogPostPagination from "@/components/blog/pagination";
@@ -10,11 +10,13 @@ const Blog = async ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const blogPostLimit = Number(process.env.WEBSITE_DEFAULT_BLOG_POSTS_LIMIT)
+  const blogPostLimit = Number(process.env.WEBSITE_DEFAULT_BLOG_POSTS_LIMIT);
   const skipValue = searchParams.page || 0;
+  const category = (searchParams.category as string) || "";
+  const filter = category?.charAt(0).toUpperCase() + category?.slice(1);
   let skip = Number(skipValue) - 1;
 
-  const posts = await getBlogPosts(blogPostLimit, skip);
+  const posts = await getBlogPosts(blogPostLimit, skip, filter);
   const total = !posts[0] ? 1 : posts[0]?.total;
 
   return (

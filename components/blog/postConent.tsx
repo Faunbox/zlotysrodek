@@ -3,11 +3,10 @@ import Image from "next/image";
 
 const PostContent = ({ data }: { data: string[] }) => {
   //@ts-ignore
-  const { title, date, image, imageAlt, content, category } =
-    data;
+  const { title, date, image, imageAlt, content, category, tags } = data;
 
   return (
-    <div className="flex flex-col gap-2 w-8/12 px-10">
+    <div className="flex flex-col gap-2 w-8/12 p-10">
       <Image
         src={`https:${image}?w=1200&h=800&fm=webp`}
         height={440}
@@ -25,6 +24,14 @@ const PostContent = ({ data }: { data: string[] }) => {
         </h2>
         <div className="text-md font-montserrat font-light pl-2">
           {documentToReactComponents(content as any)}
+        </div>
+        <div className="flex flex-row">
+          <p>Tagi: </p>
+          <ul>
+            {tags.map((tag: string) => {
+              return <li key={tag}>{tag}</li>;
+            })}
+          </ul>
         </div>
       </div>
       <div className="w-2/12 flex flex-col items-center justify-center"></div>

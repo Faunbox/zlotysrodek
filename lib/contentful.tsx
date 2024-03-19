@@ -20,11 +20,15 @@ export async function getConsultationPrices() {
   return prices;
 }
 
-export async function getBlogPosts(limit = 20, skip = 0) {
+export async function getBlogPosts(limit = 20, skip = 0, filter?: string) {
+
   const skipBlogPosts = skip < 0 ? 0 : skip * limit;
+  
 
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "posts",
+    "fields.kategoria.fields.kategoriaPosta": filter,
+    'fields.kategoria.sys.contentType.sys.id': "kategoriePostow",
     //@ts-ignore
     order: "-sys.createdAt",
     limit: limit,
@@ -33,12 +37,14 @@ export async function getBlogPosts(limit = 20, skip = 0) {
 
   //@ts-ignore
   return data.items.map((post) => {
+    
     const id = post.sys.id;
     const date = post.sys.createdAt.slice(0, 10);
     const title = post.fields.tytu;
     const content = post.fields?.trePosta;
     //@ts-expect-error
-    const category = post.fields?.kategoriaPosta![0].fields.kategoriaPosta;
+    const category = post?.fields?.kategoria?.fields?.kategoriaPosta;
+
     const shortDescription = post.fields?.opisPosta;
     const tags = post.fields.tagi;
 
@@ -65,15 +71,13 @@ export async function getBlogPosts(limit = 20, skip = 0) {
 }
 
 export const getSinglePost = cache(async (id: string) => {
-  console.log("getSinglePost");
-
   const post = await client.getEntry(id);
 
   const date = post.sys.createdAt.slice(0, 10);
   const title = post.fields.tytu;
   const content = post.fields.trePosta;
   //@ts-ignore
-  const category = post.fields?.kategoriaPosta![0].fields.kategoriaPosta;
+  const category = post?.fields?.kategoria?.fields?.kategoriaPosta;
   const shortDescription = post.fields.opisPosta;
   const tags = post.fields.tagi;
 

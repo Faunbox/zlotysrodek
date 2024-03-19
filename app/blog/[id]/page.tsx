@@ -44,10 +44,8 @@ const BlogPostPage = async ({ params }: Props) => {
   return (
     <main className="page">
       <BackgroundedHeader>Blog</BackgroundedHeader>
-      <CategoryComponent />
       {/* @ts-ignore */}
       <PostContent data={post} />
-      
     </main>
   );
 };

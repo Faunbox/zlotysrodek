@@ -3,8 +3,6 @@ import Link from "next/link";
 
 const BlogPost = ({ post }: { post: any }) => {
   const { title, image, imageAlt, date, id, category, shortDescription } = post;
-  //@ts-ignore
-  // const categorys = category.map((post) => post.fields.kategoriaPosta);
 
   return (
     <div className="w-full max-w-[400px] flex flex-col items-center justify-center shadow-lg text-offertGreen pb-4">
