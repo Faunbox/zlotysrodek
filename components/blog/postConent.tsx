@@ -1,20 +1,22 @@
+import { Post } from "@/lib/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 
-const PostContent = ({ data }: { data: string[] }) => {
-  //@ts-ignore
+const PostContent = ({ data }: { data: Post }) => {
   const { title, date, image, imageAlt, content, category, tags } = data;
 
   return (
-    <div className="flex flex-col gap-2 w-8/12 p-10">
+    <div className="flex flex-col gap-2 w-[70vw] mt-10 pb-10 bg-blogPost shadow-large">
       <Image
         src={`https:${image}?w=1200&h=800&fm=webp`}
-        height={440}
-        width={500}
+        height={640}
+        width={1200}
         alt={imageAlt as string}
-        className="object-cover"
+        placeholder="blur"
+        blurDataURL={`https:${image}?w=40&h=30&fm=webp`}
+        className="w-full max-h-[300px] object-none "
       />
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-4 w-full px-5">
         <div className="flex flex-row justify-between px-2">
           <p>{category}</p>
           <p>{date}</p>
@@ -25,7 +27,7 @@ const PostContent = ({ data }: { data: string[] }) => {
         <div className="text-md font-montserrat font-light pl-2">
           {documentToReactComponents(content as any)}
         </div>
-        <div className="flex flex-row">
+        <div className="flex flex-row ">
           <p>Tagi: </p>
           <ul>
             {tags.map((tag: string) => {
@@ -34,7 +36,6 @@ const PostContent = ({ data }: { data: string[] }) => {
           </ul>
         </div>
       </div>
-      <div className="w-2/12 flex flex-col items-center justify-center"></div>
     </div>
   );
 };

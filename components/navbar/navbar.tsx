@@ -45,6 +45,7 @@ const Navbar = () => {
             {navbarData.map((link) => (
               <Link
                 href={link.href}
+                prefetch
                 className={`${
                   currentPath === link.href && "underline-offset-4 underline"
                 } hover:scale-110 transform transition duration-300`}

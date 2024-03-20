@@ -6,6 +6,7 @@ import CategoryComponent from "@/components/blog/categoryComponent";
 import Image from "next/image";
 import Link from "next/link";
 import PostContent from "@/components/blog/postConent";
+import LatestPostsList from "@/components/blog/latestPostsList";
 
 type Props = {
   params: { id: string };
@@ -27,7 +28,7 @@ export async function generateMetadata(
     openGraph: {
       title: title as string,
       description: shortDescription as string,
-      url: `https://zlotysrodek.vercel.app`,
+      url: `https://zlotysrodek.vercel.app/blog/${id}`,
       siteName: "Psychodietetyka Dorota Sojecka",
       images: [`https:${image}/?w=1200&h=640&fm=webp`],
       locale: "pl_PL",
@@ -38,14 +39,15 @@ export async function generateMetadata(
 
 const BlogPostPage = async ({ params }: Props) => {
   const post = await getSinglePost(params.id);
-  const { title, date, image, imageAlt, content, category, shortDescription } =
-    post;
 
   return (
-    <main className="page">
+    <main className="page w-full pb-10">
       <BackgroundedHeader>Blog</BackgroundedHeader>
-      {/* @ts-ignore */}
-      <PostContent data={post} />
+      <div className="flex flex-col lg:flex-row gap-10 relative">
+        {/* @ts-expect-error */}
+        <PostContent data={post} />
+        <LatestPostsList />
+      </div>
     </main>
   );
 };

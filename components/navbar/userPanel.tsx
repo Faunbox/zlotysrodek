@@ -12,6 +12,7 @@ const UserPanel = () => {
       <li className="flex flex-col md:flex-row justify-end items-center my-2">
         <Link
           href={`/user/${username}`}
+          prefetch
           className="text-gold font-normal hover:scale-105 duration-300"
         >
           {username}

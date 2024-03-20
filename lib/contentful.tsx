@@ -1,6 +1,18 @@
-import { log } from "console";
-import { EntrySkeletonType, createClient } from "contentful";
+import { ContentType, ContentfulCollection, EntrySkeletonType, createClient } from "contentful";
 import { cache } from "react";
+
+export type Post = {
+  date: string;
+  title: string;
+  content: ContentType;
+  image: string;
+  imageAlt: string;
+  id: string;
+  category: string;
+  shortDescription: string;
+  tags: string[];
+  total?: number;
+};
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
@@ -21,14 +33,12 @@ export async function getConsultationPrices() {
 }
 
 export async function getBlogPosts(limit = 20, skip = 0, filter?: string) {
-
   const skipBlogPosts = skip < 0 ? 0 : skip * limit;
-  
 
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "posts",
     "fields.kategoria.fields.kategoriaPosta": filter,
-    'fields.kategoria.sys.contentType.sys.id': "kategoriePostow",
+    "fields.kategoria.sys.contentType.sys.id": "kategoriePostow",
     //@ts-ignore
     order: "-sys.createdAt",
     limit: limit,
@@ -36,23 +46,16 @@ export async function getBlogPosts(limit = 20, skip = 0, filter?: string) {
   });
 
   //@ts-ignore
-  return data.items.map((post) => {
-    
+  return data.items.map((post: ContentfulCollection) => {
     const id = post.sys.id;
     const date = post.sys.createdAt.slice(0, 10);
     const title = post.fields.tytu;
     const content = post.fields?.trePosta;
-    //@ts-expect-error
     const category = post?.fields?.kategoria?.fields?.kategoriaPosta;
-
     const shortDescription = post.fields?.opisPosta;
     const tags = post.fields.tagi;
-
-    //@ts-expect-error
     const image = post.fields?.zdjcieWTle?.fields?.file.url!;
-    //@ts-expect-error
     const imageAlt = post.fields?.zdjcieWTle?.fields.title!;
-
     const total = data.total;
 
     return {
