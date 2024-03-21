@@ -21,7 +21,7 @@ const validationSchema = z.object({
     .email({ message: "Adres email musi być poprawny" }),
   description: z
     .string()
-    .min(1, { message: "Wiadomość musi posiadać minimum 10 znaków" })
+    .min(10, { message: "Wiadomość musi posiadać minimum 10 znaków" })
     .max(300, { message: "Wiadomość musi posiadać mniej niż 300 znaków" }),
 });
 type ValidationSchema = z.infer<typeof validationSchema>;

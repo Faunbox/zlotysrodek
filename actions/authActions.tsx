@@ -9,7 +9,7 @@ import {
   mongooseDbDisconnect,
   updateUserByEmail,
 } from "@/lib/mongoose";
-import { sendEmail } from "@/lib/sendgrid";
+import {  sgMailClient } from "@/lib/sendgrid";
 import User from "@/models/UserModel";
 import sgMail from "@sendgrid/mail";
 import crypto, { BinaryLike } from "crypto";
@@ -95,15 +95,12 @@ export async function registerUser(formData: FormData) {
             newsletter: false,
           };
 
-          
-
           const registerUser = new User(newUser);
           return registerUser;
         })
         .then(async (user) => {
           newUserEmail = user.email;
-          
-          
+
           try {
             await mongooseDbConnect();
             const newUser = await user.save();
@@ -171,7 +168,6 @@ export async function sendEmailWhenCreateUser(
   veryficationToken: string
 ) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
-  
 
   const msgToCompany = {
     personalizations: [
@@ -195,7 +191,7 @@ export async function sendEmailWhenCreateUser(
     // </div>`,
   };
   //@ts-expect-error
-  await sgMail.send(msgToCompany).catch((error) => {
+  await sgMailClient.send(msgToCompany).catch((error) => {
     console.log("Błąd podczas wysyłania maila -> ", error);
   });
 }
@@ -241,16 +237,27 @@ export async function sendResetPasswordToken(
     return { response };
   } finally {
     const msgToResetPassword = {
-      to: "faunbox2@gmail.com", // Change to your recipient
-      from: process.env.SENDGRID_EMAIL!, // Change to your verified sender
-      subject: `Resetowanie hasla dla konta - ${email}`,
-      text: "data?.message",
-      html: `<div>
-      <a href=${passwordResetLink}>Zresetuj hasło</a>
-      </div>`,
+      personalizations: [
+        {
+          to: "faunbox2@gmail.com",
+          dynamic_template_data: {
+            url: passwordResetLink,
+          },
+        },
+      ],
+      from: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
+      reply_to: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
+      template_id: "d-d7c4b1c77f504149a58a0f56a8765acd",
     };
-
-    sendEmail(msgToResetPassword);
+    //@ts-expect-error
+    await sgMail.send(msgToResetPassword).catch((error) => {
+      response = {
+        status: "error",
+        message: "Błąd w trakcie wysyłania maila!",
+      };
+      console.log("Błąd podczas wysyłania maila -> ", error.response.body);
+      return { response };
+    });
 
     response = {
       status: "success",
