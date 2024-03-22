@@ -61,7 +61,7 @@ const UserElements = () => {
             {searchResponse.user?.email! as string}
           </p>
           <ModalAdminPanel data={searchResponse?.user} />
-          <VisitationEndComponent email={searchResponse?.user?.email}>
+          <VisitationEndComponent email={searchResponse?.user?.email} consultations={Number(searchResponse?.user?.consultations)} name={searchResponse?.user?.name}>
                   Zakończ wizytę
                 </VisitationEndComponent>
         </div>
@@ -81,7 +81,7 @@ const UserElements = () => {
                 <div className="flex flex-row gap-4">
 
                 <ModalAdminPanel data={user} />
-                <VisitationEndComponent email={user?.email}>
+                <VisitationEndComponent email={user?.email} consultations={Number(user?.consultations)} name={user?.name as string}>
                   Zakończ wizytę
                 </VisitationEndComponent>
                 </div>

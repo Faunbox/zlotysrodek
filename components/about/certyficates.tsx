@@ -1,6 +1,7 @@
 import { getAllCertyficates } from "@/lib/contentful";
 import HalfBackgroundHeader from "../typography/halfBgHeader";
 import Image from "next/image";
+import Lightbox from "./lightbox";
 
 const Certyficates = async () => {
   const certyficates = await getAllCertyficates();
@@ -11,14 +12,7 @@ const Certyficates = async () => {
       <div className="flex items-center justify-center gap-6 flex-wrap mb-20">
         {certyficates?.map((certyficate) => {
           return (
-            <Image
-              key={certyficate.title}
-              src={`https:${certyficate.url}?w=300&h=428&fm=webp`}
-              alt={certyficate.alt}
-              width={300}
-              loading="lazy"
-              height={300}
-            />
+            <Lightbox key={certyficate.title} title={certyficate.title} url={certyficate.url} alt={certyficate.alt}/>
           );
         })}
       </div>

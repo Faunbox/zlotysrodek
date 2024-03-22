@@ -5,8 +5,7 @@ import {
   getAllUsersFromDb,
   updateUserByEmail,
 } from "@/lib/mongoose";
-import { sendEmail } from "@/lib/sendgrid";
-import sgMail from "@sendgrid/mail";
+import { sgMailClient } from "@/lib/sendgrid";
 
 export async function getAllUsers(
   page: number | string,
@@ -77,24 +76,44 @@ export async function sendEndEmail(formData: FormData) {
   const date = formData.get("date");
   const time = formData.get("time");
   const link = formData.get("link");
+  const consultations = formData.get("consultations");
+  const name = formData.get("name");
 
   let response;
 
   const emailHtml = {
-    to: "faunbox2@gmail.com",
-    from: process.env.SENDGRID_EMAIL!,
-    subject: "Następne spotkanie - Złoty Środek",
-    text: "Płatność sfinalizowana",
-    html: `<main><h2>Następne spotkanie</h2><div><p>Data: ${date}</p><p>Godzina: ${time}</p><p>Link do spotkania: ${link}</p></div></main>`,
+    personalizations: [
+      {
+        to: "faunbox2@gmail.com",
+        dynamic_template_data: {
+          link: link,
+          name: name,
+          date: date,
+          time: time,
+        },
+      },
+    ],
+    from: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
+    reply_to: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
+    template_id: "d-b048b4389b9a41e5a01e0b9cccd9394f",
   };
 
   const meetingDate = (date! as string) + " " + time!;
 
   try {
-    await sendEmail(emailHtml);
+    await sgMailClient
+      //@ts-expect-error
+      .send(emailHtml)
+      .catch((error: string) => {
+        console.log("Błąd podczas wysyłania maila -> ", error);
+      });
+
+    console.log(Number(consultations));
+    console.log(Number(consultations) - 1);
 
     await updateUserByEmail(email!, {
       nextMeeting: meetingDate,
+      consultations: Number(consultations) - 1,
     });
   } catch (error) {
     response = {

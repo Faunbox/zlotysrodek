@@ -16,9 +16,13 @@ import { sendEndEmail } from "@/actions/adminActions";
 const VisitationEndComponent = ({
   children,
   email,
+  consultations,
+  name
 }: {
   children: string;
   email: string | FormDataEntryValue;
+  consultations: number | string
+  name: string
 }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [response, setResponse] = useState({});
@@ -42,7 +46,9 @@ const VisitationEndComponent = ({
   };
 
   const handleSubmit = async (formData: FormData) => {
-    formData.append("email", email)
+    formData.append("email", email),
+    formData.append("consultations", consultations! as string),
+    formData.append("name", name!)
     try {
         setSending(true);
         const res = await sendEndEmail(formData);
