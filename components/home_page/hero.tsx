@@ -51,20 +51,20 @@ const HeroSection = () => {
             </Link>
           </div>
         </div>
-        <div className="hidden w-full 2xl:w-5/12 md:flex items-center justify-center">
+        <div className="hidden w-full 2xl:w-4/12 md:flex items-center justify-center">
           <Image
             src={"/images/hero-image.png"}
             alt="psychodietetyk"
             width={300}
             height={600}
-            className="hidden md:flex absolute"
+            className="hidden md:flex absolute right-72"
           />
           <Image
             src={"/images/blob.svg"}
             alt="blob"
             width={600}
             height={800}
-            className="hidden md:flex absolute -z-10 "
+            className="hidden md:flex absolute right-12 -z-10 "
           />
         </div>
       </div>

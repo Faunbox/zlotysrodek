@@ -30,7 +30,7 @@ export default function Error({
         <h2 className="text-2xl">Coś poszło nie tak...</h2>
         <h2 className="text-4xl">Spróbuj ponownie później</h2>
       </div>
-      <div className="flex flex-row justify-between gap-10">
+      <div className="flex flex-row justify-between gap-20">
         <Link href="/">
           <FilledButton color="bg-darkGreen" text="white">
             Strona główna

@@ -11,7 +11,7 @@ const BlogMagnet = () => {
           </WideButton>
         </Link>
       </div>
-      <div className="flex flex-col absolute top-10 md:top-[20%] right-[10%] lg:right-40 font-abhaya text-2xl leading-relaxed text-darkGreen">
+      <div className="flex flex-col absolute top-10 md:top-[20%] right-[10%] lg:right-40 font-light text-2xl leading-relaxed text-darkGreen">
         <p>Znajdź swój złoty środek.</p>
         <p>Zmień swoje myśli,</p>
         <p>by zmienić swoje ciało.</p>

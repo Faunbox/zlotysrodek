@@ -6,17 +6,17 @@ const PostContent = ({ data }: { data: Post }) => {
   const { title, date, image, imageAlt, content, category, tags } = data;
 
   return (
-    <div className="flex flex-col gap-2 w-[70vw] mt-10 pb-10 bg-blogPost shadow-large">
+    <div className="flex flex-col gap-2 w-full lg:w-[70vw] items-center justify-center lg:justify-start mt-10 pb-10 bg-blogPost shadow-large">
       <Image
         src={`https:${image}?w=1200&h=800&fm=webp`}
         height={640}
         width={1200}
         alt={imageAlt as string}
         placeholder="blur"
-        blurDataURL={`https:${image}?w=40&h=30&fm=webp`}
+        blurDataURL={`https:${image}?w=10&h=10&fm=webp`}
         className="w-full max-h-[300px] object-none "
       />
-      <div className="flex flex-col gap-4 w-full px-5">
+      <div className="flex flex-col gap-4 w-full px-10 md:px-5">
         <div className="flex flex-row justify-between px-2">
           <p>{category}</p>
           <p>{date}</p>
@@ -28,10 +28,17 @@ const PostContent = ({ data }: { data: Post }) => {
           {documentToReactComponents(content as any)}
         </div>
         <div className="flex flex-row ">
-          <p>Tagi: </p>
-          <ul>
+          <p className="pr-2">Tagi: </p>
+          <ul className="flex flex-row gap-1">
             {tags.map((tag: string) => {
-              return <li key={tag}>{tag}</li>;
+              return (
+                <li
+                  key={tag}
+                  className="bg-lightGreen text-xs rounded-full py-1 px-2"
+                >
+                  {tag}
+                </li>
+              );
             })}
           </ul>
         </div>

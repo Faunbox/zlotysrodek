@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const BasicInfo = () => {
   return (
-    <section className="flex flex-row relative items-start justify-center text-center md:mx-20 my-20 w-full text-green">
+    <section className="flex flex-row relative items-start justify-center text-center md:mx-20 my-20 w-full text-darkGreen">
       <div className="w-2/12 md:w-1/12 sticky top-1/4 flex items-start justify-end ">
         <Image
           // src={"/images/logo_footer (2).svg"}
