@@ -1,9 +1,19 @@
-import { getConsultationPrices } from "@/lib/contentful";
+"use client";
+import { useSession } from "next-auth/react";
 import FilledButton from "../typography/filledButton";
 import Header from "../typography/headers";
+import { Prices } from "@/app/page";
+import Link from "next/link";
 
-const Offert = async ({ title = false }: { title?: boolean }) => {
-  const consultationPrices = await getConsultationPrices();
+const Offert = ({
+  title = false,
+  prices,
+}: {
+  title?: boolean;
+  prices: Prices;
+}) => {
+  const { data: session } = useSession();
+  const email: string = session?.user?.email!;
 
   return (
     <section className="flex flex-col items-center justify-center text-green my-10 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative">
@@ -18,14 +28,28 @@ const Offert = async ({ title = false }: { title?: boolean }) => {
               PAKIET KONSULTACJI ON-LINE 4 SPOTKAŃ
             </p>
             <p className="text-lg px-6 font-abhaya">
-              {consultationPrices.zestaw3Konsultacji as string}
+              {prices.zestaw3Konsultacji as string}
             </p>
           </div>
-          <FilledButton>KUP PAKIET KONSULTACJI</FilledButton>
+          {email ? (
+            <a
+              href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
+                email
+              )}`}
+            >
+              <FilledButton>KUP PAKIET KONSULTACJI</FilledButton>
+            </a>
+          ) : (
+            <Link href={"/logowanie"}>
+              <FilledButton>Zaloguj się, by kupić konsultacje </FilledButton>
+            </Link>
+          )}
         </div>
 
         <div
-          className={`bg-green order-1 lg:order-2 flex flex-col gap-8 pb-8 px-8 md:pb-8 items-center justify-center w-full mb-10 rounded-lg `}
+          className={`bg-green order-1 lg:order-2 flex flex-col gap-8 ${
+            !title && "pt-8"
+          } pb-8 px-8 md:pb-8 items-center justify-center w-full mb-10 rounded-lg `}
         >
           {title && <Header>Oferta</Header>}
           <ul className="flex flex-col list-disc text-left font-extralight font-poppins text-lg">
@@ -38,10 +62,22 @@ const Offert = async ({ title = false }: { title?: boolean }) => {
           <div className="flex flex-col items-center justify-center text-center font-abhaya">
             <p className="text-lg px-6 font-abhaya">POJEDYNCZA KONSULTACJA</p>
             <p className="text-lg px-6 font-abhaya">
-              {consultationPrices.konsultacja as string}
+              {prices.konsultacja as string}
             </p>
           </div>
-          <FilledButton>KUP KONSULTACJĘ</FilledButton>
+          {email ? (
+            <a
+              href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
+                email
+              )}`}
+            >
+              <FilledButton>KUP KONSULTACJĘ</FilledButton>
+            </a>
+          ) : (
+            <Link href={"/logowanie"}>
+              <FilledButton>Zaloguj się, by kupić konsultacje </FilledButton>
+            </Link>
+          )}
         </div>
 
         <div className="bg-offertGreen order-3 lg:order-3 flex flex-col gap-8 p-8 items-center justify-center w-full rounded-lg ">
@@ -52,11 +88,22 @@ const Offert = async ({ title = false }: { title?: boolean }) => {
           <div className="flex flex-col items-center justify-center text-center font-abhaya">
             <p className="text-lg px-6">PAKIET KONSULTACJI ON-LINE 8 SPOTKAŃ</p>
             <p className="text-lg px-6 ">
-              {consultationPrices.zestaw10Konsultacji as string}
+              {prices.zestaw10Konsultacji as string}
             </p>
           </div>
-
-          <FilledButton>KUP PAKIET KONSULTACJI</FilledButton>
+          {email ? (
+            <a
+              href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
+                email
+              )}`}
+            >
+              <FilledButton>KUP PAKIET KONSULTACJI</FilledButton>
+            </a>
+          ) : (
+            <Link href={"/logowanie"}>
+              <FilledButton>Zaloguj się, by kupić konsultacje </FilledButton>
+            </Link>
+          )}
         </div>
       </div>
     </section>

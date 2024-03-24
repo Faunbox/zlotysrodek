@@ -99,7 +99,7 @@ export const findUserByVeryficationToken = async (
 export const activateUser = async (id: string) => {
   let response;
   await mongooseDbConnect();
-  response = await User.findByIdAndUpdate(id, { isConfirmed: true });
+  response = await User.findByIdAndUpdate(id, { isConfirmed: true, confirmedDate: Date.now() });
   await mongooseDbDisconnect();
   return response;
 };

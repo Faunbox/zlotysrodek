@@ -32,6 +32,7 @@ export type UserType = {
   adminDescription?: string;
   freeConsultation?: boolean | number | string;
   nextMeeting?: string;
+  confirmedDate?: Date
 };
 
 type ResponseData = {

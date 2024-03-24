@@ -9,15 +9,25 @@ import Offert from "@/components/home_page/offert";
 import CancelationComponent from "@/components/offert/cancelationComponent";
 import StepsComponent from "@/components/offert/stepsComponent";
 import HalfBackgroundHeader from "@/components/typography/halfBgHeader";
+import { getConsultationPrices } from "@/lib/contentful";
 
-export default function Home() {
+export type Prices = {
+    konsultacja: string;
+    zestaw3Konsultacji: string;
+    zestaw10Konsultacji: string;
+    tytul: string;
+};
+
+export default async function Home() {
+  const consultationPrices = await getConsultationPrices();
+
   return (
     <main className="page">
       <HeroSection />
       <FollowMe />
       <BasicInfo />
       <BlogMagnet />
-      <Offert title={true} />
+      <Offert title={true} prices={consultationPrices as Prices} />
       <FreeConsultation />
       <ContactMagnet />
       <HalfBackgroundHeader>

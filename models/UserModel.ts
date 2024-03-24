@@ -31,6 +31,10 @@ const UserSchema = new Schema(
       required: true,
       value: false,
     },
+    confirmedDate: {
+      type: Date,
+      required: false,
+    },
     veryficationToken: {
       type: String,
       required: false,

@@ -23,7 +23,7 @@ const config: Config = {
       white: "#FFF",
       ligtherGreen: "#C6D4C2",
       error: "#FA0202",
-      blogPost: "#F7F6F6"
+      blogPost: "#F7F6F6",
     },
     container: {
       center: true,
@@ -34,6 +34,7 @@ const config: Config = {
       },
       backgroundImage: {
         login: "url('/images/log.jpg')",
+        plama: "url('/images/plama.jpg')",
       },
     },
   },

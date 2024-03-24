@@ -40,7 +40,7 @@ const OptionsComponent = ({
           </a>
         </div>
 
-        <div className="bg-green flex flex-col gap-10 p-10 lg:mb-24 order-1 lg:order-none items-center justify-center w-full">
+        <div className="bg-green flex flex-col gap-10 p-10  order-1 lg:order-none items-center justify-center w-full">
           <ul className="flex flex-col list-disc gap-1 text-left font-poppins font-extralight">
             <li>Spotkamy się na 50 min </li>
             <li>Przeanalizujemy Twój przypadek</li>{" "}

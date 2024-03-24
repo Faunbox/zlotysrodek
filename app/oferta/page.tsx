@@ -7,6 +7,7 @@ import StepsComponent from "@/components/offert/stepsComponent";
 import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import HalfBackgroundHeader from "@/components/typography/halfBgHeader";
 import { getConsultationPrices } from "@/lib/contentful";
+import { Prices } from "@/app/page";
 
 const Consultation = async () => {
   const consultationPrices = await getConsultationPrices();
@@ -15,8 +16,7 @@ const Consultation = async () => {
     <main className="page">
       <BackgroundedHeader>Oferta</BackgroundedHeader>
       <FreeConsultation />
-      {/* @ts-ignore */}
-      <Offert title={false}/>
+      <Offert title={false} prices={consultationPrices as Prices}/>
       <HalfBackgroundHeader>
         Konsultacja on-line krok po kroku:
       </HalfBackgroundHeader>
