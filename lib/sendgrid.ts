@@ -1,6 +1,5 @@
 import sgMail, { MailDataRequired } from "@sendgrid/mail";
 
-
 type EmailInfoType = {
   to: string;
   from: string;
@@ -10,9 +9,25 @@ type EmailInfoType = {
   template_id?: string;
 };
 
-type ValidEmailType = EmailInfoType & MailDataRequired;
+export type TemplateIdEmail = {
+  personalizations: {
+    to: string | string[];
+    dynamic_template_data: any;
+  };
+  from: {
+    email: string | string[];
+    name: string;
+  };
+  reply_to: { email: string | string[]; name: string };
+  template_id: string;
+};
 
- export const sgMailClient = sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
+type ValidEmailType = EmailInfoType & MailDataRequired;
+type Template = MailDataRequired | MailDataRequired[] 
+
+export const sgMailClient = sgMail.setApiKey(
+  process.env.SENDGRID_API_KEY || ""
+);
 
 export async function sendEmail(params: ValidEmailType) {
   const { to, from, subject, text, html, template_id } = params;
@@ -25,11 +40,15 @@ export async function sendEmail(params: ValidEmailType) {
     html: html,
   };
 
-
-
-  
-
   await sgMail.send(emailBody!).catch((error) => {
     console.log("Błąd podczas wysyłania maila -> ", error);
   });
+}
+
+export async function sendEmailWithTemplateId(data: Template) {  
+
+  await sgMail.send(data!).catch((error) => {
+    console.log("Błąd podczas wysyłania maila -> ", error);
+  });
+
 }

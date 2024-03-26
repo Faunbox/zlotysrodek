@@ -1,5 +1,5 @@
 import User from "@/models/UserModel";
-import mongoose from "mongoose";
+import mongoose, { FilterQuery } from "mongoose";
 import { hashPassword } from "./bcript";
 import { UserType } from "@/actions/authActions";
 
@@ -51,7 +51,6 @@ export const findUser = async (username: string | FormDataEntryValue) => {
 };
 
 export const findUserByEmail = async (email: string | FormDataEntryValue) => {
-
   let user: UserType;
   await mongooseDbConnect();
   const data = await User.findOne({ email });
@@ -65,12 +64,12 @@ export const findUserByResetToken = async (
 ) => {
   let user;
   await mongooseDbConnect();
-  console.log(token);
+  console.log({ token });
 
   const data = await User.findOne({ resetToken: token });
-  console.log(data);
 
   user = await data;
+  console.log({ user });
   await mongooseDbDisconnect();
   return user;
 };
@@ -99,19 +98,32 @@ export const findUserByVeryficationToken = async (
 export const activateUser = async (id: string) => {
   let response;
   await mongooseDbConnect();
-  response = await User.findByIdAndUpdate(id, { isConfirmed: true, confirmedDate: Date.now() });
+  response = await User.findByIdAndUpdate(id, {
+    isConfirmed: true,
+    confirmedDate: Date.now(),
+  });
   await mongooseDbDisconnect();
   return response;
 };
 
 export const updateUserByEmail = async (
-  email: string | FormDataEntryValue | FormDataEntryValue,
+  email: string | FormDataEntryValue,
   update: any
 ) => {
   let response;
+  console.log("Update user by email");
+
   await mongooseDbConnect();
-  response = await User.findOneAndUpdate({ email }, update);
+
+  response = await User.findOneAndUpdate(
+    //@ts-ignore
+    { email },
+    { update },
+    { new: true }
+  );
+
   await mongooseDbDisconnect();
+
   return response;
 };
 export const changePassword = async (
@@ -119,6 +131,7 @@ export const changePassword = async (
   newPassword: string | FormDataEntryValue
 ) => {
   let response;
+
   const hashedNewPassword = await hashPassword(newPassword);
   await mongooseDbConnect();
   response = await User.findOneAndUpdate(

@@ -5,7 +5,7 @@ import {
   getAllUsersFromDb,
   updateUserByEmail,
 } from "@/lib/mongoose";
-import { sgMailClient } from "@/lib/sendgrid";
+import { sendEmailWithTemplateId } from "@/lib/sendgrid";
 
 export async function getAllUsers(
   page: number | string,
@@ -101,15 +101,11 @@ export async function sendEndEmail(formData: FormData) {
   const meetingDate = (date! as string) + " " + time!;
 
   try {
-    await sgMailClient
-      //@ts-expect-error
-      .send(emailHtml)
+    await sendEmailWithTemplateId(emailHtml as any)
       .catch((error: string) => {
         console.log("Błąd podczas wysyłania maila -> ", error);
       });
 
-    console.log(Number(consultations));
-    console.log(Number(consultations) - 1);
 
     await updateUserByEmail(email!, {
       nextMeeting: meetingDate,

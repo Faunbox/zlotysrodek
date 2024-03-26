@@ -2,7 +2,11 @@ import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { findUserByEmail, updateUserByEmail } from "@/lib/mongoose";
-import { sendEmail } from "@/lib/sendgrid";
+import {
+  TemplateIdEmail,
+  sendEmail,
+  sendEmailWithTemplateId,
+} from "@/lib/sendgrid";
 
 const stripe = new Stripe(process.env.STRIPE_TEST_API_KEY!, {
   apiVersion: "2023-10-16",
@@ -28,7 +32,6 @@ export async function POST(req: Request) {
           checkoutId
         );
 
-
         lineItems.data.map(async (consultation) => {
           const pucharsedQuantity = consultation?.quantity;
           const pucharsedProduct = consultation.price?.product;
@@ -42,15 +45,13 @@ export async function POST(req: Request) {
             Number(productMetadataQuantity) * Number(pucharsedQuantity);
 
           consultations = consultations + fullQuantity;
-
         });
-
 
         const customerEmail = paymentIntentSucceeded.customer_details
           ?.email as string;
 
         const getUserInfo = await findUserByEmail(customerEmail);
-        console.log({consultations});
+        console.log({ consultations });
 
         if (getUserInfo !== undefined) {
           const res = await updateUserByEmail(customerEmail, {
@@ -61,11 +62,23 @@ export async function POST(req: Request) {
           console.log({ res });
 
           const emailToCustomer = {
-            to: "faunbox2@gmail.com",
-            from: process.env.SENDGRID_EMAIL!,
-            subject: "Płatność sfinalizowana",
-            text: "Płatność sfinalizowana",
-            html: "<div><p>Dodano spotaknia do Twojego konta</p></div>",
+            personalizations: [
+              {
+                to: "faunbox2@gmail.com",
+                dynamic_template_data: {
+                  email: customerEmail,
+                },
+              },
+            ],
+            from: {
+              email: process.env.SENDGRID_EMAIL!,
+              name: "Dorota Sojecka",
+            },
+            reply_to: {
+              email: process.env.SENDGRID_EMAIL!,
+              name: "Dorota Sojecka",
+            },
+            template_id: "d-11afb444204d433e96fe7fe8865fb5c3",
           };
           const emailToDorotka = {
             to: "faunbox2@gmail.com",
@@ -74,7 +87,8 @@ export async function POST(req: Request) {
             text: "Wpłynęła nowa płatność",
             html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe.</p></div>`,
           };
-          await sendEmail(emailToCustomer);
+          //@ts-ignore
+          await sendEmailWithTemplateId(emailToCustomer);
           await sendEmail(emailToDorotka);
           console.log("email wysłany");
 
@@ -92,8 +106,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ result: event, ok: true });
   } catch (error) {
     console.error(error);
-
-    
 
     return NextResponse.json(
       {

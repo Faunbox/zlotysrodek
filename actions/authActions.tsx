@@ -9,7 +9,7 @@ import {
   mongooseDbDisconnect,
   updateUserByEmail,
 } from "@/lib/mongoose";
-import {  sgMailClient } from "@/lib/sendgrid";
+import { sendEmailWithTemplateId } from "@/lib/sendgrid";
 import User from "@/models/UserModel";
 import sgMail from "@sendgrid/mail";
 import crypto, { BinaryLike } from "crypto";
@@ -32,7 +32,7 @@ export type UserType = {
   adminDescription?: string;
   freeConsultation?: boolean | number | string;
   nextMeeting?: string;
-  confirmedDate?: Date
+  confirmedDate?: Date;
 };
 
 type ResponseData = {
@@ -80,6 +80,7 @@ export async function registerUser(formData: FormData) {
       await hashPassword(password!)
         .then((hashedPassword: string) => {
           const password = hashedPassword;
+
           newUser = {
             username: JSON.parse(username! as string),
             password: password!,
@@ -144,6 +145,7 @@ export async function registerUser(formData: FormData) {
 
 export async function checkForUserFromDb(email: string, password: string) {
   let isOk: boolean;
+
   try {
     const checkUser = await findUserByEmail(email);
 
@@ -153,10 +155,12 @@ export async function checkForUserFromDb(email: string, password: string) {
     }
     if (checkUser !== null) {
       const isPasswordOk = await isSamePassword(
-        password,
+        JSON.stringify(password),
         checkUser.password as string
       );
-      isPasswordOk ? (isOk = true) : (isOk = false);
+      console.log({ isPasswordOk });
+
+      (await isPasswordOk) ? (isOk = true) : (isOk = false);
       return isOk;
     }
   } catch (error) {
@@ -182,17 +186,9 @@ export async function sendEmailWhenCreateUser(
     from: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
     reply_to: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
     template_id: "d-c8ded498821d40038603eb165006d6a3",
-    // subject: `Stworzenie nowego konta dla adresu ${email}`,
-    // text: "data?.message",
-    // html: `<div>
-    // <h1>Wiadomość od: </h1>
-    // <h2>Adres email:</h2>
-    // <h2>Wiadomość: </h2>
-    // <a href=${process.env.NEXTAUTH_URL}/user/auth/${veryficationToken}>Zweryfikuj</a>
-    // </div>`,
   };
   //@ts-expect-error
-  await sgMailClient.send(msgToCompany).catch((error) => {
+  await sendEmailWithTemplateId(msgToCompany).catch((error) => {
     console.log("Błąd podczas wysyłania maila -> ", error);
   });
 }
@@ -226,10 +222,11 @@ export async function sendResetPasswordToken(
   const resetTokenExpire = Date.now() + 3600000;
 
   try {
-    await updateUserByEmail(email!, {
+    const data = await updateUserByEmail(email!, {
       resetToken: passwordResetToken,
       resetPasswordTokenExpire: resetTokenExpire,
     });
+    console.log({ data });
   } catch (error) {
     response = {
       status: "error",
@@ -251,7 +248,7 @@ export async function sendResetPasswordToken(
       template_id: "d-d7c4b1c77f504149a58a0f56a8765acd",
     };
     //@ts-expect-error
-    await sgMail.send(msgToResetPassword).catch((error) => {
+    await sendEmailWithTemplateId(msgToResetPassword).catch((error) => {
       response = {
         status: "error",
         message: "Błąd w trakcie wysyłania maila!",
@@ -282,6 +279,7 @@ export async function resetUserPassword(formData: FormData) {
   }
 
   const dbToken = encodePasswordToken(token!);
+
   const user = await findUserByResetToken(dbToken!);
 
   if (user === null) {
@@ -312,6 +310,7 @@ export async function resetUserPassword(formData: FormData) {
 }
 
 export async function sendVeryfiactionToken(email: string) {
+  let response;
   const newToken = createVeryficationToken();
   const resetTokenExpire = Date.now() + 3600000;
   // const resetTokenExpire = Date.now()
@@ -319,6 +318,21 @@ export async function sendVeryfiactionToken(email: string) {
   const user = await updateUserByEmail(email, {
     veryficationToken: newToken,
     resetTokenExpire: resetTokenExpire,
-  });
-  sendEmailWhenCreateUser(user?.email, newToken);
+  })
+    .then(
+      () =>
+        (response = {
+          status: "success",
+          message: "Wysłano nowy link do aktywacji konta",
+        })
+    )
+    .catch((err) => {
+      response = {
+        status: "error",
+        message: "Błąd podczas tworzenia nowego tokenu",
+      };
+    });
+  //@ts-ignore
+  sendEmailWhenCreateUser(user?.email!, newToken);
+  return response;
 }

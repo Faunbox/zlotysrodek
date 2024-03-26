@@ -14,16 +14,21 @@ const LoggingIinPage = () => {
   });
 
   const tryToLogin = async () => {
+    
+    
     try {
       const isUserInDb = await checkForUserFromDb(
         loginInfo.email,
         loginInfo.password
       );
 
+      console.log({isUserInDb});
+      
+
       isUserInDb
         ? signIn("credentials", {
             email: loginInfo.email,
-            password: loginInfo.password,
+            password: JSON.stringify(loginInfo.password),
             callbackUrl: "/",
           })
         : alert("Niepoprawny email lub hasło");
