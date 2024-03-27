@@ -36,6 +36,7 @@ export default function Error({
             Strona główna
           </FilledButton>
         </Link>
+        <FilledButton onClick={() => reset()}>Odśwież</FilledButton>
         <Link href="/kontakt">
           <FilledButton color="bg-darkGreen" text="white">
             Kontakt

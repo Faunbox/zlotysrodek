@@ -64,7 +64,6 @@ export const findUserByResetToken = async (
 ) => {
   let user;
   await mongooseDbConnect();
-  console.log({ token });
 
   const data = await User.findOne({ resetToken: token });
 
@@ -111,14 +110,13 @@ export const updateUserByEmail = async (
   update: any
 ) => {
   let response;
-  console.log("Update user by email");
 
   await mongooseDbConnect();
 
   response = await User.findOneAndUpdate(
     //@ts-ignore
     { email },
-    { update },
+    update,
     { new: true }
   );
 
@@ -132,12 +130,13 @@ export const changePassword = async (
 ) => {
   let response;
 
-  const hashedNewPassword = await hashPassword(newPassword);
+  const hashedNewPassword = await hashPassword(JSON.stringify(newPassword));
   await mongooseDbConnect();
   response = await User.findOneAndUpdate(
     { email },
     { password: hashedNewPassword }
   );
   await mongooseDbDisconnect();
+
   return response;
 };

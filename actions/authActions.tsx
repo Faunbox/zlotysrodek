@@ -197,8 +197,8 @@ export async function sendResetPasswordToken(
   formData: FormData | null,
   userEmail?: string
 ) {
-  const email = formData?.get("email") || userEmail;
-  const user = await findUserByEmail(JSON.parse(email as string));
+  const email = JSON.parse(formData?.get("email") as string) || userEmail;
+  const user = await findUserByEmail(email as string);
 
   if (!user) {
     console.log("Brak użytkownika o podanym adresie email");
@@ -207,7 +207,6 @@ export async function sendResetPasswordToken(
       status: "error",
       message: "Konto o podanym adresie email nie istnieje!",
     };
-    return { response };
   }
 
   const resetToken = crypto.randomBytes(20).toString("hex");
@@ -226,7 +225,6 @@ export async function sendResetPasswordToken(
       resetToken: passwordResetToken,
       resetPasswordTokenExpire: resetTokenExpire,
     });
-    console.log({ data });
   } catch (error) {
     response = {
       status: "error",

@@ -2,11 +2,7 @@ import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { findUserByEmail, updateUserByEmail } from "@/lib/mongoose";
-import {
-  TemplateIdEmail,
-  sendEmail,
-  sendEmailWithTemplateId,
-} from "@/lib/sendgrid";
+import { sendEmail, sendEmailWithTemplateId } from "@/lib/sendgrid";
 
 const stripe = new Stripe(process.env.STRIPE_TEST_API_KEY!, {
   apiVersion: "2023-10-16",
@@ -32,6 +28,9 @@ export async function POST(req: Request) {
           checkoutId
         );
 
+        console.log("Jestem w środku webhooka");
+        
+
         lineItems.data.map(async (consultation) => {
           const pucharsedQuantity = consultation?.quantity;
           const pucharsedProduct = consultation.price?.product;
@@ -51,12 +50,15 @@ export async function POST(req: Request) {
           ?.email as string;
 
         const getUserInfo = await findUserByEmail(customerEmail);
-        console.log({ consultations });
+        console.log(getUserInfo.consultations);
+        console.log(consultations);
+        
+        
+        
 
         if (getUserInfo !== undefined) {
           const res = await updateUserByEmail(customerEmail, {
             consultations:
-              // (getUserInfo?.consultations! as number) + consultation?.quantity!,
               (getUserInfo?.consultations! as number) + consultations!,
           });
           console.log({ res });
