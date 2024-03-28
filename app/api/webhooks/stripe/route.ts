@@ -49,11 +49,7 @@ export async function POST(req: Request) {
         const customerEmail = paymentIntentSucceeded.customer_details
           ?.email as string;
 
-        const getUserInfo = await findUserByEmail(customerEmail);
-        console.log(getUserInfo.consultations);
-        console.log(consultations);
-        
-        
+        const getUserInfo = await findUserByEmail(customerEmail);            
         
 
         if (getUserInfo !== undefined) {
