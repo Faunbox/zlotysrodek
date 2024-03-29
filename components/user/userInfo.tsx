@@ -38,7 +38,7 @@ const UserInfo = ({ user }: { user: UserType }) => {
             </a>
           </li>
           <li>Konsultacje: {user.consultations as number}</li>
-          {user?.nextMeeting && (
+          {user?.nextMeeting  && (
             <li>Następna konsultacja: {user.nextMeeting as string}</li>
           )}
           {/* <li>Zmień dane użytkownika</li> */}

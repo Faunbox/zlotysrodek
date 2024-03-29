@@ -11,16 +11,23 @@ const CancelationComponent = async ({ link }: { link?: string }) => {
         Odwołanie sesji na mniej niż 24 h przed umówionym terminem jest
         traktowane jako spotkanie zrealizowane.
       </h4>
-      <Link
-        href={`https:${statuateUrl}`}
-        target="_blank"
-        rel="noopener"
-        className="md:ml-12 w-full md:w-4/12 "
-      >
-        <FilledButton color="bg-darkGreen" text="white">
-          Regulamin
-        </FilledButton>
-      </Link>
+      <div className="flex flex-col gap-2">
+        <Link
+          href={`https:${statuateUrl}`}
+          target="_blank"
+          rel="noopener"
+          className="md:ml-12 w-full md:w-4/12 "
+        >
+          <FilledButton color="bg-darkGreen" text="white">
+            Regulamin
+          </FilledButton>
+        </Link>
+        <Link href={"/kontakt"} className="md:ml-12 w-full md:w-4/12 ">
+          <FilledButton color="bg-darkGreen" text="white">
+            Kontakt
+          </FilledButton>
+        </Link>
+      </div>
     </div>
   );
 };

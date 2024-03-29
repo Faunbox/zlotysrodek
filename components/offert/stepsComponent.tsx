@@ -7,8 +7,8 @@ const StepsComponent = () => {
         <Image
           src={"/images/1.svg"}
           alt={"Jeden svg"}
-          width={40}
-          height={40}
+          width={35}
+          height={35}
           className="w-3/12 md:w-full"
         />
         <p className="w-full">
@@ -20,8 +20,8 @@ const StepsComponent = () => {
         <Image
           src={"/images/strz.svg"}
           alt={"Jeden svg"}
-          width={100}
-          height={100}
+          width={80}
+          height={80}
           className="rotate-90 md:rotate-0"
         />
       </div>
@@ -29,8 +29,8 @@ const StepsComponent = () => {
         <Image
           src={"/images/2.svg"}
           alt={"Jeden svg"}
-          width={150}
-          height={150}
+          width={35}
+          height={35}
           className="w-3/12 md:w-full"
         />
         <p>
@@ -42,8 +42,8 @@ const StepsComponent = () => {
         <Image
           src={"/images/strz.svg"}
           alt={"Jeden svg"}
-          width={100}
-          height={100}
+          width={80}
+          height={80}
           className="rotate-90 md:rotate-0"
         />
       </div>
@@ -51,8 +51,8 @@ const StepsComponent = () => {
         <Image
           src={"/images/3.svg"}
           alt={"Jeden svg"}
-          width={150}
-          height={150}
+          width={35}
+          height={35}
           className="w-3/12 md:w-full"
         />
         <p>

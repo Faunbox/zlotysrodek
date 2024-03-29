@@ -66,7 +66,7 @@ const BlogPostPagination = ({
   }
 
   return (
-    <div className="pt-4 pb-2 flex flex-row justify-around items-center w-1/4 gap-4 text-darkGreen">
+    <div className="pt-4 pb-2 flex flex-row justify-around items-center w-full md:w-1/4 gap-4 text-darkGreen mx-auto">
       <button onClick={previousPage}>Poprzednia strona</button>
       <ul className="flex flex-row items-center justify-center">
         {numbers.map((number) => {

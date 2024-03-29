@@ -57,14 +57,14 @@ const HeroSection = () => {
             alt="psychodietetyk"
             width={300}
             height={600}
-            className="hidden md:flex absolute right-72"
+            className="hidden md:flex absolute 2xl:right-72"
           />
           <Image
             src={"/images/blob.svg"}
             alt="blob"
             width={600}
             height={800}
-            className="hidden md:flex absolute right-12 -z-10 "
+            className="hidden md:flex absolute 2xl:right-12 -z-10 "
           />
         </div>
       </div>
