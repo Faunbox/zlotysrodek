@@ -37,11 +37,11 @@ const Offert = ({
                 email
               )}`}
             >
-              <FilledButton>KUP PAKIET KONSULTACJI</FilledButton>
+              <FilledButton ariaLabel="Kup konsultację">KUP PAKIET KONSULTACJI</FilledButton>
             </a>
           ) : (
             <Link href={"/logowanie"}>
-              <FilledButton>Zaloguj się, by kupić konsultacje </FilledButton>
+              <FilledButton ariaLabel="Logowanie">Zaloguj się, by kupić konsultacje </FilledButton>
             </Link>
           )}
         </div>
@@ -67,15 +67,15 @@ const Offert = ({
           </div>
           {email ? (
             <a
-              href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
+              href={`https://buy.stripe.com/test_9AQ9Dwfebc2i8Cs3cf?prefilled_email=${encodeURIComponent(
                 email
               )}`}
             >
-              <FilledButton>KUP KONSULTACJĘ</FilledButton>
+              <FilledButton ariaLabel="Kup konsultację">KUP KONSULTACJĘ</FilledButton>
             </a>
           ) : (
             <Link href={"/logowanie"}>
-              <FilledButton>Zaloguj się, by kupić konsultacje </FilledButton>
+              <FilledButton ariaLabel="Logowanie">Zaloguj się, by kupić konsultacje </FilledButton>
             </Link>
           )}
         </div>
@@ -97,11 +97,11 @@ const Offert = ({
                 email
               )}`}
             >
-              <FilledButton>KUP PAKIET KONSULTACJI</FilledButton>
+              <FilledButton ariaLabel="Kup konsultację">KUP PAKIET KONSULTACJI</FilledButton>
             </a>
           ) : (
             <Link href={"/logowanie"}>
-              <FilledButton>Zaloguj się, by kupić konsultacje </FilledButton>
+              <FilledButton ariaLabel="Logowanie">Zaloguj się, by kupić konsultacje </FilledButton>
             </Link>
           )}
         </div>

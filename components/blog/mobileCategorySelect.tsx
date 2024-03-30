@@ -2,13 +2,19 @@
 
 import { useRouter } from "next/navigation";
 import OptionCategorySelect from "./optionCategoryComponent";
-import { ContentTypeCollection, ContentfulCollection } from "contentful";
+import { ContentfulData } from "./desktopCategorySelect";
+import Link from "next/link";
 
-const MobileCategorySelect = ({ data }: any) => {
+const MobileCategorySelect = ({ data }: { data: ContentfulData[] }) => {
   const router = useRouter();
 
   function handleClick(url: string) {
-    router.replace(`/blog?category=${decodeURI(url).toLowerCase()}&page=1`);
+    if (url !== "allPosts") {
+      return router.replace(
+        `/blog?category=${decodeURI(url).toLowerCase()}&page=1`
+      );
+    }
+    return router.replace("/blog?page=1");
   }
 
   return (
@@ -19,6 +25,7 @@ const MobileCategorySelect = ({ data }: any) => {
         id="category-select"
         onChange={(e) => handleClick(e.target.value)}
       >
+        <option value={"allPosts"}>Wszystkie posty</option>
         {data.map((category: any) => {
           return (
             <OptionCategorySelect

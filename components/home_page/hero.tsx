@@ -42,10 +42,15 @@ const HeroSection = () => {
           </div>
           <div className="flex flex-row gap-6 ml-8 z-40 pt-4">
             <Link href={"/oferta"}>
-              <FilledButton>Oferta</FilledButton>
+              <FilledButton ariaLabel="Oferta">Oferta</FilledButton>
             </Link>
             <Link href={"/o-mnie"}>
-              <FilledButton color="bg-transparent" text="white" border={true}>
+              <FilledButton
+                color="bg-transparent"
+                text="white"
+                border={true}
+                ariaLabel="O mnie"
+              >
                 O mnie
               </FilledButton>
             </Link>

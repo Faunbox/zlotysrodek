@@ -2,7 +2,6 @@ import { getDownloadableFiles } from "@/lib/contentful";
 import NewsletterForm from "../newsletter/form";
 import FooterContact from "./footerContact";
 import FooterLogo from "./footerLogo";
-import FooterNav from "./footerNavigation";
 import NutritionalSurvey from "./survey";
 
 const Footer = async () => {

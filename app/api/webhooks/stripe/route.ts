@@ -51,6 +51,8 @@ export async function POST(req: Request) {
 
         const getUserInfo = await findUserByEmail(customerEmail);            
         
+        console.log({consultations});
+        
 
         if (getUserInfo !== undefined) {
           const res = await updateUserByEmail(customerEmail, {

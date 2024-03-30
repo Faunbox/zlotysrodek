@@ -10,7 +10,7 @@ const ContactMagnet = () => {
           <p>zanim uczynisz ją łatwą w realizacji.</p>
         </div>
         <Link href={"/kontakt"}>
-          <FilledButton color={"bg-green"} text="white">
+          <FilledButton color={"bg-green"} text="white" ariaLabel="Kontakt">
             KONTAKT
           </FilledButton>
         </Link>

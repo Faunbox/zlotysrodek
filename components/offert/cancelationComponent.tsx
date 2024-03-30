@@ -18,12 +18,12 @@ const CancelationComponent = async ({ link }: { link?: string }) => {
           rel="noopener"
           className="md:ml-12 w-full md:w-4/12 "
         >
-          <FilledButton color="bg-darkGreen" text="white">
+          <FilledButton color="bg-darkGreen" text="white" ariaLabel="Regulamin">
             Regulamin
           </FilledButton>
         </Link>
         <Link href={"/kontakt"} className="md:ml-12 w-full md:w-4/12 ">
-          <FilledButton color="bg-darkGreen" text="white">
+          <FilledButton color="bg-darkGreen" text="white" ariaLabel="Kontakt">
             Kontakt
           </FilledButton>
         </Link>

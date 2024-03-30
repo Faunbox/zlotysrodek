@@ -34,7 +34,7 @@ const Navbar = () => {
               alt="Logo Złoty środek"
               width={200}
               height={100}
-              className="my-2 lg:absolute lg:top-[87%] lg:-translate-y-[50%]"
+              className="my-2 lg:absolute lg:top-[87%] lg:-translate-y-[50%] "
             />
           </Link>
         </div>
@@ -59,7 +59,11 @@ const Navbar = () => {
         </div>
         {/* Mobile Menu */}
         <div className="lg:hidden ">
-          <button onClick={handleClick} className={`z-50 `}>
+          <button
+            onClick={handleClick}
+            className={`z-50 `}
+            aria-label="Otwórz menu"
+          >
             <FiMenu
               size={35}
               className={`text-white ${open ? "opacity-0" : "opacity-100"}`}
@@ -67,7 +71,11 @@ const Navbar = () => {
           </button>
           {open && (
             <ul className="fixed top-[0%] left-[0%] flex flex-col bg-white opacity-90 backdrop-blur-md h-screen w-screen gap-5 text-darkGreen items-center justify-center uppercase text-md font-semibold  z-40">
-              <button onClick={handleClick} className="absolute top-5 right-8">
+              <button
+                onClick={handleClick}
+                className="absolute top-5 right-8"
+                aria-label="Zamknij menu"
+              >
                 <RxCross2 size={40} />
               </button>
               {navbarData.map((link) => (

@@ -30,6 +30,7 @@ const WideButton = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
+      aria-label="Blog"
       className={`${color} text-${text} py-2 px-8 flex flex-row items-center justify-center uppercase ${
         bold &&
         "rounded-sm shadow-lg disabled:bg-lightGreen hover:scale-105 duration-200 transform"

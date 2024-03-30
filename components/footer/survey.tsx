@@ -12,7 +12,12 @@ const NutritionalSurvey = async () => {
       target="_blank"
       className="w-full pl-8"
     >
-      <FilledButton color="bg-darkGreen" text="white" py={1}>
+      <FilledButton
+        color="bg-darkGreen"
+        text="white"
+        py={1}
+        ariaLabel="Ankieta żywieniowa"
+      >
         Ankieta Żywieniowa
       </FilledButton>
     </Link>

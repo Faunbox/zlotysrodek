@@ -134,6 +134,7 @@ const NewsletterForm = () => {
               type="submit"
               color="bg-darkGreen"
               text="white"
+              ariaLabel="Wyślij"
               // disabled={response.status || !newsletterCheckbox ? true : false}
               py={1}
             >

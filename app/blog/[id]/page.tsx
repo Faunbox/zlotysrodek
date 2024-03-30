@@ -30,7 +30,7 @@ export async function generateMetadata(
       description: shortDescription as string,
       url: `https://zlotysrodek.vercel.app/blog/${id}`,
       siteName: "Psychodietetyka Dorota Sojecka",
-      images: [`https:${image}/?w=1200&h=640&fm=webp`],
+      images: [`https:${image}?w=1200&h=640&fm=webp`],
       locale: "pl_PL",
       type: "website",
     },
