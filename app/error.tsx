@@ -1,5 +1,4 @@
-"use client"; // Error components must be Client Components
-
+"use client";
 import FilledButton from "@/components/typography/filledButton";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,12 +12,11 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
   return (
-    <div className="page h-[70vh] w-full gap-20 relative">
+    <div className="page h-[70vh] max-h-[726px] w-full gap-20 relative my-6">
       <Image
         src={"/images/plama.svg"}
         alt="plama"
@@ -26,11 +24,11 @@ export default function Error({
         height={900}
         className="absolute top-[50%} left-[50%] translate-x-[-50%] -z-10"
       />
-      <div className="flex flex-col gap-5 text-right font-abhaya text-offertGreen font-semibold leading-loose">
+      <div className="flex flex-col gap-5 text-center md:text-right font-abhaya text-offertGreen font-semibold leading-loose">
         <h2 className="text-2xl">Coś poszło nie tak...</h2>
         <h2 className="text-4xl">Spróbuj ponownie później</h2>
       </div>
-      <div className="flex flex-row justify-between gap-20">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-20">
         <Link href="/">
           <FilledButton color="bg-darkGreen" text="white">
             Strona główna

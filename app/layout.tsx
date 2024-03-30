@@ -7,6 +7,8 @@ import { Montserrat, Poppins } from "next/font/google";
 import Footer from "@/components/footer/footer";
 import { authOptions } from "@/lib/nextAuth";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Psychodietetyka, trener żywienia | Złoty środek",
@@ -37,6 +39,8 @@ export default async function RootLayout({
 
   return (
     <html lang="pl" className={`${montserrat.variable} ${poppins.variable}`}>
+      <SpeedInsights />
+      <Analytics/>
       <GoogleAnalytics gaId={gtag} />
       <body>
         <Providers session={session}>
