@@ -6,7 +6,7 @@ const FreeConsultation = () => {
   return (
     <section className="flex flex-col items-center justify-center gap-2 mt-20  mx-auto pb-10 px-10 w-full lg:w-8/12 bg-green lg:rounded-xl md:shadow-lg">
       <div className="flex flex-col items-center justify-center pb-2 text-white font-abhaya">
-        <Header>Bezpłatna wstępna konsultacja</Header>
+        <Header gold={true}>Bezpłatna wstępna konsultacja</Header>
         <p className=" text-center leading-relaxed font-poppins w-full font-extralight tracking-wide text-lg">
           Rozumiem, że możesz mieć wątpliwości zanim zdecydujesz się na dłuższą
           indywidualną współpracę, dlatego pomogę Ci je rozwiać. Zanim

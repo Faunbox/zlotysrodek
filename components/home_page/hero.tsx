@@ -10,7 +10,7 @@ const HeroSection = () => {
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-abhaya lg:mb-16">
             Psychodietetyk
           </h1>
-          <h2 className="pl-30 text-2xl md:text-3xl lg:text-4xl font-abhaya lg:absolute lg:top-20 pl-4 md:pl-10 lg:pl-20 xl:pl-30 2xl:pl-40">
+          <h2 className="pl-30 text-2xl md:text-3xl lg:text-4xl font-abhaya lg:absolute lg:top-20 pl-10 lg:pl-20 xl:pl-30 2xl:pl-40">
             Konsultant żywieniowy
           </h2>
           <div className="flex flex-col gap-3 py-6 pb-4 2xl:w-9/12 text-medium md:text-left lg:text-xl md:w-full font-light">

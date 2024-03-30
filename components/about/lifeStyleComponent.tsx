@@ -13,7 +13,7 @@ const LifestyleComponent = () => {
             className="lg:mr-20 object-cover lg:absolute lg:-top-5 "
           />
         </div>
-        <ul className="flex flex-col gap-3 lg:gap-5 2xl:gap-8 mt-2 lg:pl-10 md:mx-2 font-semibold justify-center items-start text-green list-image-avocado text-large xl:text-xl md:w-7/12 lg:w-8/12 font-abhaya">
+        <ul className="flex flex-col gap-3 lg:gap-5 2xl:gap-8 mt-8 lg:pl-10 md:mx-2 font-semibold justify-center items-start text-darkGreen list-image-avocado text-large xl:text-xl md:w-7/12 lg:w-8/12 font-abhaya">
           <li className="marker:text-[3.3em] marker:list-item tracking-wide">
             Wybór odpowiednich, dobrej jakości produktów spożywczych, z których
             komponuję zbilansowane posiłki

@@ -10,7 +10,7 @@ const BasicInfo = () => {
           width={85}
           height={85}
           alt="logo"
-          className="sticky mr-[33px] xl:mr-6"
+          className="sticky mr-[34px] xl:mr-6"
         />
       </div>
       <div className="w-7/12 md:w-6/12 first-letter:mx-60 relative before:absolute before:h-full before:w-0.5 before:bg-offertGreen before:-left-16 before:top-3  -z-10 before:-ml-0.5 before:opacity-50">

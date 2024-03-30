@@ -54,6 +54,7 @@ const Navbar = () => {
                 <li>{link.name}</li>
               </Link>
             ))}
+            {/* @ts-ignore */}
             <UserPanel />
           </ul>
         </div>
@@ -90,7 +91,8 @@ const Navbar = () => {
                   <li>{link.name}</li>
                 </Link>
               ))}
-              <UserPanel />
+              {/* @ts-ignore */}
+              <UserPanel fn={handleClick}/>
             </ul>
           )}
         </div>

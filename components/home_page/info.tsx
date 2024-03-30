@@ -26,7 +26,7 @@ const Info = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-center text-darkGreen lg:pt-6 px-14 md:px-40 ">
         {texts.map((text) => (
           <div key={text.data.slice(1, 8)} className="relative p-4 text-left">
-            <p className="text-large">{text.data}</p>
+            <p className="text-large font-abhaya">{text.data}</p>
             <Image
               src={"/images/avocado-ciemne.svg"}
               alt="awokado"

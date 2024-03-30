@@ -2,7 +2,7 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
-const UserPanel = () => {
+const UserPanel = (fn?: () => void ) => {
   const { data: session } = useSession();
   //@ts-expect-error
   const username: string = session?.user?.username as string;
@@ -14,6 +14,7 @@ const UserPanel = () => {
           href={`/user/${username}`}
           prefetch
           className="text-gold font-normal hover:scale-105 duration-300"
+          onClick={() => fn}
         >
           {username}
         </Link>
