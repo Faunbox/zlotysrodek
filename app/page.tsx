@@ -9,8 +9,11 @@ import dynamic from "next/dynamic";
 
 export type Prices = {
   konsultacja: string;
+  linkDoJednejKonsultacji: string;
   zestaw3Konsultacji: string;
+  linkDo4Konsultacji: string;
   zestaw10Konsultacji: string;
+  linkDo8Konsultacji: string;
   tytul: string;
 };
 

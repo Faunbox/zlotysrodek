@@ -22,6 +22,15 @@ export async function POST(req: Request) {
         //get checkout info
         const paymentIntentSucceeded = event.data.object;
         const checkoutId = paymentIntentSucceeded.id;
+        const companyNameForInvoice =
+          paymentIntentSucceeded.customer_details?.name;
+        const companyTaxIdForInvoice =
+          paymentIntentSucceeded.customer_details?.tax_ids!;
+        const priceforInvoice = paymentIntentSucceeded.amount_total! / 100;
+
+        console.log({ companyNameForInvoice });
+        console.log(companyTaxIdForInvoice[0].value);
+        console.log({ priceforInvoice });
 
         //get items from pucharse
         const lineItems = await stripe.checkout.sessions.listLineItems(
@@ -29,7 +38,6 @@ export async function POST(req: Request) {
         );
 
         console.log("Jestem w środku webhooka");
-        
 
         lineItems.data.map(async (consultation) => {
           const pucharsedQuantity = consultation?.quantity;
@@ -49,10 +57,9 @@ export async function POST(req: Request) {
         const customerEmail = paymentIntentSucceeded.customer_details
           ?.email as string;
 
-        const getUserInfo = await findUserByEmail(customerEmail);            
-        
-        console.log({consultations});
-        
+        const getUserInfo = await findUserByEmail(customerEmail);
+
+        console.log({ consultations });
 
         if (getUserInfo !== undefined) {
           const res = await updateUserByEmail(customerEmail, {
@@ -80,17 +87,31 @@ export async function POST(req: Request) {
             },
             template_id: "d-11afb444204d433e96fe7fe8865fb5c3",
           };
-          const emailToDorotka = {
+
+          if (companyNameForInvoice !== null) {
+            const emailContent = {
+              to: "faunbox2@gmail.com",
+              from: process.env.SENDGRID_EMAIL!,
+              subject: "Wpłynęła nowa płatność | Wymagana faktura",
+              text: "Wpłynęła nowa płatność",
+              html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe i wystaw fakturę na dane: </p><ul><li>Nazwa firmy: ${companyNameForInvoice}</li><li>NIP: ${companyTaxIdForInvoice[0].value}</li><li>Kwota: ${priceforInvoice}</li></ul></div>`,
+            };
+            await sendEmail(emailContent as any);
+          }
+
+          const emailContent = {
             to: "faunbox2@gmail.com",
             from: process.env.SENDGRID_EMAIL!,
-            subject: "Wpłynęła nowa płatność",
+            subject: "Wpłynęła nowa płatność | Wymagana faktura",
             text: "Wpłynęła nowa płatność",
-            html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe.</p></div>`,
+            html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe i wystaw fakturę na dane: </p><ul><li>Nazwa firmy: ${companyNameForInvoice}</li><li>NIP: ${companyTaxIdForInvoice[0].value}</li><li>Kwota: ${priceforInvoice} zł</li></ul></div>`,
           };
+
+          await sendEmail(emailContent as any);
+
           //@ts-ignore
           await sendEmailWithTemplateId(emailToCustomer);
-          await sendEmail(emailToDorotka);
-          console.log("email wysłany");
+          console.log("email do klienta wysłany");
 
           response = res;
         } else {

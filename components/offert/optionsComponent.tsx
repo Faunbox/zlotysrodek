@@ -1,17 +1,12 @@
 "use client";
 import { useSession } from "next-auth/react";
 import FilledButton from "../typography/filledButton";
+import { Prices } from "@/app/page";
 
 const OptionsComponent = ({
   prices,
-}: {
-  prices: {
-    konsultacja: string;
-    zestaw3Konsultacji: string;
-    zestaw10Konsultacji: string;
-    tytul: string;
-  };
-}) => {
+}: {prices: Prices}
+) => {
   const { data: session } = useSession();
   const email: string = session?.user?.email!;
 
@@ -32,7 +27,7 @@ const OptionsComponent = ({
             </p>
           </div>
           <a
-            href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
+            href={`${prices.linkDo4Konsultacji}?prefilled_email=${encodeURIComponent(
               email
             )}`}
           >
@@ -55,7 +50,7 @@ const OptionsComponent = ({
             </p>
           </div>
           <a
-            href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
+            href={`${prices.linkDoJednejKonsultacji}?prefilled_email=${encodeURIComponent(
               email
             )}`}
           >
@@ -77,7 +72,7 @@ const OptionsComponent = ({
             </p>
           </div>
           <a
-            href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
+            href={`${prices.linkDo8Konsultacji}?prefilled_email=${encodeURIComponent(
               email
             )}`}
           >

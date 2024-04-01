@@ -33,9 +33,9 @@ const Offert = ({
           </div>
           {email ? (
             <a
-              href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
-                email
-              )}`}
+            href={`${prices.linkDo4Konsultacji}?prefilled_email=${encodeURIComponent(
+              email
+            )}`}
             >
               <FilledButton ariaLabel="Kup konsultację">KUP PAKIET KONSULTACJI</FilledButton>
             </a>
@@ -67,9 +67,9 @@ const Offert = ({
           </div>
           {email ? (
             <a
-              href={`https://buy.stripe.com/test_9AQ9Dwfebc2i8Cs3cf?prefilled_email=${encodeURIComponent(
-                email
-              )}`}
+            href={`${prices.linkDoJednejKonsultacji}?prefilled_email=${encodeURIComponent(
+              email
+            )}`}
             >
               <FilledButton ariaLabel="Kup konsultację">KUP KONSULTACJĘ</FilledButton>
             </a>
@@ -93,9 +93,9 @@ const Offert = ({
           </div>
           {email ? (
             <a
-              href={`https://buy.stripe.com/test_dR62b43vtc2i7yo6op?prefilled_email=${encodeURIComponent(
-                email
-              )}`}
+            href={`${prices.linkDo8Konsultacji}?prefilled_email=${encodeURIComponent(
+              email
+            )}`}
             >
               <FilledButton ariaLabel="Kup konsultację">KUP PAKIET KONSULTACJI</FilledButton>
             </a>
