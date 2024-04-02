@@ -24,13 +24,6 @@ export async function POST(req: Request) {
         const checkoutId = paymentIntentSucceeded.id;
         const companyNameForInvoice =
           paymentIntentSucceeded.customer_details?.name;
-        const companyTaxIdForInvoice =
-          paymentIntentSucceeded.customer_details?.tax_ids!;
-        const priceforInvoice = paymentIntentSucceeded.amount_total! / 100;
-
-        console.log({ companyNameForInvoice });
-        console.log(companyTaxIdForInvoice[0].value);
-        console.log({ priceforInvoice });
 
         //get items from pucharse
         const lineItems = await stripe.checkout.sessions.listLineItems(
@@ -66,7 +59,6 @@ export async function POST(req: Request) {
             consultations:
               (getUserInfo?.consultations! as number) + consultations!,
           });
-          console.log({ res });
 
           const emailToCustomer = {
             personalizations: [
@@ -87,31 +79,32 @@ export async function POST(req: Request) {
             },
             template_id: "d-11afb444204d433e96fe7fe8865fb5c3",
           };
+          await sendEmailWithTemplateId(emailToCustomer as any);
+          console.log("email do klienta wysłany");
 
-          if (companyNameForInvoice !== null) {
+          if (companyNameForInvoice === null) {
+            const emailContent = {
+              to: "faunbox2@gmail.com",
+              from: process.env.SENDGRID_EMAIL!,
+              subject: "Wpłynęła nowa płatność",
+              text: "Wpłynęła nowa płatność",
+              html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe.</div>`,
+            };
+            await sendEmail(emailContent as any);
+          } else {
+            const companyTaxIdForInvoice =
+              paymentIntentSucceeded.customer_details?.tax_ids!;
+            const priceforInvoice = paymentIntentSucceeded.amount_total! / 100;
             const emailContent = {
               to: "faunbox2@gmail.com",
               from: process.env.SENDGRID_EMAIL!,
               subject: "Wpłynęła nowa płatność | Wymagana faktura",
-              text: "Wpłynęła nowa płatność",
-              html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe i wystaw fakturę na dane: </p><ul><li>Nazwa firmy: ${companyNameForInvoice}</li><li>NIP: ${companyTaxIdForInvoice[0].value}</li><li>Kwota: ${priceforInvoice}</li></ul></div>`,
+              text: "Wpłynęła nowa płatność | Wymagana faktura",
+              html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe i wystaw fakturę na dane: </p><ul><li>Nazwa firmy: ${companyNameForInvoice}</li><li>NIP: ${companyTaxIdForInvoice[0].value}</li><li>Kwota: ${priceforInvoice} zł</li></ul></div>`,
             };
+
             await sendEmail(emailContent as any);
           }
-
-          const emailContent = {
-            to: "faunbox2@gmail.com",
-            from: process.env.SENDGRID_EMAIL!,
-            subject: "Wpłynęła nowa płatność | Wymagana faktura",
-            text: "Wpłynęła nowa płatność",
-            html: `<div><p>Na adres email: ${customerEmail} dodano konsultację. Sprawdz Stripe i wystaw fakturę na dane: </p><ul><li>Nazwa firmy: ${companyNameForInvoice}</li><li>NIP: ${companyTaxIdForInvoice[0].value}</li><li>Kwota: ${priceforInvoice} zł</li></ul></div>`,
-          };
-
-          await sendEmail(emailContent as any);
-
-          //@ts-ignore
-          await sendEmailWithTemplateId(emailToCustomer);
-          console.log("email do klienta wysłany");
 
           response = res;
         } else {

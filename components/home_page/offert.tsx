@@ -20,8 +20,7 @@ const Offert = ({
       <div className="flex flex-col lg:flex-row gap-10 items-center justify-center lg:items-end lg:justify-center text-white 2xl:w-9/12">
         <div className="bg-offertGreen flex flex-col gap-10 order-2 lg:order-1 p-8 items-center justify-center w-full lg:w-3/12 text-center rounded-lg ">
           <p className=" px-3 font-extralight text-md font-poppins">
-            Kupując pakiet 4 konsultacji oszczędzasz 80 zł, płacąc za spotkanie
-            140 zł.
+            {prices.pakiet4OpisOferty}
           </p>
           <div className="flex flex-col items-center justify-center font-abhaya">
             <p className="text-xl px-6 font-abhaya">
@@ -33,15 +32,19 @@ const Offert = ({
           </div>
           {email ? (
             <a
-            href={`${prices.linkDo4Konsultacji}?prefilled_email=${encodeURIComponent(
-              email
-            )}`}
+              href={`${
+                prices.linkDo4Konsultacji
+              }?prefilled_email=${encodeURIComponent(email)}`}
             >
-              <FilledButton ariaLabel="Kup konsultację">KUP PAKIET KONSULTACJI</FilledButton>
+              <FilledButton ariaLabel="Kup konsultację">
+                KUP PAKIET KONSULTACJI
+              </FilledButton>
             </a>
           ) : (
             <Link href={"/logowanie"}>
-              <FilledButton ariaLabel="Logowanie">Zaloguj się, by kupić konsultacje </FilledButton>
+              <FilledButton ariaLabel="Logowanie">
+                Zaloguj się, by kupić konsultacje
+              </FilledButton>
             </Link>
           )}
         </div>
@@ -67,23 +70,26 @@ const Offert = ({
           </div>
           {email ? (
             <a
-            href={`${prices.linkDoJednejKonsultacji}?prefilled_email=${encodeURIComponent(
-              email
-            )}`}
+              href={`${
+                prices.linkDoJednejKonsultacji
+              }?prefilled_email=${encodeURIComponent(email)}`}
             >
-              <FilledButton ariaLabel="Kup konsultację">KUP KONSULTACJĘ</FilledButton>
+              <FilledButton ariaLabel="Kup konsultację">
+                KUP KONSULTACJĘ
+              </FilledButton>
             </a>
           ) : (
             <Link href={"/logowanie"}>
-              <FilledButton ariaLabel="Logowanie">Zaloguj się, by kupić konsultacje </FilledButton>
+              <FilledButton ariaLabel="Logowanie">
+                Zaloguj się, by kupić konsultacje
+              </FilledButton>
             </Link>
           )}
         </div>
 
         <div className="bg-offertGreen order-3 lg:order-3 flex flex-col gap-8 p-8 items-center justify-center w-full lg:w-3/12 rounded-lg ">
           <p className="px-6 font-extralight text-md font-poppins">
-            Kupując pakiet 8 konsultacji oszczędzasz aż 320 zł, płacąc za
-            spotkanie tylko 120 zł.
+            {prices.pakiet8OpisOferty}
           </p>
           <div className="flex flex-col items-center justify-center text-center font-abhaya text-xl">
             <p className="text-lg px-6">PAKIET KONSULTACJI ON-LINE 8 SPOTKAŃ</p>
@@ -93,15 +99,19 @@ const Offert = ({
           </div>
           {email ? (
             <a
-            href={`${prices.linkDo8Konsultacji}?prefilled_email=${encodeURIComponent(
-              email
-            )}`}
+              href={`${
+                prices.linkDo8Konsultacji
+              }?prefilled_email=${encodeURIComponent(email)}`}
             >
-              <FilledButton ariaLabel="Kup konsultację">KUP PAKIET KONSULTACJI</FilledButton>
+              <FilledButton ariaLabel="Kup konsultację">
+                KUP PAKIET KONSULTACJI
+              </FilledButton>
             </a>
           ) : (
             <Link href={"/logowanie"}>
-              <FilledButton ariaLabel="Logowanie">Zaloguj się, by kupić konsultacje </FilledButton>
+              <FilledButton ariaLabel="Logowanie">
+                Zaloguj się, by kupić konsultacje
+              </FilledButton>
             </Link>
           )}
         </div>

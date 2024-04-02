@@ -7,27 +7,36 @@ const CancelationComponent = async ({ link }: { link?: string }) => {
 
   return (
     <div className="px-10 w-9/12 flex flex-col md:flex-row items-center justify-center my-20 gap-8">
-      <h4 className="text-large  text-green font-poppins font-light w-full md:w-8/12">
-        Odwołanie sesji na mniej niż 24 h przed umówionym terminem jest
-        traktowane jako spotkanie zrealizowane.
-      </h4>
-      <div className="flex flex-col gap-2">
-        <Link
-          href={`https:${statuateUrl}`}
-          target="_blank"
-          rel="noopener"
-          className="md:ml-12 w-full md:w-4/12 "
-        >
-          <FilledButton color="bg-darkGreen" text="white" ariaLabel="Regulamin">
-            Regulamin
-          </FilledButton>
-        </Link>
-        <Link href={"/kontakt"} className="md:ml-12 w-full md:w-4/12 ">
-          <FilledButton color="bg-darkGreen" text="white" ariaLabel="Kontakt">
-            Kontakt
-          </FilledButton>
-        </Link>
+      <div className="flex flex-row items-center justify-center p-4 py-6 shadow-medium w-10/12">
+        <h5 className="font-abhaya text-lightGreen px-4 text-6xl">24h</h5>
+        <div className="flex flex-col">
+          <h4 className="text-large  text-black font-abhaya font-light w-full ">
+            Odwołanie sesji na mniej niż 24 h przed umówionym terminem jest
+            traktowane jako spotkanie zrealizowane.
+          </h4>
+          <div className="flex flex-col gap-2 items-end">
+            <Link
+              href={`https:${statuateUrl}`}
+              target="_blank"
+              rel="noopener"
+              className="md:ml-12 w-full md:w-4/12 "
+            >
+              <FilledButton
+                color="bg-darkGreen"
+                text="white"
+                ariaLabel="Regulamin"
+              >
+                Regulamin
+              </FilledButton>
+            </Link>
+          </div>
+        </div>
       </div>
+      <Link href={"/kontakt"} className="md:ml-12 w-full md:w-2/12 ">
+        <FilledButton color="bg-darkGreen" text="white" ariaLabel="Kontakt">
+          Formularz kontaktowy
+        </FilledButton>
+      </Link>
     </div>
   );
 };

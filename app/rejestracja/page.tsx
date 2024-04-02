@@ -9,6 +9,7 @@ import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const validationSchema = z
   .object({
@@ -46,6 +47,8 @@ const LoggingIinPage = () => {
     status: "",
     message: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmedPassword, setShowConfirmedPassword] = useState(false);
   const [formStateLoading, setformStateLoading] = useState({
     loading: false,
     disabled: false,
@@ -106,30 +109,72 @@ const LoggingIinPage = () => {
                 </p>
               )}
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col relative">
               <label htmlFor="password">Hasło</label>
+              {/* <div className="flex flex-row gap-2 items-center justify-center"> */}
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 {...register("password")}
                 id="password"
                 title="Hasło"
-                className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
+                className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg w-full "
               />
+              {showPassword ? (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault(), setShowPassword(!showPassword);
+                  }}
+                  className="absolute right-4 top-[50%] translate-y-[25%]"
+                >
+                  <IoEye />
+                </button>
+              ) : (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault(), setShowPassword(!showPassword);
+                  }}
+                  className="absolute right-4 top-[50%] translate-y-[25%]"
+                >
+                  <IoEyeOff />
+                </button>
+              )}
+              {/* </div> */}
               {errors.password && (
                 <p className="text-sm italic text-error font-bold">
                   {errors.password?.message}
                 </p>
               )}
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col relative">
               <label htmlFor="confirmedPassword">Powtórz hasło</label>
               <input
-                type="password"
+                type={showConfirmedPassword ? "text" : "password"}
                 {...register("confirmedPassword")}
                 id="confirmedPassword"
                 title="Powtórz hasło"
                 className="border-green border-1 bg-transparent h-9 focus-within:shadow-lg"
               />
+              {showConfirmedPassword ? (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault(),
+                      setShowConfirmedPassword(!showConfirmedPassword);
+                  }}
+                  className="absolute right-4 top-[50%] translate-y-[25%]"
+                >
+                  <IoEye />
+                </button>
+              ) : (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault(),
+                      setShowConfirmedPassword(!showConfirmedPassword);
+                  }}
+                  className="absolute right-4 top-[50%] translate-y-[25%]"
+                >
+                  <IoEyeOff />
+                </button>
+              )}
               {errors.confirmedPassword && (
                 <p className="text-sm italic text-error font-bold">
                   {errors.confirmedPassword?.message}

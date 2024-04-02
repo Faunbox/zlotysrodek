@@ -4,7 +4,7 @@ import { SlSocialInstagram } from "react-icons/sl";
 
 const SocialPanel = () => {
   return (
-    <section className="mx-10 lg:px-40 mb-20 w-full">
+    <section className="mx-10 lg:px-40 mb-20 w-full font-montserrat">
       <div className="flex flex-col items-center justify-center md:flex-row text-darkGreen gap-10">
         <div className="flex flex-col items-center justify-center md:w-4/12">
           <a
@@ -63,9 +63,7 @@ const SocialPanel = () => {
                 "max-w-[40px] max-h-[40px] w-full h-full hover:scale-110 duration-400"
               }
             />
-            <p className="text-medium mt-6 ">
-              zllotysrodek
-            </p>
+            <p className="text-medium mt-6 ">zllotysrodek</p>
           </a>
         </div>
       </div>

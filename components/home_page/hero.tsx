@@ -4,8 +4,8 @@ import FilledButton from "../typography/filledButton";
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-green w-screen h-full lg:h-[80vh] max-h-[700px] mb-20 2xl:px-[2%] flex justify-center items-center z-10 text-white overflow-hidden after:bg-white after:absolute after:-bottom-20 after:left-0 after:right-0 after:-rotate-6 after:w-[150vw] after:h-[28%] after:md:h-[31%] after:lg:h-[30%] after:xl:h-[35%] after:2xl:h-[20vh%] after:z-0">
-      <div className="flex flex-row lg:gap-10 items-center mx-auto justify-center container w-full lg:w-9/12 2xl:w-10/12">
+    <div className=" bg-green w-screen max-w-[2000px] h-full lg:h-[80vh] max-h-[700px] mb-20 2xl:px-[2%] flex justify-center items-center z-10 text-white overflow-hidden ">
+      <div className="flex flex-row relative lg:gap-10 items-center mx-auto justify-center container w-full lg:w-9/12 2xl:w-10/12 after:bg-white after:absolute after:-bottom-20 after:2xl:-bottom-40 after:-left-[30%] after:right-0 after:-rotate-6 after:w-[200vw] after:h-[28%] after:md:h-[31%] after:lg:h-[30%] after:xl:h-[35%] after:2xl:h-[50%] after:z-0">
         <div className="flex flex-col m-10 mb-24 text-left md:text-center items-start lg:items-start justify-start lg:justify-center w-full lg:relative">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-abhaya lg:mb-16">
             Psychodietetyk
@@ -62,14 +62,14 @@ const HeroSection = () => {
             alt="psychodietetyk"
             width={300}
             height={600}
-            className="hidden md:flex absolute 2xl:right-72"
+            className="hidden md:flex absolute 2xl:right-20"
           />
           <Image
             src={"/images/blob.svg"}
             alt="blob"
             width={600}
             height={800}
-            className="hidden md:flex absolute 2xl:right-12 -z-10 "
+            className="hidden md:flex absolute 2xl:-right-20 -z-10 "
           />
         </div>
       </div>

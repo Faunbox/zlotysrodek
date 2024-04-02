@@ -1,5 +1,4 @@
 import BasicInfo from "@/components/home_page/basicInfo";
-import FollowMe from "@/components/home_page/follow";
 import HeroSection from "@/components/home_page/hero";
 import Info from "@/components/home_page/info";
 import Offert from "@/components/home_page/offert";
@@ -12,7 +11,9 @@ export type Prices = {
   linkDoJednejKonsultacji: string;
   zestaw3Konsultacji: string;
   linkDo4Konsultacji: string;
+  pakiet4OpisOferty: string;
   zestaw10Konsultacji: string;
+  pakiet8OpisOferty: string;
   linkDo8Konsultacji: string;
   tytul: string;
 };
@@ -29,7 +30,7 @@ const ContactMagnet = dynamic(
 const FreeConsultation = dynamic(
   () => import("@/components/home_page/freeConsultation")
 );
-const BlogMagnet = dynamic(() => import("@/components/home_page/blogMagnet"));
+// const BlogMagnet = dynamic(() => import("@/components/home_page/blogMagnet"));
 
 export default async function Home() {
   const consultationPrices = await getConsultationPrices();
@@ -37,9 +38,8 @@ export default async function Home() {
   return (
     <main className="page">
       <HeroSection />
-      <FollowMe />
       <BasicInfo />
-      <BlogMagnet />
+      {/* <BlogMagnet /> */}
       <Offert title={true} prices={consultationPrices as Prices} />
       <FreeConsultation />
       <ContactMagnet />

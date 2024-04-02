@@ -29,7 +29,7 @@ const UserPanel = (fn?: () => void ) => {
   }
   return (
     <li>
-      <Link href="/logowanie">
+      <Link href="/logowanie" onClick={() => fn}>
         <button className="uppercase text-gold hover:border-b-small">
           Logowanie
         </button>

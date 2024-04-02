@@ -84,10 +84,16 @@ const FormComponent = () => {
   ) => await onSend(data);
 
   return (
-    <aside className="flex flex-col items-start justify-center text-lightGreen mt-14 mx-10 ">
-      <h4 className="text-2xl font-abhaya">Chcesz nawiązać współpracę?</h4>
-      <h4 className="text-2xl font-abhaya">A może masz pytania?</h4>
-      <h3 className="text-4xl font-abhaya">Wyślij wiadomość!</h3>
+    <aside className="flex flex-col items-start justify-center text-offertGreen mt-14 mx-10 ">
+      <h4 className="text-3xl font-abhaya tracking-wide">
+        Chcesz nawiązać współpracę?
+      </h4>
+      <h4 className="text-3xl font-abhaya tracking-wide">
+        A może masz pytania?
+      </h4>
+      <h3 className="text-3xl font-abhaya tracking-wide pt-3">
+        Wyślij wiadomość!
+      </h3>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-start w-full max-h-full gap-2 mt-10 text-darkGreen"
@@ -107,7 +113,7 @@ const FormComponent = () => {
             <p className="text-xs italic text-error ">{errors.name?.message}</p>
           )}
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full ">
           <label htmlFor="email">
             Adres email <span className="text-error">* </span>
           </label>

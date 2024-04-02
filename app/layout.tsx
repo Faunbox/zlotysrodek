@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
+import FollowMe from "@/components/home_page/follow";
 import { Providers } from "./providers";
 import { getServerSession } from "next-auth";
 import { Montserrat, Poppins } from "next/font/google";
 import Footer from "@/components/footer/footer";
 import { authOptions } from "@/lib/nextAuth";
-import { GoogleAnalytics } from '@next/third-parties/google'
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Psychodietetyka, trener żywienia | Złoty środek",
-  description: "Witaj w świecie psychodietetyki! Znajdziesz tutaj nie tylko cenne porady dotyczące zdrowego odżywiania i równowagi psychicznej, ale także możliwość skorzystania z e-konsultacji z doświadczonym psychodietetykiem. Odkryj, jak dieta może wpływać na Twoje samopoczucie i emocje oraz jakie strategie możesz zastosować, aby osiągnąć harmonię między ciałem a umysłem. Nasze artykuły, praktyczne wskazówki oraz opcja e-konsultacji pomogą Ci prowadzić zdrowszy i bardziej zrównoważony tryb życia. Zacznij dbać o swoje zdrowie psychiczne już dziś!",
+  description:
+    "Witaj w świecie psychodietetyki! Znajdziesz tutaj nie tylko cenne porady dotyczące zdrowego odżywiania i równowagi psychicznej, ale także możliwość skorzystania z e-konsultacji z doświadczonym psychodietetykiem. Odkryj, jak dieta może wpływać na Twoje samopoczucie i emocje oraz jakie strategie możesz zastosować, aby osiągnąć harmonię między ciałem a umysłem. Nasze artykuły, praktyczne wskazówki oraz opcja e-konsultacji pomogą Ci prowadzić zdrowszy i bardziej zrównoważony tryb życia. Zacznij dbać o swoje zdrowie psychiczne już dziś!",
 };
 
 const montserrat = Montserrat({
@@ -23,11 +25,11 @@ const montserrat = Montserrat({
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800','900'],
-  display: 'swap',
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
   preload: true,
-  variable: "--poppins"
-})
+  variable: "--poppins",
+});
 
 export default async function RootLayout({
   children,
@@ -35,14 +37,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession(authOptions);
-  const gtag = process.env.GTAG as string
+  const gtag = process.env.GTAG as string;
 
   return (
     <html lang="pl" className={`${montserrat.variable} ${poppins.variable}`}>
       <SpeedInsights />
-      <Analytics/>
+      <Analytics />
       <GoogleAnalytics gaId={gtag} />
-      <body>
+      <body className="relative">
+        <FollowMe />
         <Providers session={session}>
           <Navbar />
           <main className="container">{children}</main>
