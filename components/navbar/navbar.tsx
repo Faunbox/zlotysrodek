@@ -41,7 +41,7 @@ const Navbar = () => {
 
         {/* Desktop menu */}
         <div className="hidden lg:inline-block lg:w-8/12">
-          <ul className="flex flex-row gap-5 text-white items-center justify-end uppercase text-sm font-light">
+          <ul className="flex flex-row gap-5 text-white items-center justify-end uppercase text-sm font-light font-montserrat">
             {navbarData.map((link) => (
               <Link
                 href={link.href}
@@ -92,7 +92,7 @@ const Navbar = () => {
                 </Link>
               ))}
               {/* @ts-ignore */}
-              <UserPanel fn={handleClick}/>
+              <UserPanel fn={handleClick} />
             </ul>
           )}
         </div>

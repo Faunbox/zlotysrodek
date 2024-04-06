@@ -6,18 +6,18 @@ const TextComponent = () => {
       <div className="flex flex-col text-large 2xl:text-large gap-4 text-left mx-10 mb-24">
         <div className="flex flex-col justify-between">
           <div className="flex flex-col gap-2 mt-20 lg:mt-10 lg:w-6/12 2xl:w-7/12">
-            <p className="font-semibold">
+            <p className="font-semibold font-abhaya py-8">
               Nazywam się Dorota Sojecka i jestem absolwentką studiów
               podyplomowych na kierunku Dietetyka i planowanie żywienia oraz
               Psychodietetyka w Wyższej Szkole Nauk Społecznych w Lublinie.
             </p>
-            <p>
+            <p className="font-montserrat">
               Ukończyłam liczne kursy i szkolenia z zakresu dietetyki,
               psychodietetyki, pracy z emocjami oraz psychologii i stale
               poszerzam swoją wiedzę na specjalistycznych warsztatach i
               szkoleniach.
             </p>
-            <p>
+            <p className="font-poppins">
               Łączę 20-letnie doświadczenie pracy w korporacji z empatią i
               umiejętnością słuchania. Od wielu lat fascynuje mnie rozwój oraz
               sięganie po różne działania i doświadczenia. W swoim zawodowym
@@ -26,7 +26,7 @@ const TextComponent = () => {
               tradycyjnym ujęciu zawodowym jestem konsultantem żywieniowym,
               psychodietetykiem, menagerem, przedsiębiorcą.
             </p>
-            <p>
+            <p className="font-poppins">
               Ze względu na to, że sama przeszłam długą drogę pełną zmian, dziś
               wspieram innych w ich transformacjach. Wiem, z czego warto
               czerpać, gdzie szukać swojej wewnętrznej mocy i z jakich zasobów

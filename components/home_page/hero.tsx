@@ -13,7 +13,7 @@ const HeroSection = () => {
           <h2 className="pl-30 text-2xl md:text-3xl lg:text-4xl font-abhaya lg:absolute lg:top-20 pl-10 lg:pl-20 xl:pl-30 2xl:pl-40">
             Konsultant żywieniowy
           </h2>
-          <div className="flex flex-col gap-3 py-6 pb-4 2xl:w-9/12 text-medium md:text-left lg:text-xl md:w-full font-light">
+          <div className="flex flex-col gap-3 py-6 pb-4 2xl:w-9/12 text-medium md:text-left lg:text-xl md:w-full font-light font-abhaya">
             <p className="">
               <span className="uppercase text-gold font-semibold">Uczę</span>{" "}
               ludzi zdrowego stylu życia i poprawnej relacji z jedzeniem.
@@ -65,11 +65,11 @@ const HeroSection = () => {
             className="hidden md:flex absolute 2xl:right-20"
           />
           <Image
-            src={"/images/blob.svg"}
+            src={"/images/Polygon11.svg"}
             alt="blob"
-            width={600}
+            width={800}
             height={800}
-            className="hidden md:flex absolute 2xl:-right-20 -z-10 "
+            className="hidden md:flex absolute 2xl:-right-[18%] 2xl:bottom-[4%] -z-10 "
           />
         </div>
       </div>

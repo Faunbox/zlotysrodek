@@ -8,13 +8,14 @@ import Image from "next/image";
 const UserInfo = ({ user }: { user: UserType }) => {
   return (
     <section className="lg:mx-60 flex flex-col lg:w-7/12">
-      <div className="flex flex-col relative items-start font-montserrat justify-center text-black bg-white mt-24 mb-10 p-24 md:rounded-md gap-10 w-full shadow-2xl">
+      <div className="flex flex-col relative items-start font-montserrat justify-center text-black bg-white mt-24 mb-10 p-24 md:rounded-md gap-10 w-full shadow-large">
         <div className="absolute -top-[0] left-[50%] translate-x-[-50%] translate-y-[-50%]  max-w-[150px] max-h-[150px] rounded-full bg-lightGreen w-full h-full overflow-hidden">
           <Image
             src={"/images/ludzik.svg"}
             alt={"ludzik"}
             width={150}
             height={150}
+            className=""
           />
         </div>
         <ul className="w-full text-large tracking-wide gap-3 flex flex-col">
@@ -38,7 +39,7 @@ const UserInfo = ({ user }: { user: UserType }) => {
             </a>
           </li>
           <li>Konsultacje: {user.consultations as number}</li>
-          {user?.nextMeeting  && (
+          {user?.nextMeeting && (
             <li>Następna konsultacja: {user.nextMeeting as string}</li>
           )}
           {/* <li>Zmień dane użytkownika</li> */}
