@@ -10,12 +10,26 @@ import { authOptions } from "@/lib/nextAuth";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getPageData } from "@/lib/contentful";
 
-export const metadata: Metadata = {
-  title: "Psychodietetyka, trener żywienia | Złoty środek",
-  description:
-    "Witaj w świecie psychodietetyki! Znajdziesz tutaj nie tylko cenne porady dotyczące zdrowego odżywiania i równowagi psychicznej, ale także możliwość skorzystania z e-konsultacji z doświadczonym psychodietetykiem. Odkryj, jak dieta może wpływać na Twoje samopoczucie i emocje oraz jakie strategie możesz zastosować, aby osiągnąć harmonię między ciałem a umysłem. Nasze artykuły, praktyczne wskazówki oraz opcja e-konsultacji pomogą Ci prowadzić zdrowszy i bardziej zrównoważony tryb życia. Zacznij dbać o swoje zdrowie psychiczne już dziś!",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  
+  const data = await getPageData();
+  
+  const { tytuStrony, deskrypcja, keywords } = data.fields;
+
+  return {
+    title: {
+      default: tytuStrony as string,
+      template: `%s | Psychodietetyka - Złoty Środek`,
+    },
+    keywords: keywords as string[],
+    description: deskrypcja as string,
+    alternates: {
+      canonical: process.env.VERCEL_URL,
+    },
+  };
+}
 
 const montserrat = Montserrat({
   subsets: ["latin"],

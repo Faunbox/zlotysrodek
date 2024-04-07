@@ -1,4 +1,9 @@
-import { ContentType, ContentfulCollection, EntrySkeletonType, createClient } from "contentful";
+import {
+  ContentType,
+  ContentfulCollection,
+  EntrySkeletonType,
+  createClient,
+} from "contentful";
 import { cache } from "react";
 
 export type Post = {
@@ -30,6 +35,13 @@ export async function getConsultationPrices() {
 
   const prices = data.items[0].fields;
   return prices;
+}
+
+export async function getPageData() {
+  const data = await client.getEntry<EntrySkeletonType>(
+    "30Hiyh24JEkI18jon1UXcB"
+  );
+  return data;
 }
 
 export async function getBlogPosts(limit = 20, skip = 0, filter?: string) {

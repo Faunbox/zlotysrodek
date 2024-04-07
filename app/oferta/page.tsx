@@ -6,9 +6,17 @@ import HalfBackgroundHeader from "@/components/typography/halfBgHeader";
 import { getConsultationPrices } from "@/lib/contentful";
 import { Prices } from "@/app/page";
 import dynamic from "next/dynamic";
+import { Metadata } from "next";
 
 const BenefitsComponent = dynamic(() => import('@/components/offert/benefitsComponent'))
 const CancelationComponent = dynamic(() => import('@/components/offert/cancelationComponent'))
+
+export const metadata: Metadata = {
+  title: 'Oferta ',
+  alternates: {
+    canonical: `${process.env.VERCEL_URL}/oferta`
+  }
+}
 
 const Consultation = async () => {
   const consultationPrices = await getConsultationPrices();

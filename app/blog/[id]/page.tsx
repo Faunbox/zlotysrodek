@@ -25,6 +25,9 @@ export async function generateMetadata(
   return {
     title: title as string,
     description: shortDescription as string,
+    alternates: {
+      canonical: `https://zlotysrodek.vercel.app/blog/${id}`,
+    },
     openGraph: {
       title: title as string,
       description: shortDescription as string,

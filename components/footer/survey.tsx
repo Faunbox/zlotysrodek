@@ -18,7 +18,7 @@ const NutritionalSurvey = async () => {
         py={1}
         ariaLabel="Ankieta żywieniowa"
       >
-        Ankieta Żywieniowa
+        Ankieta przed spotkaniem
       </FilledButton>
     </Link>
   );

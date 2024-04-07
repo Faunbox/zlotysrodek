@@ -5,13 +5,13 @@ const TextComponent = () => {
     <div className="flex flex-row gap-20 lg:mx-20 text-darkGreen relative ">
       <div className="flex flex-col text-large 2xl:text-large gap-4 text-left mx-10 mb-24">
         <div className="flex flex-col justify-between">
-          <div className="flex flex-col gap-2 mt-20 lg:mt-10 lg:w-6/12 2xl:w-7/12">
-            <p className="font-semibold font-abhaya py-8">
+          <div className="flex flex-col gap-2 mt-10 lgmt-20 lg:mt-10 lg:w-6/12 2xl:w-7/12">
+            <p className="font-semibold font-abhaya md:py-8 text-xl">
               Nazywam się Dorota Sojecka i jestem absolwentką studiów
               podyplomowych na kierunku Dietetyka i planowanie żywienia oraz
               Psychodietetyka w Wyższej Szkole Nauk Społecznych w Lublinie.
             </p>
-            <p className="font-montserrat">
+            <p className="font-montserrat my-4 md:mb-8">
               Ukończyłam liczne kursy i szkolenia z zakresu dietetyki,
               psychodietetyki, pracy z emocjami oraz psychologii i stale
               poszerzam swoją wiedzę na specjalistycznych warsztatach i

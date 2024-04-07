@@ -39,6 +39,7 @@ export default async function Home() {
     <main className="page">
       <HeroSection />
       <BasicInfo />
+      <Info />
       {/* <BlogMagnet /> */}
       <Offert title={true} prices={consultationPrices as Prices} />
       <FreeConsultation />
@@ -48,7 +49,6 @@ export default async function Home() {
       </HalfBackgroundHeader>
       <StepsComponent />
       <CancelationComponent />
-      <Info />
     </main>
   );
 }
