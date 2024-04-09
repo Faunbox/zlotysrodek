@@ -27,7 +27,7 @@ const FollowMe = () => {
         <a href="mailto:kontakt@zlotysrodek.eu" target="_blank" rel="noopener">
           <MdEmail className="-rotate-90" />
         </a>
-        <a href="tel:+48602778499" target="_blank" rel="noopener">
+        <a href="tel:+48737881617" target="_blank" rel="noopener">
           <FaPhone className="-rotate-90" />
         </a>
       </div>

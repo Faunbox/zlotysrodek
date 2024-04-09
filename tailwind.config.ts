@@ -9,6 +9,9 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'xxs': '412px'
+    },
     fontFamily: {
       abhaya: "Abhaya Libre",
       montserrat: [`var(--montserrat)`],

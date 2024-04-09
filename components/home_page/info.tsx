@@ -18,14 +18,14 @@ const Info = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center mx-10 lg:mx-20 mt-10 mb-32 text-green gap-8">
+    <section className="flex flex-col items-center justify-center mx-10 lg:mx-20 mt-10 mb-32 text-black gap-8">
       <HalfBackgroundHeader>
-        Dodatkowe informacje o współpracy:
+        Dodatkowe informacje:
       </HalfBackgroundHeader>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-center text-darkGreen lg:pt-6 p-14 lg:px-40 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-center lg:pt-6 p-14 lg:px-40 ">
         {texts.map((text) => (
           <div key={text.data.slice(1, 8)} className="relative px-4 md:px-12 text-left">
-            <p className="text-large font-abhaya">{text.data}</p>
+            <p className="text-large font-abhaya text-black tracking-wide" >{text.data}</p>
             <Image
               src={"/images/avocado.svg"}
               alt="awokado"

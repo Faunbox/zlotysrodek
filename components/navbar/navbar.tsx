@@ -55,7 +55,7 @@ const Navbar = () => {
               </Link>
             ))}
             {/* @ts-ignore */}
-            <UserPanel />
+            <UserPanel/>
           </ul>
         </div>
         {/* Mobile Menu */}

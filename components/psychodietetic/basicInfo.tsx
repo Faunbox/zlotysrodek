@@ -6,8 +6,8 @@ const BasicInfo = () => {
       <div className="flex flex-col md:flex-row lg:mb-6">
         <div className="flex flex-col md:w-7/12 lg:w-6/12 mx-10 lg:mx-8 py-20 gap-5 text-darkGreen lg:pr-10">
           <p>
-            Psychodietetyk różni się od dietetyków przede wszystkim podejściem
-            do pracy. W założeniu dietetyka uczy o tym jak jeść w odpowiedzi na
+            Psychodietetyk różni się od dietetyka przede wszystkim podejściem do
+            pracy. W założeniu dietetyka uczy o tym jak jeść w odpowiedzi na
             przeróżne stany zdrowia i choroby, a część psychodietetyczna pozwala
             znaleźć sposoby na to jak tą wiedzę wprowadzić w życie.
           </p>
@@ -18,8 +18,8 @@ const BasicInfo = () => {
             swojej drodze niezliczone trudności, takie jak niepowodzenia w walce
             z głodem i zachciankami, uleganie kuszącym potrawom, nieustanne
             poddawanie się myślom o jedzeniu co w konsekwencji prowadzi do
-            efektu jo-jo, depresja związana z podejmowaniem kolejnych nieudanych
-            prób.
+            efektu jo-jo lub depresji związanej z podejmowaniem kolejnych
+            nieudanych prób.
           </p>
           <p>
             Okazuje się, że dla większości osób nadwaga czy otyłość to tylko

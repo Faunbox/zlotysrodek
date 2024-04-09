@@ -63,7 +63,7 @@ export async function POST(req: Request) {
           const emailToCustomer = {
             personalizations: [
               {
-                to: "faunbox2@gmail.com",
+                to: customerEmail,
                 dynamic_template_data: {
                   email: customerEmail,
                 },

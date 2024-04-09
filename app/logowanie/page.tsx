@@ -28,7 +28,7 @@ const LoggingIinPage = () => {
       isUserInDb
         ? signIn("credentials", {
             email: loginInfo.email,
-            password: JSON.stringify(loginInfo.password),
+            password: JSON.stringify(loginInfo.password)  ,
             callbackUrl: "/",
           })
         : alert("Niepoprawny email lub hasło");
@@ -38,9 +38,9 @@ const LoggingIinPage = () => {
   };
 
   return (
-    <main className="w-full h-screen max-h-[1024px] flex flex-col">
+    <main className="page w-full h-screen">
       <BackgroundedHeader>Logowanie</BackgroundedHeader>
-      <div className="flex flex-row h-full">
+      <div className="flex flex-row h-full w-full">
         <div className="w-full md:mx-10 md:w-1/2 flex flex-col items-center justify-center gap-4">
           <form
             action={tryToLogin}

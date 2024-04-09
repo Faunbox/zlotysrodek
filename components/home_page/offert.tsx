@@ -16,7 +16,7 @@ const Offert = ({
   const email: string = session?.user?.email!;
 
   return (
-    <section className="flex flex-col items-center justify-center text-green my-10 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative">
+    <section className="flex flex-col items-center justify-center text-green mt-10 mb-24 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative">
       <div className="flex flex-col lg:flex-row gap-10 items-center justify-center lg:items-end lg:justify-center text-white 2xl:w-9/12">
         <div className="bg-offertGreen flex flex-col gap-10 order-2 lg:order-1 p-8 items-center justify-center w-full lg:w-3/12 text-center rounded-lg ">
           <p className=" px-3 font-extralight text-md font-poppins">
@@ -26,7 +26,7 @@ const Offert = ({
             <p className="text-xl px-6 font-abhaya">
               PAKIET KONSULTACJI ON-LINE 4 SPOTKAŃ
             </p>
-            <p className="text-lg px-6 font-abhaya">
+            <p className="text-2xl px-6 font-abhaya">
               {prices.zestaw3Konsultacji as string}
             </p>
           </div>
@@ -64,7 +64,7 @@ const Offert = ({
           </ul>
           <div className="flex flex-col items-center justify-center text-center font-abhaya text-xl">
             <p className="text-lg px-6 font-abhaya">POJEDYNCZA KONSULTACJA</p>
-            <p className="text-lg px-6 font-abhaya">
+            <p className="text-2xl px-6 font-abhaya">
               {prices.konsultacja as string}
             </p>
           </div>
@@ -93,7 +93,7 @@ const Offert = ({
           </p>
           <div className="flex flex-col items-center justify-center text-center font-abhaya text-xl">
             <p className="text-lg px-6">PAKIET KONSULTACJI ON-LINE 8 SPOTKAŃ</p>
-            <p className="text-lg px-6 ">
+            <p className="text-2xl px-6 ">
               {prices.zestaw10Konsultacji as string}
             </p>
           </div>

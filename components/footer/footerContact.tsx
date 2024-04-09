@@ -14,8 +14,8 @@ const FooterContact = ({
   const contactData = [
     {
       icon: <FaPhoneAlt />,
-      data: "+48 602 778 499",
-      href: "tel:+48602778499",
+      data: "+48 737 881 617",
+      href: "tel:+48737881617",
     },
     {
       icon: <MdEmail />,

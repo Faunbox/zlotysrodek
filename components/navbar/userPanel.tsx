@@ -7,6 +7,10 @@ const UserPanel = (fn?: () => void ) => {
   //@ts-expect-error
   const username: string = session?.user?.username as string;
 
+  const handleClick =() => {
+    fn
+  }
+
   if (session) {
     return (
       <li className="flex flex-col md:flex-row justify-end items-center my-2">
@@ -14,7 +18,7 @@ const UserPanel = (fn?: () => void ) => {
           href={`/user/${username}`}
           prefetch
           className="text-gold font-normal hover:scale-105 duration-300"
-          onClick={() => fn}
+          onClick={handleClick}
         >
           {username}
         </Link>
@@ -29,7 +33,7 @@ const UserPanel = (fn?: () => void ) => {
   }
   return (
     <li>
-      <Link href="/logowanie" onClick={() => fn}>
+      <Link href="/logowanie" onClick={handleClick}>
         <button className="uppercase text-gold hover:border-b-small">
           Logowanie
         </button>

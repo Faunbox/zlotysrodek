@@ -23,7 +23,7 @@ const reasons = [
   },
   {
     title: "Nadmiar informacji?",
-    text: "Czujesz zagubienie w dostępnych informacjach, gdy jedni odradzają a inni wymieniają korzystne właściwości.",
+    text: "Czujesz zagubienie w dostępnych informacjach, gdy jedni odradzają, a inni wymieniają korzystne właściwości.",
   },
 ];
 
