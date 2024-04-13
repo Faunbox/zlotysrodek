@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 const Consultation = async () => {
   const consultationPrices = await getConsultationPrices();
 
-
   return (
     <main className="page">
       {/* <BackgroundedHeader>Oferta</BackgroundedHeader> */}

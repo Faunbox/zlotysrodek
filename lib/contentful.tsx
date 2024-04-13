@@ -185,3 +185,11 @@ export async function getCategory() {
 
   return categoryData;
 }
+
+
+export async function getHomePageData() {
+  const data = await client.getEntry<EntrySkeletonType>(
+    "1KQjX2P9PpwAkvCxYbLeOm"
+  );
+  return data;  
+}

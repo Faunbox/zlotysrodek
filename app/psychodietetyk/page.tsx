@@ -12,17 +12,17 @@ export const metadata: Metadata = {
 
 const Page = () => {
   return (
-    <div className="page text-darkGreen">
+    <div className="page ">
       <BackgroundedHeader>Psychodietetyk</BackgroundedHeader>
       <BasicInfo />
-      <BackgroundedHeader
+      {/* <BackgroundedHeader
         size="text-3xl"
         position="text-right"
         title={false}
         classname=" xl:pr-[25%]"
       >
         Powody konsultacji:
-      </BackgroundedHeader>
+      </BackgroundedHeader> */}
       <Reasons />
     </div>
   );

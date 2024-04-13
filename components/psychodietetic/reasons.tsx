@@ -24,41 +24,46 @@ const reasons = [
   {
     title: "Nadmiar informacji?",
     text: "Czujesz zagubienie w dostępnych informacjach, gdy jedni odradzają, a inni wymieniają korzystne właściwości.",
+    last: true,
   },
 ];
 
 const Reasons = () => {
   return (
-    <section className="flex flex-col mx-10 pb-20 lg:mx-20 lg:flex-row relative">
-      <div className="hidden xl:flex w-6/12">
-        <Image
-          src={"/images/cooking.jpeg"}
-          alt="Gotowanie"
-          width={580}
-          height={600}
-          className="xl:absolute xl:-top-6 xl:-left-[7%]"
-        />{" "}
+    <div className="mx-10 lg:mx-20 pb-32 w-screen bg-green">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-center container w-8/12 font-tinos">
+        <div className="hidden lg:flex lg:w-6/12 mt-4">
+          <Image
+            src={"/images/cooking.jpeg"}
+            alt="gotowanie"
+            width={540}
+            height={750}
+            className="border-2 border-white mt-6"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex flex-col items-center text-white mt-4 lg:w-6/12 px-10">
+          <h4 className="text-3xl underline w-full">Powody konsultacji:</h4>
+          <ul className="flex flex-col gap-5 2xl:gap-8 mt-4 justify-center items-start text-large xl:text-xl mr-20">
+            {reasons.map((reason) => {
+              return (
+                <li className="relative " key={reason.title}>
+                  <h4 className="font-semibold">{reason.title}</h4>
+                  <p
+                    className={`${
+                      !reason.last &&
+                      "after:w-1/2 after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-3"
+                    }`}
+                  >
+                    {reason.text}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
-      <div className="w-full xl:w-6/12 py-2 lg:pl-14">
-        <ul className="text-[22px] font-abhaya">
-          {reasons.map((reason) => {
-            return (
-              <li className="relative" key={reason.title}>
-                <Image
-                  src={"/images/avocado.svg"}
-                  alt="awokado"
-                  width={25}
-                  height={25}
-                  className="absolute top-0 -left-8 md:-left-14"
-                />
-                <h4 className="font-semibold">{reason.title}</h4>
-                <p>{reason.text}</p>
-              </li>
-            );
-          })}
-        </ul>{" "}
-      </div>
-    </section>
+    </div>
   );
 };
 

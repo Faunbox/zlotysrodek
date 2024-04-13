@@ -14,7 +14,7 @@ const FormSection = () => {
           height={700}
           width={450}
           fetchPriority="high"
-          className="lg:absolute lg:-top-10"
+          className="lg:absolute lg:-top-10 border-2 border-white"
         />
       </div>
     </section>

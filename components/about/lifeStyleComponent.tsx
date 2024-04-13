@@ -2,92 +2,59 @@ import Image from "next/image";
 
 const LifestyleComponent = () => {
   return (
-    <div className="lg:mx-20 mx-10 mb-10 lg:mb-20 relative">
-      <div className="flex flex-col-reverse lg:flex-row gap-5 lg:gap-20 items-center justify-center lg:justify-end">
-        <div className="hidden lg:flex lg:w-10/12">
-          <Image  
+    <div className="mx-10 lg:mx-20 pb-14 w-screen bg-green">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-center container w-8/12 font-tinos">
+        <div className="hidden lg:flex lg:w-6/12">
+          <Image
             src={"/images/sadzonka.jpeg"}
             alt="sadzonka"
-            width={480}
-            height={900}
-            className="lg:mr-20 object-cover lg:absolute lg:-top-5 "
+            width={440}
+            height={750}
+            className="border-2 border-white mt-6"
           />
         </div>
-        <ul className="flex flex-col gap-5 lg:gap-5 2xl:gap-8 mt-16 md:mt-8 lg:pl-10 md:mx-2 font-semibold justify-center items-start text-darkGreen text-large xl:text-xl md:w-7/12 lg:w-8/12 font-abhaya">
-          <li className="relative">
-            <p>
-              Wybór odpowiednich, dobrej jakości produktów spożywczych, z
-              których komponuję zbilansowane posiłki
-            </p>
-            <Image
-              src={"/images/avocado.svg"}
-              alt="awokado"
-              width={25}
-              height={25}
-              className="absolute top-0 translate-y-1/2 -left-8 md:-left-14"
-            />
-          </li>
-          <li className="relative">
-            <p>Umiarkowana aktywność fizyczna wpleciona w codzienne życie</p>
-            <Image
-              src={"/images/avocado.svg"}
-              alt="awokado"
-              width={25}
-              height={25}
-              className="absolute top-0 translate-y-1/2 -left-8 md:-left-14"
-            />
-          </li>
-          <li className="relative">
-            <p>Czas spędzony na łonie natury</p>
-            <Image
-              src={"/images/avocado.svg"}
-              alt="awokado"
-              width={25}
-              height={25}
-              className="absolute top-0  -left-8 md:-left-14"
-            />
-          </li>
-          <li className="relative">
-            <p>Odpoczynek i regeneracja</p>
-            <Image
-              src={"/images/avocado.svg"}
-              alt="awokado"
-              width={25}
-              height={25}
-              className="absolute top-0  -left-8 md:-left-14"
-            />
-          </li>
-          <li className="relative">
-            <p>Utrzymanie rytmu dobowego (rytm dnia i nocy)</p>
-            <Image
-              src={"/images/avocado.svg"}
-              alt="awokado"
-              width={25}
-              height={25}
-              className="absolute top-0 translate-y-1/2 md:translate-y-0 -left-8 md:-left-14"
-            />
-          </li>
-          <li className="relative">
-            <p>Pozytywne relacje z bliskimi oraz otaczającymi mnie ludźmi</p>
-            <Image
-              src={"/images/avocado.svg"}
-              alt="awokado"
-              width={25}
-              height={25}
-              className="absolute top-0 translate-y-1/2 -left-8 md:-left-14"
-            />
-          </li>
-          <li className="relative">
-            <p>Regulacja emocji poprzez zastosowanie odpowiednich technik</p>
-            <Image
-              src={"/images/avocado.svg"}
-              alt="awokado"
-              width={25}
-              height={25}
-              className="absolute top-0 translate-y-1/2 -left-8 md:-left-14"
-            />
-          </li>
-        </ul>
+        <div className="flex flex-col items-center text-white mt-4 lg:w-6/12 px-10">
+          <h4 className="text-3xl underline w-full">
+            Zdrowy styl życia to dla mnie:
+          </h4>
+          <ul className="flex flex-col gap-5 2xl:gap-8 mt-4 md:mt-8 justify-center items-start text-large xl:text-xl mr-20">
+            <li className="relative">
+              <p className="after:w-1/2 after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-3">
+                Wybór odpowiednich, dobrej jakości produktów spożywczych, z
+                których komponuję zbilansowane posiłki
+              </p>
+            </li>
+            <li className="relative">
+              <p className="after:w-1/2 after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">
+                Umiarkowana aktywność fizyczna wpleciona w codzienne życie
+              </p>
+            </li>
+            <li className="relative">
+              <p className="after:w-1/2 after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">
+                Czas spędzony na łonie natury
+              </p>
+            </li>
+            <li className="relative">
+              <p className="after:w-1/2 after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">
+                Odpoczynek i regeneracja
+              </p>
+            </li>
+            <li className="relative">
+              <p className="after:w-1/2 after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">
+                Utrzymanie rytmu dobowego 
+              </p>
+              <p>(rytm dnia i nocy)</p>
+            </li>
+            <li className="relative">
+              <p className="after:w-1/2 after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">
+                Pozytywne relacje z bliskimi oraz otaczającymi mnie ludźmi
+              </p>
+            </li>
+            <li className="relative">
+              <p>Regulacja emocji poprzez zastosowanie odpowiednich technik</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

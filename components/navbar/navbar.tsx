@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="w-2/4 lg:w-1/4  ">
           <Link href={"/"}>
             <Image
-              src={"/images/logo3.svg"}
+              src={"/images/logo (2).svg"}
               alt="Logo Złoty środek"
               width={200}
               height={100}

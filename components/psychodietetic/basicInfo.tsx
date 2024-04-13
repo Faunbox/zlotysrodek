@@ -2,15 +2,15 @@ import Image from "next/image";
 
 const BasicInfo = () => {
   return (
-    <section className="flex flex-col lg:mx-20 text-darkGreen text-large relative">
+    <section className="flex flex-col lg:mx-20 text-black text-large relative font-tinos">
       <div className="flex flex-col md:flex-row lg:mb-6">
-        <div className="flex flex-col md:w-7/12 lg:w-6/12 mx-10 lg:mx-8 py-20 gap-5 text-darkGreen lg:pr-10">
+        <div className="flex flex-col md:w-7/12 lg:w-6/12 mx-10 lg:mx-8 py-10 gap-5 lg:pr-10">
           <p>
             Psychodietetyk różni się od dietetyka przede wszystkim podejściem do
             pracy. W założeniu dietetyka uczy o tym jak jeść w odpowiedzi na
             przeróżne stany zdrowia i choroby, a część psychodietetyczna pozwala
             znaleźć sposoby na to jak tą wiedzę wprowadzić w życie.
-          </p>
+          </p>  
           <p>
             Osoby, które zaczynają stosować diety redukcyjne, bardzo często
             zaczynają nieustannie myśleć o jedzeniu, a kiedy przerywają dietę
@@ -33,20 +33,20 @@ const BasicInfo = () => {
         <div className=" mx-auto lg:w-4/12">
           <Image
             src="/images/armchair.webp"
-            alt="Złoty fotel"
+            alt="Zloty fotel"
             width={400}
             height={700}
-            className="lg:absolute lg:-top-10"
-            loading="lazy"
+            className="lg:absolute lg:-top-10 border-2 border-white"
+            // loading="lazy"
           />
         </div>
       </div>
-      <h4 className="text-4xl m-10 font-semibold font-abhaya">
+      <h4 className="text-3xl m-10 font-semibold text-offertGreen">
         Pamiętaj! Nie ma gotowych rozwiązań – każdy ma inne potrzeby, inny
         system wartości, inne cele, inne problemy do rozwiązania, różne
         ograniczenia.
       </h4>
-      <div className="flex flex-col mx-10 gap-5 mb-20">
+      <div className="flex flex-col mx-10 mb-20">
         <p>
           Ważna jest dla mnie Twoja wiedza na temat własnych możliwości,
           zasobów, czy ewentualnych ograniczeń oraz moja znajomość psychologii

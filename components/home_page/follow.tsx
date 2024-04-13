@@ -6,10 +6,10 @@ import { FaPhone } from "react-icons/fa6";
 
 const FollowMe = () => {
   return (
-    <section className="rotate-90 font-montserrat text-sm flex w-full py-10 content-end items-start justify-end z-30 fixed top-[60%] md:top-[50%] 2xl:-top-[15%] left-[45%] md:left-[40%] md:ml-14 text-darkGreen ">
-      <div className="flex flex-row items-center justify-center gap-2 uppercase ">
+    <section className="rotate-90 font-montserrat text-sm flex w-full py-10 content-end items-start justify-end z-30 fixed top-[60%] md:top-[50%] 2xl:-top-[15%] left-[45%] md:left-[40%] md:ml-14 text-darkGreen">
+      <div className="flex flex-row items-center justify-center gap-2 uppercase">
         <p className="text-black text-[15px]">Śledź mnie </p>
-        <IoIosArrowRoundDown className="-rotate-90" />
+        <IoIosArrowRoundDown className="-rotate-90"/>
         <a
           href="https://www.instagram.com/zloty__srodek/"
           target="_blank"

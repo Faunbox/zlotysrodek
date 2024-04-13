@@ -16,14 +16,14 @@ const AboutPage = () => {
     <div className="page">
       <BackgroundedHeader>Poznajmy się!</BackgroundedHeader>
       <TextComponent />
-      <BackgroundedHeader
+      {/* <BackgroundedHeader
         size="text-4xl"
         position="text-left lg:text-right"
         title={false}
         classname=" xl:pr-60 2xl:pr-36"
       >
-        Zdrowy styl życia to dla mnie:
-      </BackgroundedHeader>
+        
+      </BackgroundedHeader> */}
       <LifestyleComponent />
       <Certyficates />
     </div>

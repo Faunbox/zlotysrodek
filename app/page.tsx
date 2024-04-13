@@ -1,9 +1,9 @@
 import BasicInfo from "@/components/home_page/basicInfo";
 import HeroSection from "@/components/home_page/hero";
-import Info from "@/components/home_page/info";
+import Info, { InfoT } from "@/components/home_page/info";
 import Offert from "@/components/home_page/offert";
 import HalfBackgroundHeader from "@/components/typography/halfBgHeader";
-import { getConsultationPrices } from "@/lib/contentful";
+import { getConsultationPrices, getHomePageData } from "@/lib/contentful";
 import dynamic from "next/dynamic";
 
 export type Prices = {
@@ -34,13 +34,16 @@ const FreeConsultation = dynamic(
 
 export default async function Home() {
   const consultationPrices = await getConsultationPrices();
+  const homePageData = await getHomePageData();
+
+  
 
   return (
     <main className="page">
       <HeroSection />
       <BasicInfo />
-      <HalfBackgroundHeader>Dodatkowe informacje:</HalfBackgroundHeader>
-      <Info />
+      <HalfBackgroundHeader>{homePageData.fields.dodatkoweInformacje as string}</HalfBackgroundHeader>
+      <Info data={homePageData.fields as InfoT}/>
       {/* <BlogMagnet /> */}
       <Offert title={true} prices={consultationPrices as Prices} />
       <FreeConsultation />

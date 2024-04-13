@@ -6,8 +6,8 @@ const BasicInfo = () => {
   return (
     <section className="flex flex-row relative items-start justify-center text-center md:mx-20 my-20 w-10/12 text-black font-tinos">
       <motion.div
-        initial={{ opacity: 0, y:-50 }}
-        whileInView={{ opacity: 1, y:0 }}
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 2 }}
         className="w-2/12 md:w-1/12 sticky top-1/4 mb-[130%] xxs:mb-[115%] md:mb-[42%] lg:mb-[24%] xl:mb-[12%] flex items-start justify-end -translate-y-[10%] translate-x-[1px]"
       >
@@ -24,13 +24,12 @@ const BasicInfo = () => {
         <div className="flex flex-col text-left gap-1 mb-20">
           <div className="flex flex-row relative">
             <Image
-              src={"/images/kropka.svg"}
+              src={"/images/bi1.svg"}
               alt="avocado"
               width={30}
               height={30}
               className="absolute top-0 -left-20  z-10"
             />
-
             <h2 className="text-2xl uppercase">Jak pracuję?</h2>
           </div>
           <p className="text-large">
@@ -47,15 +46,13 @@ const BasicInfo = () => {
         <div className="flex flex-col text-left gap-1 mb-20">
           <div className="flex flex-row relative">
             <Image
-              src={"/images/kropka.svg"}
+              src={"/images/bi2.svg"}
               alt="avocado"
               width={30}
               height={30}
               className="absolute top-0 -left-20 z-10"
             />
-            <h2 className="text-2xl uppercase">
-              PRACUJĘ Z OSOBAMI KTÓRE:
-            </h2>
+            <h2 className="text-2xl uppercase">PRACUJĘ Z OSOBAMI KTÓRE:</h2>
           </div>
           <ul className="list-disc">
             <li>
@@ -91,7 +88,7 @@ const BasicInfo = () => {
         <div className="flex flex-col text-left gap-1 mb-20">
           <div className="flex flex-row relative">
             <Image
-              src={"/images/kropka.svg"}
+              src={"/images/bi3.svg"}
               alt="avocado"
               width={30}
               height={30}
@@ -124,7 +121,7 @@ const BasicInfo = () => {
         <div className="flex flex-col text-left gap-1 mb-20">
           <div className="flex flex-row relative">
             <Image
-              src={"/images/kropka.svg"}
+              src={"/images/bi4.svg"}
               alt="avocado"
               width={30}
               height={30}
@@ -135,7 +132,7 @@ const BasicInfo = () => {
           <p>
             Dzięki naszej współpracy nauczysz się układać swój jadłospis bez
             konieczności trzymania się uciążliwej diety. Nauczysz się radzić
-            sobie w trudnych sytuacjach i zmagać z pojawiającymi się problemami.
+            sobie w trudnych sytuacjach i pokonywać pojawiające się problemy.
             Uregulujesz swój stan zdrowia, poprawisz swoje samopoczucie,
             staniesz się osobą świadomą swoich wyborów i zachowań żywieniowych.
           </p>
@@ -143,15 +140,13 @@ const BasicInfo = () => {
         <div className="flex flex-col text-left gap-1 mb-20">
           <div className="flex flex-row relative">
             <Image
-              src={"/images/kropka.svg"}
+              src={"/images/bi5.svg"}
               alt="avocado"
               width={30}
               height={30}
               className="absolute top-0 -left-20 z-10"
             />
-            <h2 className="text-2xl uppercase">
-              MÓJ SPOSÓB DZIAŁANIA:
-            </h2>
+            <h2 className="text-2xl uppercase">MÓJ SPOSÓB DZIAŁANIA:</h2>
           </div>
           <ul className="list-disc">
             <li>
