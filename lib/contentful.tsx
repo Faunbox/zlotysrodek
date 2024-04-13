@@ -118,7 +118,7 @@ export async function getAllCertyficates() {
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "certyfikaty",
     //@ts-ignore
-    order: "sys.createdAt",
+    order: "-sys.createdAt",
   });
 
   const certyficates = data.includes?.Asset;

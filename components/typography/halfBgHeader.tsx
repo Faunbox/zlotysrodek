@@ -7,9 +7,9 @@ const HalfBackgroundHeader = ({
 }) => {
   return (
     <div
-      className={`w-screen -translate-x-[${translate}%] md:-translate-x-[25%] lg:-translate-x-[40%] xl:-translate-x-[50%] bg-green items-center justify-center text-right py-6 rounded-r-small`}
+      className={`w-screen bg-green items-center justify-center py-6 md:px-20 `}
     >
-      <h3 className="text-white font-abhaya pl-10 md:pr-10 tracking-wide text-3xl text-left md:text-right">
+      <h3 className="text-white font-tinos underline pl-10 md:pr-10 tracking-wide text-3xl container">
         {children}
       </h3>
     </div>

@@ -39,16 +39,17 @@ export default async function Home() {
     <main className="page">
       <HeroSection />
       <BasicInfo />
+      <HalfBackgroundHeader>Dodatkowe informacje:</HalfBackgroundHeader>
       <Info />
       {/* <BlogMagnet /> */}
       <Offert title={true} prices={consultationPrices as Prices} />
       <FreeConsultation />
-      <ContactMagnet />
       <HalfBackgroundHeader>
         Konsultacja on-line krok po kroku:
       </HalfBackgroundHeader>
       <StepsComponent />
       <CancelationComponent />
+      <ContactMagnet />
     </main>
   );
 }

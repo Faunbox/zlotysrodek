@@ -24,9 +24,9 @@ const Consultation = async () => {
 
   return (
     <main className="page">
-      <BackgroundedHeader>Oferta</BackgroundedHeader>
+      {/* <BackgroundedHeader>Oferta</BackgroundedHeader> */}
+      <Offert title={true} prices={consultationPrices as Prices}/>
       <FreeConsultation />
-      <Offert title={false} prices={consultationPrices as Prices}/>
       <HalfBackgroundHeader>
         Konsultacja on-line krok po kroku:
       </HalfBackgroundHeader>

@@ -3,17 +3,19 @@ import FilledButton from "../typography/filledButton";
 
 const ContactMagnet = () => {
   return (
-    <section className="bg-[url('/images/fotel.webp')] w-screen max-w-[2000px] flex flex-col items-center justify-center h-[55vh] max-h-[450px] my-10 md:my-20 bg-center bg-cover bg-no-repeat relative">
+    <section className="bg-[url('/images/fotel.webp')] w-screen max-w-[2000px] flex flex-col items-center justify-center h-[55vh] max-h-[450px] mt-10 md:mt-20 bg-center bg-cover bg-no-repeat relative">
       <div className="flex flex-col text-darkGreen items-center justify-center mx-10 gap-5 md:absolute md:top-[25%] md:-left-[10%] w-9/12">
-        <div className="font-light text-xl md:text-2xl font-abhaya">
-          <p>Każda zmiana wydaje się trudna,</p>
-          <p>zanim uczynisz ją łatwą w realizacji.</p>
+        <div className="flex flex-col">
+          <div className="font-light text-xl md:text-3xl font-tinos italic">
+            <p>Każda zmiana wydaje się trudna,</p>
+            <p>zanim uczynisz ją łatwą w realizacji.</p>
+          </div>
+          <Link href={"/kontakt"} className="pt-10">
+            <FilledButton color="bg-darkGreen" text="white" ariaLabel="Kontakt">
+              KONTAKT
+            </FilledButton>
+          </Link>
         </div>
-        <Link href={"/kontakt"}>
-          <FilledButton color={"bg-green"} text="white" ariaLabel="Kontakt">
-            KONTAKT
-          </FilledButton>
-        </Link>
       </div>
     </section>
   );

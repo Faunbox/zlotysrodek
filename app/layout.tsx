@@ -4,18 +4,18 @@ import Navbar from "@/components/navbar/navbar";
 import FollowMe from "@/components/home_page/follow";
 import { Providers } from "./providers";
 import { getServerSession } from "next-auth";
-import { Montserrat, Poppins } from "next/font/google";
+import { Montserrat, Poppins, Tinos } from "next/font/google";
 import Footer from "@/components/footer/footer";
 import { authOptions } from "@/lib/nextAuth";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getPageData } from "@/lib/contentful";
+import { AnimatePresence } from "framer-motion";
 
 export async function generateMetadata(): Promise<Metadata> {
-  
   const data = await getPageData();
-  
+
   const { tytuStrony, deskrypcja, keywords } = data.fields;
 
   return {
@@ -45,6 +45,14 @@ const poppins = Poppins({
   variable: "--poppins",
 });
 
+const tinos = Tinos({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "700"],
+  preload: true,
+  variable: "--tinos",
+});
+
 export default async function RootLayout({
   children,
 }: {
@@ -54,7 +62,10 @@ export default async function RootLayout({
   const gtag = process.env.GTAG as string;
 
   return (
-    <html lang="pl" className={`${montserrat.variable} ${poppins.variable}`}>
+    <html
+      lang="pl"
+      className={`${montserrat.variable} ${poppins.variable} ${tinos.variable}`}
+    >
       <SpeedInsights />
       <Analytics />
       <GoogleAnalytics gaId={gtag} />
@@ -62,7 +73,9 @@ export default async function RootLayout({
         <FollowMe />
         <Providers session={session}>
           <Navbar />
+          {/* <AnimatePresence> */}
           <main className="container">{children}</main>
+          {/* </AnimatePresence> */}
           <Footer />
         </Providers>
       </body>

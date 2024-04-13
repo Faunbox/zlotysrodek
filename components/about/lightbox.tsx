@@ -24,6 +24,7 @@ const Lightbox = ({
         loading="lazy"
         height={300}
         onClick={() => setToggler(!toggler)}
+        className="w-[100px] h-[130px] md:w-[300px] md:h-[428px]"
       />
       <FsLightbox
         toggler={toggler}

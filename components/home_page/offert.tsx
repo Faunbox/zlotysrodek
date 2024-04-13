@@ -16,17 +16,20 @@ const Offert = ({
   const email: string = session?.user?.email!;
 
   return (
-    <section className="flex flex-col items-center justify-center text-green mt-10 mb-24 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative">
-      <div className="flex flex-col lg:flex-row gap-10 items-center justify-center lg:items-end lg:justify-center text-white 2xl:w-9/12">
-        <div className="bg-offertGreen flex flex-col gap-10 order-2 lg:order-1 p-8 items-center justify-center w-full lg:w-3/12 text-center rounded-lg ">
-          <p className=" px-3 font-extralight text-md font-poppins">
+    <div className="w-screen bg-green">
+
+    
+    <section className="flex flex-col items-center justify-center container text-green mt-10 mb-16 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative font-tinos">
+      <div className="flex flex-col lg:flex-row gap-10 items-center justify-center lg:items-center lg:justify-center text-white 2xl:w-11/12">
+        <div className="bg-lightGreen flex flex-col gap-10 order-2 lg:order-1 p-8 items-center justify-center w-full lg:w-3/12 text-center border-2 border-white shadow-lg shadow-black">
+          <p className=" px-3 font-extralight text-md">
             {prices.pakiet4OpisOferty}
           </p>
-          <div className="flex flex-col items-center justify-center font-abhaya">
-            <p className="text-xl px-6 font-abhaya">
+          <div className="flex flex-col items-center justify-center ">
+            <p className="text-xl px-6 ">
               PAKIET KONSULTACJI ON-LINE 4 SPOTKAŃ
             </p>
-            <p className="text-2xl px-6 font-abhaya">
+            <p className="text-2xl px-6 ">
               {prices.zestaw3Konsultacji as string}
             </p>
           </div>
@@ -50,21 +53,21 @@ const Offert = ({
         </div>
 
         <div
-          className={`bg-green order-1 lg:order-2 flex flex-col gap-8 ${
+          className={`bg-lightGreen order-1 text-center lg:order-2 shadow-lg shadow-black flex flex-col gap-8 ${
             !title && "pt-8"
-          } pb-8 px-8 md:pb-8 items-center justify-center w-full lg:w-3/12 mb-10 rounded-lg `}
+          } pb-8 px-8 md:pb-8 items-center justify-center w-full lg:w-3/12 mb-10 border-2 border-white `}
         >
           {title && <Header>Oferta</Header>}
-          <ul className="flex flex-col list-disc text-left font-extralight font-poppins text-md">
+          <ul className="flex flex-col list-disc text-left font-extralight text-md">
             <li>Spotkamy się na 50 min </li>
             <li>Przeanalizujemy Twój przypadek</li>{" "}
             <li>Opracujemy plan małych kroków</li>
             <li>Będziemy monitorować Twoje postępy</li>{" "}
             <li>Dostaniesz moje wsparcie</li>
           </ul>
-          <div className="flex flex-col items-center justify-center text-center font-abhaya text-xl">
-            <p className="text-lg px-6 font-abhaya">POJEDYNCZA KONSULTACJA</p>
-            <p className="text-2xl px-6 font-abhaya">
+          <div className="flex flex-col items-center justify-center text-center  text-xl">
+            <p className="text-lg px-6 ">POJEDYNCZA KONSULTACJA</p>
+            <p className="text-2xl px-6 ">
               {prices.konsultacja as string}
             </p>
           </div>
@@ -87,11 +90,11 @@ const Offert = ({
           )}
         </div>
 
-        <div className="bg-offertGreen order-3 lg:order-3 flex flex-col gap-8 p-8 items-center justify-center w-full lg:w-3/12 rounded-lg ">
-          <p className="px-6 font-extralight text-md font-poppins">
+        <div className="bg-lightGreen text-center order-3 lg:order-3 flex flex-col gap-8 p-8 items-center justify-center w-full lg:w-3/12 border-2 border-white shadow-lg shadow-black">
+          <p className="px-6 font-extralight text-md">
             {prices.pakiet8OpisOferty}
           </p>
-          <div className="flex flex-col items-center justify-center text-center font-abhaya text-xl">
+          <div className="flex flex-col items-center justify-center text-center  text-xl">
             <p className="text-lg px-6">PAKIET KONSULTACJI ON-LINE 8 SPOTKAŃ</p>
             <p className="text-2xl px-6 ">
               {prices.zestaw10Konsultacji as string}
@@ -117,6 +120,7 @@ const Offert = ({
         </div>
       </div>
     </section>
+    </div>
   );
 };
 
