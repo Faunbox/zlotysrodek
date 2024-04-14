@@ -1,5 +1,5 @@
 import User from "@/models/UserModel";
-import mongoose, { FilterQuery } from "mongoose";
+import mongoose from "mongoose";
 import { hashPassword } from "./bcript";
 import { UserType } from "@/actions/authActions";
 
@@ -113,12 +113,16 @@ export const updateUserByEmail = async (
 
   await mongooseDbConnect();
 
+  console.log(update);
+
   response = await User.findOneAndUpdate(
     //@ts-ignore
     { email },
     update,
     { new: true }
   );
+
+  console.log(response);
 
   await mongooseDbDisconnect();
 

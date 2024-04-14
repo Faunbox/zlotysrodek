@@ -33,8 +33,6 @@ export const authOptions: NextAuthOptions = {
             return user;
           })
           .then(async (user) => {
-            console.log({ password });
-            console.log(user?.password);
 
             const comparedPasswords = await isSamePassword(
               password,

@@ -33,6 +33,7 @@ export type UserType = {
   freeConsultation?: boolean | number | string;
   nextMeeting?: string;
   confirmedDate?: Date;
+  link?: string
 };
 
 type ResponseData = {
@@ -95,6 +96,7 @@ export async function registerUser(formData: FormData) {
             consultations: 0,
             freeConsultation: 1,
             newsletter: false,
+
           };
 
           const registerUser = new User(newUser);
@@ -177,7 +179,7 @@ export async function sendEmailWhenCreateUser(
   const msgToCompany = {
     personalizations: [
       {
-        to: "faunbox2@gmail.com",
+        to: email,
         dynamic_template_data: {
           url: `${process.env.NEXTAUTH_URL}/user/auth/${veryficationToken}`,
         },
@@ -235,7 +237,7 @@ export async function sendResetPasswordToken(
     const msgToResetPassword = {
       personalizations: [
         {
-          to: "faunbox2@gmail.com",
+          to: email,
           dynamic_template_data: {
             url: passwordResetLink,
           },

@@ -17,6 +17,7 @@ export type UserResponse = {
     freeConsultation?: string | boolean;
     adminDescription?: string;
     consultations?: number | string;
+    link: string
   };
 };
 
@@ -24,7 +25,7 @@ const UserElements = () => {
   const [pagination, setPagination] = useState({ limit: 10, page: 1 });
   const [searchResponse, setSearchResponse] = useState<UserResponse>({
     status: "",
-    user: { name: "", surname: "", email: "" },
+    user: { name: "", surname: "", email: "", link: "" },
   });
 
   const { isLoading, data, error } = useQuery({
@@ -37,7 +38,7 @@ const UserElements = () => {
   const resetSearchState = () => {
     setSearchResponse({
       status: "",
-      user: { name: "", surname: "", email: "" },
+      user: { name: "", surname: "", email: "", link: "" },
     });
   };
 
@@ -61,7 +62,7 @@ const UserElements = () => {
             {searchResponse.user?.email! as string}
           </p>
           <ModalAdminPanel data={searchResponse?.user} />
-          <VisitationEndComponent email={searchResponse?.user?.email} consultations={Number(searchResponse?.user?.consultations)} name={searchResponse?.user?.name}>
+          <VisitationEndComponent email={searchResponse?.user?.email} consultations={Number(searchResponse?.user?.consultations)} name={searchResponse?.user?.name} link={searchResponse?.user?.link}>
                   Zakończ wizytę
                 </VisitationEndComponent>
         </div>
@@ -81,7 +82,7 @@ const UserElements = () => {
                 <div className="flex flex-row gap-4">
 
                 <ModalAdminPanel data={user} />
-                <VisitationEndComponent email={user?.email} consultations={Number(user?.consultations)} name={user?.name as string}>
+                <VisitationEndComponent email={user?.email} consultations={Number(user?.consultations)} name={user?.name as string} link={user?.link}>
                   Zakończ wizytę
                 </VisitationEndComponent>
                 </div>

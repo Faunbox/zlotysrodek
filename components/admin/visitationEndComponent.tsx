@@ -17,12 +17,14 @@ const VisitationEndComponent = ({
   children,
   email,
   consultations,
-  name
+  name,
+  link,
 }: {
   children: string;
   email: string | FormDataEntryValue;
-  consultations: number | string
-  name: string
+  consultations: number | string;
+  name: string;
+  link?: string;
 }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [response, setResponse] = useState({});
@@ -47,18 +49,18 @@ const VisitationEndComponent = ({
 
   const handleSubmit = async (formData: FormData) => {
     formData.append("email", email),
-    formData.append("consultations", consultations! as string),
-    formData.append("name", name!)
+      formData.append("consultations", consultations! as string),
+      formData.append("name", name!);
+    formData.append("link", link!);
     try {
-        setSending(true);
-        const res = await sendEndEmail(formData);
-        console.log(res);
-      } catch (error) {
-        alert("Błąd podczas wysyłania maila");
-      } finally {
-        setSending(false);
-        setDone(true);
-      }
+      setSending(true);
+      await sendEndEmail(formData);
+    } catch (error) {
+      alert("Błąd podczas wysyłania maila");
+    } finally {
+      setSending(false);
+      setDone(true);
+    }
   };
 
   return (
@@ -115,6 +117,7 @@ const VisitationEndComponent = ({
                       name="link"
                       id="link"
                       required
+                      value={link ? link : inputData.link}
                       aria-label="Link for next meeting"
                       placeholder={"Link do spotkania"}
                       onChange={handleOnChange}

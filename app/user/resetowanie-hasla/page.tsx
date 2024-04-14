@@ -49,7 +49,7 @@ const Page = () => {
   ) => await onSend(data);
 
   return (
-    <div className="page">
+    <div className="page pb-10 font-tinos">
       <BackgroundedHeader>Resetowanie hasła</BackgroundedHeader>
       <h3 className="font-light text-lg px-10 py-5">
         Na podany adres email zostanie wysłany link do zmiany hasła.

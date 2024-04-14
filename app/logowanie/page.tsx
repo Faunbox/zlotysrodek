@@ -6,25 +6,23 @@ import { signIn } from "next-auth/react";
 import { checkForUserFromDb } from "@/actions/authActions";
 import FilledButton from "@/components/typography/filledButton";
 import BackgroundedHeader from "@/components/typography/backgroundedHeader";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const LoggingIinPage = () => {
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
 
-  const tryToLogin = async () => {
-    
-    
+  const tryToLogin = async () => {   
     try {
       const isUserInDb = await checkForUserFromDb(
         loginInfo.email,
         loginInfo.password
       );
-
       console.log({isUserInDb});
       
-
       isUserInDb
         ? signIn("credentials", {
             email: loginInfo.email,
@@ -38,7 +36,7 @@ const LoggingIinPage = () => {
   };
 
   return (
-    <main className="page w-full h-screen">
+    <main className="page w-full h-screen font-tinos text-black">
       <BackgroundedHeader>Logowanie</BackgroundedHeader>
       <div className="flex flex-row h-full w-full">
         <div className="w-full md:mx-10 md:w-1/2 flex flex-col items-center justify-center gap-4">
@@ -63,10 +61,10 @@ const LoggingIinPage = () => {
                 }
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col relative">
               <label htmlFor="password">Hasło</label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 id="password"
                 title="Hasło"
@@ -79,6 +77,25 @@ const LoggingIinPage = () => {
                   })
                 }
               />
+              {showPassword ? (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault(), setShowPassword(!showPassword);
+                  }}
+                  className="absolute right-4 top-[50%] translate-y-[-25%]"
+                >
+                  <IoEye />
+                </button>
+              ) : (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault(), setShowPassword(!showPassword);
+                  }}
+                  className="absolute right-4 top-[50%] translate-y-[-25%]"
+                >
+                  <IoEyeOff />
+                </button>
+              )}
             </div>
 
             <FilledButton type="submit" color={"bg-green"} text="white">

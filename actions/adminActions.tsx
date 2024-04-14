@@ -84,7 +84,7 @@ export async function sendEndEmail(formData: FormData) {
   const emailHtml = {
     personalizations: [
       {
-        to: "faunbox2@gmail.com",
+        to: email,
         dynamic_template_data: {
           link: link,
           name: name,
@@ -101,16 +101,16 @@ export async function sendEndEmail(formData: FormData) {
   const meetingDate = (date! as string) + " " + time!;
 
   try {
-    await sendEmailWithTemplateId(emailHtml as any)
-      .catch((error: string) => {
-        console.log("Błąd podczas wysyłania maila -> ", error);
-      });
+    await sendEmailWithTemplateId(emailHtml as any).catch((error: string) => {
+      console.log("Błąd podczas wysyłania maila -> ", error);
+    });
 
-
-    await updateUserByEmail(email!, {
+    const user = await updateUserByEmail(email!, {
       nextMeeting: meetingDate,
       consultations: Number(consultations) - 1,
+      link: link,
     });
+    console.log(user);
   } catch (error) {
     response = {
       status: "error",
