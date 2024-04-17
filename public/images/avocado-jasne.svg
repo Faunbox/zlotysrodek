@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Created with Vectornator (http://vectornator.io/) -->
-<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 43 54" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs/>
-<path d="M0 0L43 0L43 54L0 54L0 0Z" fill="#ffffff" fill-opacity="0" fill-rule="nonzero" opacity="1" stroke="none" vectornator:artboardBackground="true"/>
-<clipPath id="ArtboardFrame">
-<rect height="54" width="43" x="0" y="0"/>
-</clipPath>
-<g clip-path="url(#ArtboardFrame)" id="Layer-1" vectornator:layerName="Layer 1">
-<g opacity="1" vectornator:layerName="Vector">
-<path d="M43.5 34.6977C43.5 45.0819 35.3783 53.5 25 53.5C14.6216 53.5 0 41.8842 0 31.5C0 21.1158 9.62165 0 20 0C30.3783 0 43.5 24.3134 43.5 34.6977Z" fill="#4d7a4b" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
-<path d="M43.5 37C43.5 46.1127 35.1127 54 26 54C16.8873 54 7.5 44.1127 7.5 35C7.5 25.8873 13.8873 10.5 23 10.5C32.1127 10.5 43.5 27.8873 43.5 37Z" fill="#93bb90" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
-</g>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round" width="100%" version="1.1" viewBox="0 0 43 54" xml:space="preserve"><path fill="#fff" fill-opacity="0" fill-rule="nonzero" stroke="none" d="M0 0L43 0L43 54L0 54L0 0Z" opacity="1" vectornator:artboardBackground="true"/><clipPath id="ArtboardFrame"><rect width="43" height="54" x="0" y="0"/></clipPath><g id="Layer-1" clip-path="url(#ArtboardFrame)" vectornator:layerName="Layer 1"><g opacity="1" vectornator:layerName="Vector"><path fill="#4d7a4b" fill-rule="nonzero" stroke="none" d="M43.5 34.6977C43.5 45.0819 35.3783 53.5 25 53.5C14.6216 53.5 0 41.8842 0 31.5C0 21.1158 9.62165 0 20 0C30.3783 0 43.5 24.3134 43.5 34.6977Z" opacity="1" vectornator:layerName="path"/><path fill="#93bb90" fill-rule="nonzero" stroke="none" d="M43.5 37C43.5 46.1127 35.1127 54 26 54C16.8873 54 7.5 44.1127 7.5 35C7.5 25.8873 13.8873 10.5 23 10.5C32.1127 10.5 43.5 27.8873 43.5 37Z" opacity="1" vectornator:layerName="path"/></g></g></svg>
