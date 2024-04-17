@@ -32,12 +32,11 @@ const BasicInfo = () => {
         </div>
         <div className=" mx-auto lg:w-4/12">
           <Image
-            src="/images/armchair.webp"
+            src="/images/AboutDorotka.jpg"
             alt="Zloty fotel"
             width={400}
             height={700}
             className="lg:absolute lg:-top-10 border-2 border-white"
-            // loading="lazy"
           />
         </div>
       </div>

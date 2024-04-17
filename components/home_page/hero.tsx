@@ -6,9 +6,9 @@ import HeroArrowss from "./heroArrow";
 const HeroSection = () => {
   return (
     <div className="bg-lightGreen w-screen">
-      <div className=" bg-lightGreen w-screen h-full lg:h-[80vh] max-h-[700px] md:my-2 xl:my-0 pt-6 pb-4 2xl:px-[10%] flex justify-center items-center z-10 text-white">
-        <div className="flex flex-row relative lg:gap-10 items-center mx-auto justify-center container w-full lg:w-9/12 2xl:w-10/12 border-2 border-white shadow-lg shadow-black">
-          <div className="flex flex-col m-10 mb-24 lg:mb-10 text-left md:text-center items-start justify-start lg:justify-center w-full lg:relative">
+      <div className="w-screen max-w-[1700px] h-full lg:h-[80vh] max-h-[600px] 2xl:max-h-[700px] md:my-2 xl:my-0 pt-6 pb-4 2xl:px-[7%] flex justify-center items-center z-10 text-white 2xl:mx-auto">
+        <div className="flex flex-row relative lg:gap-10 items-center mx-auto justify-center container w-full lg:w-9/12 2xl:w-10/12 border-2 border-white shadow-lg shadow-black ">
+          <div className="flex flex-col m-10 mb-24 lg:mb-10 text-left md:text-center items-start md:items-center justify-start md:justify-center w-full lg:relative">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-tinos lg:mb-16 tracking-wide text-shadow-lg shadow-green">
               <span className="underline underline-offset-4 decoration-2">
                 Psycho
@@ -47,7 +47,7 @@ const HeroSection = () => {
                 życiu, ale brak im odwagi, pewności siebie i planu działania.
               </p>
             </div>
-            <div className="flex flex-row gap-6 ml-8 2xl:pl-52 z-40 pt-10 self-center">
+            <div className="flex flex-row gap-6 :mx-auto lg:pl-24 2xl:pl-52 z-40 pt-10 self-center">
               <Link href={"/oferta"}>
                 <FilledButton ariaLabel="Oferta">Oferta</FilledButton>
               </Link>
@@ -63,13 +63,13 @@ const HeroSection = () => {
               </Link>
             </div>
           </div>
-          <div className="hidden w-full md:w-3/12 md:flex items-center justify-center">
+          <div className="hidden w-0 lg:w-3/12 md:flex items-center justify-center">
             <Image
               src={"/images/hero-image.png"}
               alt="psychodietetyk"
               width={355}
               height={600}
-              className="hidden md:flex absolute bottom-[265px] translate-y-[50%]"
+              className="hidden lg:flex absolute bottom-[265px] translate-y-[50%]"
             />
           </div>
         </div>

@@ -55,7 +55,6 @@ const TextComponent = () => {
                 className="lg:ml-20 object-contain lg:absolute lg:-top-7 lg:right-[0%] xl:right-[4%] mx-auto border-2 border-white"
               />
             </div>
-            {/* <div className="md:w-6/12 lg:w-full lg:mt-0 2xl:mt-32 2xl:text-left 2xl:w-full pt-14"></div> */}
           </div>
         </div>
       </div>

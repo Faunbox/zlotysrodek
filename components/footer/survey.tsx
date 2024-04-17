@@ -10,16 +10,9 @@ const NutritionalSurvey = async () => {
       href={`https:${surveyUrl}`}
       rel="noopener"
       target="_blank"
-      className="w-full pl-8"
+      className="w-full pl-8 tracking-widest uppercase hover:font-semibold duration-150 font-montserrat"  
     >
-      <FilledButton
-        color="bg-darkGreen"
-        text="white"
-        py={1}
-        ariaLabel="Ankieta żywieniowa"
-      >
-        Ankieta przed spotkaniem
-      </FilledButton>
+      Ankieta przed spotkaniem
     </Link>
   );
 };

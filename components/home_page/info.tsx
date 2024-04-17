@@ -31,12 +31,12 @@ const Info = ({ data }: { data: InfoT }) => {
           <div className="flex flex-col text-darkGreen font-semibold text-xl">
             {documentToReactComponents(dodatkoweInformacjeGora as any)}
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-center h-max divide-y md:divide-y-0 text-black text-large pt-8 md:pt-20 group-first:border-r-large first:border-black">
+          <div className="flex flex-col lg:flex-row items-center justify-center h-max  text-black text-large pt-8 md:pt-10 ">
             {texts.map((text, index) => {
               return (
                 <div
                   key={index}
-                  className="w-full md:w-1/3 py-10 md:py-0 md:px-8 first:border-r first:border-black last:border-l last:border-black border-divider"
+                  className="w-full lg:w-1/3 py-10 lg:py-0 lg:px-8 lg:first:border-r lg:first:border-black lg:last:border-l lg:last:border-black lg:border-divider"
                 >
                   {documentToReactComponents(text as any)}
                 </div>

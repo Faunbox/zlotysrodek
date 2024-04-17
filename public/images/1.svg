@@ -1,11 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Created with Vectornator (http://vectornator.io/) -->
-<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 204 204" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs/>
-<path d="M0 0L204 0L204 204L0 204L0 0Z" fill="#ffffff" fill-opacity="0" fill-rule="nonzero" opacity="1" stroke="none" vectornator:artboardBackground="true"/>
-<g id="Layer-1" vectornator:layerName="Layer 1">
-<path d="M102 202C157.228 202 202 157.228 202 102C202 46.7715 157.228 2 102 2C46.7715 2 2 46.7715 2 102C2 157.228 46.7715 202 102 202ZM102.333 183.333C147.436 183.333 184 146.77 184 101.667C184 56.5634 147.436 20 102.333 20C57.2299 20 20.6665 56.5634 20.6665 101.667C20.6665 146.77 57.2299 183.333 102.333 183.333Z" fill="#b2d0b0" fill-rule="evenodd" opacity="1" stroke="none" vectornator:layerName="Subtract"/>
-<path d="M72.8203 75.7812L72.8203 65C82.9766 64.0104 90.0599 62.3568 94.0703 60.0391C98.0807 57.7214 101.076 52.2396 103.055 43.5938L114.148 43.5938L114.148 155L99.1484 155L99.1484 75.7812L72.8203 75.7812Z" fill="#b2d0b0" opacity="1" stroke="none" vectornator:layerName="tspan"/>
-</g>
+<svg width="200" height="207" viewBox="0 0 200 207" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M100 207C155.228 207 200 162.228 200 107C200 51.7715 155.228 7 100 7C44.7715 7 0 51.7715 0 107C0 162.228 44.7715 207 100 207ZM100.333 188.333C145.436 188.333 182 151.77 182 106.667C182 61.5634 145.436 25 100.333 25C55.2299 25 18.6665 61.5634 18.6665 106.667C18.6665 151.77 55.2299 188.333 100.333 188.333Z" fill="#B2D0B0"/>
+<path d="M103.766 47.7031H108.219V147.078L110.172 149.5L127.438 150.281V157H73.8438V150.125L92.2031 149.188L94.1562 146.453V60.3594L69.0781 64.8125V58.0938L103.766 47.7031Z" fill="#B2D0B0"/>
 </svg>

@@ -8,7 +8,7 @@ const SocialPanel = () => {
       <div className="flex flex-col items-center justify-center md:flex-row text-darkGreen gap-10">
         <div className="flex flex-col items-center justify-center md:w-4/12">
           <a
-            href="tel:+48602778499"
+            href="tel:+48737881617"
             target="_blank"
             rel="noopener"
             className="flex flex-col items-center justify-center"
@@ -18,7 +18,7 @@ const SocialPanel = () => {
                 "max-w-[40px] max-h-[40px] w-full h-full hover:scale-110 duration-400"
               }
             />
-            <p className="text-medium mt-6">+48 602 778 499</p>
+            <p className="text-medium mt-6">+48 737 881 617</p>
           </a>
         </div>
         <div className="flex flex-col items-center justify-center md:w-4/12">

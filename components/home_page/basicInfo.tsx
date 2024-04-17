@@ -6,10 +6,8 @@ const BasicInfo = () => {
   return (
     <section className="flex flex-row relative items-start justify-center text-center md:mx-20 my-20 w-10/12 text-black font-tinos">
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-        className="w-2/12 md:w-1/12 sticky top-1/4 mb-[130%] xxs:mb-[115%] md:mb-[42%] lg:mb-[24%] xl:mb-[12%] flex items-start justify-end -translate-y-[10%] translate-x-[1px]"
+       
+        className="w-2/12 md:w-1/12 sticky top-1/4 mb-[162%] md:mb-[42%] lg:mb-[24%] xl:mb-[12%] flex items-start justify-end -translate-y-[10%] translate-x-[1px]"
       >
         <Image
           // src={"/images/logo_footer (2).svg"}
@@ -17,10 +15,10 @@ const BasicInfo = () => {
           width={85}
           height={85}
           alt="logo"
-          className="mr-[34px] xxs:mr-[32px] lg:mr-[23px] xl:mr-6"
+          className="mr-[38px] lg:mr-[23px] xl:mr-6"
         />
       </motion.div>
-      <div className="w-7/12 md:w-6/12 first-letter:mx-60 relative before:absolute before:h-[81%] before:min-[412px]:h-4/5 before:w-0.5 before:bg-offertGreen before:-left-16 before:top-3 -z-10 before:-ml-0.5 before:opacity-50 font-tinos">
+      <div className="w-7/12 md:w-6/12 first-letter:mx-60 relative before:absolute before:h-[82%] before:min-[412px]:h-4/5 before:w-0.5 before:bg-offertGreen before:-left-16 before:top-3 -z-10 before:-ml-0.5 before:opacity-50 font-tinos">
         <div className="flex flex-col text-left gap-1 mb-20">
           <div className="flex flex-row relative">
             <Image
@@ -28,7 +26,7 @@ const BasicInfo = () => {
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20  z-10"
+              className="absolute top-2 -left-20  z-10"
             />
             <h2 className="text-2xl uppercase">Jak pracuję?</h2>
           </div>
@@ -82,6 +80,9 @@ const BasicInfo = () => {
             </li>
             <li className="font-semibold">
               mają problem z insulinoopornością;
+            </li>
+            <li className="font-semibold">
+              są pełnoletnie
             </li>
           </ul>
         </div>

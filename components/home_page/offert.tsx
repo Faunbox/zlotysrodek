@@ -20,9 +20,7 @@ const Offert = ({
       <section className="flex flex-col items-center justify-center container text-green mt-10 mb-16 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative font-tinos">
         <div className="flex flex-col lg:flex-row gap-10 items-center justify-center lg:items-center lg:justify-center text-white 2xl:w-11/12">
           <div className="bg-lightGreen flex flex-col gap-10 order-2 lg:order-1 p-8 items-center justify-center w-full lg:w-3/12 text-center border-2 border-white shadow-lg shadow-black">
-            <p className=" px-3 font-extralight text-large">
-              {prices.pakiet4OpisOferty}
-            </p>
+            <p className=" px-3  text-large">{prices.pakiet4OpisOferty}</p>
             <div className="flex flex-col items-center justify-center ">
               <p className="text-xl px-6 ">
                 PAKIET KONSULTACJI ON-LINE 4 SPOTKAŃ
@@ -49,22 +47,22 @@ const Offert = ({
               </Link>
             )}
           </div>
-
+          {/* ///////////////////////////// */}
           <div
             className={`bg-lightGreen order-1 text-center lg:order-2 shadow-lg shadow-black flex flex-col gap-8 ${
               !title && "pt-8"
             } pb-8 px-8 md:pb-8 items-center justify-center w-full lg:w-3/12 mb-10 border-2 border-white `}
           >
             {title && <Header>Oferta:</Header>}
-            <ul className="flex flex-col list-disc text-left font-extralight text-large">
+            <ul className="flex flex-col list-disc text-left text-large">
               <li>Spotkamy się na 50 min </li>
               <li>Przeanalizujemy Twój przypadek</li>{" "}
               <li>Opracujemy plan małych kroków</li>
               <li>Będziemy monitorować Twoje postępy</li>{" "}
               <li>Dostaniesz moje wsparcie</li>
             </ul>
-            <div className="flex flex-col items-center justify-center text-center  text-xl">
-              <p className="text-lg px-6 ">POJEDYNCZA KONSULTACJA</p>
+            <div className="flex flex-col items-center justify-center text-center">
+              <p className="text-xl px-6 ">POJEDYNCZA KONSULTACJA</p>
               <p className="text-2xl px-6 ">{prices.konsultacja as string}</p>
             </div>
             {email ? (
@@ -85,13 +83,11 @@ const Offert = ({
               </Link>
             )}
           </div>
-
-          <div className="bg-lightGreen text-center order-3 lg:order-3 flex flex-col gap-8 p-8 items-center justify-center w-full lg:w-3/12 border-2 border-white shadow-lg shadow-black">
-            <p className="px-6 font-extralight text-large">
-              {prices.pakiet8OpisOferty}
-            </p>
-            <div className="flex flex-col items-center justify-center text-center  text-xl">
-              <p className="text-lg px-6">
+          {/* /////////////////// */}
+          <div className="bg-lightGreen text-center order-3 lg:order-3 flex flex-col gap-10 p-8 items-center justify-center w-full lg:w-3/12 border-2 border-white shadow-lg shadow-black">
+            <p className="px-3 text-large">{prices.pakiet8OpisOferty}</p>
+            <div className="flex flex-col items-center justify-center text-center">
+              <p className="text-xl px-6">
                 PAKIET KONSULTACJI ON-LINE 8 SPOTKAŃ
               </p>
               <p className="text-2xl px-6 ">
