@@ -1,18 +1,1 @@
-<svg width="277" height="276" viewBox="0 0 277 276" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_15_2)">
-<circle cx="138.047" cy="138.38" r="137.5" transform="rotate(0.0749612 138.047 138.38)" fill="#FDFCFC"/>
-<mask id="mask0_15_2" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="13" y="12" width="251" height="251">
-<circle cx="138.548" cy="137.881" r="125" transform="rotate(0.0749612 138.548 137.881)" fill="#8A8686"/>
-</mask>
-<g mask="url(#mask0_15_2)">
-<circle cx="138.548" cy="137.881" r="125" transform="rotate(0.0749612 138.548 137.881)" fill="#9EBC9C"/>
-<path d="M176.071 120.43C176.044 141.141 159.232 157.908 138.522 157.881C117.811 157.854 101.044 141.043 101.071 120.332C101.098 99.6213 117.909 82.854 138.62 82.8811C159.331 82.9082 176.098 99.7195 176.071 120.43Z" fill="#0F4E0B"/>
-<path d="M65.0904 232.785C65.1325 200.568 91.2834 174.486 123.5 174.528L152.667 174.566C184.883 174.608 210.966 200.759 210.924 232.976L210.842 295.476L65.0086 295.285L65.0904 232.785Z" fill="#0F4E0B"/>
-</g>
-</g>
-<defs>
-<clipPath id="clip0_15_2">
-<rect width="275.633" height="274.939" fill="white" transform="translate(0.726974 0.700684) rotate(0.0749612)"/>
-</clipPath>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="277" height="276" fill="none" viewBox="0 0 277 276"><g clip-path="url(#clip0_15_2)"><circle cx="138.047" cy="138.38" r="137.5" fill="#FDFCFC" transform="rotate(0.0749612 138.047 138.38)"/><mask id="mask0_15_2" style="mask-type:alpha" width="251" height="251" x="13" y="12" maskUnits="userSpaceOnUse"><circle cx="138.548" cy="137.881" r="125" fill="#8A8686" transform="rotate(0.0749612 138.548 137.881)"/></mask><g mask="url(#mask0_15_2)"><circle cx="138.548" cy="137.881" r="125" fill="#9EBC9C" transform="rotate(0.0749612 138.548 137.881)"/><path fill="#0F4E0B" d="M176.071 120.43C176.044 141.141 159.232 157.908 138.522 157.881C117.811 157.854 101.044 141.043 101.071 120.332C101.098 99.6213 117.909 82.854 138.62 82.8811C159.331 82.9082 176.098 99.7195 176.071 120.43Z"/><path fill="#0F4E0B" d="M65.0904 232.785C65.1325 200.568 91.2834 174.486 123.5 174.528L152.667 174.566C184.883 174.608 210.966 200.759 210.924 232.976L210.842 295.476L65.0086 295.285L65.0904 232.785Z"/></g></g><defs><clipPath id="clip0_15_2"><rect width="275.633" height="274.939" fill="#fff" transform="translate(0.726974 0.700684) rotate(0.0749612)"/></clipPath></defs></svg>
