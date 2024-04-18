@@ -23,9 +23,9 @@ const BenefitsComponent = () => {
 
   return (
     <div className="bg-green w-screen font-tinos">
-      <div className="mx-10 lg:mx-auto lg:w-10/12 flex items-center justify-center mt-10 mb-20 text-white container bg-lightGreen border-2 border-white py-5">
-        <ul className=" flex flex-row gap-8 w-full items-center justify-center text-large">
-          <li className="w-1/3 flex flex-col items-center justify-center text-center px-14 pt-32">
+      <div className="w-full lg:mx-auto lg:w-10/12 flex items-center justify-center mt-10 lg:mb-20 text-white container bg-lightGreen border-2 border-white py-5">
+        <ul className="flex flex-col lg:flex-row gap-8 w-full items-center justify-center text-large">
+          <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-14 lg:pt-32">
             <Image
               src={"/images/zegar.svg"}
               height={100}
@@ -39,7 +39,7 @@ const BenefitsComponent = () => {
               dla Ciebie miejscu.
             </p>
           </li>
-          <li className="w-1/3 flex flex-col items-center justify-center text-center px-10 mb-40">
+          <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-10 lg:mb-40">
             <h4 className="text-3xl underline mb-2">Umówienie spotkania</h4>
             <p>Aby zarezerwować termin możesz:</p>
             <p>- wykupić konsultację na stronie lub</p>
@@ -52,7 +52,7 @@ const BenefitsComponent = () => {
               <FilledButton>Kontakt</FilledButton>
             </Link>
           </li>
-          <li className="w-1/3 flex flex-col items-center justify-center text-center px-14 pt-32">
+          <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-14 lg:pt-32">
             <Image
               src={"/images/sluchawka1.svg"}
               height={100}

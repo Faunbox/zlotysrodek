@@ -26,7 +26,7 @@ const StepsComponent = () => {
               <p className="w-full max-w-[60vw]">{text}</p>
             </div>
             {index < 2 && (
-              <div className="w-1/12 py-10 mx-auto lg:mx-0 lg:py-16  ">
+              <div className="w-1/12 py-10 mx-auto lg:mx-0 lg:py-16 xl:py-24 ">
                 <Image
                   src={"/images/strz.svg"}
                   alt={"Jeden svg"}

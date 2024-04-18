@@ -41,7 +41,7 @@ const LifestyleComponent = () => {
             </li>
             <li className="relative">
               <p className="after:w-1/2 after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">
-                Utrzymanie rytmu dobowego 
+                Utrzymanie rytmu dobowego
               </p>
               <p>(rytm dnia i nocy)</p>
             </li>

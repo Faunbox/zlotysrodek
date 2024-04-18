@@ -10,7 +10,7 @@ const BasicInfo = () => {
             pracy. W założeniu dietetyka uczy o tym jak jeść w odpowiedzi na
             przeróżne stany zdrowia i choroby, a część psychodietetyczna pozwala
             znaleźć sposoby na to jak tą wiedzę wprowadzić w życie.
-          </p>  
+          </p>
           <p>
             Osoby, które zaczynają stosować diety redukcyjne, bardzo często
             zaczynają nieustannie myśleć o jedzeniu, a kiedy przerywają dietę
@@ -21,7 +21,7 @@ const BasicInfo = () => {
             efektu jo-jo lub depresji związanej z podejmowaniem kolejnych
             nieudanych prób.
           </p>
-          <p>
+          <p className="hidden xl:block">
             Okazuje się, że dla większości osób nadwaga czy otyłość to tylko
             wierzchołek góry lodowej. Pod nim kryją się najczęściej: niska
             samoocena, obniżony nastrój czy kłopoty w radzeniu sobie z emocjami.
@@ -40,12 +40,20 @@ const BasicInfo = () => {
           />
         </div>
       </div>
-      <h4 className="text-3xl m-10 font-semibold text-offertGreen">
-        Pamiętaj! Nie ma gotowych rozwiązań – każdy ma inne potrzeby, inny
-        system wartości, inne cele, inne problemy do rozwiązania, różne
-        ograniczenia.
-      </h4>
-      <div className="flex flex-col mx-10 mb-20">
+      <div className="flex flex-col mx-10 mb-20 pt-10 md:pt-0">
+        <p className="block xl:hidden">
+          Okazuje się, że dla większości osób nadwaga czy otyłość to tylko
+          wierzchołek góry lodowej. Pod nim kryją się najczęściej: niska
+          samoocena, obniżony nastrój czy kłopoty w radzeniu sobie z emocjami.
+          Dlatego tak ważne jest, aby uświadomić sobie, że odchudzanie, to nie
+          restrykcyjna dieta, lecz głęboka zmiana stylu życia oraz – a może
+          przede wszystkim – zmiana myślenia i zachowania.
+        </p>
+        <h4 className="text-3xl m-10 font-semibold text-offertGreen">
+          Pamiętaj! Nie ma gotowych rozwiązań – każdy ma inne potrzeby, inny
+          system wartości, inne cele, inne problemy do rozwiązania, różne
+          ograniczenia.
+        </h4>
         <p>
           Ważna jest dla mnie Twoja wiedza na temat własnych możliwości,
           zasobów, czy ewentualnych ograniczeń oraz moja znajomość psychologii
