@@ -4,29 +4,29 @@ import { motion } from "framer-motion";
 
 const BasicInfo = () => {
   return (
-    <section className="flex flex-row relative items-start justify-center text-center md:mx-20 my-20 w-10/12 text-black font-tinos">
-      <motion.div
-       
-        className="w-2/12 md:w-1/12 sticky top-1/4 mb-[162%] md:mb-[42%] lg:mb-[24%] xl:mb-[12%] flex items-start justify-end -translate-y-[10%] translate-x-[1px]"
+    <section id="basicInfo" className="text-black  my-20 flex w-10/12 flex-row items-start justify-center text-center font-tinos md:mx-20">
+      <motion.div       
+        className="sticky top-1/4 flex w-2/12 -translate-y-[10%] translate-x-[1px] items-start justify-end mb-14"
       >
+        {/* mb-[162%] md:mb-[42%] md:w-1/12 lg:mb-[24%] xl:mb-[14%] 2xl:mb-[15%] */}
         <Image
-          // src={"/images/logo_footer (2).svg"}
           src={"/images/ooo.svg"}
           width={85}
           height={85}
           alt="logo"
-          className="mr-[38px] lg:mr-[23px] xl:mr-6"
+          className="mr-[39px] md:mr-[26px] lg:mr-[23px] xl:mr-6"
         />
       </motion.div>
-      <div className="w-7/12 md:w-6/12 first-letter:mx-60 relative before:absolute before:h-[82%] before:min-[412px]:h-4/5 before:w-0.5 before:bg-offertGreen before:-left-16 before:top-3 -z-10 before:-ml-0.5 before:opacity-50 font-tinos">
-        <div className="flex flex-col text-left gap-1 mb-20">
-          <div className="flex flex-row relative">
+      <div className="-z-10 w-7/12 relative font-tinos first-letter:mx-60 before:absolute before:-left-16 before:top-3 before:-ml-0.5 before:w-0.5 before:bg-offertGreen before:opacity-50 before:h-[97%]">
+      {/* before:min-[412px]:h-4/5 before:h-[82%] md:w-6/12*/}
+        <div className="mb-20 flex flex-col gap-1 text-left">
+          <div className="relative flex flex-row">
             <Image
               src={"/images/bi1.svg"}
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-2 -left-20  z-10"
+              className="absolute -left-20 top-2 z-10"
             />
             <h2 className="text-2xl uppercase">Jak pracuję?</h2>
           </div>
@@ -41,14 +41,14 @@ const BasicInfo = () => {
             potrzeb i możliwości.
           </p>
         </div>
-        <div className="flex flex-col text-left gap-1 mb-20">
-          <div className="flex flex-row relative">
+        <div className="mb-20 flex flex-col gap-1 text-left">
+          <div className="relative flex flex-row">
             <Image
               src={"/images/bi2.svg"}
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20 z-10"
+              className="absolute -left-20 top-0 z-10"
             />
             <h2 className="text-2xl uppercase">PRACUJĘ Z OSOBAMI KTÓRE:</h2>
           </div>
@@ -86,14 +86,14 @@ const BasicInfo = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col text-left gap-1 mb-20">
-          <div className="flex flex-row relative">
+        <div className="mb-20 flex flex-col gap-1 text-left">
+          <div className="relative flex flex-row">
             <Image
               src={"/images/bi3.svg"}
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20 z-10"
+              className="absolute -left-20 top-0 z-10"
             />
             <h2 className="text-2xl uppercase">
               GDY ZDECYDUJESZ SIĘ NA WSPÓŁPRACĘ:
@@ -119,14 +119,14 @@ const BasicInfo = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col text-left gap-1 mb-20">
-          <div className="flex flex-row relative">
+        <div className="mb-20 flex flex-col gap-1 text-left">
+          <div className="relative flex flex-row">
             <Image
               src={"/images/bi4.svg"}
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20 z-10"
+              className="absolute -left-20 top-0 z-10"
             />
             <h2 className="text-2xl uppercase">CO OTRZYMASZ?</h2>
           </div>
@@ -138,14 +138,14 @@ const BasicInfo = () => {
             staniesz się osobą świadomą swoich wyborów i zachowań żywieniowych.
           </p>
         </div>
-        <div className="flex flex-col text-left gap-1 mb-20">
-          <div className="flex flex-row relative">
+        <div className="mb-20 flex flex-col gap-1 text-left">
+          <div className="relative flex flex-row">
             <Image
               src={"/images/bi5.svg"}
               alt="avocado"
               width={30}
               height={30}
-              className="absolute top-0 -left-20 z-10"
+              className="absolute -left-20 top-0 z-10"
             />
             <h2 className="text-2xl uppercase">MÓJ SPOSÓB DZIAŁANIA:</h2>
           </div>

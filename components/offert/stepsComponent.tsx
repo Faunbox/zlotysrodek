@@ -8,30 +8,27 @@ const StepsComponent = () => {
   ];
 
   return (
-    <section className="flex flex-col lg:flex-row mx-10 lg:mx-40 py-20  text-black md:gap-10 text-center items-center md:items-start justify-center text-lg font-tinos">
+    <section className="text-black mx-10 flex flex-col items-center justify-center py-20 text-center font-tinos text-lg md:items-start md:gap-10 lg:mx-40 lg:flex-row">
       {texts.map((text, index) => {
         return (
           <>
-            <div
-              key={text}
-              className="flex flex-col items-center justify-start mx-auto lg:mx-0 lg:w-3/12 2xl:w-2/12 gap-8 "
-            >
+            <div className="mx-auto flex flex-col items-center justify-start gap-8 lg:mx-0 lg:w-3/12 2xl:w-2/12">
               <Image
                 src={`/images/${index + 1}.svg`}
                 alt={"Jeden svg"}
-                width={35}
-                height={35}
-                className="w-3/12 lg:w-full"
+                width={50}
+                height={50}
+                className="xl:w-[50px] xl:h-[50px]"
               />
               <p className="w-full max-w-[60vw]">{text}</p>
             </div>
             {index < 2 && (
-              <div className="w-1/12 py-10 mx-auto lg:mx-0 lg:py-16 xl:py-24 ">
+              <div className="mx-auto w-1/12 py-10 lg:mx-0 lg:py-16 xl:py-24">
                 <Image
                   src={"/images/strz.svg"}
                   alt={"Jeden svg"}
-                  width={80}
-                  height={80}
+                  width={60}
+                  height={60}
                   className="rotate-90 lg:rotate-0"
                 />
               </div>

@@ -117,8 +117,23 @@ export const getSinglePost = cache(async (id: string) => {
 export async function getAllCertyficates() {
   const data = await client.getEntries<EntrySkeletonType>({
     content_type: "certyfikaty",
-    //@ts-ignore
-    order: "-sys.createdAt",
+  });
+
+  const certyficates = data.includes?.Asset;
+
+  const urls = certyficates?.map((certyficate) => {
+    const url = certyficate.fields.file.url;
+    const title = certyficate.fields.title;
+    const alt = certyficate.fields.description;
+    return { url, title, alt };
+  });
+
+  return urls;
+}
+
+export async function getAllCertyficatesHorizontal() {
+  const data = await client.getEntries<EntrySkeletonType>({
+    content_type: "certyfikatyPoziome",
   });
 
   const certyficates = data.includes?.Asset;

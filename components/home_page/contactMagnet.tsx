@@ -3,10 +3,10 @@ import FilledButton from "../typography/filledButton";
 
 const ContactMagnet = () => {
   return (
-    <section className="bg-[url('/images/fotel.webp')] w-screen  flex flex-col items-center justify-center h-[55vh] max-h-[450px] mt-10 md:mt-20 bg-center bg-cover bg-no-repeat relative">
-      <div className="flex flex-col text-darkGreen items-start justify-center mx-10 gap-5 md:absolute md:top-[25%] md:-left-[0%] xl:left-[10%] 2xl:left-[15%] w-9/12">
-        <div className="flex flex-col  max-w-[1600px]">
-          <div className="font-light text-xl md:text-3xl font-tinos italic">
+    <section className="relative mt-10 flex h-[55vh] max-h-[450px] w-screen flex-col items-center justify-center bg-[url('/images/fotel.webp')] bg-cover bg-center bg-no-repeat md:mt-20">
+      <div className="mx-10 flex w-9/12 flex-col items-start justify-center gap-5 text-darkGreen md:absolute md:-left-[0%] md:top-[25%] xl:left-[10%] 2xl:left-[15%]">
+        <div className="flex max-w-[1600px] flex-col">
+          <div className="font-tinos text-xl font-light italic md:text-3xl">
             <p>Każda zmiana wydaje się trudna,</p>
             <p>zanim uczynisz ją łatwą w realizacji.</p>
           </div>

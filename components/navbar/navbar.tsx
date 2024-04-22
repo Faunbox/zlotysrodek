@@ -25,23 +25,23 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full sticky bg-lightGreen top-0 right-0 left-0 z-50 py-3 ">
-      <div className="flex flex-row justify-around items-center px-2 lg:px-10 container relative max-w-[1600px]">
-        <div className="w-2/4 lg:w-1/4  ">
+    <nav className="sticky left-0 right-0 top-0 z-50 w-full bg-lightGreen py-3">
+      <div className="container relative flex max-w-[1600px] flex-row items-center justify-around px-2 lg:px-10">
+        <div className="w-2/4 lg:w-1/4">
           <Link href={"/"}>
             <Image
               src={"/images/logo (2).svg"}
               alt="Logo Złoty środek"
               width={200}
               height={100}
-              className="my-2 lg:absolute lg:top-[87%] lg:-translate-y-[50%] "
+              className="my-2 lg:absolute lg:top-[87%] lg:-translate-y-[50%]"
             />
           </Link>
         </div>
 
         {/* Desktop menu */}
         <div className="hidden lg:inline-block lg:w-8/12">
-          <ul className="flex flex-row gap-5 text-white items-center justify-end uppercase text-sm font-light font-montserrat">
+          <ul className="flex flex-row items-center justify-end gap-5 font-montserrat text-sm font-light uppercase text-white">
             {navbarData.map((link) => (
               <Link
                 href={link.href}
@@ -59,11 +59,11 @@ const Navbar = () => {
           </ul>
         </div>
         {/* Mobile Menu */}
-        <div className="lg:hidden ">
+        <div className="lg:hidden">
           {!open ? (
             <button
               onClick={handleClick}
-              className={`z-50 `}
+              className={`z-50`}
               aria-label="Otwórz menu"
             >
               <FiMenu
@@ -74,14 +74,17 @@ const Navbar = () => {
           ) : (
             <button
               onClick={handleClick}
-              className="z-50 fixed top-8 "
+              className="fixed top-8 z-50"
               aria-label="Zamknij menu"
             >
-              <RxCross2 size={40} className={`text-black ${!open ? "opacity-0" : "opacity-100"}`}/>
+              <RxCross2
+                size={40}
+                className={`text-black ${!open ? "opacity-0" : "opacity-100"}`}
+              />
             </button>
           )}
           {open && (
-            <ul className="fixed top-[0%] left-[0%] flex flex-col bg-white opacity-90 backdrop-blur-md h-screen w-screen gap-5 text-darkGreen items-center justify-center uppercase text-md font-semibold  z-10">
+            <ul className="text-md fixed left-[0%] top-[0%] z-10 flex h-screen w-screen flex-col items-center justify-center gap-5 bg-white font-semibold uppercase text-darkGreen opacity-90 backdrop-blur-md">
               {navbarData.map((link) => (
                 <Link
                   href={link.href}

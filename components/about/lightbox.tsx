@@ -8,10 +8,16 @@ const Lightbox = ({
   title,
   url,
   alt,
+  zoom = true,
+  width = 300,
+  height = 300,
 }: {
   title?: string;
   url: string;
   alt: string;
+  zoom?: boolean;
+  width?: number;
+  height?: number;
 }) => {
   const [toggler, setToggler] = useState(false);
 
@@ -20,16 +26,20 @@ const Lightbox = ({
       <Image
         src={`https:${url}?w=300&h=428&fm=webp`}
         alt={alt}
-        width={300}
+        width={width}
         loading="lazy"
-        height={300}
-        onClick={() => setToggler(!toggler)}
-        className="w-[100px] h-[130px] md:w-[300px] md:h-[428px]"
+        height={height}
+        onClick={() => {
+          setToggler(!toggler);
+        }}
+        className={`w-[${width}] h-[${height}] md:w-[${width + width / 2}] md:h-[${height + height / 2}] `}
       />
-      <FsLightbox
-        toggler={toggler}
-        sources={[`https:${url}?w=1200&h=2400&fm=webp`]}
-      />
+      {/* {zoom && (
+        <FsLightbox
+          toggler={toggler}
+          sources={[`https:${url}?w=1200&h=2400&fm=webp`]}
+        />
+      )} */}
     </>
   );
 };

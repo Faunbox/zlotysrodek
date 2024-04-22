@@ -1,25 +1,23 @@
-import { getAllCertyficates } from "@/lib/contentful";
+import {
+  getAllCertyficates,
+  getAllCertyficatesHorizontal,
+} from "@/lib/contentful";
 import HalfBackgroundHeader from "../typography/halfBgHeader";
-import Lightbox from "./lightbox";
+import CertyficateCarusel from "./certyficateSlider";
 
 const Certyficates = async () => {
-  const certyficates = await getAllCertyficates();
+  const verticalCertyficates = await getAllCertyficates();
+  const horizontalCertyficates = await getAllCertyficatesHorizontal();
 
   return (
-    <div className="mx-10 lg:mx-60 flex flex-col w-screen gap-20 z-20">
+    <div className="z-20 mx-10 flex w-screen flex-col gap-20 lg:mx-60">
       <HalfBackgroundHeader translate={30}>Certyfikaty:</HalfBackgroundHeader>
       <div className="container">
-        <div className="flex items-center justify-center gap-6 flex-wrap mb-20">
-          {certyficates?.map((certyficate) => {
-            return (
-              <Lightbox
-                key={certyficate.title}
-                title={certyficate.title}
-                url={certyficate.url}
-                alt={certyficate.alt}
-              />
-            );
-          })}
+        <div className="mb-20  gap-6">
+          <CertyficateCarusel
+            verticalCertyficates={verticalCertyficates as any}
+            horizontalCertyficates={horizontalCertyficates as any}
+          />
         </div>
       </div>
     </div>

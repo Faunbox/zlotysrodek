@@ -38,7 +38,7 @@ const SocialPanel = () => {
         </div>
         <div className="flex flex-col items-center justify-center md:w-4/12">
           <a
-            href="https://www.instagram.com/zloty__srodek/"
+            href="https://www.instagram.com/zllotysrodek/"
             target="_blank"
             rel="noopener"
             className="flex flex-col items-center justify-center"
@@ -48,7 +48,7 @@ const SocialPanel = () => {
                 "max-w-[40px] max-h-[40px] w-full h-full hover:scale-110 duration-400"
               }
             />
-            <p className="text-medium mt-6">zloty__srodek</p>
+            <p className="text-medium mt-6">zllotysrodek</p>
           </a>
         </div>
         <div className="flex flex-col items-center justify-center md:w-4/12">
