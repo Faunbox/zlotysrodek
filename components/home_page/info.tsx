@@ -35,7 +35,7 @@ const Info = ({ data }: { data: InfoT }) => {
             {texts.map((text, index) => {
               return (
                 <div
-                  key={index}
+                  key={index + Math.random()}
                   className="w-full lg:w-1/3 py-10 lg:py-0 lg:px-8 lg:first:border-r lg:first:border-black lg:last:border-l lg:last:border-black lg:border-divider"
                 >
                   {documentToReactComponents(text as any)}

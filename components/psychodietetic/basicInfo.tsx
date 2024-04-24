@@ -1,6 +1,9 @@
+import { getPsychodieteticImage } from "@/lib/contentful";
 import Image from "next/image";
 
-const BasicInfo = () => {
+const BasicInfo = async () => {
+  const getImage = await getPsychodieteticImage();
+
   return (
     <section className="flex flex-col lg:mx-20 text-black text-large relative font-tinos">
       <div className="flex flex-col md:flex-row lg:mb-6">
@@ -32,8 +35,10 @@ const BasicInfo = () => {
         </div>
         <div className=" mx-auto lg:w-4/12">
           <Image
-            src="/images/AboutDorotka.jpg"
-            alt="Zloty fotel"
+            src={`https:${getImage.fields.file?.url}`}
+            alt={getImage.fields.title as string}
+            placeholder="blur"
+            blurDataURL={`https:${getImage.fields.file?.url}?w=300&h=428&fm=webp`}
             width={400}
             height={700}
             className="lg:absolute lg:-top-10 border-2 border-white"

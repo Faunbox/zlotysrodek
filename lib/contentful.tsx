@@ -201,10 +201,13 @@ export async function getCategory() {
   return categoryData;
 }
 
-
 export async function getHomePageData() {
   const data = await client.getEntry<EntrySkeletonType>(
     "1KQjX2P9PpwAkvCxYbLeOm"
   );
-  return data;  
+  return data;
+}
+export async function getPsychodieteticImage() {
+  const data = await client.getAsset("3rw2W8ywLOBkHaORafwCjz");
+  return data;
 }

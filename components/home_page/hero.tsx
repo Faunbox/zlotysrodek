@@ -8,7 +8,7 @@ const HeroSection = () => {
     <div className="bg-lightGreen w-screen">
       <div className="w-screen max-w-[1700px] h-full lg:h-[80vh] max-h-[600px] 2xl:max-h-[700px] md:my-2 xl:my-0 pt-6 pb-4 2xl:px-[7%] flex justify-center items-center z-10 text-white 2xl:mx-auto">
         <div className="flex flex-row relative lg:gap-10 items-center mx-auto justify-center container w-full lg:w-9/12 2xl:w-10/12 border-2 border-white shadow-lg shadow-black ">
-          <div className="flex flex-col m-10 mb-24 lg:mb-10 text-left md:text-center items-start md:items-center justify-start md:justify-center w-full lg:relative">
+          <div className="flex flex-col m-10 mb-24 lg:mb-10 text-left md:text-center items-start md:items-center xl:items-start justify-start md:justify-center w-full lg:relative">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-tinos lg:mb-16 tracking-wide text-shadow-lg shadow-green">
               <span className="underline underline-offset-4 decoration-2">
                 Psycho
