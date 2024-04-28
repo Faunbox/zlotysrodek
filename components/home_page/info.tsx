@@ -10,7 +10,6 @@ export type InfoT = {
 
 const Info = ({ data }: { data: InfoT }) => {
   const {
-    dodatkoweInformacje,
     dodatkoweInformacjeGora,
     dodatkoweInformacje1,
     dodatkoweInformacje2,
@@ -40,12 +39,6 @@ const Info = ({ data }: { data: InfoT }) => {
                 >
                   {documentToReactComponents(text as any)}
                 </div>
-                // <p
-                //   key={text.data.slice(0.5)}
-                //   className=""
-                // >
-                //   {text.data}
-                // </p>
               );
             })}
           </div>

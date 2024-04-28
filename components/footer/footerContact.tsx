@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { FaTiktok } from "react-icons/fa6";
 
 const FooterContact = ({
   urls,
@@ -24,13 +25,18 @@ const FooterContact = ({
     },
     {
       icon: <FaInstagram />,
-      data: "zloty__srodek",
-      href: "https://www.instagram.com/zloty__srodek/",
+      data: "zllotysrodek",
+      href: "https://www.instagram.com/zllotysrodek/",
     },
     {
       icon: <FaFacebook />,
       data: "zllotysrodek",
       href: "https://www.facebook.com/zllotysrodek",
+    },
+    {
+      icon: <FaTiktok />,
+      data: "zllotysrodek",
+      href: "https://www.tiktok.com/@zllotysrodek",
     },
   ];
 

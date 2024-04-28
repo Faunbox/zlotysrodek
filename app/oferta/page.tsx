@@ -1,7 +1,5 @@
 import FreeConsultation from "@/components/home_page/freeConsultation";
 import Offert from "@/components/home_page/offert";
-import StepsComponent from "@/components/offert/stepsComponent";
-import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import HalfBackgroundHeader from "@/components/typography/halfBgHeader";
 import { getConsultationPrices } from "@/lib/contentful";
 import { Prices } from "@/app/page";
@@ -17,6 +15,11 @@ export const metadata: Metadata = {
     canonical: `${process.env.VERCEL_URL}/oferta`
   }
 }
+
+const StepsComponent = dynamic(
+  () => import("@/components/offert/stepsComponent"),
+  { ssr: false }
+);
 
 const Consultation = async () => {
   const consultationPrices = await getConsultationPrices();

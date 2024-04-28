@@ -11,7 +11,7 @@ const Certyficates = async () => {
 
   return (
     <div className="z-20 mx-10 flex w-screen flex-col gap-20 lg:mx-60">
-      <HalfBackgroundHeader translate={30}>Certyfikaty:</HalfBackgroundHeader>
+      <HalfBackgroundHeader translate={50}>Certyfikaty:</HalfBackgroundHeader>
       <div className="container">
         <div className="mb-20  gap-6">
           <CertyficateCarusel

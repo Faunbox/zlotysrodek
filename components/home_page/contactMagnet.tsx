@@ -10,7 +10,7 @@ const ContactMagnet = () => {
             <p>Każda zmiana wydaje się trudna,</p>
             <p>zanim uczynisz ją łatwą w realizacji.</p>
           </div>
-          <Link href={"/kontakt"} className="pt-10">
+          <Link href={"/kontakt"} className="pt-10 hover:animate-pulse duration-1000">
             <FilledButton color="bg-darkGreen" text="white" ariaLabel="Kontakt">
               KONTAKT
             </FilledButton>

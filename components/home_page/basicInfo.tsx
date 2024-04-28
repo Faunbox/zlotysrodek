@@ -9,7 +9,7 @@ const BasicInfo = () => {
     },
     show: {
       opacity: 1,
-      transition: { duration: 1, staggerChildren: 0.5 }
+      transition: { duration: 1, staggerChildren: 0.3 },
     },
   };
   const image = {
@@ -56,7 +56,7 @@ const BasicInfo = () => {
           className="mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
-          <div className="relative flex flex-row">
+          <motion.div className="relative flex flex-row" variants={container}>
             <Image
               src={"/images/bi1.svg"}
               alt="avocado"
@@ -64,9 +64,11 @@ const BasicInfo = () => {
               height={30}
               className="absolute -left-20 top-2 z-10"
             />
-            <h2 className="text-2xl uppercase">Jak pracuję?</h2>
-          </div>
-          <p className="text-large">
+            <motion.h2 className="text-2xl uppercase" variants={container}>
+              Jak pracuję?
+            </motion.h2>
+          </motion.div>
+          <motion.p className="text-large" variants={container}>
             Jestem Twoją towarzyszką w podróży po zdrowie, lepsze samopoczucie,
             lepszą relację z jedzeniem i samą / samym sobą. Nasza podróż
             rozpocznie się od bezpłatnej 30 minutowej konsultacji wstępnej, na
@@ -75,13 +77,13 @@ const BasicInfo = () => {
             wstępnej zdecydujesz się na dalszą współpracę ze mną, to jej zasady
             ustalimy indywidualnie, w zależności od Twojej sytuacji zdrowotnej,
             potrzeb i możliwości.
-          </p>
+          </motion.p>
         </motion.div>
         <motion.div
           className="mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
-          <div className="relative flex flex-row">
+          <motion.div className="relative flex flex-row">
             <Image
               src={"/images/bi2.svg"}
               alt="avocado"
@@ -89,47 +91,46 @@ const BasicInfo = () => {
               height={30}
               className="absolute -left-20 top-0 z-10"
             />
-            <h2 className="text-2xl uppercase">
+            <motion.h2 className="text-2xl uppercase">
               PRACUJĘ Z DOROSŁYMI OSOBAMI KTÓRE:
-            </h2>
-          </div>
-          <ul className="list-disc">
-            <li>
+            </motion.h2>
+          </motion.div>
+          <motion.ul className="list-disc" variants={container}>
+            <motion.li>
               <span className="font-semibold">mają choroby tarczycy</span>{" "}
               (Hashimoto, niedoczynność, nadczynność);
-            </li>
-            <li>
+            </motion.li>
+            <motion.li>
               <span className="font-semibold">
                 mają problemy z redukcją masy ciała
               </span>{" "}
               (nadwaga, otyłość);
-            </li>
-            <li className="font-semibold">
+            </motion.li>
+            <motion.li className="font-semibold">
               chcą odzyskać kontrolę nad słodyczami;
-            </li>
-            <li>
+            </motion.li>
+            <motion.li>
               <span className="font-semibold">
                 chcą zmienić nieprawidłowe nawyki żywieniowe
               </span>{" "}
               (podjadanie, zajadanie emocji);
-            </li>
-            <li>
+            </motion.li>
+            <motion.li>
               <span className="font-semibold">
                 borykają się z zaburzeniami odżywiania
               </span>{" "}
               (anoreksja, bulimia);
-            </li>
-            <li className="font-semibold">
+            </motion.li>
+            <motion.li className="font-semibold">
               mają problem z insulinoopornością;
-            </li>
-            <li className="font-semibold">są pełnoletnie</li>
-          </ul>
+            </motion.li>
+          </motion.ul>
         </motion.div>
         <motion.div
           className="mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
-          <div className="relative flex flex-row">
+          <motion.div className="relative flex flex-row">
             <Image
               src={"/images/bi3.svg"}
               alt="avocado"
@@ -137,35 +138,35 @@ const BasicInfo = () => {
               height={30}
               className="absolute -left-20 top-0 z-10"
             />
-            <h2 className="text-2xl uppercase">
+            <motion.h2 className="text-2xl uppercase">
               GDY ZDECYDUJESZ SIĘ NA WSPÓŁPRACĘ:
-            </h2>
-          </div>
-          <p>
+            </motion.h2>
+          </motion.div>
+          <motion.p>
             Zmiana nawyków żywieniowych, poprawa zdrowia czy utrata dodatkowych
             kilogramów nie jest prosta i szybka - jeśli chcesz to zrobić dobrze
             i skutecznie, dlatego nasza współpraca będzie długoterminowa.
-          </p>
-          <ul className="list-disc">
-            <li>
+          </motion.p>
+          <motion.ul className="list-disc">
+            <motion.li>
               Przygotuj się, że zajmie to trochę czasu. Proces zmiany trwa
               zwykle kilka miesięcy
-            </li>
-            <li>
+            </motion.li>
+            <motion.li>
               Na początku wspólnej drogi ustalimy cel i znaki, po których
               poznamy, że cel został osiągnięty.
-            </li>
-            <li>
+            </motion.li>
+            <motion.li>
               Będziemy widywać się co 2 tygodnie, a każde spotkanie potrwa ok.{" "}
               50 minut (+/- 10min. w zależności od Twoich potrzeb).
-            </li>
-          </ul>
+            </motion.li>
+          </motion.ul>
         </motion.div>
         <motion.div
           className="mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
-          <div className="relative flex flex-row">
+          <motion.div className="relative flex flex-row">
             <Image
               src={"/images/bi4.svg"}
               alt="avocado"
@@ -173,21 +174,21 @@ const BasicInfo = () => {
               height={30}
               className="absolute -left-20 top-0 z-10"
             />
-            <h2 className="text-2xl uppercase">CO OTRZYMASZ?</h2>
-          </div>
-          <p>
+            <motion.h2 className="text-2xl uppercase">CO OTRZYMASZ?</motion.h2>
+          </motion.div>
+          <motion.p>
             Dzięki naszej współpracy nauczysz się układać swój jadłospis bez
             konieczności trzymania się uciążliwej diety. Nauczysz się radzić
             sobie w trudnych sytuacjach i pokonywać pojawiające się problemy.
             Uregulujesz swój stan zdrowia, poprawisz swoje samopoczucie,
             staniesz się osobą świadomą swoich wyborów i zachowań żywieniowych.
-          </p>
+          </motion.p>
         </motion.div>
         <motion.div
           className="mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
-          <div className="relative flex flex-row">
+          <motion.div className="relative flex flex-row">
             <Image
               src={"/images/bi5.svg"}
               alt="avocado"
@@ -195,28 +196,34 @@ const BasicInfo = () => {
               height={30}
               className="absolute -left-20 top-0 z-10"
             />
-            <h2 className="text-2xl uppercase">MÓJ SPOSÓB DZIAŁANIA:</h2>
-          </div>
-          <ul className="list-disc">
-            <li>
-              <p className="font-semibold">
+            <motion.h2 className="text-2xl uppercase">
+              MÓJ SPOSÓB DZIAŁANIA:
+            </motion.h2>
+          </motion.div>
+          <motion.ul className="list-disc" variants={container}>
+            <motion.li>
+              <motion.p className="font-semibold">
                 Pracuję z małą ilością osób, gdyż stawiam na jakość, a nie
                 ilość.{" "}
-              </p>
+              </motion.p>
               <p>Chcę żebyś czuła/czuł się bezpieczna/ny i zaopiekowana/ny.</p>
-            </li>
-            <li>
-              <p className="">Pracuję tylko z osobami dorosłymi.</p>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li>
+              <motion.p className="">
+                Pracuję tylko z osobami dorosłymi.
+              </motion.p>
+            </motion.li>
+            <motion.li>
               Poproszę Cię, abyś opowiedziała/opowiedział mi o swoim problemie,
               żebym mogła jak najlepiej poznać Twoją sytuację.
-            </li>
-            <li>
+            </motion.li>
+            <motion.li>
               Będziemy dużo rozmawiać – to najważniejszy element naszej pracy.
-            </li>
-            <li>Razem poszukamy satysfakcjonujących dla Ciebie rozwiązań.</li>
-          </ul>
+            </motion.li>
+            <motion.li>
+              Razem poszukamy satysfakcjonujących dla Ciebie rozwiązań.
+            </motion.li>
+          </motion.ul>
         </motion.div>
       </motion.div>
     </section>

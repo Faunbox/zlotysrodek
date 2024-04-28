@@ -25,7 +25,7 @@ const BenefitsComponent = () => {
     <div className="bg-green w-screen font-tinos">
       <div className="w-full lg:mx-auto lg:w-10/12 flex items-center justify-center mt-10 lg:mb-20 text-white container bg-lightGreen border-2 border-white py-5">
         <ul className="flex flex-col lg:flex-row gap-8 w-full items-center justify-center text-large">
-          <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-14 lg:pt-32">
+          <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-14 lg:pt-20">
             <Image
               src={"/images/zegar.svg"}
               height={100}
@@ -44,15 +44,16 @@ const BenefitsComponent = () => {
             <p>Aby zarezerwować termin możesz:</p>
             <p>- wykupić konsultację na stronie lub</p>
             <p>
-              - dokonać wpłaty na dane: DBS Dorota Sojecka nr konta (mBank): 94
-              1140 2004 0000 3002 3009 8288. W tytule wpisz: swoje imię i
-              nazwisko, datę i godzinę konsultacji.
+              - dokonać wpłaty na dane: DBS Dorota Sojecka nr konta (mBank):{" "}
+              <br />
+              94 1140 2004 0000 3002 3009 8288. <br />W tytule wpisz: swoje imię
+              i nazwisko, datę i godzinę konsultacji.
             </p>
             <Link href="/kontakt" className="pt-4">
               <FilledButton>Kontakt</FilledButton>
             </Link>
           </li>
-          <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-14 lg:pt-32">
+          <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-14 lg:pt-20">
             <Image
               src={"/images/sluchawka1.svg"}
               height={100}

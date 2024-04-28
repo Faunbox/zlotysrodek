@@ -22,7 +22,8 @@ const CancelationComponent = dynamic(
   () => import("@/components/offert/cancelationComponent")
 );
 const StepsComponent = dynamic(
-  () => import("@/components/offert/stepsComponent")
+  () => import("@/components/offert/stepsComponent"),
+  { ssr: false }
 );
 const ContactMagnet = dynamic(
   () => import("@/components/home_page/contactMagnet")
@@ -36,14 +37,14 @@ export default async function Home() {
   const consultationPrices = await getConsultationPrices();
   const homePageData = await getHomePageData();
 
-  
-
   return (
     <main className="page">
       <HeroSection />
       <BasicInfo />
-      <HalfBackgroundHeader>{homePageData.fields.dodatkoweInformacje as string}</HalfBackgroundHeader>
-      <Info data={homePageData.fields as InfoT}/>
+      <HalfBackgroundHeader>
+        {homePageData.fields.dodatkoweInformacje as string}
+      </HalfBackgroundHeader>
+      <Info data={homePageData.fields as InfoT} />
       {/* <BlogMagnet /> */}
       <Offert title={true} prices={consultationPrices as Prices} />
       <FreeConsultation />

@@ -30,7 +30,7 @@ const reasons = [
 
 const Reasons = () => {
   return (
-    <div className="mx-10 lg:mx-20 pb-32 w-screen bg-green">
+    <div className="mx-10 lg:mx-20 pb-32 pt-4 w-screen bg-green">
       <div className="flex flex-col-reverse lg:flex-row items-center justify-center container w-8/12 max-w-[1200px] font-tinos">
         <div className="hidden xl:flex xl:w-6/12 mt-4">
           <Image
@@ -43,7 +43,7 @@ const Reasons = () => {
           />
         </div>
         <div className="flex flex-col items-center text-white mt-4 xl:w-6/12 xl:px-10">
-          <h4 className="text-3xl underline w-full">Powody konsultacji:</h4>
+          <h4 className="text-3xl underline w-full mt-4">Powody konsultacji:</h4>
           <ul className="flex flex-col gap-5 2xl:gap-8 mt-10 justify-center items-start text-large mx-auto xl:text-xl 2xl:mr-20 w-full">
             {reasons.map((reason) => {
               return (
