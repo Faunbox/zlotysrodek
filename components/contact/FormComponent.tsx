@@ -107,7 +107,7 @@ const FormComponent = () => {
             type="name"
             {...register("name")}
             id="name"
-            className="border-green border-1 bg-transparent mb-1 h-9 focus-within:shadow-lg"
+            className="border-green border-1 bg-transparent mb-1 h-9 focus-within:shadow-lg focus-visible:scale-105 duration-250 transform"
           />
           {errors.name && (
             <p className="text-xs italic text-error ">{errors.name?.message}</p>
@@ -121,7 +121,7 @@ const FormComponent = () => {
             type="email"
             {...register("email")}
             id="email"
-            className="border-green border-1 bg-transparent mb-1 h-9 focus-within:shadow-lg"
+            className="border-green border-1 bg-transparent mb-1 h-9 focus-within:shadow-lg focus-visible:scale-105 duration-250 transform"
           />
           {errors.email && (
             <p className="text-xs italic text-error">{errors.email?.message}</p>
@@ -136,8 +136,8 @@ const FormComponent = () => {
             {...register("description")}
             id="description"
             spellCheck={true}
-            rows={10}
-            className="border-green border-1 resize-y max-h-full h-auto "
+            rows={5}
+            className="border-green border-1 resize-y max-h-full h-auto focus-visible:scale-105 duration-250 transform"
           />
           {errors.description && (
             <p className="text-xs italic text-error ">

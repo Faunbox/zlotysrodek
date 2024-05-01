@@ -9,28 +9,32 @@ import { motion } from "framer-motion";
 const Offert = ({
   title = false,
   prices,
+  bg = false,
 }: {
   title?: boolean;
   prices: Prices;
+  bg?: boolean;
 }) => {
   const { data: session } = useSession();
   const email: string = session?.user?.email!;
 
   const container = {
     hidden: {
-      opacity: 0,
-      x: -20,
+      // opacity: 0,
+      translateY: 40,
     },
     show: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 1, staggerChildren: 0.2 },
+      // opacity: 1,
+      translateY: 0,
+      transition: { duration: 0.6, },
     },
   };
 
   return (
-    <div className="w-screen bg-green">
-      <section className="flex flex-col items-center justify-center container text-green mt-10 mb-16 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative font-tinos">
+    <div
+      className={`relative w-screen bg-green ${bg && "bg-linear after:bg-green after:h-full after:md:h-1/2 after:absolute after:bottom-0 after:right-0 after:left-0 after:z-10"}`}
+    >
+      <section className="flex flex-col items-center justify-center container text-green mt-10 mb-16 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative font-tinos z-20">
         <motion.div
           className="flex flex-col lg:flex-row gap-10 items-center justify-center lg:items-center lg:justify-center text-white 2xl:w-11/12"
           variants={container}

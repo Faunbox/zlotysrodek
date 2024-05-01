@@ -6,7 +6,7 @@ import { FaPhone, FaTiktok  } from "react-icons/fa6";
 
 const FollowMe = () => {
   return (
-    <section className="rotate-90 font-montserrat text-sm flex w-full py-10 content-end items-start justify-end z-30 fixed top-[60%] md:top-[50%] 2xl:-top-[20%] left-[45%] md:left-[40%] md:ml-14 text-darkGreen">
+    <section className="rotate-90 font-montserrat text-sm flex w-full py-10 content-end items-start justify-end z-30 fixed top-[45%] md:top-[50%] 2xl:-top-[25%] translate-y-[50%] left-[45%] md:left-[40%] md:ml-14 text-black">
       <div className="flex flex-row items-center justify-center gap-2 uppercase">
         <p className="text-black text-[15px]">Śledź mnie </p>
         <IoIosArrowRoundDown className="-rotate-90"/>

@@ -20,12 +20,12 @@ const StepsComponent = () => {
                 alt={"Jeden svg"}
                 width={50}
                 height={50}
-                className="xl:w-[70px] xl:h-[70px]"
+                className="xl:w-[100px] xl:h-[100px]"
               />
               <p className="w-full max-w-[60vw]">{text}</p>
             </div>
             {index < 2 && (
-              <StepsArrow delay={index}/>
+              <StepsArrow />
             )}
           </React.Fragment>
         );

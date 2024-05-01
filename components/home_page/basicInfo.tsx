@@ -5,21 +5,19 @@ import { motion } from "framer-motion";
 const BasicInfo = () => {
   const container = {
     hidden: {
-      opacity: 0,
+      translateY: 70,
     },
     show: {
-      opacity: 1,
+      translateY: 0,
       transition: { duration: 1, staggerChildren: 0.3 },
     },
   };
   const image = {
     hidden: {
-      opacity: 0,
-      y: -50,
+      translateY: 70,
     },
     show: {
-      opacity: 1,
-      y: 0,
+      translateY: 0,
     },
   };
 
@@ -30,7 +28,7 @@ const BasicInfo = () => {
     >
       <motion.div
         className="sticky top-1/4 flex w-2/12 -translate-y-[10%] translate-x-[1px] items-start justify-end mb-14"
-        variants={image}
+        variants={container}
         initial="hidden"
         whileInView="show"
         transition={{ duration: 1.5, delay: 0.5 }}

@@ -34,7 +34,7 @@ const Navbar = () => {
               alt="Logo Złoty środek"
               width={200}
               height={100}
-              className="my-2 lg:absolute lg:top-[87%] lg:-translate-y-[50%]"
+              className="my-2 lg:absolute lg:top-[87%] lg:-translate-y-[50%] hover:scale-105 duration-300 cursor-pointer  "
             />
           </Link>
         </div>

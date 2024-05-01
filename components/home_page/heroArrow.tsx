@@ -6,32 +6,13 @@ import { AnimatePresence, motion } from "framer-motion";
 const HeroArrowss = () => {
   const container = {
     hidden: {
-      opacity: 0,
-      transition: {
-        repeat: Infinity,
-        repeatDelay: 1,
-        duration: 1,
-        staggerChildren: 0.2,
-      },
+      translateY: 5,
     },
     show: {
-      opacity: 1,
+      translateY: 0,
       transition: {
         repeat: Infinity,
-        repeatDelay: 1,
-        duration: 1,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: [1, 1, 0.5, 0],
-      transition: {
-        repeat: Infinity,
-        repeatDelay: 1,
+        repeatType: "reverse",
         duration: 1,
       },
     },
@@ -45,7 +26,8 @@ const HeroArrowss = () => {
         initial="hidden"
         animate="show"
       >
-        <motion.div variants={item}>
+        <div>
+          {/* <motion.div variants={item}> */}
           <Image
             src={"/images/arrowss1.svg"}
             alt="strzalki"
@@ -53,8 +35,10 @@ const HeroArrowss = () => {
             height={51}
             className="mx-auto absolute inset-x-0 bottom-3"
           />
-        </motion.div>
-        <motion.div variants={item}>
+          {/* </motion.div> */}
+        </div>
+        <div>
+          {/* <motion.div variants={item}> */}
           <Image
             src={"/images/arrowss2.svg"}
             alt="strzalki"
@@ -62,7 +46,8 @@ const HeroArrowss = () => {
             height={51}
             className="mx-auto mb-10"
           />
-        </motion.div>
+          {/* </motion.div> */}
+        </div>
       </motion.div>
     </AnimatePresence>
   );

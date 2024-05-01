@@ -15,7 +15,7 @@ const BackgroundedHeader = ({
   classname?: string;
 }) => {
   return (
-    <header className={`w-screen bg-green py-6 ${title && "pt-5 xl:pt-20"} `}>
+    <header className={`w-screen bg-lightGreen py-6 ${title && "pt-5 xl:pt-20"} `}>
       <div className={`container xl:pl-10 ${classname}`}>
         <motion.h3
           className={`${size} ${position} text-white font-abhaya mx-8 md:mx-10 lg:mx-20 tracking-wide	`}

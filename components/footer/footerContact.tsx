@@ -56,7 +56,7 @@ const FooterContact = ({
         <ul className="text-white gap-5 grid ">
           {contactData.map((contactElem) => (
             <li
-              key={contactElem.data}
+              key={contactElem.href}
               className="flex flex-row gap-2 items-center font-light"
             >
               {contactElem.icon}

@@ -46,6 +46,7 @@ const config: Config = {
       },
     },
   },
+  
   plugins: [
     nextui(),
     plugin(function ({ matchUtilities, theme }) {

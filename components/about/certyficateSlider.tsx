@@ -98,14 +98,7 @@ const CertyficateCarusel = ({
               className={`keen-slider__slide number-slide${index + 1} flex justify-center `}
               key={certyficate.title}
             >
-              <Lightbox
-                key={certyficate.title}
-                title={certyficate.title}
-                url={certyficate.url}
-                alt={certyficate.alt}
-                width={400}
-                height={600}
-              />
+              
             </div>
           );
         })}
