@@ -26,24 +26,24 @@ const Offert = ({
     show: {
       // opacity: 1,
       translateY: 0,
-      transition: { duration: 0.6, },
+      transition: { duration: 0.6 },
     },
   };
 
   return (
     <div
-      className={`relative w-screen bg-green ${bg && "bg-linear after:bg-green after:h-full after:md:h-1/2 after:absolute after:bottom-0 after:right-0 after:left-0 after:z-10"}`}
+      className={`relative w-screen bg-green ${bg && "bg-linear after:bg-green after:h-1/2 after:absolute after:bottom-0 after:right-0 after:left-0 after:-z-0"}`}
     >
-      <section className="flex flex-col items-center justify-center container text-green mt-10 mb-16 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative font-tinos z-20">
+      <section className="flex flex-col items-center justify-center container text-green mt-10 mb-16 px-10 lg:px-20 md:w-9/12 lg:w-full lg:relative font-tinos z-40">
         <motion.div
-          className="flex flex-col lg:flex-row gap-10 items-center justify-center lg:items-center lg:justify-center text-white 2xl:w-11/12"
+          className="flex flex-col lg:flex-row gap-10 items-center justify-end lg:items-end lg:justify-center text-white 2xl:w-11/12"
           variants={container}
           initial="hidden"
-          whileInView="show"
+          animate="show"
         >
           <motion.div
-            className="bg-lightGreen flex flex-col gap-10 order-2 lg:order-1 p-8 items-center justify-center w-full lg:w-3/12 text-center border-2 border-white shadow-lg shadow-black"
-            variants={container}
+            className="bg-lightGreen flex flex-col gap-10 order-2 lg:order-1 p-8 items-center justify-center w-full lg:w-3/12 text-center border-2 border-white shadow-lg shadow-black z-20"
+            // variants={container}
           >
             <p className=" px-3  text-large">{prices.pakiet4OpisOferty}</p>
             <div className="flex flex-col items-center justify-center ">
@@ -76,7 +76,7 @@ const Offert = ({
           <motion.div
             className={`bg-lightGreen order-1 text-center lg:order-2 shadow-lg shadow-black flex flex-col gap-8 ${
               !title && "pt-8"
-            } pb-8 px-8 md:pb-8 items-center justify-center w-full lg:w-3/12 mb-10 border-2 border-white `}
+            } pb-8 px-8 md:pb-8 items-center justify-center w-full lg:w-3/12 border-2 border-white z-20`}
             variants={container}
           >
             {title && <Header>Oferta:</Header>}
@@ -111,7 +111,7 @@ const Offert = ({
           </motion.div>
           {/* /////////////////// */}
           <motion.div
-            className="bg-lightGreen text-center order-3 lg:order-3 flex flex-col gap-10 p-8 items-center justify-center w-full lg:w-3/12 border-2 border-white shadow-lg shadow-black"
+            className="bg-lightGreen text-center order-3 lg:order-3 flex flex-col gap-10 p-8 items-center justify-center w-full lg:w-3/12 border-2 border-white shadow-lg shadow-black z-20"
             variants={container}
           >
             <p className="px-3 text-large">{prices.pakiet8OpisOferty}</p>

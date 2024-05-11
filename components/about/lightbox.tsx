@@ -3,7 +3,6 @@ import { useState } from "react";
 //@ts-ignore
 import FsLightbox from "fslightbox-react";
 import Image from "next/image";
-import { useSwipeable } from "react-swipeable";
 
 const Lightbox = ({
   title,
@@ -33,7 +32,7 @@ const Lightbox = ({
         onClick={() => {
           setToggler(!toggler);
         }}
-        className={`w-[${width}] h-[${height}] md:w-[${width + width / 2}] md:h-[${height + height / 2}] hover:scale-105 duration-300`}
+        className={`h-[300px] w-[350px] md:h-[350px] md:w-[428px] hover:scale-105 duration-300`}
       />
       {zoom && (
         <FsLightbox

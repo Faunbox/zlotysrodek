@@ -22,9 +22,9 @@ const LightboxHorizontal = ({
         alt={alt}
         width={450}
         loading="lazy"
-        height={150}
+        height={300}
         onClick={() => setToggler(!toggler)}
-        className="h-[100px] w-[130px] md:h-[300px] md:w-[428px]"
+        className="h-[250px] w-[350px] md:h-[300px] md:w-[428px]"
       />
       <FsLightbox
         toggler={toggler}

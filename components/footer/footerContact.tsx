@@ -68,7 +68,7 @@ const FooterContact = ({
         </ul>
       </div>
       <div className="w-full">
-        <ul className="flex flex-col gap-3 pt-5 font-montserrat w-full">
+        <ul className="flex flex-col gap-3 pt-5 font-montserrat w-full text-left">
           {pdfFiles.map((pdf) => (
             <Link
               key={pdf.href}

@@ -6,7 +6,7 @@ const CancelationComponent = async () => {
   const statuateUrl = await getStatuate();
 
   return (
-    <div className="px-4 md:px-10 w-full lg:w-9/12 flex flex-row lg:flex-row items-center justify-center mb-20 gap-8">
+    <div className="px-4 md:px-10 w-full lg:w-9/12 flex flex-row lg:flex-row items-center justify-center mb-5 lg:mb-20 gap-8">
       <div className="flex flex-col lg:flex-row items-center justify-center p-4 py-6 border-2 shadow-lg border-darkGreen container ">
         <h5 className="hidden lg:flex font-tinos text-lightGreen px-4 text-6xl">
           24h
@@ -40,7 +40,7 @@ const CancelationComponent = async () => {
                 text="white"
                 ariaLabel="Kontakt"
               >
-                Formularz kontaktowy
+                Kontakt
               </FilledButton>
             </Link>
           </div>

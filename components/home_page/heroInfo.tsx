@@ -1,9 +1,14 @@
 "use client";
 import Link from "next/link";
 import FilledButton from "../typography/filledButton";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const HeroInfo = () => {
+
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
   const container = {
     hidden: { translateX: -400, opacity: 1 },
     show: {
@@ -20,10 +25,11 @@ const HeroInfo = () => {
 
   return (
     <motion.div
+    ref={ref}
       className="flex flex-col m-10 mb-24 lg:mb-10 text-left md:text-center items-start md:items-center xl:items-start justify-start md:justify-center w-full lg:relative"
       variants={container}
       initial="hidden"
-      whileInView="show"
+      animate="show"
     >
       <motion.h1
         className="text-4xl md:text-5xl lg:text-7xl font-tinos lg:mb-16 tracking-wide text-shadow-lg shadow-green"
@@ -60,7 +66,7 @@ const HeroInfo = () => {
           ZŁOTY ŚRODEK -
         </span>{" "} */}
             <span className="text-gold italic">Złoty Środek -</span> własny
-            dobrostan
+            dobrostan.
           </motion.p>
         </motion.div>
         <motion.p variants={item}>

@@ -11,7 +11,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getPageData } from "@/lib/contentful";
-import { AnimatePresence } from "framer-motion";
 
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getPageData();

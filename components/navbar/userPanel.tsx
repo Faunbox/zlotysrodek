@@ -2,14 +2,14 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
-const UserPanel = (fn?: () => void ) => {
+const UserPanel = (fn?: () => void) => {
   const { data: session } = useSession();
   //@ts-expect-error
   const username: string = session?.user?.username as string;
 
-  const handleClick =() => {
-    fn
-  }
+  const handleClick = () => {
+    fn;
+  };
 
   if (session) {
     return (

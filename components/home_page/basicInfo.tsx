@@ -24,7 +24,7 @@ const BasicInfo = () => {
   return (
     <section
       id="basicInfo"
-      className="text-black  my-20 flex w-10/12 flex-row items-start justify-center text-center font-tinos md:mx-20"
+      className="text-black my-10 lg:my-20 flex w-10/12 flex-row items-start justify-center text-center font-tinos md:mx-20"
     >
       <motion.div
         className="sticky top-1/4 flex w-2/12 -translate-y-[10%] translate-x-[1px] items-start justify-end mb-14"
@@ -51,7 +51,7 @@ const BasicInfo = () => {
       >
         {/* before:min-[412px]:h-4/5 before:h-[82%] md:w-6/12*/}
         <motion.div
-          className="mb-20 flex flex-col gap-1 text-left"
+          className="mb-10 lg:mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
           <motion.div className="relative flex flex-row" variants={container}>
@@ -78,7 +78,7 @@ const BasicInfo = () => {
           </motion.p>
         </motion.div>
         <motion.div
-          className="mb-20 flex flex-col gap-1 text-left"
+          className="mb-10 lg:mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
           <motion.div className="relative flex flex-row">
@@ -120,12 +120,12 @@ const BasicInfo = () => {
               (anoreksja, bulimia);
             </motion.li>
             <motion.li className="font-semibold">
-              mają problem z insulinoopornością;
+              mają problem z insulinoopornością.;
             </motion.li>
           </motion.ul>
         </motion.div>
         <motion.div
-          className="mb-20 flex flex-col gap-1 text-left"
+          className="mb-10 lg:mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
           <motion.div className="relative flex flex-row">
@@ -161,7 +161,7 @@ const BasicInfo = () => {
           </motion.ul>
         </motion.div>
         <motion.div
-          className="mb-20 flex flex-col gap-1 text-left"
+          className="mb-10 lg:mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
           <motion.div className="relative flex flex-row">
@@ -183,7 +183,7 @@ const BasicInfo = () => {
           </motion.p>
         </motion.div>
         <motion.div
-          className="mb-20 flex flex-col gap-1 text-left"
+          className="mb-10 lg:mb-20 flex flex-col gap-1 text-left"
           variants={container}
         >
           <motion.div className="relative flex flex-row">

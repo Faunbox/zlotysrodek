@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import FilledButton from "../typography/filledButton";
 import HeroArrowss from "./heroArrow";
 import HeroInfo from "./heroInfo";
 

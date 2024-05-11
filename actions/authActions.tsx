@@ -33,7 +33,7 @@ export type UserType = {
   freeConsultation?: boolean | number | string;
   nextMeeting?: string;
   confirmedDate?: Date;
-  link?: string
+  link?: string;
 };
 
 type ResponseData = {
@@ -96,7 +96,6 @@ export async function registerUser(formData: FormData) {
             consultations: 0,
             freeConsultation: 1,
             newsletter: false,
-
           };
 
           const registerUser = new User(newUser);
@@ -121,7 +120,7 @@ export async function registerUser(formData: FormData) {
           () =>
             (response = {
               status: "success",
-              message: "Konto zostało stworzone",
+              message: "Konto zostało stworzone. Sprawdz skrzynkę mailową",
             })
         )
         .finally(() =>
@@ -176,6 +175,8 @@ export async function sendEmailWhenCreateUser(
 ) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 
+  console.log({ email });
+
   const msgToCompany = {
     personalizations: [
       {
@@ -195,11 +196,82 @@ export async function sendEmailWhenCreateUser(
   });
 }
 
+export async function sendResetPasswordTokenByButton(
+  formData: FormData | null,
+  userEmail?: string
+) {
+  const email = formData?.get("email") as string || userEmail;
+  // const email =formData?.get("email") as string || userEmail;
+  const user = await findUserByEmail(email as string);
+
+  if (!user) {
+    console.log("Brak użytkownika o podanym adresie email");
+
+    response = {
+      status: "error",
+      message: "Konto o podanym adresie email nie istnieje!",
+    };
+  }
+
+  const resetToken = crypto.randomBytes(20).toString("hex");
+
+  const passwordResetToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+
+  const passwordResetLink = `${process.env.NEXTAUTH_URL}/user/resetowanie-hasla/${resetToken}`;
+
+  const resetTokenExpire = Date.now() + 3600000;
+
+  try {
+    const data = await updateUserByEmail(email!, {
+      resetToken: passwordResetToken,
+      resetPasswordTokenExpire: resetTokenExpire,
+    });
+  } catch (error) {
+    response = {
+      status: "error",
+      message: "Błąd bazy danych!",
+    };
+    return { response };
+  } finally {
+    const msgToResetPassword = {
+      personalizations: [
+        {
+          to: email,
+          dynamic_template_data: {
+            url: passwordResetLink,
+          },
+        },
+      ],
+      from: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
+      reply_to: { email: process.env.SENDGRID_EMAIL!, name: "Dorota Sojecka" },
+      template_id: "d-d7c4b1c77f504149a58a0f56a8765acd",
+    };
+    //@ts-expect-error
+    await sendEmailWithTemplateId(msgToResetPassword).catch((error) => {
+      response = {
+        status: "error",
+        message: "Błąd w trakcie wysyłania maila!",
+      };
+      console.log("Błąd podczas wysyłania maila -> ", error.response.body);
+      return { response };
+    });
+
+    response = {
+      status: "success",
+      message: "Sprawdz skrzynkę mailową!",
+    };
+    return { response };
+  }
+}
 export async function sendResetPasswordToken(
   formData: FormData | null,
   userEmail?: string
 ) {
   const email = JSON.parse(formData?.get("email") as string) || userEmail;
+  // const email =formData?.get("email") as string || userEmail;
   const user = await findUserByEmail(email as string);
 
   if (!user) {
@@ -332,7 +404,7 @@ export async function sendVeryfiactionToken(email: string) {
         message: "Błąd podczas tworzenia nowego tokenu",
       };
     });
-  //@ts-ignore
-  sendEmailWhenCreateUser(user?.email!, newToken);
+
+  sendEmailWhenCreateUser(email!, newToken);
   return response;
 }

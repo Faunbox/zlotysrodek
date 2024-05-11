@@ -3,7 +3,6 @@
 import { sendVeryfiactionToken } from "@/actions/authActions";
 import FilledButton from "../typography/filledButton";
 import { useState } from "react";
-import { string } from "zod";
 
 const VeryficationButton = ({
   children,

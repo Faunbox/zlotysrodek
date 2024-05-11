@@ -23,7 +23,7 @@ export type TemplateIdEmail = {
 };
 
 type ValidEmailType = EmailInfoType & MailDataRequired;
-type Template = MailDataRequired | MailDataRequired[] 
+type Template = MailDataRequired | MailDataRequired[];
 
 export const sgMailClient = sgMail.setApiKey(
   process.env.SENDGRID_API_KEY || ""
@@ -45,10 +45,8 @@ export async function sendEmail(params: ValidEmailType) {
   });
 }
 
-export async function sendEmailWithTemplateId(data: Template) {  
-
+export async function sendEmailWithTemplateId(data: Template) {
   await sgMail.send(data!).catch((error) => {
-    console.log("Błąd podczas wysyłania maila -> ", error);
+    console.log("Błąd podczas wysyłania maila -> ", error.response.body.errors);
   });
-
 }

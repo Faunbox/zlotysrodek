@@ -118,9 +118,9 @@ const NewsletterForm = () => {
               {...register("checkbox")}
             />
             <label htmlFor="checkbox" className="text-xs font-light">
-              <span className="text-error">* </span>Wyrażam zgodę na przesyłanie
-              informacji o produktach i usługach. Szczegóły związane z
-              przetwarzaniem danych osobowych znajdziesz w polityce prywatności.
+              Wyrażam zgodę na przesyłanie informacji o produktach i usługach.
+              Szczegóły związane z przetwarzaniem danych osobowych znajdziesz w
+              polityce prywatności.<span className="text-error"> *</span>
             </label>
           </div>
           {errors.checkbox && (

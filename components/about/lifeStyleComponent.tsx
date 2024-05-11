@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { easeInOut, motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const LifestyleComponent = () => {
@@ -24,7 +24,7 @@ const LifestyleComponent = () => {
           className="flex flex-col items-center text-white mt-4 xl:w-6/12 xl:px-10"
           initial={{ translateX: 2000 }}
           animate={{ translateX: 0 }}
-          transition={{ delay: 2, duration: 2, ease: "easeInOut" }}
+          transition={{ delay: 1, duration: 2, ease: "easeInOut" }}
         >
           <h4 className="text-3xl underline w-full mx-2">
             Zdrowy styl życia to dla mnie:
@@ -54,8 +54,7 @@ const LifestyleComponent = () => {
             <li className="relative">
               <p className="after:w-[200px] after:md:w-[250px] after:lg:w-[300px] after:xl:w-[150px] after:2xl:w-[200px] after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">
                 Utrzymanie rytmu dobowego
-              </p>
-              <p>(rytm dnia i nocy)</p>
+              (rytm dnia i nocy)</p>
             </li>
             <li className="relative">
               <p className="after:w-[200px] after:md:w-[250px] after:lg:w-[300px] after:xl:w-[150px] after:2xl:w-[200px] after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">

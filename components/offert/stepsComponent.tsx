@@ -10,7 +10,7 @@ const StepsComponent = () => {
   ];
 
   return (
-    <section className="text-black mx-10 flex flex-col items-center justify-center py-20 text-center font-tinos text-lg md:items-start md:gap-10 lg:mx-40 lg:flex-row">
+    <section className="text-black mx-10 flex flex-col items-center justify-center py-10 lg:py-20 text-center font-tinos text-lg md:items-start md:gap-10 lg:mx-40 lg:flex-row">
       {texts.map((text, index) => {
         return (
           <React.Fragment key={index + Math.random()}>

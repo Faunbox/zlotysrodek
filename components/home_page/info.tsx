@@ -24,7 +24,7 @@ const Info = ({ data }: { data: InfoT }) => {
 
   return (
     <div className=" flex flex-col items-center justify-center font-tinos md:bg-linear w-screen relative after:bg-green after:h-full after:md:h-1/2 after:absolute after:bottom-0 after:right-0 after:left-0 after:z-10">
-      <section className="flex flex-col items-center justify-center w-10/12 md:w-full 2xl:w-8/12 my-20 mx-10 lg:mx-20 text-black gap-8 container bg-white border-2 border-darkGreen z-20 shadow-lg shadow-black">
+      <section className="flex flex-col items-center justify-center w-10/12 md:w-full 2xl:w-8/12 my-10 lg:my-20 mx-10 lg:mx-20 text-black gap-8 container bg-white border-2 border-darkGreen z-20 shadow-lg shadow-black">
         <div className="flex flex-col gap-5 text-center lg:pt-6 p-6 md:p-14">
           {/* @ts-ignore */}
           <div className="flex flex-col text-darkGreen font-semibold text-xl">
@@ -35,7 +35,7 @@ const Info = ({ data }: { data: InfoT }) => {
               return (
                 <div
                   key={index + Math.random()}
-                  className="w-full lg:w-1/3 py-10 lg:py-0 lg:px-8 lg:first:border-r lg:first:border-black lg:last:border-l lg:last:border-black lg:border-divider"
+                  className="w-full lg:w-1/3 lg:px-8 lg:first:border-r lg:first:border-black lg:last:border-l lg:last:border-black lg:border-divider"
                 >
                   {documentToReactComponents(text as any)}
                 </div>

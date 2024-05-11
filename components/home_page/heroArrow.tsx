@@ -22,6 +22,7 @@ const HeroArrowss = () => {
     <AnimatePresence>
       <motion.div
         className="relative pt-10 2xl:pt-0"
+        //@ts-ignore
         variants={container}
         initial="hidden"
         animate="show"

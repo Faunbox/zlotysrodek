@@ -21,9 +21,7 @@ const TextComponent = () => {
             <p className="">
               Łączę 20-letnie doświadczenie pracy w korporacji z empatią i
               umiejętnością słuchania. Od wielu lat fascynuje mnie rozwój oraz
-              sięganie po różne działania i doświadczenia. W swoim zawodowym
-              portfolio mam wiele zawodów i profesji, a co za tym idzie wiele
-              talentów i zasobów, z których korzystam pełnymi garściami. W
+              sięganie po różne działania i doświadczenia. W
               tradycyjnym ujęciu zawodowym jestem konsultantem żywieniowym,
               psychodietetykiem, menagerem, przedsiębiorcą.
             </p>

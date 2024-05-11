@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
+import { signOut, useSession } from "next-auth/react";
 
 const navbarData = [
   { name: "Strona główna", href: "/" },
@@ -18,6 +19,9 @@ const navbarData = [
 
 const Navbar = () => {
   const currentPath = usePathname();
+  const { data: session } = useSession();
+  //@ts-expect-error
+  const username: string = session?.user?.username as string;
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -98,7 +102,22 @@ const Navbar = () => {
                 </Link>
               ))}
               {/* @ts-ignore */}
-              <UserPanel fn={handleClick} />
+              <li className="flex flex-col md:flex-row justify-end items-center my-2">
+        <Link
+          href={`/user/${username}`}
+          prefetch
+          className="text-gold font-normal hover:scale-105 duration-300"
+          onClick={handleClick}
+        >
+          {username}
+        </Link>
+        <button
+          className="mx-4 hover:scale-105 duration-300"
+          onClick={() => signOut({ callbackUrl: "/" })}
+        >
+          Wyloguj
+        </button>
+      </li>
             </ul>
           )}
         </div>

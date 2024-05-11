@@ -31,7 +31,7 @@ const reasons = [
 
 const Reasons = () => {
   return (
-    <div className="mx-10 lg:mx-20 pb-32 pt-4 w-screen bg-green">
+    <div className="mx-10 lg:mx-20 pb-10 lg:pb-32 pt-4 w-screen bg-green border-b-1 lg:border-0 border-white">
       <div className="flex flex-col-reverse lg:flex-row items-center justify-center container w-8/12 max-w-[1200px] font-tinos">
         <div className="hidden xl:flex xl:w-6/12 mt-4">
           <Image

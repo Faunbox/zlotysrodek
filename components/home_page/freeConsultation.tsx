@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const FreeConsultation = () => {
   return (
-    <div className="bg-green w-screen pb-32">
+    <div className="bg-green w-screen pb-10 lg:pb-32">
       <motion.section
         initial={{ translateY: 50 }}
         whileInView={{ translateY: 0 }}

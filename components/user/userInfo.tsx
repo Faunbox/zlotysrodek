@@ -7,8 +7,8 @@ import Image from "next/image";
 
 const UserInfo = ({ user }: { user: UserType }) => {
   return (
-    <section className="lg:mx-60 flex flex-col lg:w-7/12">
-      <div className="flex flex-col relative items-start font-montserrat justify-center text-black bg-white border-2 border-green mt-24 mb-10 p-24 gap-10 w-full shadow-large">
+    <section className="lg:mx-60 flex flex-col w-full lg:w-7/12">
+      <div className="flex flex-col relative items-start font-montserrat justify-center text-black bg-white border-2 border-green mt-24 mb-10 p-10 pt-24   lg:p-24 gap-10 w-full shadow-large">
         <div className="absolute -top-[0] left-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[150px] max-h-[150px] rounded-full bg-lightGreen w-full h-full overflow-hidden">
           <Image
             src={"/images/ludzik.svg"}
@@ -44,7 +44,7 @@ const UserInfo = ({ user }: { user: UserType }) => {
           )}
           {/* <li>Zmień dane użytkownika</li> */}
         </ul>
-        <div className="flex flex-col items-start justify-center gap-6 text-darkGreen w-full">
+        <div className="flex flex-col items-center justify-center gap-6 text-darkGreen w-full">
           <ResetPasswordButton email={user.email as string} />
           {!user.isConfirmed && (
             <VeryficationButton email={user.email as string}>

@@ -9,7 +9,7 @@ const HalfBackgroundHeader = ({
     <div
       className={`w-screen bg-green items-center text-center justify-center py-6 md:px-20 `}
     >
-      <h3 className="text-white font-tinos underline pl-10 md:pr-10 tracking-wide text-3xl container">
+      <h3 className="text-white font-tinos underline md:pl-10 md:pr-10 tracking-wide text-3xl container">
         {children}
       </h3>
     </div>

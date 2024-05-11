@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import FilledButton from "../typography/filledButton";
 import Link from "next/link";
 import BenefitsImage from "./benefitsImage";
@@ -7,7 +7,7 @@ const BenefitsComponent = () => {
   return (
     <div className="bg-green w-screen font-tinos">
       <div className="w-full lg:mx-auto lg:w-10/12 flex items-center justify-center mt-10 lg:mb-20 text-white container bg-lightGreen border-2 border-white pt-5">
-        <ul className="flex flex-col lg:flex-row gap-8 w-full items-center justify-center text-large">
+        <ul className="flex flex-col lg:flex-row gap-8 w-full items-center justify-center text-large pb-10">
           <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-14 lg:pt-20">
             <BenefitsImage src="/images/zegar.svg" />
             <h4 className="text-2xl mb-2">Oszczędność czasu</h4>
@@ -30,7 +30,7 @@ const BenefitsComponent = () => {
               <FilledButton>Kontakt</FilledButton>
             </Link>
           </li>
-          <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-14 lg:pt-20">
+          <li className="w-full lg:w-1/3 flex flex-col items-center justify-center text-center px-14 lg:py-20">
             <BenefitsImage src="/images/sluchawka1.svg" />
             <h4 className="text-2xl mb-2">Stały kontakt</h4>
             <p>

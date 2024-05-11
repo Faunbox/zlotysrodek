@@ -1,5 +1,4 @@
 import { getSurveyUrl } from "@/lib/contentful";
-import FilledButton from "../typography/filledButton";
 import Link from "next/link";
 
 const NutritionalSurvey = async () => {

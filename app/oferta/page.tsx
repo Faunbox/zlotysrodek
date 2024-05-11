@@ -1,10 +1,10 @@
 import FreeConsultation from "@/components/home_page/freeConsultation";
-import Offert from "@/components/home_page/offert";
 import HalfBackgroundHeader from "@/components/typography/halfBgHeader";
 import { getConsultationPrices } from "@/lib/contentful";
 import { Prices } from "@/app/page";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
+import Offert from "@/components/home_page/offert";
 
 const BenefitsComponent = dynamic(
   () => import("@/components/offert/benefitsComponent")
