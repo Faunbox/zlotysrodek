@@ -341,6 +341,8 @@ export async function resetUserPassword(formData: FormData) {
   const token = formData.get("token");
   const newPassword = formData.get("password");
   const confirmedPassword = formData.get("confirmedPassword");
+  console.log(token);
+  
 
   if (newPassword !== confirmedPassword) {
     response = {

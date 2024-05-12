@@ -4,6 +4,8 @@ import { findUser } from "@/lib/mongoose";
 import { redirect } from "next/navigation";
 
 async function getData(email: string) {
+  console.log(email);
+
   const data = await findUser(email);
 
   if (data) return data;

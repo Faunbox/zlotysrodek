@@ -12,14 +12,6 @@ const BasicInfo = () => {
       transition: { duration: 1, staggerChildren: 0.3 },
     },
   };
-  const image = {
-    hidden: {
-      translateY: 70,
-    },
-    show: {
-      translateY: 0,
-    },
-  };
 
   return (
     <section
@@ -120,7 +112,7 @@ const BasicInfo = () => {
               (anoreksja, bulimia);
             </motion.li>
             <motion.li className="font-semibold">
-              mają problem z insulinoopornością.;
+              mają problem z insulinoopornością.
             </motion.li>
           </motion.ul>
         </motion.div>
@@ -148,7 +140,7 @@ const BasicInfo = () => {
           <motion.ul className="list-disc">
             <motion.li>
               Przygotuj się, że zajmie to trochę czasu. Proces zmiany trwa
-              zwykle kilka miesięcy
+              zwykle kilka miesięcy.
             </motion.li>
             <motion.li>
               Na początku wspólnej drogi ustalimy cel i znaki, po których

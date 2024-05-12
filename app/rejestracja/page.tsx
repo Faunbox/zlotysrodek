@@ -13,15 +13,20 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const validationSchema = z
   .object({
-    username: z.string().min(1, { message: "Podaj nazwę dla swojego konta" }),
+    username: z
+      .string()
+      .min(3, { message: "Podaj nazwę dla swojego konta" })
+      .refine((s) => !s.includes("@"), "Bez znaków specjalnych"),
     password: z
       .string()
       .min(6, { message: "Hasło powinno zawierać conajmniej 6 znaków" })
-      .max(20, { message: "Hasło powinno zawierać maksymalnie 20 znaków" }),
+      .max(20, { message: "Hasło powinno zawierać maksymalnie 20 znaków" })
+      .trim(),
     confirmedPassword: z
       .string()
       .min(6, { message: "Hasło powinno zawierać conajmniej 6 znaków" })
-      .max(20, { message: "Hasło powinno zawierać maksymalnie 20 znaków" }),
+      .max(20, { message: "Hasło powinno zawierać maksymalnie 20 znaków" })
+      .trim(),
     email: z
       .string()
       .min(1, { message: "Adres email jest wymagany" })
