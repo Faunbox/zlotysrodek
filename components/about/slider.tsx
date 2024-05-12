@@ -1,6 +1,6 @@
 "use client";
 
-import { Autoplay, Navigation, Pagination, Zoom } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -31,10 +31,6 @@ const SwiperSlider = ({
           slidesPerView: horizontal ? 3 : 4,
           spaceBetween: 40,
         },
-        1024: {
-          slidesPerView: horizontal ? 3 : 4,
-          spaceBetween: 50,
-        },
       }}
       spaceBetween={30}
       autoplay={{
@@ -52,7 +48,7 @@ const SwiperSlider = ({
       {slides?.map((slide) => {
         const { url, alt, title } = slide;
         return (
-          <SwiperSlide key={slide?.title} className="mb-20">
+          <SwiperSlide key={title} className="mb-20">
             <Image
               src={`${horizontal ? `https:${url}?w=500&h=350&fm=webp` : `https:${url}?w=300&h=428&fm=webp`}`}
               alt={alt}

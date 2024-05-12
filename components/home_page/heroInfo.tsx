@@ -42,7 +42,7 @@ const HeroInfo = () => {
       </motion.h1>
       <motion.h2
         variants={item}
-        className="text-2xl md:text-3xl lg:text-4xl font-tinos tracking-wide lg:absolute lg:top-[75px] lg:right-[28%] pl-10 lg:pl-0 text-shadow-lg shadow-green"
+        className="hidden md:block text-2xl md:text-3xl lg:text-4xl font-tinos tracking-wide lg:absolute lg:top-[75px] lg:right-[28%] pl-10 lg:pl-0 text-shadow-lg shadow-green"
       >
         Konsultant żywieniowy
       </motion.h2>

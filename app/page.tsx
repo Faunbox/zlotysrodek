@@ -1,7 +1,6 @@
 import BasicInfo from "@/components/home_page/basicInfo";
 import HeroSection from "@/components/home_page/hero";
 import Info, { InfoT } from "@/components/home_page/info";
-import Offert from "@/components/home_page/offert";
 import HalfBackgroundHeader from "@/components/typography/halfBgHeader";
 import { getConsultationPrices, getHomePageData } from "@/lib/contentful";
 import dynamic from "next/dynamic";
@@ -20,6 +19,9 @@ export type Prices = {
 
 const CancelationComponent = dynamic(
   () => import("@/components/offert/cancelationComponent")
+);
+const Offert = dynamic(
+  () => import("@/components/home_page/offert")
 );
 const StepsComponent = dynamic(
   () => import("@/components/offert/stepsComponent"),

@@ -1,8 +1,7 @@
-import Certyficates from "@/components/about/certyficates";
-import LifestyleComponent from "@/components/about/lifeStyleComponent";
 import TextComponent from "@/components/about/textComponent";
 import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "O mnie ",
@@ -10,6 +9,11 @@ export const metadata: Metadata = {
     canonical: `${process.env.VERCEL_URL}/o-mnie`,
   },
 };
+
+const LifestyleComponent = dynamic(
+  () => import("@/components/about/lifeStyleComponent")
+);
+const Certyficates = dynamic(() => import("@/components/about/certyficates"));
 
 const AboutPage = () => {
   return (

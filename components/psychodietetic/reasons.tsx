@@ -11,7 +11,7 @@ const reasons = [
     text: "Męczą Cię nieprawidłowe nawyki żywieniowe, takie jak podjadanie, zajadanie stresu czy nudy.",
   },
   {
-    title: "Zaburzenia odżywiania??",
+    title: "Zaburzenia odżywiania?",
     text: "Cierpisz na kompulsywne objadanie (BED), anoreksję lub bulimię.",
   },
   {

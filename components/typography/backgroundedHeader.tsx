@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const BackgroundedHeader = ({
   children,
-  size = "text-5xl xl:text-6xl",
+  size = "text-4xl lg:text-5xl xl:text-6xl",
   position = "text-left",
   title = true,
   classname = "",

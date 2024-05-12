@@ -89,7 +89,7 @@ const LoggingIinPage = () => {
   ) => await onSend(data);
 
   return (
-    <main className="w-full h-full flex flex-col">
+    <main className="page">
       <BackgroundedHeader>Stwórz konto</BackgroundedHeader>
       <div className="flex flex-row h-full w-full">
         <div className="w-full mx-1 md:w-1/2 flex flex-col items-center justify-center gap-4">

@@ -24,7 +24,7 @@ export async function sendContactEmail(formData: FormData) {
 
   const msgToCompany: mail = {
     //@ts-expect-error
-    to: ["kontakt@zlotysrodek.eu", "dbs.zywiec@gmail.com", "faunbox2@gmail.com"], // Change to your recipient
+    to: ["kontakt@zlotysrodek.eu", "zloty.srodek.ds@gmail.com", "faunbox2@gmail.com"], // Change to your recipient
     from: process.env.SENDGRID_EMAIL!, // Change to your verified sender
     subject: `Wiadomośc z formularza kontaktowego od ${name}`,
     text: "data?.message",

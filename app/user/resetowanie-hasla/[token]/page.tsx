@@ -72,7 +72,7 @@ const Page = ({ params }: { params: { token: string } }) => {
   return (
     <div className="page">
       <BackgroundedHeader>Reset hasła</BackgroundedHeader>
-      <div className="flex flex-row">
+      <div className="flex flex-row gap-5">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col p-10 w-full md:w-6/12 items-center md:items-center justify-center gap-10 "
@@ -121,7 +121,7 @@ const Page = ({ params }: { params: { token: string } }) => {
           <Image
             src={"/images/kontakt.jpg"}
             alt="tak"
-            width={400}
+            width={500}
             height={700}
             className="object-cover"
           />

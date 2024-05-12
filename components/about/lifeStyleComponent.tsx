@@ -14,6 +14,7 @@ const LifestyleComponent = () => {
           <Image
             src={"/images/sadzonka.jpeg"}
             alt="sadzonka"
+            loading="lazy"
             width={440}
             height={750}
             className="border-2 border-white mt-6"
@@ -53,8 +54,8 @@ const LifestyleComponent = () => {
             </li>
             <li className="relative">
               <p className="after:w-[200px] after:md:w-[250px] after:lg:w-[300px] after:xl:w-[150px] after:2xl:w-[200px] after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">
-                Utrzymanie rytmu dobowego
-              (rytm dnia i nocy)</p>
+                Utrzymanie rytmu dobowego (rytm dnia i nocy)
+              </p>
             </li>
             <li className="relative">
               <p className="after:w-[200px] after:md:w-[250px] after:lg:w-[300px] after:xl:w-[150px] after:2xl:w-[200px] after:h-[1px] after:bg-white after:absolute after:left-0 after:-bottom-4">

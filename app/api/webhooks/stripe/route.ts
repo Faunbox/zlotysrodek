@@ -84,7 +84,7 @@ export async function POST(req: Request) {
 
           if (companyNameForInvoice === null) {
             const emailContent = {
-              to: ["kontakt@zlotysrodek.eu", "dbs.zywiec@gmail.com", "faunbox2@gmail.com"],
+              to: ["kontakt@zlotysrodek.eu", "zloty.srodek.ds@gmail.com", "faunbox2@gmail.com"],
               from: process.env.SENDGRID_EMAIL!,
               subject: "Wpłynęła nowa płatność",
               text: "Wpłynęła nowa płatność",
@@ -96,7 +96,7 @@ export async function POST(req: Request) {
               paymentIntentSucceeded.customer_details?.tax_ids!;
             const priceforInvoice = paymentIntentSucceeded.amount_total! / 100;
             const emailContent = {
-              to: ["kontakt@zlotysrodek.eu", "dbs.zywiec@gmail.com", "faunbox2@gmail.com"],
+              to: ["kontakt@zlotysrodek.eu", "zloty.srodek.ds@gmail.com", "faunbox2@gmail.com"],
               from: process.env.SENDGRID_EMAIL!,
               subject: "Wpłynęła nowa płatność | Wymagana faktura",
               text: "Wpłynęła nowa płatność | Wymagana faktura",

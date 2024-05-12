@@ -6,12 +6,7 @@ import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import Offert from "@/components/home_page/offert";
 
-const BenefitsComponent = dynamic(
-  () => import("@/components/offert/benefitsComponent")
-);
-const CancelationComponent = dynamic(
-  () => import("@/components/offert/cancelationComponent")
-);
+
 
 export const metadata: Metadata = {
   title: "Oferta ",
@@ -23,6 +18,12 @@ export const metadata: Metadata = {
 const StepsComponent = dynamic(
   () => import("@/components/offert/stepsComponent"),
   { ssr: false }
+);
+const BenefitsComponent = dynamic(
+  () => import("@/components/offert/benefitsComponent")
+);
+const CancelationComponent = dynamic(
+  () => import("@/components/offert/cancelationComponent")
 );
 
 const Consultation = async () => {

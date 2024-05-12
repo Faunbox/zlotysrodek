@@ -1,7 +1,7 @@
 import BasicInfo from "@/components/psychodietetic/basicInfo";
-import Reasons from "@/components/psychodietetic/reasons";
 import BackgroundedHeader from "@/components/typography/backgroundedHeader";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "Psychodietetyk",
@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     canonical: `${process.env.VERCEL_URL}/psychodietetyk`,
   },
 };
+
+const Reasons = dynamic(() => import("@/components/psychodietetic/reasons"));
 
 const Page = () => {
   return (
