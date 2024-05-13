@@ -19,7 +19,7 @@ export const authOptions: NextAuthOptions = {
           .then((res) => {
             const user = {
               id: res._id,
-              username: res.username,
+              username: decodeURI(res.username as string),
               password: res.password,
               email: res.email,
               phoneNumber: res.phoneNumber,
@@ -30,6 +30,7 @@ export const authOptions: NextAuthOptions = {
               newsletter: res.newsletter,
               consultations: res.consultations,
             };
+            console.log(user.username );
             return user;
           })
           .then(async (user) => {
@@ -38,7 +39,6 @@ export const authOptions: NextAuthOptions = {
               password,
               user?.password as string
             );
-            console.log({ comparedPasswords });
 
             if (email !== user?.email || !comparedPasswords) {
               throw new Error("Błąd logowania");
