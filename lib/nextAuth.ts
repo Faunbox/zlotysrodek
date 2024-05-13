@@ -19,7 +19,7 @@ export const authOptions: NextAuthOptions = {
           .then((res) => {
             const user = {
               id: res._id,
-              username: decodeURI(res.username as string),
+              username: res.username,
               password: res.password,
               email: res.email,
               phoneNumber: res.phoneNumber,
@@ -30,10 +30,10 @@ export const authOptions: NextAuthOptions = {
               newsletter: res.newsletter,
               consultations: res.consultations,
             };
-            console.log(user.username );
             return user;
           })
           .then(async (user) => {
+            console.log(user.username);
 
             const comparedPasswords = await isSamePassword(
               password,

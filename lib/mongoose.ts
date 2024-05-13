@@ -43,10 +43,16 @@ export const getAllUsersFromDb = async (
 export const findUser = async (username: string | FormDataEntryValue) => {
   let user;
   await mongooseDbConnect();
-  const data = await User.findOne({ username });
+  const nickname = decodeURIComponent(username as string);
+
+  console.log({ nickname });
+
+  const data = await User.findOne({ username: nickname });
   user = await data;
 
   await mongooseDbDisconnect();
+  console.log({ user });
+
   return user;
 };
 

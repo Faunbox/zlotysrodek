@@ -4,9 +4,8 @@ import { findUser } from "@/lib/mongoose";
 import { redirect } from "next/navigation";
 
 async function getData(email: string) {
-  console.log(email);
-
   const data = await findUser(email);
+  console.log({ data });
 
   if (data) return data;
   else redirect("/");
@@ -17,13 +16,7 @@ export default async function Page({
 }: {
   params: { username: string };
 }) {
-  // const userEmail = params.username;
-  // const splitEmail = userEmail.split(/[%40]/)
-  // const email = `${splitEmail[0]}@${splitEmail[3]}`
-
-  const username = params.username;
-
-  const user = await getData(username);
+  const user = await getData(params.username);
 
   return (
     <main className="page">
